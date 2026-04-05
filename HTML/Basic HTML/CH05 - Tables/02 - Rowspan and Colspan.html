@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Rowspan and Colspan.html
+    TOPIC: CH05 - Tables
+
+    GOAL:
+    - Learn colspan (merge columns)
+    - Learn rowspan (merge rows)
+    - Understand how table cell spanning works
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH05 - Rowspan and Colspan</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH05 - Rowspan and Colspan</h1>
+
+  <p>
+    Sometimes we want to merge cells in a table.
+    That's where <code>colspan</code> and <code>rowspan</code> are used.
+  </p>
+
+  <!-- =========================
+       1) Colspan Example
+       ========================= -->
+
+  <p class="label">Colspan (Merge Columns):</p>
+
+  <div class="box">
+
+    <!-- colspan="2" means this cell spans across 2 columns -->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th colspan="2">Contact Info</th>
+      </tr>
+      <tr>
+        <td>Alex</td>
+        <td>Email</td>
+        <td>Phone</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <p>
+    <code>colspan="2"</code> merges two columns into one cell.
+  </p>
+
+  <!-- =========================
+       2) Rowspan Example
+       ========================= -->
+
+  <p class="label">Rowspan (Merge Rows):</p>
+
+  <div class="box">
+
+    <!-- rowspan="2" means this cell spans across 2 rows -->
+    <table>
+      <tr>
+        <th>Day</th>
+        <th>Subject</th>
+      </tr>
+      <tr>
+        <td rowspan="2">Monday</td>
+        <td>Math</td>
+      </tr>
+      <tr>
+        <td>Science</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <p>
+    <code>rowspan="2"</code> merges two rows vertically.
+  </p>
+
+  <!-- =========================
+       3) Combined Example
+       ========================= -->
+
+  <p class="label">Combined Rowspan and Colspan:</p>
+
+  <div class="box">
+
+    <table>
+      <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">Scores</th>
+      </tr>
+      <tr>
+        <th>Math</th>
+        <th>Science</th>
+      </tr>
+      <tr>
+        <td>Maria</td>
+        <td>90</td>
+        <td>95</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- =========================
+       4) Important Notes
+       ========================= -->
+
+  <ul>
+    <li><strong>colspan</strong> = horizontal merge</li>
+    <li><strong>rowspan</strong> = vertical merge</li>
+    <li>You must adjust other cells accordingly</li>
+    <li>Incorrect spanning breaks table structure</li>
+  </ul>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting to remove extra <code>&lt;td&gt;</code> when using colspan</li>
+    <li>Miscounting total columns</li>
+    <li>Creating uneven row structure</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a timetable using rowspan.</li>
+    <li>Create a header that spans 3 columns.</li>
+    <li>Combine both rowspan and colspan.</li>
+  </ol>
+
+</body>
+</html>

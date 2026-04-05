@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Description List (dl).html
+    TOPIC: CH04 - Lists
+
+    GOAL:
+    - Learn <dl> (description list)
+    - Learn <dt> (term)
+    - Learn <dd> (description)
+    - Understand when to use description lists properly
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH04 - Description List (dl)</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    dt { font-weight: bold; margin-top: 10px; }
+    dd { margin-left: 20px; }
+    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH04 - Description List (dl)</h1>
+
+  <p>
+    A description list is used for terms and their descriptions.
+  </p>
+
+  <!-- =========================
+       1) Basic Structure
+       ========================= -->
+
+  <p class="label">Basic Structure:</p>
+
+  <div class="box">
+    <!--
+      Structure:
+      <dl>
+        <dt>Term</dt>
+        <dd>Description</dd>
+      </dl>
+    -->
+
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language, used to structure web pages.</dd>
+
+      <dt>CSS</dt>
+      <dd>Used to style and design web pages.</dd>
+
+      <dt>JavaScript</dt>
+      <dd>Used to add interactivity and behavior to websites.</dd>
+    </dl>
+  </div>
+
+  <div class="hint">
+    Use <code>&lt;dl&gt;</code> when you have a name + explanation format.
+  </div>
+
+  <!-- =========================
+       2) Multiple Descriptions
+       ========================= -->
+
+  <p class="label">Multiple Descriptions for One Term:</p>
+
+  <div class="box">
+
+    <dl>
+      <dt>Frontend</dt>
+      <dd>Client-side development.</dd>
+      <dd>Runs inside the browser.</dd>
+    </dl>
+
+  </div>
+
+  <!-- =========================
+       3) Practical Example
+       ========================= -->
+
+  <p class="label">Practical Example (FAQ style):</p>
+
+  <div class="box">
+
+    <dl>
+      <dt>What is HTML?</dt>
+      <dd>It is the structure of the webpage.</dd>
+
+      <dt>Is HTML a programming language?</dt>
+      <dd>No, it is a markup language.</dd>
+    </dl>
+
+  </div>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using <code>&lt;dl&gt;</code> just for spacing (wrong purpose)</li>
+    <li>Putting <code>&lt;li&gt;</code> inside <code>&lt;dl&gt;</code> (invalid)</li>
+    <li>Forgetting <code>&lt;dt&gt;</code> before <code>&lt;dd&gt;</code></li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a glossary of 3 programming terms.</li>
+    <li>Create a mini FAQ using description list.</li>
+    <li>Add multiple <code>&lt;dd&gt;</code> for one <code>&lt;dt&gt;</code>.</li>
+  </ol>
+
+</body>
+</html>

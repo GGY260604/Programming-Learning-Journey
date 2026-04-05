@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - Remove Items from List</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH12 - 04 - Remove Items from List</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [items, setItems] = React.useState(["Apple", "Banana", "Orange"]);
+
+        function removeItem(index) {
+          setItems(items.filter((_, i) => i !== index));
+        }
+
+        return (
+          <ul>
+            {items.map((item, index) => (
+              <li key={index}>
+                {item}
+
+                <button onClick={() => removeItem(index)}>
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

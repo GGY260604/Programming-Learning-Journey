@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Bold Italic Underline.html
+    TOPIC: CH02 - Text & Headings
+
+    GOAL:
+    - Learn text formatting tags
+    - Understand difference between visual and semantic tags
+    - Know when to use <b> vs <strong>, <i> vs <em>
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH02 - Bold Italic Underline</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #666; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #fff6e6; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       1) Introduction
+       ========================= -->
+
+  <h1>CH02 - Bold, Italic, Underline</h1>
+
+  <p>
+    HTML provides multiple ways to format text.
+    Some tags are purely visual, while others have semantic meaning.
+  </p>
+
+  <!-- =========================
+       2) Bold Text
+       ========================= -->
+
+  <p class="label">Bold Text:</p>
+
+  <div class="box">
+
+    <!-- <b> makes text bold (visual only) -->
+    <p>This is <b>bold text using b</b>.</p>
+
+    <!-- <strong> makes text bold AND indicates importance -->
+    <p>This is <strong>important text using strong</strong>.</p>
+
+  </div>
+
+  <div class="hint">
+    Difference:
+    - &lt;b&gt; = just bold visually
+    - &lt;strong&gt; = important meaning (better practice)
+  </div>
+
+  <!-- =========================
+       3) Italic Text
+       ========================= -->
+
+  <p class="label">Italic Text:</p>
+
+  <div class="box">
+
+    <!-- <i> makes text italic (visual only) -->
+    <p>This is <i>italic text using i</i>.</p>
+
+    <!-- <em> emphasizes text (semantic meaning) -->
+    <p>This is <em>emphasized text using em</em>.</p>
+
+  </div>
+
+  <div class="hint">
+    Difference:
+    - &lt;i&gt; = visual italic
+    - &lt;em&gt; = emphasis meaning (recommended)
+  </div>
+
+  <!-- =========================
+       4) Underline
+       ========================= -->
+
+  <p class="label">Underline:</p>
+
+  <div class="box">
+
+    <!-- <u> underlines text -->
+    <p>This is <u>underlined text</u>.</p>
+
+  </div>
+
+  <div class="hint">
+    Warning:
+    Underlined text may look like a link.
+    Avoid overusing &lt;u&gt; unless necessary.
+  </div>
+
+  <!-- =========================
+       5) Combined Formatting
+       ========================= -->
+
+  <p class="label">Combining Tags:</p>
+
+  <div class="box">
+
+    <!-- You can nest tags -->
+    <p>
+      This is <strong><em>very important emphasized text</em></strong>.
+    </p>
+
+  </div>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using formatting tags just for size (use CSS later)</li>
+    <li>Nesting tags incorrectly (close in reverse order)</li>
+    <li>Overusing underline</li>
+  </ul>
+
+  <!-- Correct nesting example -->
+  <!--
+    Correct:
+    <strong><em>Text</em></strong>
+
+    Wrong:
+    <strong><em>Text</strong></em>
+  -->
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Write a sentence with one word in <strong>strong</strong>.</li>
+    <li>Write a sentence with one word in <em>em</em>.</li>
+    <li>Combine bold and italic together.</li>
+    <li>Try incorrect nesting and observe browser behavior.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+
+</body>
+</html>

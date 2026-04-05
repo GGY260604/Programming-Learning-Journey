@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Inline JavaScript.html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Learn inline JavaScript
+    - Use onclick attribute
+    - Understand quick interactivity
+    - Learn why it is not recommended for large projects
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Inline JavaScript</title>
+</head>
+
+<body>
+
+  <h1>CH11 - Inline JavaScript</h1>
+
+  <!-- =========================
+       1) What is Inline JavaScript?
+       ========================= -->
+
+  <p>
+    Inline JavaScript means writing JS directly inside HTML attributes.
+  </p>
+
+  <!-- =========================
+       2) Basic Example
+       ========================= -->
+
+  <!--
+    onclick is an event attribute.
+    When button is clicked, JavaScript runs.
+  -->
+
+  <button onclick="alert('Button Clicked!')">
+    Click Me
+  </button>
+
+  <!-- =========================
+       3) Change HTML Content
+       ========================= -->
+
+  <h2 id="title">Original Title</h2>
+
+  <button onclick="document.getElementById('title').textContent = 'Title Changed!'">
+    Change Title
+  </button>
+
+  <!-- =========================
+       4) How It Works
+       ========================= -->
+
+  <hr>
+
+  <h2>How It Works</h2>
+
+  <ul>
+    <li><strong>onclick</strong> is an event</li>
+    <li>When user clicks, JS runs</li>
+    <li>We can manipulate HTML using JavaScript</li>
+  </ul>
+
+  <!-- =========================
+       5) Advantages
+       ========================= -->
+
+  <h2>Advantages</h2>
+
+  <ul>
+    <li>Very simple</li>
+    <li>Quick testing</li>
+  </ul>
+
+  <!-- =========================
+       6) Disadvantages
+       ========================= -->
+
+  <h2>Disadvantages</h2>
+
+  <ul>
+    <li>Mixes HTML and JS</li>
+    <li>Hard to maintain</li>
+    <li>Not scalable</li>
+    <li>Not professional standard</li>
+  </ul>
+
+  <!-- =========================
+       7) Important Note
+       ========================= -->
+
+  <p>
+    Just like inline CSS, inline JS is NOT recommended for real projects.
+  </p>
+
+  <!-- =========================
+       8) Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add a button that changes page background color.</li>
+    <li>Add another button that shows console.log.</li>
+    <li>Try changing paragraph text on click.</li>
+  </ol>
+
+</body>
+</html>

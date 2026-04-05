@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - DOM Basics (Selecting Elements).html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Understand what DOM is
+    - Learn getElementById
+    - Learn querySelector
+    - Learn querySelectorAll
+    - Manipulate selected elements
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - DOM Basics</title>
+</head>
+
+<body>
+
+  <h1>CH11 - DOM Basics</h1>
+
+  <h2 id="mainTitle">Main Title</h2>
+
+  <p class="info">Paragraph 1</p>
+  <p class="info">Paragraph 2</p>
+  <p class="info">Paragraph 3</p>
+
+  <button id="btn">Modify Elements</button>
+
+  <!-- =========================
+       JavaScript Section
+       ========================= -->
+
+  <script>
+
+    /*
+      What is DOM?
+
+      DOM represents HTML as a tree structure.
+      JavaScript can select and manipulate elements.
+    */
+
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function() {
+
+      // =========================
+      // 1) getElementById
+      // =========================
+
+      const title = document.getElementById("mainTitle");
+      title.textContent = "Title Changed via DOM";
+
+      // =========================
+      // 2) querySelector
+      // =========================
+
+      // Select first element matching selector
+      const firstParagraph = document.querySelector(".info");
+      firstParagraph.style.color = "red";
+
+      // =========================
+      // 3) querySelectorAll
+      // =========================
+
+      // Select all elements matching selector
+      const allParagraphs = document.querySelectorAll(".info");
+
+      // Loop through and modify each one
+      allParagraphs.forEach(function(p) {
+        p.style.fontWeight = "bold";
+      });
+
+      console.log("DOM manipulation executed.");
+
+    });
+
+  </script>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Concepts Learned</h2>
+
+  <ul>
+    <li><strong>DOM</strong> = representation of HTML in memory</li>
+    <li><strong>getElementById()</strong> → select by ID</li>
+    <li><strong>querySelector()</strong> → select first matching CSS selector</li>
+    <li><strong>querySelectorAll()</strong> → select all matching elements</li>
+  </ul>
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Change background color of all paragraphs.</li>
+    <li>Add a new class to title using classList.</li>
+    <li>Select element using tag name.</li>
+  </ol>
+
+</body>
+</html>

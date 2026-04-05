@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 - Function Components</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      background-color: #fcfcfc;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH02 - 02 - Function Components</h1>
+  <p>This file shows how a function can become a React component.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      A function component is a normal JavaScript function
+      that returns JSX.
+
+      Example:
+      function Welcome() {
+        return <h1>Hello</h1>;
+      }
+    */
+
+    function Welcome() {
+      return (
+        <div className="card">
+          <h2>Function Component</h2>
+          <p>
+            This content comes from a JavaScript function that returns JSX.
+          </p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Welcome />);
+  </script>
+</body>
+</html>

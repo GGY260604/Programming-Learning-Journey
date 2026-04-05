@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>03 - Attributes in JSX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .profile-card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      width: 320px;
+      margin-top: 16px;
+      background-color: #fafafa;
+    }
+
+    img {
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 03 - Attributes in JSX</h1>
+  <p>This file shows how JSX attributes work.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      JSX attributes look similar to HTML attributes.
+
+      Examples:
+      src=""
+      alt=""
+      href=""
+      title=""
+
+      Static string values can be written in quotes.
+      Dynamic JavaScript values can be written in curly braces.
+    */
+
+    const imageUrl = "https://play-media.org/academy/wp-content/uploads/2021/11/urls-1-800x500-1.png";
+    const imageText = "Sample placeholder image";
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="profile-card">
+        <img src={imageUrl} alt={imageText} width="250" height="140" />
+        <h2 title="This is a card title">JSX Attributes</h2>
+        <p>
+          This image uses <strong>src</strong>, <strong>alt</strong>,
+          <strong> width</strong>, and <strong>height</strong>.
+        </p>
+      </div>
+    );
+  </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Manipulating HTML and CSS.html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Learn textContent
+    - Learn innerHTML
+    - Learn style manipulation
+    - Learn classList (add, remove, toggle)
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Manipulating HTML and CSS</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    .dark {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH11 - Manipulating HTML and CSS</h1>
+
+  <!-- =========================
+       1) textContent
+       ========================= -->
+
+  <div class="box">
+    <h2>1) textContent</h2>
+
+    <p id="textPara">Original Text</p>
+    <button id="textBtn">Change Text</button>
+  </div>
+
+  <!-- =========================
+       2) innerHTML
+       ========================= -->
+
+  <div class="box">
+    <h2>2) innerHTML</h2>
+
+    <div id="htmlBox">Content Area</div>
+    <button id="htmlBtn">Insert HTML</button>
+  </div>
+
+  <!-- =========================
+       3) style manipulation
+       ========================= -->
+
+  <div class="box">
+    <h2>3) style property</h2>
+
+    <p id="stylePara">Watch my color change!</p>
+    <button id="styleBtn">Change Style</button>
+  </div>
+
+  <!-- =========================
+       4) classList manipulation
+       ========================= -->
+
+  <div class="box">
+    <h2>4) classList</h2>
+
+    <p id="classPara">Toggle highlight class</p>
+    <button id="classBtn">Toggle Highlight</button>
+
+    <br><br>
+
+    <button id="darkBtn">Toggle Dark Mode</button>
+  </div>
+
+  <!-- =========================
+       JavaScript Section
+       ========================= -->
+
+  <script>
+
+    // 1) textContent
+    const textBtn = document.getElementById("textBtn");
+    const textPara = document.getElementById("textPara");
+
+    textBtn.addEventListener("click", function() {
+      textPara.textContent = "Text Changed Successfully!";
+    });
+
+
+    // 2) innerHTML
+    const htmlBtn = document.getElementById("htmlBtn");
+    const htmlBox = document.getElementById("htmlBox");
+
+    htmlBtn.addEventListener("click", function() {
+      htmlBox.innerHTML = "<strong>This is bold HTML content!</strong>";
+    });
+
+
+    // 3) style property
+    const styleBtn = document.getElementById("styleBtn");
+    const stylePara = document.getElementById("stylePara");
+
+    styleBtn.addEventListener("click", function() {
+      stylePara.style.color = "red";
+      stylePara.style.fontSize = "20px";
+    });
+
+
+    // 4) classList manipulation
+    const classBtn = document.getElementById("classBtn");
+    const classPara = document.getElementById("classPara");
+
+    classBtn.addEventListener("click", function() {
+      classPara.classList.toggle("highlight");
+    });
+
+    const darkBtn = document.getElementById("darkBtn");
+
+    darkBtn.addEventListener("click", function() {
+      document.body.classList.toggle("dark");
+    });
+
+  </script>
+
+  <!-- =========================
+       Concepts Learned
+       ========================= -->
+
+  <hr>
+
+  <h2>Concepts Learned</h2>
+
+  <ul>
+    <li><strong>textContent</strong> → change plain text</li>
+    <li><strong>innerHTML</strong> → insert HTML content</li>
+    <li><strong>style</strong> → directly modify CSS</li>
+    <li><strong>classList.add()</strong></li>
+    <li><strong>classList.remove()</strong></li>
+    <li><strong>classList.toggle()</strong></li>
+  </ul>
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add a button that removes highlight.</li>
+    <li>Create a new CSS class and apply using JS.</li>
+    <li>Create a toggle button for font size.</li>
+  </ol>
+
+</body>
+</html>

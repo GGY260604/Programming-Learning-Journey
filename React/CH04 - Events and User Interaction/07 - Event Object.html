@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>07 - Event Object</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH04 - 07 - Event Object</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Event handlers receive an event object.
+
+        This object contains information about the event.
+      */
+
+      function App() {
+        function handleClick(event) {
+          console.log("Event type:", event.type);
+          console.log("Target:", event.target);
+        }
+
+        return (
+          <div>
+            <button onClick={handleClick}>
+              Click to inspect event
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

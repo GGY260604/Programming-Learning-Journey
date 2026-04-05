@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05 - Reusing Components</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .item {
+      margin-top: 12px;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH02 - 05 - Reusing Components</h1>
+  <p>This file shows that one component can be used many times.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      One of the biggest strengths of React is reusability.
+
+      We can define one component once,
+      then render it many times.
+    */
+
+    function InfoBox() {
+      return (
+        <div className="item">
+          <h3>Reusable Component</h3>
+          <p>This same UI block can appear multiple times.</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <InfoBox />
+          <InfoBox />
+          <InfoBox />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

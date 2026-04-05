@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - article section aside.html
+    TOPIC: CH07 - Semantic HTML
+
+    GOAL:
+    - Learn <article> (independent content)
+    - Learn <section> (group related content)
+    - Learn <aside> (side content like sidebar/notes)
+    - Understand how they work together in real pages (blog layout)
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH07 - article, section, aside</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    header, main, footer, article, section, aside {
+      border: 2px dashed #555;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    header, footer { margin-bottom: 12px; }
+    main { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+    article { margin-bottom: 12px; }
+    section { margin-top: 10px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .mini { font-size: 14px; opacity: 0.85; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CH07 - article, section, aside</h1>
+    <p class="mini">
+      This file shows a blog-style layout using semantic tags.
+    </p>
+  </header>
+
+  <!--
+    In a typical layout:
+    - <article> = a post that can stand alone (shareable / reusable)
+    - <section> = a part of content within a page or article
+    - <aside> = side content (related links, ads, notes, author info)
+  -->
+
+  <main>
+
+    <!-- =========================
+         Main Content Column
+         ========================= -->
+    <div>
+
+      <!--
+        <article> should make sense if you remove it from the page
+        and read it alone. Example: a blog post, a news post, a forum post.
+      -->
+      <article>
+        <h2>Article: My HTML Learning Journey</h2>
+        <p>
+          This is an <code>&lt;article&gt;</code>. It represents an independent piece of content.
+        </p>
+
+        <!--
+          <section> groups related content inside an article
+          Often used for headings/subtopics
+        -->
+        <section>
+          <h3>Section: What I learned today</h3>
+          <ul>
+            <li>Semantic tags improve readability</li>
+            <li>HTML structure matters for accessibility</li>
+            <li>CSS controls styling (later)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Section: Next goal</h3>
+          <p>
+            I will practice building a semantic layout using header, nav, main, and footer.
+          </p>
+        </section>
+      </article>
+
+      <!-- Another independent post -->
+      <article>
+        <h2>Article: Why Forms Are Important</h2>
+        <p>
+          Forms allow users to send information to a server (or your app).
+          This article could be shared by itself.
+        </p>
+
+        <section>
+          <h3>Section: Examples of forms</h3>
+          <p>Login forms, sign-up forms, contact forms, checkout forms.</p>
+        </section>
+      </article>
+
+    </div>
+
+    <!-- =========================
+         Sidebar Column (Aside)
+         ========================= -->
+
+    <aside>
+      <h2>Aside (Sidebar)</h2>
+      <p>
+        This is <code>&lt;aside&gt;</code> — extra content related to the page.
+      </p>
+
+      <section>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Latest Post</a></li>
+          <li><a href="#">HTML Notes</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Author Note</h3>
+        <p class="mini">
+          Aside content should not be the main focus, but it supports the page.
+        </p>
+      </section>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p><strong>Summary:</strong></p>
+    <ul>
+      <li><code>&lt;article&gt;</code> = independent content (post/news)</li>
+      <li><code>&lt;section&gt;</code> = grouped related content</li>
+      <li><code>&lt;aside&gt;</code> = side content (sidebar/notes)</li>
+    </ul>
+
+    <p><strong>Mini Practice:</strong></p>
+    <ol>
+      <li>Add a third <code>&lt;article&gt;</code> about your hobby.</li>
+      <li>Add a new <code>&lt;section&gt;</code> inside an article for “Tips”.</li>
+      <li>In the <code>&lt;aside&gt;</code>, add a “Resources” section with 3 links.</li>
+    </ol>
+  </footer>
+
+</body>
+</html>

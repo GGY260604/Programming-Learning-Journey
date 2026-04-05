@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - Conditional className</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .active {
+        color: green;
+      }
+
+      .inactive {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH10 - 04 - Conditional className</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [online, setOnline] = React.useState(false);
+
+        return (
+          <div>
+            <h2
+              className={online ? "active" : "inactive"}
+            >
+              {online ? "Online" : "Offline"}
+            </h2>
+
+            <button onClick={() => setOnline(!online)}>
+              Toggle Status
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

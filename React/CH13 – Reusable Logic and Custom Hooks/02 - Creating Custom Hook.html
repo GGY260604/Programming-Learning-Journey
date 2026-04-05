@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02 - Creating Custom Hook</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH13 - 02 - Creating Custom Hook</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Custom hooks are normal functions
+        that start with "use".
+      */
+
+      function useCounter() {
+        const [count, setCount] = React.useState(0);
+
+        function increase() {
+          setCount((prev) => prev + 1);
+        }
+
+        return { count, increase };
+      }
+
+      function App() {
+        const counter = useCounter();
+
+        return (
+          <div>
+            <h2>{counter.count}</h2>
+
+            <button onClick={counter.increase}>
+              Increase
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

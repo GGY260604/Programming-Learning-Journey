@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>06 - Simple Validation</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH07 - 06 - Simple Validation</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [username, setUsername] = React.useState("");
+        const [error, setError] = React.useState("");
+
+        function validate() {
+          if (username.length < 4) {
+            setError("Username must be at least 4 characters");
+          } else {
+            setError("");
+          }
+        }
+
+        return (
+          <div>
+            <h2>Username Validation</h2>
+
+            <input
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <button onClick={validate}>
+              Validate
+            </button>
+
+            <p className="error">{error}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

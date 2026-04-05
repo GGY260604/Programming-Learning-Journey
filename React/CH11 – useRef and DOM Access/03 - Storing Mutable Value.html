@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>03 - Storing Mutable Value</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 8px 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH11 - 03 - Storing Mutable Value</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const renderCount = React.useRef(0);
+        const [count, setCount] = React.useState(0);
+
+        React.useEffect(() => {
+          renderCount.current++;
+        });
+
+        return (
+          <div>
+            <h2>Count: {count}</h2>
+
+            <p>
+              Render count stored in ref: {renderCount.current}
+            </p>
+
+            <button onClick={() => setCount(count + 1)}>
+              Increase
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

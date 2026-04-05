@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Meta, Title, Favicon.html
+    TOPIC: CH09 - HTML Attributes Deep Dive
+
+    GOAL:
+    - Understand <title>
+    - Learn important <meta> tags
+    - Learn how to add favicon
+    - Basic SEO understanding
+  -->
+
+  <!-- =========================
+       1) Character Encoding
+       ========================= -->
+  <!--
+    charset="UTF-8"
+    - Supports most languages
+    - Should always be included
+  -->
+  <meta charset="UTF-8">
+
+  <!-- =========================
+       2) Viewport (Responsive)
+       ========================= -->
+  <!--
+    Important for mobile responsiveness
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =========================
+       3) Description (SEO)
+       ========================= -->
+  <!--
+    Helps search engines understand your page
+    Appears in Google search results
+  -->
+  <meta name="description" content="This page explains meta tags, title, and favicon in HTML.">
+
+  <!-- =========================
+       4) Keywords (Less important today)
+       ========================= -->
+  <meta name="keywords" content="HTML, meta, title, favicon, SEO">
+
+  <!-- =========================
+       5) Author
+       ========================= -->
+  <meta name="author" content="Your Name">
+
+  <!-- =========================
+       6) Title (Browser Tab)
+       ========================= -->
+  <title>CH09 - Meta, Title and Favicon</title>
+
+  <!-- =========================
+       7) Favicon
+       ========================= -->
+  <!--
+    Place favicon.ico in same folder
+    OR inside assets folder
+
+    Example:
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  -->
+  <link rel="icon" href="../Assests/Icons/HTML5.ico" type="image/x-icon">
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH09 - Meta, Title and Favicon</h1>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <div class="box">
+
+    <h2>1) Title</h2>
+    <p>
+      The <code>&lt;title&gt;</code> tag defines the browser tab name.
+      It is NOT visible inside the page.
+    </p>
+
+    <h2>2) Meta Tags</h2>
+    <ul>
+      <li><strong>charset</strong> → text encoding</li>
+      <li><strong>viewport</strong> → mobile scaling</li>
+      <li><strong>description</strong> → search engine preview</li>
+      <li><strong>keywords</strong> → page keywords</li>
+      <li><strong>author</strong> → page author</li>
+    </ul>
+
+    <h2>3) Favicon</h2>
+    <p>
+      Favicon is the small icon shown in browser tab.
+      It is linked using:
+      <code>&lt;link rel="icon" href="favicon.ico"&gt;</code>
+    </p>
+
+  </div>
+
+  <!-- =========================
+       SEO Basics
+       ========================= -->
+
+  <div class="box">
+    <h2>SEO Basics</h2>
+    <ul>
+      <li>Always include meaningful title</li>
+      <li>Write clear meta description</li>
+      <li>Use semantic HTML</li>
+      <li>Use proper headings hierarchy</li>
+    </ul>
+  </div>
+
+  <!-- =========================
+       Common Mistakes
+       ========================= -->
+
+  <h2>Common Mistakes</h2>
+  <ul>
+    <li>Missing viewport meta (bad mobile display)</li>
+    <li>Duplicate title across pages</li>
+    <li>Wrong favicon path</li>
+    <li>Overstuffing keywords</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+  <ol>
+    <li>Change the page title and observe browser tab.</li>
+    <li>Add your name to author meta.</li>
+    <li>Create a small favicon and link it.</li>
+    <li>Inspect page source (Right Click → View Page Source).</li>
+  </ol>
+
+</body>
+</html>

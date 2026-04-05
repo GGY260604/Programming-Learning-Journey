@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05 - Form Submit</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        padding: 8px;
+        margin: 8px 0;
+      }
+
+      button {
+        padding: 8px 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH07 - 05 - Form Submit</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [email, setEmail] = React.useState("");
+
+        function handleSubmit(e) {
+          e.preventDefault();
+          alert("Submitted: " + email);
+        }
+
+        return (
+          <form onSubmit={handleSubmit}>
+            <h2>Email Form</h2>
+
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <button type="submit">Submit</button>
+          </form>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05 - useInput Hook</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+
+      input {
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH13 - 05 - useInput Hook</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function useInput(initial = "") {
+        const [value, setValue] = React.useState(initial);
+
+        function onChange(e) {
+          setValue(e.target.value);
+        }
+
+        return { value, onChange };
+      }
+
+      function App() {
+        const name = useInput();
+
+        return (
+          <div>
+            <input placeholder="Name" {...name} />
+
+            <p>Name: {name.value}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

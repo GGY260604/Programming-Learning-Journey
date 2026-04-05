@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Form Validation Basics.html
+    TOPIC: CH06 - Forms
+
+    GOAL:
+    - Learn built-in HTML validation (no JS)
+    - Use required, minlength, maxlength
+    - Use min, max, step
+    - Use pattern (regex)
+    - Use disabled and readonly
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH06 - Form Validation Basics</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 15px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 14px; display: block; }
+    input, select { display: block; margin: 6px 0 12px; padding: 6px; width: 320px; max-width: 100%; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eef6ff; padding: 10px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH06 - Form Validation Basics</h1>
+
+  <p>
+    HTML has built-in validation. The browser can block submission if rules are not met.
+  </p>
+
+  <div class="box">
+    <form action="#" method="GET">
+
+      <!-- =========================
+           1) required + minlength + maxlength
+           ========================= -->
+
+      <label class="label" for="username">Username (required, 3-12 chars)</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="e.g. galen123"
+        required
+        minlength="3"
+        maxlength="12"
+      >
+
+      <!-- =========================
+           2) Email validation (built-in)
+           ========================= -->
+
+      <label class="label" for="email">Email (required)</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="e.g. name@example.com"
+        required
+      >
+
+      <!-- =========================
+           3) Number validation: min/max/step
+           ========================= -->
+
+      <label class="label" for="age">Age (min 10, max 80)</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        min="10"
+        max="80"
+        step="1"
+        placeholder="10 - 80"
+      >
+
+      <!-- =========================
+           4) Pattern (regex)
+           ========================= -->
+
+      <label class="label" for="studentId">
+        Student ID (pattern: UTM + 6 digits, e.g. UTM123456)
+      </label>
+
+      <!--
+        pattern uses regular expression (regex)
+        ^ = start
+        $ = end
+        \d = digit
+        {6} = exactly 6 digits
+
+        So: UTM\d{6}
+        Example: UTM123456
+      -->
+      <input
+        type="text"
+        id="studentId"
+        name="studentId"
+        placeholder="UTM123456"
+        pattern="UTM\d{6}"
+        title="Format must be UTM + 6 digits (example: UTM123456)"
+        required
+      >
+
+      <!-- =========================
+           5) readonly vs disabled
+           ========================= -->
+
+      <label class="label" for="readonlyField">Readonly (can copy, cannot edit)</label>
+      <input
+        type="text"
+        id="readonlyField"
+        name="readonlyField"
+        value="Readonly value"
+        readonly
+      >
+
+      <label class="label" for="disabledField">Disabled (cannot click, not submitted)</label>
+      <input
+        type="text"
+        id="disabledField"
+        name="disabledField"
+        value="Disabled value"
+        disabled
+      >
+
+      <!-- Submit -->
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div class="hint">
+    <p><strong>Try this:</strong></p>
+    <ul>
+      <li>Submit without filling required fields.</li>
+      <li>Make username too short (2 chars).</li>
+      <li>Enter email without “@”.</li>
+      <li>Enter studentId like <code>UTM123</code> (should fail).</li>
+    </ul>
+  </div>
+
+  <!-- =========================
+       Summary
+       ========================= -->
+
+  <p><strong>Summary:</strong></p>
+  <ul>
+    <li><code>required</code> blocks empty submission</li>
+    <li><code>minlength</code> / <code>maxlength</code> control text length</li>
+    <li><code>min</code> / <code>max</code> / <code>step</code> control numbers</li>
+    <li><code>pattern</code> validates format using regex</li>
+    <li><code>readonly</code> is submitted, <code>disabled</code> is NOT submitted</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Add a phone number input that only allows 10-11 digits using pattern.</li>
+    <li>Add a password field with minlength 8.</li>
+    <li>Try changing method to POST (URL won’t show query string).</li>
+  </ol>
+
+</body>
+</html>

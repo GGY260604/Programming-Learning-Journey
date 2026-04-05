@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04 - className and htmlFor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .wrapper {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      background-color: #f8f8ff;
+      max-width: 400px;
+    }
+
+    .label-text {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .input-box {
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 04 - className and htmlFor</h1>
+  <p>This file explains two important JSX naming differences from HTML.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      In normal HTML:
+      - class
+      - for
+
+      In JSX:
+      - className
+      - htmlFor
+
+      Why?
+      Because 'class' and 'for' conflict with JavaScript-related meanings.
+    */
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="wrapper">
+        <label className="label-text" htmlFor="username">
+          Username
+        </label>
+        <input
+          id="username"
+          className="input-box"
+          type="text"
+          placeholder="Enter your username"
+        />
+      </div>
+    );
+  </script>
+</body>
+</html>

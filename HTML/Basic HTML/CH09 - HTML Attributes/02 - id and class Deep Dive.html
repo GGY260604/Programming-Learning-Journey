@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - id and class Deep Dive.html
+    TOPIC: CH09 - HTML Attributes Deep Dive
+
+    GOAL:
+    - Fully understand id vs class
+    - Learn best practices
+    - Understand uniqueness rules
+    - Prepare for CSS and JavaScript usage
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH09 - id vs class Deep Dive</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+
+    /* Styling using id */
+    #uniqueBox {
+      border: 2px solid red;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* Styling using class */
+    .groupBox {
+      border: 2px solid blue;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH09 - id vs class Deep Dive</h1>
+
+  <!-- =========================
+       1) id Example
+       ========================= -->
+
+  <h2>1) id (Unique)</h2>
+
+  <div class="box">
+    <!--
+      id:
+      - Must be UNIQUE in the page
+      - Used for:
+        * Anchor linking
+        * JavaScript targeting
+        * Unique styling
+    -->
+
+    <div id="uniqueBox">
+      This div has id="uniqueBox"
+    </div>
+
+    <p>
+      You cannot have another element with the same id.
+    </p>
+  </div>
+
+  <!-- =========================
+       2) class Example
+       ========================= -->
+
+  <h2>2) class (Reusable)</h2>
+
+  <div class="box">
+    <!--
+      class:
+      - Can be reused many times
+      - Used for grouping similar elements
+      - Most common for CSS styling
+    -->
+
+    <div class="groupBox">
+      First div with class="groupBox"
+    </div>
+
+    <div class="groupBox">
+      Second div with same class
+    </div>
+
+    <div class="groupBox">
+      Third div with same class
+    </div>
+  </div>
+
+  <!-- =========================
+       3) Multiple Classes
+       ========================= -->
+
+  <h2>3) Multiple Classes</h2>
+
+  <div class="box">
+
+    <!--
+      You can assign multiple classes separated by space
+    -->
+
+    <div class="groupBox highlight">
+      This div has multiple classes.
+    </div>
+
+  </div>
+
+  <!-- =========================
+       4) Quick Comparison Table
+       ========================= -->
+
+  <h2>Comparison</h2>
+
+  <ul>
+    <li><strong>id</strong> = Unique, one per page</li>
+    <li><strong>class</strong> = Reusable, many per page</li>
+    <li>id is stronger/more specific in CSS</li>
+    <li>class is preferred for styling multiple elements</li>
+  </ul>
+
+  <!-- =========================
+       5) Best Practices
+       ========================= -->
+
+  <h2>Best Practices</h2>
+
+  <ul>
+    <li>Use id for unique elements (like main container)</li>
+    <li>Use class for styling groups</li>
+    <li>Do NOT reuse the same id</li>
+    <li>Avoid overusing id for styling</li>
+  </ul>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <h2>Common Mistakes</h2>
+
+  <ul>
+    <li>Using same id multiple times</li>
+    <li>Using id when class is more appropriate</li>
+    <li>Confusing id and name attribute</li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Create 4 boxes using the same class.</li>
+    <li>Create one unique header using id.</li>
+    <li>Try assigning 2 classes to one element.</li>
+  </ol>
+
+</body>
+</html>

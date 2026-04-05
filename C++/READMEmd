@@ -1,0 +1,272 @@
+# 📘 C++ Fundamentals (From Zero to Solid OOP)
+
+This repository is a **structured, comment-driven C++ learning journey** designed to guide learners from **basic syntax** to **professional Object-Oriented Programming (OOP)**.
+
+Unlike typical C++ tutorials, this project:
+- focuses on **executable `.cpp` files**
+- explains **concepts inside source code comments**, not external documents
+- follows a **strict learning order** (based on W3Schools C++ tutorial flow)
+- avoids skipping fundamentals
+- emphasizes **encapsulation, data hiding, and clean C++ design**
+
+> 🎯 **Goal:**  
+> Build a rock-solid C++ foundation so advanced topics feel logical, not dangerous.
+
+---
+
+## 📂 Repository Structure Overview
+ 
+---
+
+```text
+.
+├── Basic C++
+│   ├── C01 - Syntax
+│   │   └── 01 - Syntax.cpp
+│   │
+│   ├── C02 - Output
+│   │   ├── 01 - Output_PrintText.cpp
+│   │   ├── 02 - Output_PrintNumber.cpp
+│   │   └── 03 - Output_NewLines.cpp
+│   │
+│   ├── C03 - Comment
+│   │   ├── 01 - Comments_SingleLine.cpp
+│   │   └── 02 - Comments_MultiLine.cpp
+│   │
+│   ├── C04 - Variable
+│   │   ├── 01 - Variables_Declare.cpp
+│   │   ├── 02 - Variables_Assign.cpp
+│   │   ├── 03 - Variables_Multiple.cpp
+│   │   ├── 04 - Variables_Identifiers.cpp
+│   │   └── 05 - Variables_Constants.cpp
+│   │
+│   ├── C05 - Input
+│   │   ├── 01 - Input_Cin.cpp
+│   │   ├── 02 - Input_Multiple.cpp
+│   │   └── 03 - Input_String.cpp
+│   │
+│   ├── C06 - Data Type
+│   │   ├── 01 - DataTypes_Basic.cpp
+│   │   ├── 02 - DataTypes_TypeConversion.cpp
+│   │   ├── 03 - DataTypes_WideningNarrowing.cpp
+│   │   └── 04 - DataTypes_Auto.cpp
+│   │
+│   ├── C07 - Operator
+│   │   ├── 01 - Operators_Arithmetic.cpp
+│   │   ├── 02 - Operators_Assignment.cpp
+│   │   ├── 03 - Operators_Comparison.cpp
+│   │   ├── 04 - Operators_Logical.cpp
+│   │   ├── 05 - Operators_Precedence_1.0.cpp
+│   │   └── 05 - Operators_Precedence_2.0.cpp
+│   │
+│   ├── C08 - String
+│   │   ├── 01 - String_Intro.cpp
+│   │   ├── 02 - String_Concat.cpp
+│   │   ├── 03 - String_Input.cpp
+│   │   ├── 04 - String_Length.cpp
+│   │   ├── 05 - String_Access.cpp
+│   │   ├── 06 - String_SpecialFunctions.cpp
+│   │   └── 07 - String_CStyle.cpp
+│   │
+│   ├── C09 - Math
+│   │   ├── 01 - Math_Basic.cpp
+│   │   ├── 02 - Math_MinMax.cpp
+│   │   └── 03 - Math_CMathFunctions.cpp
+│   │
+│   ├── C10 - Booleans
+│   │   ├── 01 - Boolean_Basic.cpp
+│   │   ├── 02 - Boolean_Comparison.cpp
+│   │   └── 03 - Boolean_LogicalOperators.cpp
+│   │
+│   ├── C11 - Conditions
+│   │   ├── 01 - Condition_If.cpp
+│   │   ├── 02 - Condition_IfElse.cpp
+│   │   ├── 03 - Condition_ElseIf.cpp
+│   │   ├── 04 - Condition_ShortHand.cpp
+│   │   ├── 05 - Condition_Nested.cpp
+│   │   └── 06 - Condition_LogicalOperators.cpp
+│   │
+│   ├── C12 - Switch
+│   │   ├── 01 - Switch_Basic.cpp
+│   │   ├── 02 - Switch_Break.cpp
+│   │   ├── 03 - Switch_Default.cpp
+│   │   └── 04 - Switch_CombinedCases.cpp
+│   │
+│   ├── C13 - Loops
+│   │   ├── 01 - Loops_Intro.cpp
+│   │   ├── 02 - Loops_While.cpp
+│   │   ├── 03 - Loops_DoWhile.cpp
+│   │   ├── 04 - Loops_For.cpp
+│   │   ├── 05 - Loops_For_Flow.cpp
+│   │   └── 06 - Loops_Break_Continue.cpp
+│   │
+│   ├── C14 - Arrays
+│   │   ├── 01 - Arrays_Intro.cpp
+│   │   ├── 02 - Arrays_Access.cpp
+│   │   ├── 03 - Arrays_Change.cpp
+│   │   ├── 04 - Array_Loop.cpp
+│   │   ├── 05 - Arrays_Initialization.cpp
+│   │   ├── 06 - Arrays_Size.cpp
+│   │   └── 07 - Arrays_MultiDimensional.cpp
+│   │
+│   ├── C15 - Functions
+│   │   ├── 01 - Functions_Intro.cpp
+│   │   ├── 02 - Functions_Parameters.cpp
+│   │   ├── 03 - Functions_Return.cpp
+│   │   ├── 04 - Functions_DefaultArg.cpp
+│   │   ├── 05 - Functions_Overloading.cpp
+│   │   ├── 06 - Functions_Inline.cpp
+│   │   ├── 07 - Functions_Recursion.cpp
+│   │   ├── 08 - Functions_Scope.cpp
+│   │   ├── 09 - Function_ArrayParameter.cpp
+│   │   ├── 10 - Function_MultiArrayParameter.cpp
+│   │   ├── 11 - Functions_PassByReference.cpp
+│   │   ├── 12 - Functions_ReturnReference.cpp
+│   │   ├── 13 - Functions_PointerToFunction.cpp
+│   │   └── 14 - Functions_Lambda.cpp
+│   │
+│   ├── C16 - Enumeration
+│   ├── C17 - Structure
+│   ├── C18 - References
+│   ├── C19 - Pointer
+│   ├── C20 - Memory Management
+│   ├── C21 - File Operations
+│   └── C22 - Exception Handling
+│
+└── C++ Class
+    ├── 01 - Class_Basic.cpp
+    ├── 02 - Class_Encapsulation.cpp
+    ├── 03 - Class_AccessSpecifiers.cpp
+    ├── 04 - Class_Constructor.cpp
+    ├── 05 - Class_ConstructorOverload_Destructor.cpp
+    ├── 06 - Class_AccessorMutator.cpp
+    ├── 07 - Class_ScopeResolution.cpp
+    ├── 08 - Class_ObjectArray.cpp
+    ├── 09 - Class_ThisPointer.cpp
+    ├── 10 - Class_StaticMembers.cpp
+    ├── 11 - Class_FriendFunction.cpp
+    ├── 12 - Class_FriendClass.cpp
+    ├── 13 - Class_Inheritance_Basic.cpp
+    ├── 14 - Class_Inheritance_AccessSpecifiers.cpp
+    ├── 15 - Class_Inheritance_ConstructorOrder.cpp
+    ├── 16 - Class_Inheritance_Constructor.cpp
+    ├── 17 - Class_Inheritance_MethodOverriding.cpp
+    ├── 18 - Class_Inheritance_Multilevel.cpp
+    ├── 19 - Class_Inheritance_Multiple.cpp
+    ├── 20 - Class_Polymorphism_Virtual.cpp
+    ├── 21 - Class_AbstractClass_PureVirtual.cpp
+    ├── 21 - Class_OperatorOverloading.cpp
+    ├── 22 - Templates_FunctionTemplate.cpp
+    └── 23 - Templates_ClassTemplate.cpp
+
+```
+
+## 🧭 Learning Roadmap
+
+---
+
+### 🟢 Core Language Basics (C01 – C14)
+> **Purpose:** Learn C++ syntax and execution flow
+
+Covers:
+- Syntax, comments, output
+- Variables and data types
+- Operators and precedence
+- Strings and math
+- Conditions and loops
+- Arrays and multidimensional arrays
+
+Focus:  
+> Write correct C++ code and understand how it executes.
+
+---
+
+### 🟢 Functions and Abstraction (C15)
+> **Purpose:** Organize reusable logic
+
+Covers:
+- Function basics and return values
+- Parameters and default arguments
+- Function overloading
+- Inline functions and recursion
+- Scope and lifetime
+- Passing arrays to functions
+- Pass by value vs pass by reference
+- Returning references
+- Function pointers
+- Lambda functions
+
+Focus:  
+> Build reusable logic blocks and understand how data flows through functions.
+
+---
+
+### 🟢 Data Representation and Memory (C16 – C22)
+> **Purpose:** Understand how C++ represents and manages data
+
+Covers:
+- Enumeration and structures
+- References and const references
+- Pointers and pointer arithmetic
+- Dynamic memory allocation using new and delete
+- Memory leaks and dangling pointers
+- File operations using fstream
+- Exception handling and custom exceptions
+
+Focus:  
+> Write safe, real-world C++ programs with proper memory handling.
+
+---
+
+### 🟢 Object-Oriented Programming (C++ Class)
+> **Purpose:** Master professional C++ object-oriented design
+
+Covers:
+- Classes and objects
+- Access specifiers and encapsulation
+- Constructors and destructors
+- Constructor overloading and initialization order
+- Static members and static methods
+- Friend functions and friend classes
+- Inheritance:
+  - Single inheritance
+  - Multilevel inheritance
+  - Multiple inheritance
+- Constructor calling order in inheritance
+- Method overriding and virtual functions
+- Polymorphism
+- Abstract classes and pure virtual functions
+- Operator overloading
+- Function templates and class templates
+
+Focus:  
+> Design maintainable, scalable, and encapsulated C++ systems.
+
+---
+
+## 📌 Philosophy
+
+> *If fundamentals are weak, OOP feels confusing.*  
+> *If fundamentals are strong, OOP feels natural.*
+
+This repository focuses on:
+- executable examples
+- comments as the main teaching tool
+- step by step learning progression
+- professional C++ habits from day one
+
+---
+
+## 🚀 Recommended Next Steps
+
+After completing this repository, consider learning:
+- STL containers such as vector, map, and set
+- STL algorithms like sort, find, and for_each
+- Smart pointers and RAII
+- Modern C++ features from C++11 and beyond
+- Common C++ design patterns
+
+---
+
+Happy learning 👋  
+This repository builds a **clean, professional, and future-proof C++ foundation**.

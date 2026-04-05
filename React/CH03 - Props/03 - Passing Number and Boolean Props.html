@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>03 - Passing Number and Boolean Props</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .product {
+      margin-top: 12px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f8fbff;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 03 - Passing Number and Boolean Props</h1>
+  <p>This file shows number and boolean props.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Numbers and booleans are usually passed with curly braces.
+
+      Example:
+      <Product price={59.9} inStock={true} />
+    */
+
+    function Product(props) {
+      return (
+        <div className="product">
+          <h2>{props.name}</h2>
+          <p>Price: RM {props.price}</p>
+          <p>Quantity: {props.quantity}</p>
+          <p>Status: {props.inStock ? "In Stock" : "Out of Stock"}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Product name="Wireless Mouse" price={59.9} quantity={12} inStock={true} />
+          <Product name="Mechanical Keyboard" price={129.5} quantity={0} inStock={false} />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

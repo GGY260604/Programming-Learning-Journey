@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04 - Nesting Components</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .header, .content, .footer {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .header { background-color: #fdf7f7; }
+    .content { background-color: #f7fdf7; }
+    .footer { background-color: #f7f9fd; }
+  </style>
+</head>
+<body>
+  <h1>CH02 - 04 - Nesting Components</h1>
+  <p>This file shows how one component can use other components.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Components can be nested inside other components.
+
+      This means:
+      - a parent component can render child components
+      - we can split one large UI into smaller pieces
+    */
+
+    function Header() {
+      return (
+        <div className="header">
+          <h2>Header Component</h2>
+        </div>
+      );
+    }
+
+    function Content() {
+      return (
+        <div className="content">
+          <p>This is the main content component.</p>
+        </div>
+      );
+    }
+
+    function Footer() {
+      return (
+        <div className="footer">
+          <p>This is the footer component.</p>
+        </div>
+      );
+    }
+
+    function Page() {
+      return (
+        <div>
+          <Header />
+          <Content />
+          <Footer />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Page />);
+  </script>
+</body>
+</html>

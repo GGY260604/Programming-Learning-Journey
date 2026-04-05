@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04 - Babel and JSX in Browser</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .box {
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f8fbff;
+      margin-top: 16px;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 04 - Babel and JSX in Browser</h1>
+  <p>
+    This file explains what Babel does and why we use <code>type="text/babel"</code>.
+  </p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      JSX is syntax that looks like HTML inside JavaScript.
+
+      Example:
+      <h1>Hello</h1>
+
+      Browsers do not understand JSX directly.
+
+      Babel converts JSX into normal JavaScript that the browser can run.
+
+      That is why we use:
+      <script type="text/babel">
+    */
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const title = "Babel converts JSX";
+
+    root.render(
+      <div className="box">
+        <h2>{title}</h2>
+        <p>
+          JSX looks simple and clean, but it must be transformed into regular
+          JavaScript before the browser can execute it.
+        </p>
+
+        <pre>{`const element = <h1>Hello React</h1>;`}</pre>
+
+        <p>
+          In this learning project, Babel does the transformation directly in the browser.
+        </p>
+      </div>
+    );
+  </script>
+</body>
+</html>

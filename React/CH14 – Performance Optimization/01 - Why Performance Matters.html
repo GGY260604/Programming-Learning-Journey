@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 - Why Performance Matters</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+
+      button {
+        padding: 8px 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH14 - 01 - Why Performance Matters</h1>
+
+    <div id="root"></div>
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Every time state changes,
+        React re-renders the component.
+
+        Sometimes this can cause
+        unnecessary work.
+      */
+
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        console.log("Component rendered");
+
+        return (
+          <div>
+            <h2>{count}</h2>
+
+            <button onClick={() => setCount(count + 1)}>
+              Increase
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

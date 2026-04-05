@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - What is CSS and Why It Matters.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Understand what CSS is
+    - See HTML without CSS
+    - See HTML with CSS
+    - Understand separation of structure and style
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - What is CSS?</title>
+
+  <style>
+    /* This CSS is only for demonstration */
+    .styled {
+      color: white;
+      background-color: black;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH10 - What is CSS?</h1>
+
+  <!-- =========================
+       1) HTML Only
+       ========================= -->
+
+  <h2>1) HTML Without CSS</h2>
+
+  <!--
+    This is pure HTML.
+    Browser applies default styling.
+  -->
+
+  <p>
+    This is a normal paragraph using only HTML.
+  </p>
+
+  <button>Click Me</button>
+
+  <!-- =========================
+       2) HTML + CSS
+       ========================= -->
+
+  <h2>2) HTML With CSS</h2>
+
+  <!--
+    Now we apply CSS using class.
+    Notice the visual difference.
+  -->
+
+  <p class="styled">
+    This paragraph is styled using CSS.
+  </p>
+
+  <button class="styled">
+    Styled Button
+  </button>
+
+  <!-- =========================
+       3) What is CSS?
+       ========================= -->
+
+  <hr>
+
+  <h2>What is CSS?</h2>
+
+  <ul>
+    <li>CSS = Cascading Style Sheets</li>
+    <li>Controls how HTML looks</li>
+    <li>Handles colors, layout, spacing, fonts</li>
+    <li>Keeps design separate from structure</li>
+  </ul>
+
+  <!-- =========================
+       4) Structure vs Style
+       ========================= -->
+
+  <h2>Structure vs Style</h2>
+
+  <p>
+    HTML = Structure (Skeleton)
+  </p>
+
+  <p>
+    CSS = Style (Clothes & Design)
+  </p>
+
+  <!-- =========================
+       5) Why Separation Matters
+       ========================= -->
+
+  <h2>Why Separation Matters</h2>
+
+  <ul>
+    <li>Cleaner code</li>
+    <li>Easier maintenance</li>
+    <li>Reusable styles</li>
+    <li>Professional web development standard</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Remove the class="styled" and see the difference.</li>
+    <li>Change background-color to blue.</li>
+    <li>Add font-size: 20px; inside the CSS block.</li>
+  </ol>
+
+</body>
+</html>

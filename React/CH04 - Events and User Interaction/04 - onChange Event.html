@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - onChange Event</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        padding: 8px;
+        width: 250px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH04 - 04 - onChange Event</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        onChange is commonly used with inputs.
+
+        It runs whenever the input value changes.
+      */
+
+      function App() {
+        function handleChange(event) {
+          console.log("Input value:", event.target.value);
+        }
+
+        return (
+          <div>
+            <h2>Type Something</h2>
+
+            <input
+              type="text"
+              placeholder="Type here"
+              onChange={handleChange}
+            />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Internal JavaScript.html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Learn internal JavaScript
+    - Understand <script> placement
+    - Use addEventListener
+    - Keep HTML clean (no inline JS)
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Internal JavaScript</title>
+
+</head>
+
+<body>
+
+  <h1>CH11 - Internal JavaScript</h1>
+
+  <!-- =========================
+       1) Clean HTML Structure
+       ========================= -->
+
+  <h2 id="title">Original Title</h2>
+
+  <button id="changeBtn">Change Title</button>
+
+  <button id="colorBtn">Change Background Color</button>
+
+  <!-- =========================
+       2) Internal JavaScript
+       ========================= -->
+  
+  <script>
+
+    // Select elements
+    const title = document.getElementById("title");
+    const changeBtn = document.getElementById("changeBtn");
+    const colorBtn = document.getElementById("colorBtn");
+
+    // Add click event listener
+    changeBtn.addEventListener("click", function() {
+      title.textContent = "Title Changed Using Internal JS!";
+    });
+
+    // Change background color
+    colorBtn.addEventListener("click", function() {
+      document.body.style.backgroundColor = "lightblue";
+    });
+
+    console.log("Internal JavaScript Loaded Successfully");
+
+  </script>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Explanation</h2>
+
+  <ul>
+    <li><strong>document.getElementById()</strong> selects HTML element</li>
+    <li><strong>addEventListener()</strong> listens for events</li>
+    <li>JavaScript runs after page loads</li>
+  </ul>
+
+  <!-- =========================
+       Why This Is Better
+       ========================= -->
+
+  <h2>Why Internal JS Is Better Than Inline</h2>
+
+  <ul>
+    <li>Keeps HTML clean</li>
+    <li>Easier to maintain</li>
+    <li>More professional</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add another button to change text color.</li>
+    <li>Add console.log inside click event.</li>
+    <li>Change background to random color (challenge).</li>
+  </ol>
+
+</body>
+</html>

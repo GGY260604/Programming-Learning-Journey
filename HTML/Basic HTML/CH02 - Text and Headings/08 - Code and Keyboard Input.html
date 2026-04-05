@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Code and Keyboard Input.html
+    TOPIC: CH02 - Text & Headings
+
+    GOAL:
+    - Learn <code> (inline code)
+    - Learn <pre> + <code> (code blocks)
+    - Learn <kbd> (keyboard input)
+    - Learn <samp> (sample output)
+    - Learn <var> (variables)
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH02 - Code and Keyboard Input</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    kbd {
+      background: #222;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH02 - Code and Keyboard Input</h1>
+
+  <!-- =========================
+       1) Inline Code
+       ========================= -->
+
+  <p class="label">Inline Code (&lt;code&gt;):</p>
+
+  <div class="box">
+
+    <p>
+      To create a paragraph in HTML, use
+      <code>&lt;p&gt;</code>.
+    </p>
+
+    <p>
+      In JavaScript, you write <code>console.log("Hello")</code>.
+    </p>
+
+  </div>
+
+  <!-- =========================
+       2) Code Block (pre + code)
+       ========================= -->
+
+  <p class="label">Code Block:</p>
+
+  <div class="box">
+
+    <!--
+      <pre> preserves formatting
+      <code> indicates code content
+    -->
+
+    <pre><code>
+function greet(name) {
+  return "Hello " + name;
+}
+    </code></pre>
+
+  </div>
+
+  <!-- =========================
+       3) Keyboard Input
+       ========================= -->
+
+  <p class="label">Keyboard Input (&lt;kbd&gt;):</p>
+
+  <div class="box">
+
+    <p>
+      Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.
+    </p>
+
+    <p>
+      Press <kbd>Alt</kbd> + <kbd>F4</kbd> to close window.
+    </p>
+
+  </div>
+
+  <!-- =========================
+       4) Sample Output
+       ========================= -->
+
+  <p class="label">Sample Output (&lt;samp&gt;):</p>
+
+  <div class="box">
+
+    <p>
+      Program output:
+      <samp>Hello World</samp>
+    </p>
+
+  </div>
+
+  <!-- =========================
+       5) Variable
+       ========================= -->
+
+  <p class="label">Variable (&lt;var&gt;):</p>
+
+  <div class="box">
+
+    <p>
+      The formula for area is:
+      A = <var>π</var>r<sup>2</sup>
+    </p>
+
+  </div>
+
+  <!-- =========================
+       6) Why These Matter
+       ========================= -->
+
+  <ul>
+    <li><strong>code</strong> = inline code snippet</li>
+    <li><strong>pre + code</strong> = code block</li>
+    <li><strong>kbd</strong> = keyboard key</li>
+    <li><strong>samp</strong> = program output</li>
+    <li><strong>var</strong> = variable name</li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Write a fake C++ function inside a code block.</li>
+    <li>Show keyboard shortcut for copy (Ctrl + C).</li>
+    <li>Display sample output of a calculator.</li>
+    <li>Use var to represent x in equation x + 5 = 10.</li>
+  </ol>
+
+</body>
+</html>

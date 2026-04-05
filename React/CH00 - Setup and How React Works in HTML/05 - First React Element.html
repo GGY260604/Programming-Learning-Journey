@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05 - First React Element</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .demo {
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 8px;
+      background-color: #fcfcfc;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 05 - First React Element</h1>
+  <p>
+    This file creates a simple React element and renders it.
+  </p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      A React element is a description of what should appear on screen.
+
+      Here we create one using JSX.
+    */
+    const element = (
+      <div className="demo">
+        <h2>Hello React</h2>
+        <p>This is my first React element rendered in the browser.</p>
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(element);
+  </script>
+</body>
+</html>

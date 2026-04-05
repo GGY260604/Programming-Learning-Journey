@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - Lifting State Up</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH08 - 04 - Lifting State Up</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function Child(props) {
+        return (
+          <input
+            placeholder="Type here"
+            value={props.text}
+            onChange={(e) => props.setText(e.target.value)}
+          />
+        );
+      }
+
+      function App() {
+        const [text, setText] = React.useState("");
+
+        return (
+          <div>
+            <Child text={text} setText={setText} />
+
+            <p>Parent state: {text}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

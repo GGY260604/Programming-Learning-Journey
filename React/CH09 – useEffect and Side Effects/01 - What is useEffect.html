@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 - What is useEffect</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH09 - 01 - What is useEffect</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        useEffect is used to run code AFTER React renders.
+
+        Typical uses:
+        - API requests
+        - timers
+        - event listeners
+        - logging
+      */
+
+      function App() {
+        React.useEffect(() => {
+          console.log("Component rendered");
+        });
+
+        return <h2>Check the console</h2>;
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

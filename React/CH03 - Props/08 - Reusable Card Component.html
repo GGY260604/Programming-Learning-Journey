@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>08 - Reusable Card Component</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      background-color: #f5f5f5;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background-color: #eef4ff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 08 - Reusable Card Component</h1>
+  <p>This file shows a more practical reusable component with props.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Props make reusable components useful.
+
+      The same Card component can display different content
+      depending on the props passed to it.
+    */
+
+    function LessonCard({ title, description, level }) {
+      return (
+        <div className="card">
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <span className="tag">{level}</span>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="grid">
+          <LessonCard
+            title="JSX Basics"
+            description="Learn how JSX looks like HTML inside JavaScript."
+            level="Beginner"
+          />
+
+          <LessonCard
+            title="Components"
+            description="Learn how to split UI into reusable parts."
+            level="Beginner"
+          />
+
+          <LessonCard
+            title="Props"
+            description="Learn how components receive data from parents."
+            level="Beginner"
+          />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - iframe.html
+    TOPIC: CH08 - Layout Foundations
+
+    GOAL:
+    - Learn <iframe>
+    - Embed external webpages
+    - Embed YouTube video
+    - Understand width, height, and security basics
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH08 - iframe</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    iframe { margin-top: 10px; border: 1px solid black; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH08 - iframe</h1>
+
+  <p>
+    The <code>&lt;iframe&gt;</code> tag is used to embed another webpage inside your page.
+  </p>
+
+  <!-- =========================
+       1) Basic iframe
+       ========================= -->
+
+  <h2>1) Basic iframe Example</h2>
+
+  <div class="box">
+
+    <!--
+      src = URL of page to embed
+      width & height control size
+    -->
+
+    <iframe 
+      src="https://example.com"
+      width="400"
+      height="200">
+    </iframe>
+
+  </div>
+
+  <!-- =========================
+       2) Embed YouTube
+       ========================= -->
+
+  <h2>2) YouTube Embed Example</h2>
+
+  <div class="box">
+
+    <!--
+      For YouTube:
+      Use the "Embed" link provided by YouTube
+      Format:
+      https://www.youtube.com/embed/VIDEO_ID
+    -->
+
+    <iframe
+      width="400"
+      height="225"
+      src="https://www.youtube.com/embed/eM8Mjuq4MwQ"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <!-- =========================
+       3) Important Attributes
+       ========================= -->
+
+  <h2>Important Attributes</h2>
+
+  <ul>
+    <li><strong>src</strong> = URL to embed</li>
+    <li><strong>width</strong> = width of iframe</li>
+    <li><strong>height</strong> = height of iframe</li>
+    <li><strong>allowfullscreen</strong> = allow full screen mode</li>
+  </ul>
+
+  <!-- =========================
+       4) Security Note
+       ========================= -->
+
+  <div class="box">
+    <p>
+      ⚠ Some websites block iframe embedding for security reasons.
+    </p>
+    <p>
+      Modern sites often use security headers to prevent embedding.
+    </p>
+  </div>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <h2>Common Mistakes</h2>
+
+  <ul>
+    <li>Using normal YouTube URL instead of embed URL</li>
+    <li>Forgetting width and height</li>
+    <li>Trying to embed websites that block iframe</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Embed a YouTube video of your choice.</li>
+    <li>Change width to 600 and height to 300.</li>
+    <li>Try embedding a website and observe if it works.</li>
+  </ol>
+
+</body>
+</html>

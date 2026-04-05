@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - What are Props</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .box {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 01 - What are Props</h1>
+  <p>This file introduces props in React.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Props means "properties".
+
+      Props are values passed from a parent component
+      to a child component.
+
+      They help reusable components display different data.
+
+      Think of props like function arguments for components.
+    */
+
+    function Welcome(props) {
+      return (
+        <div className="box">
+          <h2>Hello, {props.name}!</h2>
+          <p>You are learning {props.topic}.</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return <Welcome name="Galen" topic="React Props" />;
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

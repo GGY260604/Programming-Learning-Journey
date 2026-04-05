@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Select, Option and Textarea.html
+    TOPIC: CH06 - Forms
+
+    GOAL:
+    - Learn <select>
+    - Learn <option>
+    - Learn <textarea>
+    - Understand dropdown selection
+    - Understand multi-line text input
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH06 - Select and Textarea</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 15px; margin-top: 12px; border-radius: 8px; }
+    .label-title { font-weight: bold; margin-top: 18px; }
+    select, textarea, input { display: block; margin-bottom: 12px; padding: 6px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH06 - Select, Option and Textarea</h1>
+
+  <div class="box">
+
+    <form action="#" method="POST">
+
+      <!-- =========================
+           1) Select Dropdown
+           ========================= -->
+
+      <p class="label-title">Select (Dropdown Menu):</p>
+
+      <!--
+        select = dropdown container
+        option = choices
+        value = what gets sent to backend
+      -->
+      <label for="course">Choose your course:</label>
+      <select name="course" id="course" required>
+        <option value="">-- Select One --</option>
+        <option value="cs">Computer Science</option>
+        <option value="se">Software Engineering</option>
+        <option value="ai">Artificial Intelligence</option>
+      </select>
+
+      <!-- =========================
+           2) Multiple Selection
+           ========================= -->
+
+      <p class="label-title">Multiple Select:</p>
+
+      <label for="skills">Select your skills:</label>
+      <select name="skills" id="skills" multiple size="3">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JavaScript</option>
+      </select>
+
+      <!-- =========================
+           3) Textarea
+           ========================= -->
+
+      <p class="label-title">Textarea (Multi-line Input):</p>
+
+      <!--
+        rows = height
+        cols = width
+      -->
+      <label for="message">Your Message:</label>
+      <textarea 
+        id="message"
+        name="message"
+        rows="4"
+        cols="30"
+        placeholder="Write your message here..."
+        required>
+      </textarea>
+
+      <!-- Submit -->
+      <input type="submit" value="Submit Form">
+
+    </form>
+
+  </div>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <ul>
+    <li><strong>&lt;select&gt;</strong> creates dropdown</li>
+    <li><strong>&lt;option&gt;</strong> defines choices</li>
+    <li><strong>multiple</strong> allows multiple selections</li>
+    <li><strong>size</strong> controls visible options</li>
+    <li><strong>&lt;textarea&gt;</strong> allows multi-line text</li>
+  </ul>
+
+  <!-- =========================
+       Important Notes
+       ========================= -->
+
+  <p class="label-title">Important Notes:</p>
+
+  <ul>
+    <li>value attribute is what gets sent to backend</li>
+    <li>First empty option prevents accidental default selection</li>
+    <li>Textarea does NOT use value attribute</li>
+  </ul>
+
+  <!-- =========================
+       Common Mistakes
+       ========================= -->
+
+  <p class="label-title">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting name attribute</li>
+    <li>Not using required for mandatory fields</li>
+    <li>Using textarea for short input</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Add 3 more options to the dropdown.</li>
+    <li>Change size to 5.</li>
+    <li>Remove required and test form behavior.</li>
+    <li>Add a new textarea for feedback.</li>
+  </ol>
+
+</body>
+</html>

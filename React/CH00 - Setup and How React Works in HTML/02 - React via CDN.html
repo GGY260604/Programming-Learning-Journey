@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 - React via CDN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 02 - React via CDN</h1>
+  <p>
+    This file explains why we can run React directly in a normal HTML file.
+  </p>
+
+  <div id="root"></div>
+
+  <!-- React core library -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+  <!-- ReactDOM for rendering React content into the browser page -->
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for converting JSX into normal JavaScript in the browser -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      CDN means Content Delivery Network.
+
+      By using these script tags:
+      - we do not need npm install
+      - we do not need bundler tools
+      - we can learn React in a single HTML file
+
+      This is good for learning concepts one by one.
+      But in real projects, React is usually used with tools like:
+      - Vite
+      - Next.js
+      - Create React App (older)
+    */
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="card">
+        <h2>Why use CDN here?</h2>
+        <ul>
+          <li>Easy to start</li>
+          <li>No project setup needed</li>
+          <li>Each HTML file can run independently</li>
+          <li>Good for concept-by-concept learning</li>
+        </ul>
+
+        <p>
+          We are loading <code>React</code>, <code>ReactDOM</code>, and <code>Babel</code>
+          directly from the internet through CDN links.
+        </p>
+      </div>
+    );
+  </script>
+</body>
+</html>

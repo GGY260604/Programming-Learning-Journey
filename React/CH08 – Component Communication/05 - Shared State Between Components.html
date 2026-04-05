@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05 - Shared State Between Components</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH08 - 05 - Shared State Between Components</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function InputBox(props) {
+        return (
+          <input
+            value={props.value}
+            onChange={(e) => props.setValue(e.target.value)}
+          />
+        );
+      }
+
+      function App() {
+        const [value, setValue] = React.useState("");
+
+        return (
+          <div>
+            <InputBox value={value} setValue={setValue} />
+            <InputBox value={value} setValue={setValue} />
+
+            <p>Shared Value: {value}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

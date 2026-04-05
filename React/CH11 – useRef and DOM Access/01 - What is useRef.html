@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 - What is useRef</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH11 - 01 - What is useRef</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        useRef creates a reference object.
+
+        ref.current can store values
+        without causing a re-render.
+      */
+
+      function App() {
+        const ref = React.useRef(0);
+
+        function increase() {
+          ref.current++;
+          console.log("Ref value:", ref.current);
+        }
+
+        return (
+          <div>
+            <button onClick={increase}>
+              Increase Ref Value
+            </button>
+
+            <p>
+              Check console — UI does not re-render
+            </p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

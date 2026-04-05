@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02 - Immutable Update for Arrays</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH12 - 02 - Immutable Update for Arrays</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [numbers, setNumbers] = React.useState([1, 2, 3]);
+
+        function addNumber() {
+          setNumbers([...numbers, numbers.length + 1]);
+        }
+
+        return (
+          <div>
+            <button onClick={addNumber}>
+              Add Number
+            </button>
+
+            <ul>
+              {numbers.map((num) => (
+                <li key={num}>{num}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

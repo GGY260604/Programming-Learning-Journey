@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>03 - Dynamic Styling</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH10 - 03 - Dynamic Styling</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [dark, setDark] = React.useState(false);
+
+        const style = {
+          backgroundColor: dark ? "#222" : "#eee",
+          color: dark ? "#fff" : "#000",
+          padding: "16px",
+          borderRadius: "8px"
+        };
+
+        return (
+          <div style={style}>
+            <h2>Dynamic Style</h2>
+
+            <button onClick={() => setDark(!dark)}>
+              Toggle Theme
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

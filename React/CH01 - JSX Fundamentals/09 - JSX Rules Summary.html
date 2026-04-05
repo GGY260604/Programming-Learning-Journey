@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>09 - JSX Rules Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .summary {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      background-color: #fdfcff;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 09 - JSX Rules Summary</h1>
+  <p>This file summarizes the most important JSX rules from this chapter.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Summary of JSX rules:
+      1. JSX looks like HTML but is not HTML
+      2. Use {} to embed JavaScript expressions
+      3. Use className instead of class
+      4. Use htmlFor instead of for
+      5. Self-closing tags must end with />
+      6. JSX should have one parent wrapper
+      7. Expressions are allowed inside {}
+      8. Statements are not directly allowed inside {}
+    */
+
+    const rules = [
+      "JSX looks like HTML, but it is JavaScript syntax.",
+      "Use curly braces {} to insert JavaScript values.",
+      "Use className instead of class.",
+      "Use htmlFor instead of for.",
+      "Self-closing tags must end with />.",
+      "JSX should return one parent wrapper element.",
+      "Expressions can go inside {}.",
+      "Statements cannot go directly inside {}."
+    ];
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="summary">
+        <h2>JSX Rules Summary</h2>
+        <ul>
+          {rules.map((rule, index) => (
+            <li key={index}>{rule}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  </script>
+</body>
+</html>

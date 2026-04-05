@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - What is a Component</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .box {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH02 - 01 - What is a Component</h1>
+  <p>This file explains the basic meaning of a React component.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      A component is a reusable piece of UI.
+
+      In React, a component is usually a JavaScript function
+      that returns JSX.
+
+      We use components to:
+      - split UI into smaller parts
+      - reuse the same UI many times
+      - make code cleaner and easier to maintain
+    */
+
+    function App() {
+      return (
+        <div className="box">
+          <h2>What is a Component?</h2>
+          <p>
+            A component is like a building block for a user interface.
+          </p>
+          <p>
+            Instead of writing one giant page, we break the UI into smaller,
+            reusable parts.
+          </p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

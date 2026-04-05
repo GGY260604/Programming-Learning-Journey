@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Images (img).html
+    TOPIC: CH03 - Links & Media
+
+    GOAL:
+    - Learn how to use <img>
+    - Understand src attribute
+    - Understand alt attribute (VERY IMPORTANT)
+    - Control image width and height
+    - Learn relative vs absolute paths
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH03 - Images (img)</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    img { margin-top: 10px; }
+    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH03 - Images (img)</h1>
+
+  <p>
+    The <code>&lt;img&gt;</code> tag is used to display images.
+    It is a self-closing tag or we call empty tag (no closing tag needed).
+  </p>
+
+  <!-- =========================
+       1) Basic Image
+       ========================= -->
+
+  <p class="label">Basic Image:</p>
+
+  <div class="box">
+
+    <!--
+      src = image location (URL or local path)
+      alt = alternative text (shown if image fails to load)
+    -->
+    <img 
+      src="https://via.placeholder.com/150"
+      alt="Placeholder image example"
+    >
+
+  </div>
+
+  <div class="hint">
+    ⚠ Always include the <code>alt</code> attribute.
+    It improves accessibility and SEO.
+  </div>
+
+  <!-- =========================
+       2) Image Size Control
+       ========================= -->
+
+  <p class="label">Control Image Size:</p>
+
+  <div class="box">
+
+    <!-- Using width attribute -->
+    <img 
+      src="https://www.w3schools.com/images/w3schools_green.jpg"
+      alt="Resized image"
+      width="150"
+    >
+
+    <!-- Using inline style -->
+    <img 
+      src="https://www.w3schools.com/images/w3schools_green.jpg"
+      alt="Styled image"
+      style="width: 100px; height: 100px;"
+    >
+
+  </div>
+
+  <!-- =========================
+       3) Local Image (Relative Path)
+       ========================= -->
+
+  <p class="label">Local Image (Relative Path):</p>
+
+  <div class="box">
+
+    <!--
+      This assumes you have an image file named "local-image.jpg"
+      in the same folder as this HTML file.
+    -->
+    <img 
+      src="../Assests/Images/CSS Box Model.png"
+      alt="Local image example"
+    >
+
+  </div>
+
+  <!-- =========================
+       4) Image as Link
+       ========================= -->
+
+  <p class="label">Image as Link:</p>
+
+  <div class="box">
+
+    <!-- Wrap image inside <a> -->
+    <a href="https://www.google.com" target="_blank">
+      <img 
+        src="https://www.w3schools.com/images/w3schools_green.jpg"
+        alt="Clickable image"
+      >
+    </a>
+
+  </div>
+
+  <!-- =========================
+       5) Important Concepts
+       ========================= -->
+
+  <ul>
+    <li><strong>src</strong> = source (image location)</li>
+    <li><strong>alt</strong> = alternative text (accessibility)</li>
+    <li><strong>width/height</strong> = control size</li>
+    <li><strong>Relative path</strong> = local file</li>
+    <li><strong>Absolute URL</strong> = internet image</li>
+  </ul>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting alt attribute</li>
+    <li>Wrong file path</li>
+    <li>Image too large (not resizing)</li>
+    <li>Using image for layout instead of CSS</li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Download an image and place it inside an assets folder.</li>
+    <li>Display it using relative path.</li>
+    <li>Resize it to 200px width.</li>
+    <li>Make the image clickable.</li>
+  </ol>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05 - Multiple CSS Classes</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        border: none;
+        margin-right: 8px;
+      }
+
+      .primary {
+        background: blue;
+        color: white;
+      }
+
+      .danger {
+        background: red;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH10 - 05 - Multiple CSS Classes</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        return (
+          <div>
+            <button className="btn primary">
+              Primary Button
+            </button>
+
+            <button className="btn danger">
+              Danger Button
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

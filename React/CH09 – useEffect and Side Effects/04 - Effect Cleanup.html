@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - Effect Cleanup</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH09 - 04 - Effect Cleanup</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Cleanup runs when component unmounts
+        or before the next effect runs.
+      */
+
+      function App() {
+        const [visible, setVisible] = React.useState(true);
+
+        return (
+          <div>
+            <button onClick={() => setVisible(!visible)}>
+              Toggle Component
+            </button>
+
+            {visible && <Child />}
+          </div>
+        );
+      }
+
+      function Child() {
+        React.useEffect(() => {
+          console.log("Mounted");
+
+          return () => {
+            console.log("Cleanup executed");
+          };
+        }, []);
+
+        return <h2>Child Component</h2>;
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

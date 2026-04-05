@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Ordered List (ol).html
+    TOPIC: CH04 - Lists
+
+    GOAL:
+    - Learn <ol> (ordered list)
+    - Understand numbering
+    - Learn type, start, reversed attributes
+    - Understand when order matters
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH04 - Ordered List (ol)</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH04 - Ordered List (ol)</h1>
+
+  <p>
+    An ordered list uses <code>&lt;ol&gt;</code>.
+    Items are automatically numbered.
+  </p>
+
+  <!-- =========================
+       1) Basic Ordered List
+       ========================= -->
+
+  <p class="label">Basic Ordered List:</p>
+
+  <div class="box">
+    <ol>
+      <li>Wake up</li>
+      <li>Brush teeth</li>
+      <li>Go to school</li>
+      <li>Study HTML</li>
+    </ol>
+  </div>
+
+  <div class="hint">
+    Use <code>&lt;ol&gt;</code> when order matters.
+  </div>
+
+  <!-- =========================
+       2) Type Attribute
+       ========================= -->
+
+  <p class="label">Different Numbering Types:</p>
+
+  <div class="box">
+
+    <!-- type="A" for uppercase letters -->
+    <ol type="A">
+      <li>Item A</li>
+      <li>Item B</li>
+    </ol>
+
+    <!-- type="a" for lowercase letters -->
+    <ol type="a">
+      <li>Item a</li>
+      <li>Item b</li>
+    </ol>
+
+    <!-- type="I" for Roman numerals -->
+    <ol type="I">
+      <li>Item I</li>
+      <li>Item II</li>
+    </ol>
+
+  </div>
+
+  <!-- =========================
+       3) Start Attribute
+       ========================= -->
+
+  <p class="label">Start Number:</p>
+
+  <div class="box">
+    <!-- Start numbering from 5 -->
+    <ol start="5">
+      <li>Step Five</li>
+      <li>Step Six</li>
+    </ol>
+  </div>
+
+  <!-- =========================
+       4) Reversed List
+       ========================= -->
+
+  <p class="label">Reversed List:</p>
+
+  <div class="box">
+    <!-- reversed makes numbering count backwards -->
+    <ol reversed>
+      <li>Third</li>
+      <li>Second</li>
+      <li>First</li>
+    </ol>
+  </div>
+
+  <!-- =========================
+       5) Nested Ordered List
+       ========================= -->
+
+  <p class="label">Nested Ordered List:</p>
+
+  <div class="box">
+    <ol>
+      <li>
+        Frontend
+        <ol type="a">
+          <li>HTML</li>
+          <li>CSS</li>
+        </ol>
+      </li>
+      <li>
+        Backend
+        <ol type="a">
+          <li>Node.js</li>
+          <li>Python</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using <code>&lt;ol&gt;</code> when order doesn't matter</li>
+    <li>Putting text directly inside <code>&lt;ol&gt;</code> without <code>&lt;li&gt;</code></li>
+    <li>Incorrect nesting outside <code>&lt;li&gt;</code></li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a step-by-step recipe using ordered list.</li>
+    <li>Start numbering from 10.</li>
+    <li>Create a reversed countdown list.</li>
+    <li>Make a nested ordered list for subjects and topics.</li>
+  </ol>
+
+</body>
+</html>

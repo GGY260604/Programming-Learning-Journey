@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Input Types.html
+    TOPIC: CH06 - Forms
+
+    GOAL:
+    - Learn different input types
+    - Understand how each type behaves
+    - See built-in browser validation
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH06 - Input Types</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 15px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    input { margin-bottom: 10px; display: block; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH06 - Input Types</h1>
+
+  <form action="#" method="GET">
+
+    <!-- =========================
+         1) Text
+         ========================= -->
+    <p class="label">Text:</p>
+    <input type="text" name="username" placeholder="Enter username">
+
+    <!-- =========================
+         2) Email
+         ========================= -->
+    <p class="label">Email:</p>
+    <!-- Browser validates email format -->
+    <input type="email" name="email" placeholder="Enter email">
+
+    <!-- =========================
+         3) Password
+         ========================= -->
+    <p class="label">Password:</p>
+    <input type="password" name="password" placeholder="Enter password">
+
+    <!-- =========================
+         4) Number
+         ========================= -->
+    <p class="label">Number:</p>
+    <input type="number" name="age" min="1" max="100">
+
+    <!-- =========================
+         5) Date
+         ========================= -->
+    <p class="label">Date:</p>
+    <input type="date" name="birthdate">
+
+    <!-- =========================
+         6) Checkbox
+         ========================= -->
+    <p class="label">Checkbox:</p>
+    <label>
+      <input type="checkbox" name="subscribe">
+      Subscribe to newsletter
+    </label>
+
+    <!-- =========================
+         7) Radio Buttons
+         ========================= -->
+    <p class="label">Radio Buttons:</p>
+
+    <!-- Same name = same group -->
+    <label>
+      <input type="radio" name="gender" value="male">
+      Male
+    </label>
+
+    <label>
+      <input type="radio" name="gender" value="female">
+      Female
+    </label>
+
+    <!-- =========================
+         8) File Upload
+         ========================= -->
+    <p class="label">File Upload:</p>
+    <input type="file" name="resume">
+
+    <!-- =========================
+         9) Color Picker
+         ========================= -->
+    <p class="label">Color Picker:</p>
+    <input type="color" name="favcolor">
+
+    <!-- =========================
+         10) Range Slider
+         ========================= -->
+    <p class="label">Range:</p>
+    <input type="range" name="volume" min="0" max="100" step="20">
+
+    <br>
+    <input type="submit" value="Submit Form">
+
+  </form>
+
+  <!-- =========================
+       Important Notes
+       ========================= -->
+
+  <ul>
+    <li>Each input type has built-in behavior</li>
+    <li>Email & number have automatic validation</li>
+    <li>Radio buttons must share same name to work as group</li>
+    <li>Checkbox allows multiple selection</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Add a required attribute to email field.</li>
+    <li>Add step="5" to range input.</li>
+    <li>Add two more radio options.</li>
+    <li>Test validation by submitting empty form.</li>
+  </ol>
+
+</body>
+</html>

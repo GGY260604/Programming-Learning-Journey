@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>03 - useToggle Hook</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+
+      button {
+        padding: 8px 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH13 - 03 - useToggle Hook</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function useToggle(initial = false) {
+        const [value, setValue] = React.useState(initial);
+
+        function toggle() {
+          setValue((prev) => !prev);
+        }
+
+        return { value, toggle };
+      }
+
+      function App() {
+        const toggle = useToggle();
+
+        return (
+          <div>
+            <h2>
+              Status: {toggle.value ? "ON" : "OFF"}
+            </h2>
+
+            <button onClick={toggle.toggle}>
+              Toggle
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

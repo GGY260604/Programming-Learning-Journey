@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 - Embedding JavaScript in JSX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      background-color: #fdfdfd;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 02 - Embedding JavaScript in JSX</h1>
+  <p>This file shows how JavaScript values can be inserted into JSX.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      To insert JavaScript into JSX, use curly braces: {}
+
+      Inside JSX:
+      <h1>{someValue}</h1>
+
+      React evaluates the JavaScript expression and shows the result.
+    */
+
+    const studentName = "Galen";
+    const chapterNumber = 1;
+    const topic = "JSX";
+    const score = 80 + 15;
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="card">
+        <h2>Embedding JavaScript in JSX</h2>
+        <p>Student Name: {studentName}</p>
+        <p>Chapter Number: {chapterNumber}</p>
+        <p>Current Topic: {topic}</p>
+        <p>Calculated Score: {score}</p>
+      </div>
+    );
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 - Parent to Child Props</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH08 - 01 - Parent to Child Props</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function Child(props) {
+        return (
+          <div className="card">
+            <h3>Child Component</h3>
+            <p>Name: {props.name}</p>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div>
+            <h2>Parent Component</h2>
+
+            <Child name="Galen" />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

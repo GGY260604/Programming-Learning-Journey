@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Box Model Introduction.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Understand the CSS Box Model
+    - Learn content, padding, border, margin
+    - Visually see how spacing works
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - CSS Box Model</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      width: 200px;
+      height: 80px;
+
+      /* Content area background */
+      background-color: lightblue;
+
+      /* Padding = space inside element */
+      padding: 40px;
+
+      /* Border surrounds padding + content */
+      border: 30px solid black;
+
+      /* Margin = space outside element */
+      margin: 40px;
+
+      text-align: center;
+    }
+
+    .container {
+      border: 2px dashed #555;
+      background-color: #e9f106;
+    }
+
+    .comparison {
+      border: 2px dashed #555;
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    code {
+      background: #f3f3f3;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH10 - CSS Box Model</h1>
+
+  <!-- =========================
+       Visual Demonstration
+       ========================= -->
+  
+       
+  <div class="container">
+  <div class="box">
+    Content Area
+  </div>
+  </div>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <div class="comparison">
+
+    <h2>What is the Box Model?</h2>
+
+    <img src="../Assests/Images/CSS Box Model.png" alt="CSS Box Model diagram" width="300" style="display: block; margin: 10px auto;">
+
+    <p>
+      Every HTML element is treated as a rectangular box.
+    </p>
+
+    <ul>
+      <li><strong>Content</strong> → The actual text/image</li>
+      <li><strong>Padding</strong> → Space inside the box</li>
+      <li><strong>Border</strong> → Edge around padding</li>
+      <li><strong>Margin</strong> → Space outside the box</li>
+    </ul>
+
+  </div>
+
+  <!-- =========================
+       Visual Structure
+       ========================= -->
+
+  <div class="comparison">
+
+    <h2>Structure Order</h2>
+
+    <p>
+      From inside to outside:
+    </p>
+
+    <ol>
+      <li>Content</li>
+      <li>Padding</li>
+      <li>Border</li>
+      <li>Margin</li>
+    </ol>
+
+  </div>
+
+  <!-- =========================
+       Important Concept
+       ========================= -->
+
+  <div class="comparison">
+
+    <h2>Important Concept</h2>
+
+    <p>
+      Total width of element =
+    </p>
+
+    <p>
+      <code>
+        width + padding + border
+      </code>
+    </p>
+
+    <p>
+      (Margin is outside this calculation.)
+    </p>
+
+  </div>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Increase padding to 40px.</li>
+    <li>Change margin to 5px.</li>
+    <li>Change border thickness.</li>
+    <li>Remove margin and see the difference.</li>
+  </ol>
+
+</body>
+</html>

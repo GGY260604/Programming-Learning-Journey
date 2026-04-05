@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Table Basics.html
+    TOPIC: CH05 - Tables
+
+    GOAL:
+    - Learn <table>
+    - Learn <tr> (table row)
+    - Learn <th> (table header)
+    - Learn <td> (table data)
+    - Understand basic table structure
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH05 - Table Basics</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+
+    /* Simple table styling (for visibility only) */
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH05 - Table Basics</h1>
+
+  <p>
+    Tables are used to display structured data in rows and columns.
+  </p>
+
+  <!-- =========================
+       1) Basic Table Structure
+       ========================= -->
+
+  <p class="label">Basic Structure:</p>
+
+  <div class="box">
+    <!--
+      Structure:
+
+      <table>
+        <tr>
+          <th>Header</th>
+          <th>Header</th>
+        </tr>
+        <tr>
+          <td>Data</td>
+          <td>Data</td>
+        </tr>
+      </table>
+    -->
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course</th>
+      </tr>
+
+      <tr>
+        <td>Alex</td>
+        <td>20</td>
+        <td>Computer Science</td>
+      </tr>
+
+      <tr>
+        <td>Maria</td>
+        <td>21</td>
+        <td>Software Engineering</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- =========================
+       2) Explanation of Tags
+       ========================= -->
+
+  <ul>
+    <li><strong>&lt;table&gt;</strong> = container for table</li>
+    <li><strong>&lt;tr&gt;</strong> = table row</li>
+    <li><strong>&lt;th&gt;</strong> = header cell (bold + centered by default)</li>
+    <li><strong>&lt;td&gt;</strong> = normal data cell</li>
+  </ul>
+
+  <!-- =========================
+       3) Important Concepts
+       ========================= -->
+
+  <p class="label">Important Notes:</p>
+
+  <ul>
+    <li>Each row is wrapped inside <code>&lt;tr&gt;</code></li>
+    <li>Header row usually goes first</li>
+    <li>Number of <code>&lt;td&gt;</code> must match header count</li>
+    <li>Tables are for data, NOT for layout</li>
+  </ul>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting to close <code>&lt;tr&gt;</code></li>
+    <li>Uneven number of <code>&lt;td&gt;</code></li>
+    <li>Using table for page layout (bad practice)</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a table of 3 products with price and stock.</li>
+    <li>Add at least 4 rows.</li>
+    <li>Try adding one extra <code>&lt;td&gt;</code> and observe structure issue.</li>
+  </ol>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07 - JSX Expressions vs Statements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .note-box {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      background-color: #fffdf7;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 07 - JSX Expressions vs Statements</h1>
+  <p>This file explains what can and cannot go inside JSX curly braces.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Inside JSX curly braces {}, you can place JavaScript expressions.
+
+      Examples of expressions:
+      - name
+      - 2 + 3
+      - name.toUpperCase()
+      - isLoggedIn ? "Yes" : "No"
+
+      Statements are not allowed directly inside JSX:
+      - if statement
+      - for loop
+      - function declaration
+
+      You prepare statements before return/render, then use the result in JSX.
+    */
+
+    const name = "react learner";
+    const isBeginner = true;
+    const message = isBeginner ? "Yes, still learning." : "Already experienced.";
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="note-box">
+        <h2>Expressions in JSX</h2>
+        <p>Uppercase Name: {name.toUpperCase()}</p>
+        <p>2 + 3 = {2 + 3}</p>
+        <p>Beginner Status: {message}</p>
+      </div>
+    );
+  </script>
+</body>
+</html>

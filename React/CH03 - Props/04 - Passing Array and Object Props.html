@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04 - Passing Array and Object Props</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .profile {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fffef8;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 04 - Passing Array and Object Props</h1>
+  <p>This file shows that props can also be arrays and objects.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Props can hold more complex data:
+      - arrays
+      - objects
+
+      This is very common in real React apps.
+    */
+
+    const student = {
+      name: "Galen",
+      level: "Beginner"
+    };
+
+    const skills = ["HTML", "CSS", "JavaScript", "React"];
+
+    function StudentProfile(props) {
+      return (
+        <div className="profile">
+          <h2>{props.student.name}</h2>
+          <p>Level: {props.student.level}</p>
+
+          <h3>Skills</h3>
+          <ul>
+            {props.skills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    function App() {
+      return <StudentProfile student={student} skills={skills} />;
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

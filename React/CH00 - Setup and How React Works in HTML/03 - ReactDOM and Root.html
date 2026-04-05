@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>03 - ReactDOM and Root</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .panel {
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 03 - ReactDOM and Root</h1>
+  <p>
+    This file explains the meaning of the root container.
+  </p>
+
+  <!--
+    This div is the container where React will display the UI.
+    React does not automatically render everywhere on the page.
+    It needs a target container.
+  -->
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      ReactDOM.createRoot(...) creates a React root.
+
+      A root is the starting point where React controls the UI inside a DOM element.
+    */
+    const container = document.getElementById("root");
+    const root = ReactDOM.createRoot(container);
+
+    /*
+      root.render(...) tells React what to display inside that root container.
+    */
+    root.render(
+      <div className="panel">
+        <h2>React Root Example</h2>
+        <p>
+          The div with id="root" is the place where React inserts the UI.
+        </p>
+        <p>
+          In React applications, this root container is usually the starting point
+          of the whole app.
+        </p>
+      </div>
+    );
+  </script>
+</body>
+</html>

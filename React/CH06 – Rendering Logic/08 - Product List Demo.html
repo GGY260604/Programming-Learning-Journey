@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>08 - Product List Demo</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        padding: 16px;
+        margin: 8px 0;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH06 - 08 - Product List Demo</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const products = [
+          { id: 1, name: "Laptop", price: 4500, inStock: true },
+          { id: 2, name: "Mouse", price: 50, inStock: false },
+          { id: 3, name: "Keyboard", price: 120, inStock: true }
+        ];
+
+        return (
+          <div>
+            <h2>Product List</h2>
+
+            {products.map((product) => (
+              <div className="card" key={product.id}>
+                <h3>{product.name}</h3>
+
+                <p>Price: RM {product.price}</p>
+
+                <p>
+                  Status:
+                  {product.inStock
+                    ? " Available"
+                    : " Out of Stock"}
+                </p>
+              </div>
+            ))}
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

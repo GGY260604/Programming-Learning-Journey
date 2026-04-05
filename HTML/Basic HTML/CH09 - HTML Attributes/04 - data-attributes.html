@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - data-attributes.html
+    TOPIC: CH09 - HTML Attributes Deep Dive
+
+    GOAL:
+    - Learn custom data attributes (data-*)
+    - Understand how they store extra information
+    - Prepare for JavaScript usage later
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH09 - data-* Attributes</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    button { padding: 8px 12px; margin-top: 10px; cursor: pointer; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH09 - Custom data-* Attributes</h1>
+
+  <p>
+    HTML allows custom attributes that start with <code>data-</code>.
+    These are commonly used with JavaScript.
+  </p>
+
+  <!-- =========================
+       1) Basic Example
+       ========================= -->
+
+  <div class="box">
+
+    <!--
+      data-* attributes store extra information
+      Format:
+      data-anyname="value"
+    -->
+
+    <button 
+      data-product-id="101"
+      data-product-name="Laptop"
+      data-price="999">
+      View Product Info
+    </button>
+
+  </div>
+
+  <!-- =========================
+       2) How It Works
+       ========================= -->
+
+  <div class="box">
+    <h2>Explanation</h2>
+
+    <ul>
+      <li><code>data-product-id</code> = custom data</li>
+      <li><code>data-product-name</code> = custom data</li>
+      <li><code>data-price</code> = custom data</li>
+    </ul>
+
+    <p>
+      These attributes do nothing by themselves.
+      They are mainly used by JavaScript.
+    </p>
+  </div>
+
+  <!-- =========================
+       3) Simple JavaScript Demo
+       ========================= -->
+
+  <div class="box">
+    <h2>Interactive Demo</h2>
+
+    <button id="showData"
+      data-user="Galen"
+      data-role="Student"
+      data-level="Beginner">
+      Click to Show Data
+    </button>
+
+    <p id="output"></p>
+
+  </div>
+
+  <script>
+    // This is basic JavaScript (preview for later chapter)
+
+    const btn = document.getElementById("showData");
+    const output = document.getElementById("output");
+
+    btn.addEventListener("click", function () {
+
+      // Access data attributes
+      const user = btn.dataset.user;
+      const role = btn.dataset.role;
+      const level = btn.dataset.level;
+
+      output.textContent = 
+        "User: " + user + 
+        ", Role: " + role + 
+        ", Level: " + level;
+    });
+  </script>
+
+  <!-- =========================
+       Important Notes
+       ========================= -->
+
+  <h2>Important Notes</h2>
+
+  <ul>
+    <li>Must start with <code>data-</code></li>
+    <li>Used for storing custom data</li>
+    <li>Accessed in JS via <code>element.dataset.name</code></li>
+    <li>Common in modern web development</li>
+  </ul>
+
+  <!-- =========================
+       Common Mistakes
+       ========================= -->
+
+  <h2>Common Mistakes</h2>
+
+  <ul>
+    <li>Forgetting "data-" prefix</li>
+    <li>Using uppercase letters (not recommended)</li>
+    <li>Confusing data attributes with id or class</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add a button with data-score="95".</li>
+    <li>Modify JavaScript to display that score.</li>
+    <li>Add multiple data attributes to a div.</li>
+  </ol>
+
+</body>
+</html>

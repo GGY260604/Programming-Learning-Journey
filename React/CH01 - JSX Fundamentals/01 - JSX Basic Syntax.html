@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - JSX Basic Syntax</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      background-color: #f9f9f9;
+    }
+
+    code, pre {
+      background-color: #f4f4f4;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      display: block;
+      padding: 12px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 01 - JSX Basic Syntax</h1>
+  <p>This file introduces the basic idea of JSX.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      JSX stands for JavaScript XML.
+
+      It allows us to write HTML-like syntax inside JavaScript.
+
+      Example:
+      const element = <h1>Hello</h1>;
+
+      JSX is not actual HTML.
+      It is syntax that Babel converts into JavaScript.
+    */
+
+    const element = (
+      <div className="box">
+        <h2>Hello JSX</h2>
+        <p>
+          JSX looks like HTML, but it is written inside JavaScript code.
+        </p>
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(element);
+  </script>
+</body>
+</html>

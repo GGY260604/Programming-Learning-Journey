@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06 - Multiple Lines and Parent Wrapper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .container {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      background-color: #f9fbff;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 06 - Multiple Lines and Parent Wrapper</h1>
+  <p>This file explains why JSX usually needs one parent wrapper.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      JSX must return one parent element.
+
+      Wrong:
+      return (
+        <h1>Title</h1>
+        <p>Paragraph</p>
+      );
+
+      Correct:
+      return (
+        <div>
+          <h1>Title</h1>
+          <p>Paragraph</p>
+        </div>
+      );
+    */
+
+    const content = (
+      <div className="container">
+        <h2>One Parent Wrapper</h2>
+        <p>JSX elements should be wrapped inside one parent element.</p>
+        <p>
+          This helps React organize the UI structure clearly.
+        </p>
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(content);
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02 - Effect Runs After Render</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH09 - 02 - Effect Runs After Render</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        React.useEffect(() => {
+          console.log("Effect executed");
+        });
+
+        return (
+          <div>
+            <h2>Count: {count}</h2>
+
+            <button onClick={() => setCount(count + 1)}>
+              Increase
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

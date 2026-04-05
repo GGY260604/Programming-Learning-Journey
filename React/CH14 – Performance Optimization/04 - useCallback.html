@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - useCallback</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH14 - 04 - useCallback</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const Child = React.memo(function Child({ onClick }) {
+        console.log("Child rendered");
+
+        return <button onClick={onClick}>Click</button>;
+      });
+
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        const handleClick = React.useCallback(() => {
+          console.log("Clicked");
+        }, []);
+
+        return (
+          <div>
+            <Child onClick={handleClick} />
+
+            <button onClick={() => setCount(count + 1)}>
+              Re-render Parent
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

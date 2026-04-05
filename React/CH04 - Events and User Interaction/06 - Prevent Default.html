@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>06 - Prevent Default</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH04 - 06 - Prevent Default</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Some HTML elements have default behavior.
+
+        Example:
+        - forms reload the page
+        - links navigate to another page
+
+        preventDefault() stops this behavior.
+      */
+
+      function App() {
+        function handleSubmit(e) {
+          e.preventDefault();
+
+          alert("Form submitted without page reload");
+        }
+
+        return (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input placeholder="Your name" />
+
+              <button type="submit">
+                Submit
+              </button>
+            </form>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

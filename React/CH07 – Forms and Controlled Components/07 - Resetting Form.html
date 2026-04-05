@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>07 - Resetting Form</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH07 - 07 - Resetting Form</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [text, setText] = React.useState("");
+
+        function resetForm() {
+          setText("");
+        }
+
+        return (
+          <div>
+            <h2>Reset Example</h2>
+
+            <input
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+
+            <br /><br />
+
+            <button onClick={resetForm}>
+              Reset
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

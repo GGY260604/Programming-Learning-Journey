@@ -1,0 +1,21 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "NodeJS-Backend-Notes/\r │  ReadMe.md\r │  package.json\r │  .gitignore\r │\r ├─ CH00 - Setup & How To Run\r │   ├─ 00 - What is Node.js and What It Can Do.js\r │   ├─ 01 - Install Node and Check Versions.js\r │   ├─ 02 - Run a File with node.js\r │   ├─ 03 - CommonJS vs ES Modules (require vs import).js\r │   ├─ 04 - npm Basics (init install scripts).js\r │\r ├─ CH01 - JavaScript in Node (Core Syntax You Must Know)\r │   ├─ 00 - Let Const Var Differences.js\r │   ├─ 01 - Destructuring and Template Strings.js\r │   ├─ 02 - Functions Arrow Function this.js\r │   ├─ 03 - Arrays Objects Useful Methods.js\r │   ├─ 04 - Error Handling try catch.js\r │\r ├─ CH02 - Node Runtime Basics\r │   ├─ 00 - global __dirname __filename.js\r │   ├─ 01 - process argv env exit.js\r │   ├─ 02 - path Module.js\r │   ├─ 03 - os Module.js\r │   ├─ 04 - events Module.js\r │\r ├─ CH03 - Modules & Project Structure\r │   ├─ 00 - Export Import CommonJS.js\r │   ├─ 01 - Export Import ESM.js\r │   ├─ 02 - Build a Small Module Folder.js\r │   ├─ 03 - Node Package Resolution.js\r │\r ├─ CH04 - File System & Data (fs)\r │   ├─ 00 - Read Write Text File Sync.js\r │   ├─ 01 - Read Write Text File Async.js\r │   ├─ 02 - JSON Read Write.js\r │   ├─ 03 - Streams Intro.js\r │\r ├─ CH05 - Async Programming (Backend Must-Know)\r │   ├─ 00 - Callbacks vs Promises.js\r │   ├─ 01 - async await Basics.js\r │   ├─ 02 - Promise.all Promise.race.js\r │   ├─ 03 - Common Mistakes (await in loop).js\r │   ├─ 04 - Error Handling in Async.js\r │\r ├─ CH06 - HTTP Fundamentals (No Framework)\r │   ├─ 00 - Create Basic Server http.js\r │   ├─ 01 - Request URL Method Headers.js\r │   ├─ 02 - Routing by if else.js\r │   ├─ 03 - JSON Response.js\r │   ├─ 04 - Read Body (POST).js\r │\r ├─ CH07 - Express.js Essentials (Real Backend Workflow)\r │   ├─ 00 - Setup Express Server.js\r │   ├─ 01 - Routes GET POST PUT DELETE.js\r │   ├─ 02 - Middleware Concept.js\r │   ├─ 03 - Request Validation Basics.js\r │   ├─ 04 - Error Middleware.js\r │\r ├─ CH08 - REST API Design\r │   ├─ 00 - What is REST Resource Naming.js\r │   ├─ 01 - Status Codes and Error Shape.js\r │   ├─ 02 - Pagination Filtering Sorting.js\r │   ├─ 03 - Controller Service Repo Pattern.js\r │\r ├─ CH09 - Database Basics (Backend Reality)\r │   ├─ 00 - What is DB SQL vs NoSQL.js\r │   ├─ 01 - Connect PostgreSQL or MySQL (Concept).js\r │   ├─ 02 - CRUD Flow (Create Read Update Delete).js\r │   ├─ 03 - Prevent SQL Injection Concept.js\r │\r ├─ CH10 - Auth Basics (Session / JWT)\r │   ├─ 00 - Password Hashing bcrypt.js\r │   ├─ 01 - JWT Basics.js\r │   ├─ 02 - Protect Routes Middleware.js\r │\r ├─ CH11 - Security Essentials (Minimum Must Know)\r │   ├─ 00 - dotenv and Secrets.js\r │   ├─ 01 - CORS Explained.js\r │   ├─ 02 - Rate Limit and Basic Protection.js\r │   ├─ 03 - Helmet and Secure Headers.js\r │\r ├─ CH12 - TypeScript Backend Starter (Bridge to Your Goal)\r │   ├─ 00 - Setup Node + TS + ts-node.js\r │   ├─ 01 - Types for Request Response.js\r │   ├─ 02 - Express with TypeScript.js\r │   ├─ 03 - Folder Structure for TS Backend.js\r │\r └─ CH13 - Debugging & Backend Problem-Solving\r     ├─ 00 - Read Error Stack Trace.js\r     ├─ 01 - Common Errors (EADDRINUSE).js\r     ├─ 02 - Logging and Debugging.js\r     ├─ 03 - Postman / Thunder Client Testing.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

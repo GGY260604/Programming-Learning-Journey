@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Form Validation with JavaScript.html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Validate form using JavaScript
+    - Prevent invalid submission
+    - Show error messages
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Form Validation</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 10px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH11 - Form Validation with JavaScript</h1>
+
+  <div class="box">
+
+    <form id="myForm">
+
+      <label>Username:</label>
+      <input type="text" id="username">
+
+      <label>Email:</label>
+      <input type="text" id="email">
+
+      <label>Password:</label>
+      <input type="password" id="password">
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p id="message"></p>
+
+  </div>
+
+  <!-- =========================
+       JavaScript Section
+       ========================= -->
+
+  <script>
+
+    const form = document.getElementById("myForm");
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault(); // Prevent page refresh
+
+      message.textContent = "";
+      message.className = "";
+
+      // =========================
+      // Basic Validation Logic
+      // =========================
+
+      if (username.value.trim() === "") {
+        message.textContent = "Username cannot be empty.";
+        message.className = "error";
+        return;
+      }
+
+      if (!email.value.includes("@")) {
+        message.textContent = "Please enter a valid email.";
+        message.className = "error";
+        return;
+      }
+
+      if (password.value.length < 6) {
+        message.textContent = "Password must be at least 6 characters.";
+        message.className = "error";
+        return;
+      }
+
+      // If all valid
+      message.textContent = "Registration Successful!";
+      message.className = "success";
+
+    });
+
+  </script>
+
+  <!-- =========================
+       Concepts Learned
+       ========================= -->
+
+  <hr>
+
+  <h2>Concepts Learned</h2>
+
+  <ul>
+    <li>submit event</li>
+    <li>preventDefault()</li>
+    <li>Checking input values</li>
+    <li>Using .value</li>
+    <li>Conditional statements (if)</li>
+  </ul>
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add confirm password field.</li>
+    <li>Check if passwords match.</li>
+    <li>Make email validation stronger.</li>
+  </ol>
+
+</body>
+</html>

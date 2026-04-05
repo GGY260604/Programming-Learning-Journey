@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Variables and Data Types.html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Learn variables (let, const)
+    - Understand data types
+    - Practice basic operations
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Variables and Data Types</title>
+</head>
+
+<body>
+
+  <h1>CH11 - Variables and Data Types</h1>
+
+  <button id="runBtn">Run JavaScript</button>
+
+  <p id="output"></p>
+
+  <!-- =========================
+       Internal JavaScript
+       ========================= -->
+
+  <script>
+
+    const runBtn = document.getElementById("runBtn");
+    const output = document.getElementById("output");
+
+    runBtn.addEventListener("click", function() {
+
+      // =========================
+      // 1) Variables
+      // =========================
+
+      // let = can change later
+      let name = "Galen";
+
+      // const = cannot be changed
+      const age = 20;
+
+      // =========================
+      // 2) Data Types
+      // =========================
+
+      let isStudent = true;      // Boolean
+      let height = 175.5;        // Number
+      let city = "Kuala Lumpur"; // String
+
+      // =========================
+      // 3) Basic Operations
+      // =========================
+
+      let nextYearAge = age + 1;
+
+      let message = "Name: " + name +
+                    ", Age Next Year: " + nextYearAge +
+                    ", Student: " + isStudent;
+
+      // =========================
+      // 4) Display Result
+      // =========================
+
+      output.textContent = message;
+
+      console.log("Name:", name);
+      console.log("Age:", age);
+      console.log("Height:", height);
+      console.log("City:", city);
+      console.log("Student:", isStudent);
+
+    });
+
+  </script>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Concepts Learned</h2>
+
+  <ul>
+    <li><strong>let</strong> → changeable variable</li>
+    <li><strong>const</strong> → constant variable</li>
+    <li><strong>String</strong> → text</li>
+    <li><strong>Number</strong> → numeric value</li>
+    <li><strong>Boolean</strong> → true / false</li>
+  </ul>
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Create a new variable for your favorite food.</li>
+    <li>Add two numbers together.</li>
+    <li>Change let to const and see what happens.</li>
+  </ol>
+
+</body>
+</html>

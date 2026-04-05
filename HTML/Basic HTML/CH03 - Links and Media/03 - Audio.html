@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Audio.html
+    TOPIC: CH03 - Links & Media
+
+    GOAL:
+    - Learn how to embed audio using <audio>
+    - Understand controls, autoplay, loop, muted
+    - Learn <source> tag
+    - Understand fallback text
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH03 - Audio</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH03 - Audio</h1>
+
+  <p>
+    The <code>&lt;audio&gt;</code> tag is used to embed sound content.
+  </p>
+
+  <!-- =========================
+       1) Basic Audio with Controls
+       ========================= -->
+
+  <p class="label">Basic Audio Player:</p>
+
+  <div class="box">
+
+    <!--
+      controls = show play/pause UI
+    -->
+    <audio controls>
+      <source src="../Assests/Audios/36505577-short-modern-logo-242224.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+  </div>
+
+  <!-- =========================
+       2) Audio Attributes
+       ========================= -->
+
+  <p class="label">Common Audio Attributes:</p>
+
+  <div class="box">
+
+    <!-- autoplay (may be blocked by browser) -->
+    <audio controls autoplay muted>
+      <source src="../Assests/Audios/36505577-short-modern-logo-242224.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- loop -->
+    <audio controls loop>
+      <source src="../Assests/Audios/36505577-short-modern-logo-242224.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+  <ul>
+    <li><strong>controls</strong> = show player UI</li>
+    <li><strong>autoplay</strong> = auto start (often blocked)</li>
+    <li><strong>loop</strong> = repeat audio</li>
+    <li><strong>muted</strong> = start muted</li>
+  </ul>
+
+  <!-- =========================
+       3) Multiple Source Formats
+       ========================= -->
+
+  <p class="label">Multiple Source Formats:</p>
+
+  <div class="box">
+
+    <!-- Browser will choose supported format -->
+    <audio controls>
+      <source src="../Assests/Audios/36505577-short-modern-logo-242224.mp3" type="audio/mpeg">
+      <source src="../Assests/Audios/36505577-short-modern-logo-242224.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
+
+  </div>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Wrong file path</li>
+    <li>Unsupported audio format</li>
+    <li>Using autoplay without muted (browser blocks it)</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Download a small .mp3 file.</li>
+    <li>Create an assets folder and place it there.</li>
+    <li>Display it using relative path.</li>
+    <li>Enable loop and test it.</li>
+  </ol>
+
+</body>
+</html>

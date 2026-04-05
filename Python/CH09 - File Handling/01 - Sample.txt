@@ -1,0 +1,7 @@
+Hello, this is your sample file.
+Welcome to Python file handling.
+
+This is line 3.
+This is line 4.
+
+End of file.

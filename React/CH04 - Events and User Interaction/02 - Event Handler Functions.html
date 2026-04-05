@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02 - Event Handler Functions</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 10px 16px;
+        margin: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH04 - 02 - Event Handler Functions</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        Event handler functions are normal JavaScript functions
+        that run when an event occurs.
+      */
+
+      function App() {
+        function handleClick() {
+          console.log("Button clicked");
+        }
+
+        function handleAlert() {
+          alert("Another button clicked");
+        }
+
+        return (
+          <div>
+            <h2>Event Handlers</h2>
+
+            <button onClick={handleClick}>
+              Log to Console
+            </button>
+
+            <button onClick={handleAlert}>
+              Show Alert
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

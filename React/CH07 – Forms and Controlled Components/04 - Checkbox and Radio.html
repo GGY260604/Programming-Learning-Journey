@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 - Checkbox and Radio</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      label {
+        display: block;
+        margin: 6px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH07 - 04 - Checkbox and Radio</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [subscribe, setSubscribe] = React.useState(false);
+        const [gender, setGender] = React.useState("");
+
+        return (
+          <div>
+            <h2>Checkbox and Radio</h2>
+
+            <label>
+              <input
+                type="checkbox"
+                checked={subscribe}
+                onChange={(e) => setSubscribe(e.target.checked)}
+              />
+              Subscribe to newsletter
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                value="Male"
+                checked={gender === "Male"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              Male
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                value="Female"
+                checked={gender === "Female"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              Female
+            </label>
+
+            <p>Subscribed: {subscribe ? "Yes" : "No"}</p>
+            <p>Gender: {gender}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

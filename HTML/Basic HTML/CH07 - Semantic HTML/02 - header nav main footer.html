@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - header nav main footer.html
+    TOPIC: CH07 - Semantic HTML
+
+    GOAL:
+    - Build a full semantic page structure
+    - Properly use header, nav, main, footer
+    - Understand nesting rules
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH07 - Semantic Page Structure</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header, nav, main, footer {
+      border: 2px dashed #555;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    nav a {
+      margin-right: 15px;
+    }
+
+    code {
+      background: #f3f3f3;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       1) Header Section
+       ========================= -->
+
+  <!--
+    <header> usually contains:
+    - Logo
+    - Website title
+    - Navigation
+  -->
+  <header>
+    <h1>My Personal Website</h1>
+
+    <!-- =========================
+         Navigation Section
+         ========================= -->
+
+    <!--
+      <nav> contains navigation links
+      Usually placed inside header
+    -->
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- =========================
+       2) Main Content
+       ========================= -->
+
+  <!--
+    <main> contains the main content of the page.
+    Only ONE main per page.
+  -->
+  <main>
+
+    <h2>Welcome to My Website</h2>
+    <p>
+      This is the main content area.
+      Everything important goes here.
+    </p>
+
+    <section>
+      <h3>About Me</h3>
+      <p>
+        I am learning HTML step by step and building semantic pages.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       3) Footer Section
+       ========================= -->
+
+  <!--
+    <footer> usually contains:
+    - Copyright
+    - Contact info
+    - Links
+  -->
+  <footer>
+    <p>&copy; 2026 My Website</p>
+    <p>Email: example@email.com</p>
+  </footer>
+
+  <!-- =========================
+       Key Concepts
+       ========================= -->
+
+  <hr>
+
+  <h2>Key Concepts</h2>
+
+  <ul>
+    <li><code>&lt;header&gt;</code> = top section</li>
+    <li><code>&lt;nav&gt;</code> = navigation links</li>
+    <li><code>&lt;main&gt;</code> = main content (only one)</li>
+    <li><code>&lt;section&gt;</code> = grouping related content</li>
+    <li><code>&lt;footer&gt;</code> = bottom section</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Add another section inside main called “Projects”.</li>
+    <li>Add 2 more navigation links.</li>
+    <li>Add social media links inside footer.</li>
+  </ol>
+
+</body>
+</html>

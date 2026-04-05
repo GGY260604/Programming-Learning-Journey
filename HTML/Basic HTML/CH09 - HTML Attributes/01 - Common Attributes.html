@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Common Attributes.html
+    TOPIC: CH09 - HTML Attributes Deep Dive
+
+    GOAL:
+    - Understand what attributes are
+    - Learn global attributes
+    - Learn id, class, title
+    - Learn hidden and contenteditable
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH09 - Common Attributes</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .highlight { background-color: yellow; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH09 - Common HTML Attributes</h1>
+
+  <p>
+    Attributes provide additional information about elements.
+  </p>
+
+  <!-- =========================
+       1) What is an Attribute?
+       ========================= -->
+
+  <div class="box">
+    <!--
+      Syntax:
+      <tag attribute="value">
+
+      Example:
+      <a href="https://google.com">
+    -->
+
+    <p>
+      Example:
+      <code>&lt;a href="https://google.com"&gt;</code>
+    </p>
+  </div>
+
+  <!-- =========================
+       2) id Attribute
+       ========================= -->
+
+  <h2>1) id</h2>
+
+  <div class="box">
+    <!--
+      id:
+      - Must be unique in the page
+      - Used for CSS, JavaScript, anchor linking
+    -->
+
+    <p id="specialText">
+      This paragraph has an id called "specialText".
+    </p>
+
+    <a href="#specialText">Jump to Special Text</a>
+  </div>
+
+  <!-- =========================
+       3) class Attribute
+       ========================= -->
+
+  <h2>2) class</h2>
+
+  <div class="box">
+    <!--
+      class:
+      - Can be reused
+      - Used for grouping elements
+      - Commonly used in CSS
+    -->
+
+    <p class="highlight">This is highlighted using class.</p>
+    <p class="highlight">This is also highlighted.</p>
+  </div>
+
+  <!-- =========================
+       4) title Attribute
+       ========================= -->
+
+  <h2>3) title</h2>
+
+  <div class="box">
+    <!--
+      title:
+      - Shows tooltip when mouse hovers
+    -->
+
+    <p title="This is a tooltip message!">
+      Hover your mouse over this text.
+    </p>
+  </div>
+
+  <!-- =========================
+       5) hidden Attribute
+       ========================= -->
+
+  <h2>4) hidden</h2>
+
+  <div class="box">
+
+    <!-- hidden hides element from view -->
+    <p hidden>This text is hidden.</p>
+
+    <p>This text is visible.</p>
+  </div>
+
+  <!-- =========================
+       6) contenteditable
+       ========================= -->
+
+  <h2>5) contenteditable</h2>
+
+  <div class="box">
+    <!--
+      contenteditable:
+      - Allows user to edit content directly
+    -->
+    <p contenteditable="true">
+      You can edit this text directly in the browser.
+    </p>
+  </div>
+
+  <!-- =========================
+       Important Notes
+       ========================= -->
+
+  <h2>Important Notes</h2>
+
+  <ul>
+    <li><strong>id</strong> must be unique</li>
+    <li><strong>class</strong> can be reused</li>
+    <li><strong>title</strong> shows tooltip</li>
+    <li><strong>hidden</strong> hides element</li>
+    <li><strong>contenteditable</strong> makes element editable</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Create 3 paragraphs with same class.</li>
+    <li>Create a unique id and link to it.</li>
+    <li>Add title tooltip to a heading.</li>
+    <li>Make a div contenteditable.</li>
+  </ol>
+
+</body>
+</html>

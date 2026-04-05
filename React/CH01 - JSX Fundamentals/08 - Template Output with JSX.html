@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>08 - Template Output with JSX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      background-color: #f8fff8;
+      max-width: 420px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH01 - 08 - Template Output with JSX</h1>
+  <p>This file shows how JSX can display structured data nicely.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      JSX is often used like a template.
+
+      We combine:
+      - HTML-like structure
+      - dynamic JavaScript data
+
+      This makes UI code clearer and easier to understand.
+    */
+
+    const product = {
+      name: "Wireless Mouse",
+      price: 59.9,
+      inStock: true
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(
+      <div className="card">
+        <h2>Product Information</h2>
+        <p>Product Name: {product.name}</p>
+        <p>Price: RM {product.price}</p>
+        <p>Status: {product.inStock ? "In Stock" : "Out of Stock"}</p>
+      </div>
+    );
+  </script>
+</body>
+</html>

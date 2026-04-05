@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Inline CSS.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Learn inline CSS
+    - Understand style="" attribute
+    - Know when it is used
+    - Understand why it is not ideal for large projects
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - Inline CSS</title>
+</head>
+
+<body>
+
+  <h1>CH10 - Inline CSS</h1>
+
+  <!-- =========================
+       1) What is Inline CSS?
+       ========================= -->
+
+  <p>
+    Inline CSS means writing CSS directly inside an HTML element
+    using the <code>style</code> attribute.
+  </p>
+
+  <!-- =========================
+       2) Basic Example
+       ========================= -->
+
+  <!--
+    Syntax:
+    <tag style="property: value;">
+  -->
+
+  <h2>Basic Example</h2>
+
+  <p style="color: red;">
+    This text is red using inline CSS.
+  </p>
+
+  <p style="color: white; background-color: black; padding: 10px;">
+    This paragraph has multiple inline styles.
+  </p>
+
+  <button style="background-color: blue; color: white; padding: 8px;">
+    Styled Button
+  </button>
+
+  <!-- =========================
+       3) How It Works
+       ========================= -->
+
+  <hr>
+
+  <h2>How It Works</h2>
+
+  <ul>
+    <li><strong>style</strong> attribute contains CSS rules</li>
+    <li>Each rule: property: value;</li>
+    <li>Multiple rules separated by semicolon</li>
+  </ul>
+
+  <!-- =========================
+       4) Advantages
+       ========================= -->
+
+  <h2>Advantages</h2>
+
+  <ul>
+    <li>Quick testing</li>
+    <li>Small one-time styling</li>
+    <li>Email HTML sometimes requires inline CSS</li>
+  </ul>
+
+  <!-- =========================
+       5) Disadvantages
+       ========================= -->
+
+  <h2>Disadvantages</h2>
+
+  <ul>
+    <li>Messy code</li>
+    <li>Hard to maintain</li>
+    <li>Not reusable</li>
+    <li>Mixes structure and style</li>
+  </ul>
+
+  <!-- =========================
+       6) Important Concept
+       ========================= -->
+
+  <p>
+    Inline CSS has the <strong>highest priority</strong> in CSS.
+    (We will learn about priority later.)
+  </p>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Change button background to green.</li>
+    <li>Add font-size: 20px; to one paragraph.</li>
+    <li>Add border: 2px solid black; to a heading.</li>
+  </ol>
+
+</body>
+</html>

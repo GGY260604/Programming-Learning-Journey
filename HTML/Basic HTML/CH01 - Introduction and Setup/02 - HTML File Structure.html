@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - HTML File Structure.html
+    TOPIC: CH01 - Introduction & Setup
+
+    GOAL:
+    - Understand the basic structure of every HTML document
+    - Learn what <!DOCTYPE>, <html>, <head>, and <body> do
+    - Clearly see how browser reads an HTML file
+  -->
+
+  <!--
+    <meta charset="UTF-8">
+    - Tells the browser what character encoding to use
+    - UTF-8 supports most languages (English, Chinese, etc.)
+  -->
+  <meta charset="UTF-8" />
+
+  <!--
+    <meta name="viewport">
+    - Important for responsive design
+    - Makes page adapt to mobile screens
+    -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    <title>
+    - The text shown in the browser tab
+    - NOT visible inside the page body
+  -->
+  <title>CH01 - HTML File Structure</title>
+  
+  <!--
+    NOTE:
+    - We haven't learned CSS yet, but we use a tiny bit here
+      ONLY to make the demo easier to see.
+  -->
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #888; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       1) Main Structure Overview
+       ========================= -->
+
+  <h1>CH01 - HTML File Structure</h1>
+
+  <p>
+    Every HTML file follows this basic structure:
+  </p>
+
+  <div class="box">
+    <pre>
+&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt;
+    (meta information)
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    (visible content)
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+  </div>
+
+  <!-- =========================
+       2) Explanation of Each Part
+       ========================= -->
+
+  <p class="label">1) &lt;!DOCTYPE html&gt;</p>
+  <div class="box">
+    <p>
+      Tells the browser this is an HTML5 document.
+      Always put it at the top.
+    </p>
+  </div>
+
+  <p class="label">2) &lt;html&gt; ... &lt;/html&gt;</p>
+  <div class="box">
+    <p>
+      The root element of the page.
+      Everything must be inside this tag.
+    </p>
+  </div>
+
+  <p class="label">3) &lt;head&gt; ... &lt;/head&gt;</p>
+  <div class="box">
+    <p>
+      Contains metadata (information about the page).
+      Example: title, encoding, linked CSS files.
+      Content here is NOT visible on the page.
+    </p>
+  </div>
+
+  <p class="label">4) &lt;body&gt; ... &lt;/body&gt;</p>
+  <div class="box">
+    <p>
+      Contains everything visible to the user:
+      text, images, buttons, forms, etc.
+    </p>
+  </div>
+
+  <!-- =========================
+       3) Live Demonstration
+       ========================= -->
+
+  <p class="label">Live Demo:</p>
+
+  <div class="box">
+    <!--
+      Everything you see right now (headings, paragraphs, boxes)
+      is inside the <body> tag.
+    -->
+    <p>
+      This text is inside the <code>&lt;body&gt;</code>.
+    </p>
+  </div>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+  <ul>
+    <li>Forgetting &lt;!DOCTYPE html&gt;</li>
+    <li>Putting visible content inside &lt;head&gt;</li>
+    <li>Forgetting to close tags properly</li>
+    <li>Nesting tags incorrectly</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+  <ol>
+    <li>Change the &lt;title&gt; and observe the browser tab change.</li>
+    <li>Add a new paragraph below the live demo.</li>
+    <li>Delete the meta viewport tag and resize your browser — observe difference.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - What is HTML.html
+    TOPIC: CH01 - Introduction & Setup
+
+    GOAL:
+    - Understand what HTML is (and what it is NOT)
+    - See how HTML creates page structure/content
+    - Run your first “executable note” HTML file in the browser
+
+    HOW TO RUN:
+    - Save this file as: 01 - What is HTML.html
+    - Double-click it to open in a browser (Chrome/Edge)
+    - Edit it in VS Code, save, then refresh the browser
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH01 - What is HTML</title>
+
+  <!--
+    NOTE:
+    - We haven't learned CSS yet, but we use a tiny bit here
+      ONLY to make the demo easier to see.
+  -->
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #999; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .hint { font-size: 14px; opacity: 0.85; }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       1) Header / Lesson Info
+       ========================= -->
+  <h1>CH01 - What is HTML?</h1>
+  <p>
+    This file demonstrates: <code>HTML = page structure + content</code>
+  </p>
+  <p class="hint">
+    Tip: Open this file in your editor and browser side-by-side. Change text, save, refresh.
+  </p>
+
+  <!-- =========================
+       2) Concept Explanation
+       ========================= -->
+  <!--
+    EXPLANATION:
+    - HTML stands for HyperText Markup Language.
+    - HTML is NOT a programming language.
+      It is a markup language used to describe the structure/content of a webpage.
+    - HTML uses "tags" like <h1>, <p>, <img> to tell the browser what something is.
+      Example:
+        <h1> means "main heading"
+        <p> means "paragraph"
+  -->
+  <div class="box">
+    <p><strong>HTML:</strong> builds the content and structure (text, headings, buttons, forms).</p>
+    <p><strong>CSS:</strong> controls how it looks (colors, layout, spacing).</p>
+    <p><strong>JavaScript:</strong> controls behavior (click actions, dynamic updates).</p>
+  </div>
+
+  <!-- =========================
+       3) Demo Area
+       ========================= -->
+  <p class="label">Demo: HTML is structure</p>
+
+  <div class="box">
+    <!--
+      Below are simple HTML elements:
+      - <h2> is a heading (smaller than h1)
+      - <p> is a paragraph
+      - <ul> is an unordered list (bullet list)
+      - <li> is a list item
+    -->
+
+    <h2>My First Structured Content</h2>
+    <p>
+      This is a paragraph. HTML tags tell the browser what this text means.
+      It's not about styling yet — it's about structure.
+    </p>
+
+    <p>Here is a bullet list (unordered list):</p>
+    <ul>
+      <li>HTML = structure</li>
+      <li>CSS = style</li>
+      <li>JavaScript = behavior</li>
+    </ul>
+  </div>
+
+  <!-- =========================
+       4) Notes / Common Mistakes
+       ========================= -->
+  <!--
+    COMMON MISTAKES:
+    1) Forgetting closing tags
+       Example: <p> must be closed with </p>
+       (Some tags like <img> do not need a closing tag, you'll learn later.)
+    2) Writing tags incorrectly
+       Example: <h1> (correct) vs < h1 > (wrong)
+    3) Mixing up "content" with "style"
+       - In HTML notes, focus on meaning/structure first.
+  -->
+  <p class="label">Notes / Common Mistakes:</p>
+  <ul>
+    <li>Most tags come in pairs: <code>&lt;p&gt;...&lt;/p&gt;</code></li>
+    <li>Spacing inside tag brackets breaks it: <code>&lt; h1 &gt;</code> is wrong.</li>
+    <li>HTML is about meaning: headings, paragraphs, lists, forms.</li>
+  </ul>
+  
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+  <!--
+    PRACTICE (do these now):
+    1) Change the <h2> text to your own title.
+    2) Add a new <p> paragraph below the list explaining why you learn HTML.
+    3) Add one more <li> item to the list.
+    4) Save and refresh browser to see changes.
+  -->
+  <p class="label">Mini Practice:</p>
+  <ol>
+    <li>Change the <code>&lt;h2&gt;</code> title to something about you.</li>
+    <li>Add a new paragraph under the list.</li>
+    <li>Add one more bullet item.</li>
+    <li>Save → Refresh → Observe the change.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>08 - Mini Registration Form</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        display: block;
+        margin: 10px 0;
+        padding: 8px;
+      }
+
+      button {
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH07 - 08 - Mini Registration Form</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [form, setForm] = React.useState({
+          username: "",
+          email: ""
+        });
+
+        function handleChange(e) {
+          setForm({
+            ...form,
+            [e.target.name]: e.target.value
+          });
+        }
+
+        function submitForm(e) {
+          e.preventDefault();
+          alert(
+            "Username: " + form.username +
+            "\nEmail: " + form.email
+          );
+        }
+
+        return (
+          <form onSubmit={submitForm}>
+            <h2>Registration Form</h2>
+
+            <input
+              name="username"
+              placeholder="Username"
+              value={form.username}
+              onChange={handleChange}
+            />
+
+            <input
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+            />
+
+            <button type="submit">
+              Register
+            </button>
+          </form>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

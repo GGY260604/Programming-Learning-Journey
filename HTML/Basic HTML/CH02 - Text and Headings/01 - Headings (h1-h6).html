@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Headings (h1-h6).html
+    TOPIC: CH02 - Text & Headings
+
+    GOAL:
+    - Learn about heading tags: <h1> to <h6>
+    - Understand their hierarchy (importance level)
+    - See visual size differences
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH02 - Headings (h1-h6)</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #666; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eef7ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       1) Introduction
+       ========================= -->
+
+  <h1>CH02 - Headings (h1 to h6)</h1>
+
+  <p>
+    HTML provides six levels of headings:
+    <code>&lt;h1&gt;</code> (most important) to
+    <code>&lt;h6&gt;</code> (least important).
+  </p>
+
+  <!-- =========================
+       2) Live Demonstration
+       ========================= -->
+
+  <p class="label">Live Demo:</p>
+
+  <div class="box">
+
+    <!-- h1 is usually the main title of the page -->
+    <h1>This is Heading 1</h1>
+
+    <!-- h2 is a subheading under h1 -->
+    <h2>This is Heading 2</h2>
+
+    <!-- h3 continues hierarchy -->
+    <h3>This is Heading 3</h3>
+
+    <h4>This is Heading 4</h4>
+    <h5>This is Heading 5</h5>
+    <h6>This is Heading 6</h6>
+
+  </div>
+
+  <div class="hint">
+    Notice:
+    - The size gets smaller from h1 → h6.
+    - The meaning (importance) also decreases.
+  </div>
+
+  <!-- =========================
+       3) Important Concept
+       ========================= -->
+
+  <p class="label">Important Concept: Hierarchy</p>
+
+  <div class="box">
+    <!--
+      Headings should follow a logical order.
+      Correct example:
+      h1 → h2 → h3
+
+      Avoid:
+      h1 → h4 → h2 (skipping levels randomly)
+    -->
+    <h2>Website Title (h1 normally)</h2>
+    <h3>Section Title (h2 normally)</h3>
+    <h4>Subsection Title (h3 normally)</h4>
+  </div>
+
+  <!-- =========================
+       4) Why Headings Matter
+       ========================= -->
+
+  <p class="label">Why Are Headings Important?</p>
+
+  <ul>
+    <li>They organize content clearly.</li>
+    <li>They improve readability.</li>
+    <li>Search engines use them to understand structure (SEO).</li>
+    <li>Screen readers rely on heading hierarchy.</li>
+  </ul>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using multiple <code>&lt;h1&gt;</code> randomly.</li>
+    <li>Skipping levels (like h1 → h4).</li>
+    <li>Using headings just to make text bigger (use CSS later instead).</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Replace the heading text with your own website title.</li>
+    <li>Create a proper structure:
+        <ul>
+          <li>One h1</li>
+          <li>Two h2</li>
+          <li>One h3 under each h2</li>
+        </ul>
+    </li>
+    <li>Save and observe the visual hierarchy.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05 - Edit Items in List</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH12 - 05 - Edit Items in List</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [items, setItems] = React.useState(["A", "B", "C"]);
+
+        function editItem(index) {
+          const newItems = [...items];
+          newItems[index] = newItems[index] + "!";
+          setItems(newItems);
+        }
+
+        return (
+          <ul>
+            {items.map((item, index) => (
+              <li key={index}>
+                {item}
+
+                <button onClick={() => editItem(index)}>
+                  Edit
+                </button>
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 - Updating Object State</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      input {
+        padding: 8px;
+        margin-bottom: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH12 - 01 - Updating Object State</h1>
+
+    <div id="root"></div>
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [user, setUser] = React.useState({
+          name: "",
+          age: ""
+        });
+
+        function handleChange(e) {
+          setUser({
+            ...user,
+            [e.target.name]: e.target.value
+          });
+        }
+
+        return (
+          <div>
+            <input
+              name="name"
+              placeholder="Name"
+              value={user.name}
+              onChange={handleChange}
+            />
+
+            <input
+              name="age"
+              placeholder="Age"
+              value={user.age}
+              onChange={handleChange}
+            />
+
+            <p>Name: {user.name}</p>
+            <p>Age: {user.age}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

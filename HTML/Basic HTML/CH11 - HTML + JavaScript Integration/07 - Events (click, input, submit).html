@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Events (click, input, submit).html
+    TOPIC: CH11 - HTML + JavaScript Integration
+
+    GOAL:
+    - Understand events
+    - Learn click event
+    - Learn input event
+    - Learn submit event
+    - Use preventDefault()
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Events</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH11 - Events (click, input, submit)</h1>
+
+  <!-- =========================
+       1) Click Event
+       ========================= -->
+
+  <div class="box">
+    <h2>1) Click Event</h2>
+
+    <button id="clickBtn">Click Me</button>
+    <p id="clickOutput"></p>
+  </div>
+
+  <!-- =========================
+       2) Input Event
+       ========================= -->
+
+  <div class="box">
+    <h2>2) Input Event</h2>
+
+    <input type="text" id="nameInput" placeholder="Type your name">
+    <p id="liveOutput"></p>
+  </div>
+
+  <!-- =========================
+       3) Submit Event
+       ========================= -->
+
+  <div class="box">
+    <h2>3) Submit Event</h2>
+
+    <form id="myForm">
+      <input type="text" id="emailInput" placeholder="Enter email">
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="formOutput"></p>
+  </div>
+
+  <!-- =========================
+       JavaScript Section
+       ========================= -->
+
+  <script>
+
+    // =========================
+    // Click Event
+    // =========================
+
+    const clickBtn = document.getElementById("clickBtn");
+    const clickOutput = document.getElementById("clickOutput");
+
+    clickBtn.addEventListener("click", function() {
+      clickOutput.textContent = "Button was clicked!";
+    });
+
+    // =========================
+    // Input Event
+    // =========================
+
+    const nameInput = document.getElementById("nameInput");
+    const liveOutput = document.getElementById("liveOutput");
+
+    nameInput.addEventListener("input", function() {
+      liveOutput.textContent = "Hello, " + nameInput.value;
+    });
+
+    // =========================
+    // Submit Event
+    // =========================
+
+    const myForm = document.getElementById("myForm");
+    const formOutput = document.getElementById("formOutput");
+    const emailInput = document.getElementById("emailInput");
+
+    myForm.addEventListener("submit", function(event) {
+
+      // Prevent page refresh
+      event.preventDefault();
+
+      formOutput.textContent =
+        "Form submitted with email: " + emailInput.value;
+
+    });
+
+  </script>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Concepts Learned</h2>
+
+  <ul>
+    <li><strong>click</strong> → when button clicked</li>
+    <li><strong>input</strong> → when user types</li>
+    <li><strong>submit</strong> → when form submitted</li>
+    <li><strong>preventDefault()</strong> → stops default behavior</li>
+  </ul>
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Change background color when button clicked.</li>
+    <li>Count number of characters typed in input.</li>
+    <li>Validate email before submission.</li>
+  </ol>
+
+</body>
+</html>

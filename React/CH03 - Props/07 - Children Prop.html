@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07 - Children Prop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .wrapper {
+      margin-top: 16px;
+      padding: 16px;
+      border: 2px dashed #999;
+      border-radius: 8px;
+      background-color: #fffdf7;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 07 - Children Prop</h1>
+  <p>This file introduces the special children prop.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      children is a special prop in React.
+
+      It represents whatever is placed between the opening
+      and closing tags of a component.
+    */
+
+    function Box({ title, children }) {
+      return (
+        <div className="wrapper">
+          <h2>{title}</h2>
+          <div>{children}</div>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Box title="Simple Box">
+            <p>This paragraph is passed as children.</p>
+          </Box>
+
+          <Box title="Another Box">
+            <button>Click Me</button>
+          </Box>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

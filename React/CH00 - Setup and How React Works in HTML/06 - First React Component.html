@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06 - First React Component</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      background-color: #fffef8;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 06 - First React Component</h1>
+  <p>
+    This file shows the difference between writing JSX directly and putting it inside a component.
+  </p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      A component is a function that returns JSX.
+
+      React components usually start with uppercase letters.
+      Example: WelcomeCard
+    */
+    function WelcomeCard() {
+      return (
+        <div className="card">
+          <h2>My First Component</h2>
+          <p>
+            This UI is returned by a JavaScript function called a React component.
+          </p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    /*
+      To use a component, write it like an HTML tag:
+      <WelcomeCard />
+    */
+    root.render(<WelcomeCard />);
+  </script>
+</body>
+</html>

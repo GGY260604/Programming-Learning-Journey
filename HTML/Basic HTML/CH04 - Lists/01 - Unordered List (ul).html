@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Unordered List (ul).html
+    TOPIC: CH04 - Lists
+
+    GOAL:
+    - Learn <ul> (unordered list)
+    - Learn <li> (list item)
+    - Understand list nesting (list inside list)
+    - Learn basic list styling using "type" (legacy) and minimal CSS (for visibility)
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH04 - Unordered List (ul)</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH04 - Unordered List (ul)</h1>
+
+  <p>
+    An unordered list uses <code>&lt;ul&gt;</code> and each item uses
+    <code>&lt;li&gt;</code>.
+    It shows bullet points by default.
+  </p>
+
+  <!-- =========================
+       1) Basic Unordered List
+       ========================= -->
+
+  <p class="label">Basic Unordered List:</p>
+
+  <div class="box">
+    <!--
+      Structure:
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    -->
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </div>
+
+  <div class="hint">
+    Tip: Use <code>&lt;ul&gt;</code> when order does NOT matter.
+  </div>
+
+  <!-- =========================
+       2) Nested Unordered List
+       ========================= -->
+
+  <p class="label">Nested List (List inside a List):</p>
+
+  <div class="box">
+    <!--
+      A nested list is placed inside an <li>.
+      This is common for menus and categories.
+    -->
+    <ul>
+      <li>
+        Frontend
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </li>
+      <li>
+        Backend
+        <ul>
+          <li>Node.js</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- =========================
+       3) Bullet Style (simple demo)
+       ========================= -->
+
+  <p class="label">Bullet Style (CSS Demo):</p>
+
+  <div class="box">
+    <!--
+      We haven't learned CSS formally yet.
+      This is just to show that bullets can change.
+    -->
+    <ul style="list-style-type: square;">
+      <li>Square bullet</li>
+      <li>Square bullet</li>
+    </ul>
+
+    <ul style="list-style-type: circle;">
+      <li>Circle bullet</li>
+      <li>Circle bullet</li>
+    </ul>
+  </div>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Putting text directly inside <code>&lt;ul&gt;</code> without <code>&lt;li&gt;</code></li>
+    <li>Forgetting to close <code>&lt;li&gt;</code> tags</li>
+    <li>Nesting a list outside an <code>&lt;li&gt;</code> (should be inside)</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a list of your favorite foods (at least 5 items).</li>
+    <li>Create a nested list: “Drinks” and “Foods” categories.</li>
+    <li>Change bullet style to <code>square</code> using inline style.</li>
+  </ol>
+
+</body>
+</html>

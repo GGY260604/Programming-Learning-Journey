@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - thead tbody tfoot.html
+    TOPIC: CH05 - Tables
+
+    GOAL:
+    - Learn <thead>
+    - Learn <tbody>
+    - Learn <tfoot>
+    - Understand semantic table structure
+    - Prepare for real-world professional usage
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH05 - thead, tbody, tfoot</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    thead {
+      background-color: #f2f2f2;
+    }
+
+    tfoot {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH05 - thead, tbody, tfoot</h1>
+
+  <p>
+    Professional tables are divided into sections:
+    <code>&lt;thead&gt;</code>,
+    <code>&lt;tbody&gt;</code>,
+    <code>&lt;tfoot&gt;</code>.
+  </p>
+
+  <!-- =========================
+       1) Basic Example
+       ========================= -->
+
+  <p class="label">Structured Table Example:</p>
+
+  <div class="box">
+
+    <!--
+      Structure:
+
+      <table>
+        <thead> → header row(s)
+        <tbody> → main data
+        <tfoot> → summary / total
+      </table>
+    -->
+
+    <table>
+
+      <!-- Header Section -->
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+
+      <!-- Body Section -->
+      <tbody>
+        <tr>
+          <td>Laptop</td>
+          <td>$1000</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Mouse</td>
+          <td>$25</td>
+          <td>5</td>
+        </tr>
+      </tbody>
+
+      <!-- Footer Section -->
+      <tfoot>
+        <tr>
+          <td>Total Items</td>
+          <td colspan="2">7</td>
+        </tr>
+      </tfoot>
+
+    </table>
+
+  </div>
+
+  <!-- =========================
+       2) Why Use These Sections?
+       ========================= -->
+
+  <ul>
+    <li><strong>thead</strong> = header content</li>
+    <li><strong>tbody</strong> = main data</li>
+    <li><strong>tfoot</strong> = summary / total</li>
+    <li>Improves readability and organization</li>
+    <li>Helps screen readers and accessibility</li>
+    <li>Useful for large tables with scrolling</li>
+  </ul>
+
+  <!-- =========================
+       3) Important Notes
+       ========================= -->
+
+  <p class="label">Important Notes:</p>
+
+  <ul>
+    <li>These tags are semantic (meaning-based)</li>
+    <li>They do NOT change layout by default</li>
+    <li>Order in HTML5 can be flexible (tfoot can appear before tbody)</li>
+    <li>Use them in real projects for clean structure</li>
+  </ul>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Putting header rows inside tbody</li>
+    <li>Forgetting to close sections properly</li>
+    <li>Using tables for page layout</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create a student score table using all three sections.</li>
+    <li>Add a footer row showing average score.</li>
+    <li>Use colspan inside tfoot.</li>
+  </ol>
+
+</body>
+</html>

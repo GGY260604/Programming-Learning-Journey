@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>06 - State with Objects</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      button {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH05 - 06 - State with Objects</h1>
+
+    <div id="root"></div>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [user, setUser] = React.useState({
+          name: "Galen",
+          age: 20
+        });
+
+        function increaseAge() {
+          setUser({
+            ...user,
+            age: user.age + 1
+          });
+        }
+
+        return (
+          <div>
+            <h2>{user.name}</h2>
+            <h2>{user.age}</h2>
+
+            <button onClick={increaseAge}>
+              Increase Age
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>

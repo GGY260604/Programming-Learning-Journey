@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Labels, Placeholder, Required.html
+    TOPIC: CH06 - Forms
+
+    GOAL:
+    - Learn <label>
+    - Understand for attribute
+    - Learn placeholder
+    - Learn required
+    - Improve accessibility
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH06 - Labels and Validation</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 15px; margin-top: 12px; border-radius: 8px; }
+    .label-title { font-weight: bold; margin-top: 18px; }
+    input { display: block; margin-bottom: 12px; padding: 6px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH06 - Labels, Placeholder, Required</h1>
+
+  <!-- =========================
+       1) Proper Form Example
+       ========================= -->
+
+  <p class="label-title">Professional Form Example:</p>
+
+  <div class="box">
+
+    <form action="#" method="POST">
+
+      <!--
+        for attribute connects label to input id
+        Clicking label focuses input
+      -->
+
+      <label for="username">Username:</label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username"
+        placeholder="Enter your username"
+        required
+      >
+
+      <label for="email">Email:</label>
+      <input 
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@email.com"
+        required
+      >
+
+      <label for="password">Password:</label>
+      <input 
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Minimum 6 characters"
+        required
+      >
+
+      <input type="submit" value="Register">
+
+    </form>
+
+  </div>
+
+  <!-- =========================
+       2) Explanation
+       ========================= -->
+
+  <ul>
+    <li><strong>&lt;label&gt;</strong> improves accessibility</li>
+    <li><strong>for</strong> must match input <code>id</code></li>
+    <li><strong>placeholder</strong> shows hint text</li>
+    <li><strong>required</strong> forces user to fill input</li>
+  </ul>
+
+  <!-- =========================
+       3) Why Label Is Important
+       ========================= -->
+
+  <p class="label-title">Why Use Label?</p>
+
+  <ul>
+    <li>Clickable label focuses input</li>
+    <li>Helps screen readers</li>
+    <li>Makes forms accessible</li>
+  </ul>
+
+  <!-- =========================
+       4) Important Concept
+       ========================= -->
+
+  <p class="label-title">id vs name:</p>
+
+  <ul>
+    <li><strong>id</strong> = used for linking label & CSS/JS</li>
+    <li><strong>name</strong> = used when sending data to backend</li>
+  </ul>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <p class="label-title">Common Mistakes:</p>
+
+  <ul>
+    <li>Label without for attribute</li>
+    <li>for does not match id</li>
+    <li>Relying only on placeholder without label</li>
+    <li>Missing required when necessary</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <ol>
+    <li>Add a phone number field.</li>
+    <li>Add required to all inputs.</li>
+    <li>Remove label and test accessibility.</li>
+    <li>Change method to GET and observe URL behavior.</li>
+  </ol>
+
+</body>
+</html>

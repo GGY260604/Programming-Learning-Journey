@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Form Basics.html
+    TOPIC: CH06 - Forms
+
+    GOAL:
+    - Learn <form>
+    - Learn <input>
+    - Understand name attribute
+    - Understand action and method
+    - See how forms collect data
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH06 - Form Basics</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 15px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    input { margin-bottom: 10px; display: block; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH06 - Form Basics</h1>
+
+  <p>
+    Forms are used to collect user input.
+  </p>
+
+  <!-- =========================
+       1) Basic Form Structure
+       ========================= -->
+
+  <p class="label">Basic Form Example:</p>
+
+  <div class="box">
+
+    <!--
+      action = where the form data is sent
+      method = how the data is sent (GET or POST)
+    -->
+
+    <form action="#" method="GET">
+
+      <!-- name attribute is important for backend -->
+      <label>Username:</label>
+      <input type="text" name="username">
+
+      <label>Password:</label>
+      <input type="password" name="password">
+
+      <input type="submit" value="Login">
+
+    </form>
+
+  </div>
+
+  <!-- =========================
+       2) Explanation
+       ========================= -->
+
+  <ul>
+    <li><strong>&lt;form&gt;</strong> = container for form elements</li>
+    <li><strong>action</strong> = destination (server URL)</li>
+    <li><strong>method</strong> = GET or POST</li>
+    <li><strong>&lt;input&gt;</strong> = input field</li>
+    <li><strong>name</strong> = key used when sending data</li>
+  </ul>
+
+  <!-- =========================
+       3) GET vs POST
+       ========================= -->
+
+  <p class="label">GET vs POST:</p>
+
+  <div class="box">
+    <p><strong>GET:</strong> Data appears in URL (visible)</p>
+    <p><strong>POST:</strong> Data sent in request body (hidden)</p>
+  </div>
+
+  <!-- =========================
+       4) Important Concepts
+       ========================= -->
+
+  <ul>
+    <li>Every input should have a <code>name</code></li>
+    <li>Submit button sends data</li>
+    <li>Forms connect frontend to backend</li>
+  </ul>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting name attribute</li>
+    <li>Using GET for sensitive data</li>
+    <li>Missing submit button</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Add an Email field.</li>
+    <li>Add an Age field.</li>
+    <li>Change method to POST.</li>
+    <li>Observe URL when using GET.</li>
+  </ol>
+
+</body>
+</html>

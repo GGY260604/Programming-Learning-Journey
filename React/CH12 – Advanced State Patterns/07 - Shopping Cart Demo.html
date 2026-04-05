@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>07 - Shopping Cart Demo</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 24px;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CH12 - 07 - Shopping Cart Demo</h1>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [cart, setCart] = React.useState([]);
+
+        function addItem(name) {
+          setCart([...cart, name]);
+        }
+
+        return (
+          <div>
+            <button onClick={() => addItem("Apple")}>
+              Add Apple
+            </button>
+
+            <button onClick={() => addItem("Orange")}>
+              Add Orange
+            </button>
+
+            <h3>Cart</h3>
+
+            <ul>
+              {cart.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

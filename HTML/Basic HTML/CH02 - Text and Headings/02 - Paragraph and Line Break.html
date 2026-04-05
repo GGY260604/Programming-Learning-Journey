@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Paragraph and Line Break.html
+    TOPIC: CH02 - Text & Headings
+
+    GOAL:
+    - Understand <p> (paragraph)
+    - Understand <br> (line break)
+    - Learn the difference between structure and spacing
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH02 - Paragraph and Line Break</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #666; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+    .hint { background: #eefbe7; padding: 8px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       1) Introduction
+       ========================= -->
+
+  <h1>CH02 - Paragraph and Line Break</h1>
+
+  <p>
+    In HTML, text is organized using:
+    <code>&lt;p&gt;</code> for paragraphs and
+    <code>&lt;br&gt;</code> for line breaks.
+  </p>
+
+  <!-- =========================
+       2) Paragraph Demo
+       ========================= -->
+
+  <p class="label">Paragraph (&lt;p&gt;) Demo:</p>
+
+  <div class="box">
+
+    <!-- Each <p> creates a separate paragraph block -->
+    <p>This is the first paragraph.</p>
+
+    <p>This is the second paragraph.</p>
+
+    <p>
+      Even if you press Enter many times
+      in your code,
+      the browser ignores extra spaces.
+    </p>
+
+  </div>
+
+  <div class="hint">
+    Notice:
+    Each &lt;p&gt; automatically creates vertical spacing before and after it.
+  </div>
+
+  <!-- =========================
+       3) Line Break Demo
+       ========================= -->
+
+  <p class="label">Line Break (&lt;br&gt;) Demo:</p>
+
+  <div class="box">
+
+    <!-- <br> forces a new line without creating a new paragraph -->
+    <p>
+      This is line one.<br>
+      This is line two (after br).<br>
+      This is line three.
+    </p>
+
+  </div>
+
+  <div class="hint">
+    Important:
+    - &lt;br&gt; does NOT create a new paragraph.
+    - It only moves content to the next line.
+  </div>
+
+  <!-- =========================
+       4) Key Differences
+       ========================= -->
+
+  <p class="label">Difference Between &lt;p&gt; and &lt;br&gt;:</p>
+
+  <ul>
+    <li><strong>&lt;p&gt;</strong> = a block of text (new section)</li>
+    <li><strong>&lt;br&gt;</strong> = just move to next line</li>
+    <li>Use &lt;p&gt; for proper structure</li>
+    <li>Use &lt;br&gt; only when necessary (like poetry or addresses)</li>
+  </ul>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using many &lt;br&gt; to create spacing (wrong way)</li>
+    <li>Forgetting to close &lt;p&gt; tag</li>
+    <li>Thinking pressing Enter in code creates line breaks (it doesn't)</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Create three separate paragraphs about yourself.</li>
+    <li>Write your home address using &lt;br&gt; to break lines.</li>
+    <li>Try removing &lt;br&gt; and observe what happens.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - div vs semantic tags.html
+    TOPIC: CH07 - Semantic HTML
+
+    GOAL:
+    - Understand what "semantic HTML" means
+    - See the difference between <div> (non-semantic) and semantic tags
+    - Learn why semantic tags matter (readability, SEO, accessibility)
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH07 - div vs semantic tags</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    .mini { font-size: 14px; opacity: 0.85; }
+    .grid { display: grid; gap: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH07 - Semantic HTML</h1>
+  <p>
+    <strong>Semantic</strong> means: tags that describe the meaning of the content.
+  </p>
+
+  <!-- =========================
+       1) Non-Semantic Example (div)
+       ========================= -->
+
+  <p class="label">Non-Semantic Layout (using div only):</p>
+  <div class="box">
+    <!--
+      Problem:
+      - Browser and screen readers don't know what each section is.
+      - Humans must guess by reading class names (or structure).
+    -->
+    <div class="box">
+      <p><strong>div (header area)</strong></p>
+      <p class="mini">This could be a header, but the tag doesn't say so.</p>
+    </div>
+
+    <div class="box">
+      <p><strong>div (main content)</strong></p>
+      <p class="mini">This could be the main page content.</p>
+    </div>
+
+    <div class="box">
+      <p><strong>div (footer area)</strong></p>
+      <p class="mini">This could be a footer, but the tag doesn't say so.</p>
+    </div>
+  </div>
+
+  <!-- =========================
+       2) Semantic Example
+       ========================= -->
+
+  <p class="label">Semantic Layout (recommended):</p>
+
+  <div class="box">
+    <!--
+      Semantic tags clearly describe each page section.
+      This improves:
+      - Readability (for humans)
+      - Accessibility (screen readers)
+      - SEO (search engines understand structure)
+    -->
+
+    <header class="box">
+      <h2>header</h2>
+      <p class="mini">Top area: logo, title, navigation</p>
+    </header>
+
+    <main class="box">
+      <h2>main</h2>
+      <p class="mini">Main content of the page (usually only one main per page)</p>
+    </main>
+
+    <footer class="box">
+      <h2>footer</h2>
+      <p class="mini">Bottom area: copyright, links, contact</p>
+    </footer>
+  </div>
+
+  <!-- =========================
+       3) Common Semantic Tags
+       ========================= -->
+
+  <p class="label">Common Semantic Tags:</p>
+
+  <div class="box grid">
+    <div><code>&lt;header&gt;</code> — page/section header</div>
+    <div><code>&lt;nav&gt;</code> — navigation links</div>
+    <div><code>&lt;main&gt;</code> — main content</div>
+    <div><code>&lt;section&gt;</code> — a section of content</div>
+    <div><code>&lt;article&gt;</code> — an independent article/post</div>
+    <div><code>&lt;aside&gt;</code> — side content (sidebar, notes)</div>
+    <div><code>&lt;footer&gt;</code> — footer area</div>
+  </div>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+  <ul>
+    <li>Using only <code>&lt;div&gt;</code> everywhere even when semantic tags fit</li>
+    <li>Using multiple <code>&lt;main&gt;</code> tags (usually only one per page)</li>
+    <li>Thinking semantic tags change style (they don’t — CSS does)</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+  <ol>
+    <li>Create a simple page layout using <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+    <li>Add a <code>&lt;nav&gt;</code> inside header with 3 links.</li>
+    <li>Add a <code>&lt;section&gt;</code> inside main for “About Me”.</li>
+  </ol>
+
+</body>
+</html>

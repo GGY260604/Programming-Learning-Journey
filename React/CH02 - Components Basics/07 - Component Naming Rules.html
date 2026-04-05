@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07 - Component Naming Rules</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .rules {
+      margin-top: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      background-color: #fffef8;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH02 - 07 - Component Naming Rules</h1>
+  <p>This file explains how React component names should be written.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      React component names should start with an uppercase letter.
+
+      Good:
+      - WelcomeCard
+      - UserProfile
+      - App
+
+      Not recommended for components:
+      - welcomeCard
+      - userProfile
+
+      Why?
+      Because lowercase names are treated like normal HTML tags.
+    */
+
+    function GoodComponent() {
+      return (
+        <div className="rules">
+          <h2>Component Naming Rules</h2>
+          <ul>
+            <li>Use PascalCase for component names.</li>
+            <li>Start with an uppercase letter.</li>
+            <li>Give meaningful names based on UI purpose.</li>
+          </ul>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<GoodComponent />);
+  </script>
+</body>
+</html>

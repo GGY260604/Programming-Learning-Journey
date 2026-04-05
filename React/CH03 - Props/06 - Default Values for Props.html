@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06 - Default Values for Props</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .box {
+      margin-top: 12px;
+      padding: 16px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      background-color: #fcfcfc;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH03 - 06 - Default Values for Props</h1>
+  <p>This file shows how to give default values when a prop is missing.</p>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      Default values help prevent missing data issues.
+
+      We can assign defaults during destructuring.
+    */
+
+    function GreetingCard({ name = "Guest", message = "Welcome to React!" }) {
+      return (
+        <div className="box">
+          <h2>Hello, {name}</h2>
+          <p>{message}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <GreetingCard name="Galen" message="Keep learning and practicing." />
+          <GreetingCard name="Alice" />
+          <GreetingCard />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

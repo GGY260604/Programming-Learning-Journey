@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Loyalty Program</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f0eb;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    .mobile-container {
+      width: 100%;
+      min-height: 100%;
+      background: #f5f0eb;
+      overflow-y: auto;
+      padding-bottom: 40px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #6b4423 0%, #3d2517 100%);
+      color: #fff;
+      padding: 24px 50px;
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .greeting {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .user-name {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .shop-name {
+      font-size: 13px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Points Card */
+    .points-card {
+      margin: -30px 20px 24px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      position: relative;
+      z-index: 2;
+    }
+
+    .points-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .points-label {
+      font-size: 13px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .points-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: #d4a574;
+      line-height: 1;
+    }
+
+    .points-suffix {
+      font-size: 20px;
+      color: #999;
+      margin-left: 4px;
+    }
+
+    /* Current Level Badge */
+    .current-level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px;
+      background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+
+    .level-icon {
+      font-size: 32px;
+    }
+
+    .level-info {
+      text-align: left;
+    }
+
+    .level-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.9);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .level-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+    }
+
+    /* Progress Section */
+    .progress-section {
+      margin-bottom: 24px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .progress-label {
+      font-size: 14px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .progress-points {
+      font-size: 14px;
+      color: #d4a574;
+      font-weight: 700;
+    }
+
+    .progress-bar {
+      height: 12px;
+      background: #e8e0d8;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #d4a574 0%, #c99a68 100%);
+      border-radius: 20px;
+      transition: width 0.6s ease;
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .next-level-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding: 12px;
+      background: #faf8f6;
+      border-radius: 12px;
+    }
+
+    .next-level-text {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .next-level-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #6b4423;
+    }
+
+    /* Levels Timeline */
+    .levels-section {
+      padding: 0 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #3d2517;
+      margin-bottom: 20px;
+      padding-left: 4px;
+    }
+
+    .levels-timeline {
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 19px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: #e8e0d8;
+    }
+
+    .level-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .level-marker {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #e8e0d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .level-item.achieved .level-marker {
+      border-color: #d4a574;
+      background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+      box-shadow: 0 4px 12px rgba(212,165,116,0.3);
+    }
+
+    .level-item.current .level-marker {
+      border-color: #d4a574;
+      border-width: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212,165,116,0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(212,165,116,0); }
+    }
+
+    .level-details {
+      flex: 1;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+
+    .level-item.current .level-details {
+      box-shadow: 0 4px 16px rgba(212,165,116,0.2);
+      border: 2px solid #d4a574;
+    }
+
+    .level-item:hover .level-details {
+      transform: translateX(4px);
+    }
+
+    .level-tier {
+      font-size: 17px;
+      font-weight: 700;
+      color: #3d2517;
+      margin-bottom: 4px;
+    }
+
+    .level-requirement {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .level-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .benefit-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      background: #faf8f6;
+      color: #6b4423;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .level-item.achieved .benefit-tag {
+      background: #f4ede4;
+      color: #d4a574;
+    }
+
+    /* Rewards Section */
+    .rewards-section {
+      padding: 0 20px;
+      margin-bottom: 24px;
+    }
+
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .reward-card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .reward-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .reward-icon {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .reward-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #3d2517;
+      margin-bottom: 4px;
+    }
+
+    .reward-cost {
+      font-size: 16px;
+      font-weight: 700;
+      color: #d4a574;
+    }
+
+    .reward-cost-label {
+      font-size: 11px;
+      color: #999;
+    }
+
+    .reward-card.locked {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .reward-card.locked:hover {
+      transform: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      font-size: 13px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 12px;
+      background: #faf8f6;
+      border-radius: 12px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #d4a574;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="mobile-container"><!-- Header -->
+   <header class="header">
+    <div class="header-content">
+     <div class="greeting">
+      Welcome back,
+     </div>
+     <h1 class="user-name" id="user-name">GUI GUANYU</h1>
+     <div class="shop-name" id="shop-name">
+      Campus Bean Rewards
+     </div>
+    </div>
+   </header><!-- Points Card -->
+   <div class="points-card">
+    <div class="points-header">
+     <div class="points-label">
+      Your Points
+     </div>
+     <div><span class="points-value" id="points-value">2,450</span> <span class="points-suffix">pts</span>
+     </div>
+    </div><!-- Current Level -->
+    <div class="current-level" id="current-level">
+     <div class="level-icon">
+      🥇
+     </div>
+     <div class="level-info">
+      <div class="level-label">
+       Current Level
+      </div>
+      <div class="level-name">
+       Gold Member
+      </div>
+     </div>
+    </div><!-- Progress to Next Level -->
+    <div class="progress-section">
+     <div class="progress-header"><span class="progress-label">Progress to Platinum</span> <span class="progress-points" id="progress-text">550 pts to go</span>
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="next-level-info"><span class="next-level-text">Next milestone at</span> <span class="next-level-name">3,000 points</span>
+     </div>
+    </div><!-- Stats -->
+    <div class="stats-grid">
+     <div class="stat-box">
+      <div class="stat-value">
+       47
+      </div>
+      <div class="stat-label">
+       Purchases
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="stat-value">
+       $235
+      </div>
+      <div class="stat-label">
+       Saved
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="stat-value">
+       8
+      </div>
+      <div class="stat-label">
+       Rewards
+      </div>
+     </div>
+    </div>
+   </div><!-- Levels Timeline -->
+   <section class="levels-section">
+    <h2 class="section-title">Loyalty Tiers</h2>
+    <div class="levels-timeline">
+     <div class="timeline-line"></div>
+     <div id="levels-container"></div>
+    </div>
+   </section><!-- Available Rewards -->
+   <section class="rewards-section">
+    <h2 class="section-title" id="rewards-title">Available Rewards</h2>
+    <div class="rewards-grid">
+     <div class="reward-card">
+      <div class="reward-icon">
+       ☕
+      </div>
+      <div class="reward-name">
+       Free Coffee
+      </div>
+      <div class="reward-cost">
+       500 <span class="reward-cost-label">pts</span>
+      </div>
+     </div>
+     <div class="reward-card">
+      <div class="reward-icon">
+       🥐
+      </div>
+      <div class="reward-name">
+       Free Pastry
+      </div>
+      <div class="reward-cost">
+       400 <span class="reward-cost-label">pts</span>
+      </div>
+     </div>
+     <div class="reward-card">
+      <div class="reward-icon">
+       🎂
+      </div>
+      <div class="reward-name">
+       Birthday Cake
+      </div>
+      <div class="reward-cost">
+       800 <span class="reward-cost-label">pts</span>
+      </div>
+     </div>
+     <div class="reward-card">
+      <div class="reward-icon">
+       🎁
+      </div>
+      <div class="reward-name">
+       Mystery Gift
+      </div>
+      <div class="reward-cost">
+       1000 <span class="reward-cost-label">pts</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="footer" id="footer">
+    <p>Earn 10 points for every $1 spent</p>
+   </footer>
+  </div>
+  <script>
+    const levels = [
+      { name: 'Bronze', icon: '🥉', points: 0, benefits: ['5% discount', 'Birthday reward'], color: '#cd7f32' },
+      { name: 'Silver', icon: '🥈', points: 500, benefits: ['10% discount', 'Free birthday drink', 'Early access'], color: '#c0c0c0' },
+      { name: 'Gold', icon: '🥇', points: 1500, benefits: ['15% discount', 'Free upgrades', 'Priority service', 'Monthly gift'], color: '#d4a574' },
+      { name: 'Platinum', icon: '💎', points: 3000, benefits: ['20% discount', 'VIP events', 'Free delivery', 'Concierge service'], color: '#e5e4e2' },
+      { name: 'Diamond', icon: '💠', points: 5000, benefits: ['25% discount', 'Exclusive menu', 'Private events', 'Personal barista'], color: '#b9f2ff' }
+    ];
+
+    let userPoints = 2450;
+
+    const defaultConfig = {
+      shop_name: 'Brew Haven Rewards',
+      user_name: 'Sarah Mitchell',
+      rewards_title: 'Available Rewards',
+      footer_text: 'Earn 10 points for every $1 spent',
+      background_color: '#f5f0eb',
+      surface_color: '#ffffff',
+      text_color: '#3d2517',
+      primary_action_color: '#d4a574',
+      secondary_action_color: '#6b4423',
+      font_family: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const shopName = config.shop_name || defaultConfig.shop_name;
+      const userName = config.user_name || defaultConfig.user_name;
+      const rewardsTitle = config.rewards_title || defaultConfig.rewards_title;
+      const footerText = config.footer_text || defaultConfig.footer_text;
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+
+      document.getElementById('shop-name').textContent = shopName;
+      document.getElementById('user-name').textContent = userName;
+      document.getElementById('rewards-title').textContent = rewardsTitle;
+      document.getElementById('footer').innerHTML = `<p>${footerText}</p>`;
+
+      document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+      document.body.style.fontSize = `${fontSize}px`;
+      
+      const container = document.querySelector('.mobile-container');
+      container.style.background = bgColor;
+      
+      const allSurfaces = document.querySelectorAll('.points-card, .level-details, .reward-card');
+      allSurfaces.forEach(el => el.style.background = surfaceColor);
+      
+      const header = document.querySelector('.header');
+      header.style.background = `linear-gradient(135deg, ${secondaryColor} 0%, ${adjustColor(secondaryColor, -20)} 100%)`;
+      
+      const allText = document.querySelectorAll('.user-name, .section-title, .level-tier, .reward-name');
+      allText.forEach(el => el.style.color = textColor);
+      
+      const primaryElements = document.querySelectorAll('.points-value, .progress-points, .reward-cost, .stat-value, .current-level');
+      primaryElements.forEach(el => {
+        if (el.classList.contains('current-level')) {
+          el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${adjustColor(primaryColor, -15)} 100%)`;
+        } else {
+          el.style.color = primaryColor;
+        }
+      });
+
+      const progressFill = document.getElementById('progress-fill');
+      progressFill.style.background = `linear-gradient(90deg, ${primaryColor} 0%, ${adjustColor(primaryColor, -10)} 100%)`;
+    }
+
+    function adjustColor(color, amount) {
+      const num = parseInt(color.replace('#', ''), 16);
+      const r = Math.max(0, Math.min(255, (num >> 16) + amount));
+      const g = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amount));
+      const b = Math.max(0, Math.min(255, (num & 0x0000FF) + amount));
+      return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+    }
+
+    function getCurrentLevel() {
+      for (let i = levels.length - 1; i >= 0; i--) {
+        if (userPoints >= levels[i].points) {
+          return i;
+        }
+      }
+      return 0;
+    }
+
+    function renderLevels() {
+      const container = document.getElementById('levels-container');
+      const currentLevelIndex = getCurrentLevel();
+      
+      container.innerHTML = levels.map((level, index) => {
+        const achieved = index <= currentLevelIndex;
+        const current = index === currentLevelIndex;
+        const statusClass = achieved ? 'achieved' : '';
+        const currentClass = current ? 'current' : '';
+        
+        return `
+          <div class="level-item ${statusClass} ${currentClass}">
+            <div class="level-marker">${level.icon}</div>
+            <div class="level-details">
+              <div class="level-tier">${level.name}</div>
+              <div class="level-requirement">${level.points === 0 ? 'Starting level' : `${level.points.toLocaleString()} points required`}</div>
+              <div class="level-benefits">
+                ${level.benefits.map(benefit => `<span class="benefit-tag">${benefit}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateProgress() {
+      const currentLevelIndex = getCurrentLevel();
+      const currentLevel = levels[currentLevelIndex];
+      const nextLevel = levels[currentLevelIndex + 1];
+      
+      document.getElementById('points-value').textContent = userPoints.toLocaleString();
+      
+      const currentLevelEl = document.getElementById('current-level');
+      currentLevelEl.innerHTML = `
+        <div class="level-icon">${currentLevel.icon}</div>
+        <div class="level-info">
+          <div class="level-label">Current Level</div>
+          <div class="level-name">${currentLevel.name} Member</div>
+        </div>
+      `;
+      
+      if (nextLevel) {
+        const pointsInCurrentTier = userPoints - currentLevel.points;
+        const pointsNeededForTier = nextLevel.points - currentLevel.points;
+        const progressPercent = (pointsInCurrentTier / pointsNeededForTier) * 100;
+        const pointsToGo = nextLevel.points - userPoints;
+        
+        document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+        document.getElementById('progress-text').textContent = `${pointsToGo.toLocaleString()} pts to go`;
+        document.querySelector('.progress-label').textContent = `Progress to ${nextLevel.name}`;
+        document.querySelector('.next-level-name').textContent = `${nextLevel.points.toLocaleString()} points`;
+      } else {
+        document.getElementById('progress-fill').style.width = '100%';
+        document.getElementById('progress-text').textContent = 'Max level reached!';
+        document.querySelector('.progress-label').textContent = 'You\'re at the top!';
+      }
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action_color || defaultConfig.primary_action_color,
+              set: (value) => {
+                config.primary_action_color = value;
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+              set: (value) => {
+                config.secondary_action_color = value;
+                window.elementSdk.setConfig({ secondary_action_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['shop_name', config.shop_name || defaultConfig.shop_name],
+          ['user_name', config.user_name || defaultConfig.user_name],
+          ['rewards_title', config.rewards_title || defaultConfig.rewards_title],
+          ['footer_text', config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+
+    renderLevels();
+    updateProgress();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a70e1aac7229928',t:'MTc2NDU3NDI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

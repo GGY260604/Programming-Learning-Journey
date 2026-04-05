@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - What is React</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 24px;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin-top: 16px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .note {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>CH00 - 01 - What is React</h1>
+  <p>
+    This file introduces the idea of React.
+  </p>
+
+  <div id="root"></div>
+
+  <!--
+    React library:
+    Provides tools to create UI using components.
+  -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+  <!--
+    ReactDOM:
+    Connects React to the browser DOM so React can display content on the page.
+  -->
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!--
+    Babel:
+    Lets us write JSX directly in the browser for learning purposes.
+    JSX looks like HTML inside JavaScript.
+  -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+      React is a JavaScript library for building user interfaces.
+
+      Main ideas:
+      1. Build UI using components
+      2. Describe UI with JSX
+      3. Update UI based on data/state
+      4. React handles DOM updates efficiently
+
+      In this file, we simply display an explanation using React.
+    */
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const app = (
+      <div className="box">
+        <h2>What is React?</h2>
+        <p>
+          React is a JavaScript library used to build interactive user interfaces.
+        </p>
+        <p>
+          Instead of manually changing the HTML again and again, you describe what
+          the UI should look like, and React helps update it.
+        </p>
+        <p className="note">
+          In real projects like Next.js, React is one of the main foundations.
+        </p>
+      </div>
+    );
+
+    root.render(app);
+  </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Grouping with div and span.html
+    TOPIC: CH08 - Layout Foundations
+
+    GOAL:
+    - Understand <div> (block container)
+    - Understand <span> (inline container)
+    - Learn how grouping helps structure content
+    - Prepare for CSS styling later
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH08 - Grouping with div and span</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+
+    /* Visual helpers */
+    .container { border: 2px solid black; padding: 10px; margin-bottom: 10px; }
+    .highlight { background-color: yellow; }
+    .blue-text { color: blue; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH08 - Grouping with div and span</h1>
+
+  <p>
+    <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are grouping containers.
+    They do not have semantic meaning.
+  </p>
+
+  <!-- =========================
+       1) div (Block Container)
+       ========================= -->
+
+  <h2>1) div - Block Container</h2>
+
+  <div class="box">
+
+    <!--
+      div:
+      - Block-level element
+      - Used to group larger sections
+      - Often used for layout structure
+    -->
+
+    <div class="container">
+      <h3>Section 1</h3>
+      <p>This is grouped inside a div container.</p>
+    </div>
+
+    <div class="container">
+      <h3>Section 2</h3>
+      <p>This is another grouped section.</p>
+    </div>
+
+  </div>
+
+  <!-- =========================
+       2) span (Inline Container)
+       ========================= -->
+
+  <h2>2) span - Inline Container</h2>
+
+  <div class="box">
+
+    <!--
+      span:
+      - Inline element
+      - Used to style or group part of text
+      - Does not break line
+    -->
+
+    <p>
+      This sentence contains
+      <span class="highlight">highlighted text</span>
+      using span.
+    </p>
+
+    <p>
+      You can also make
+      <span class="blue-text">blue text</span>
+      without breaking the line.
+    </p>
+
+  </div>
+
+  <!-- =========================
+       3) Why Use div and span?
+       ========================= -->
+
+  <h2>Why Are They Important?</h2>
+
+  <ul>
+    <li>They help group elements logically</li>
+    <li>They allow applying CSS to specific parts</li>
+    <li>They are foundation for layouts</li>
+    <li>div = block grouping</li>
+    <li>span = inline grouping</li>
+  </ul>
+
+  <!-- =========================
+       4) Important Concept
+       ========================= -->
+
+  <div class="box">
+    <p>
+      <strong>Remember:</strong>
+      <code>&lt;div&gt;</code> is block-level,
+      <code>&lt;span&gt;</code> is inline.
+    </p>
+  </div>
+
+  <!-- =========================
+       5) Common Mistakes
+       ========================= -->
+
+  <h2>Common Mistakes</h2>
+
+  <ul>
+    <li>Using div when semantic tags are better (like section, article)</li>
+    <li>Putting block elements inside span (invalid HTML)</li>
+    <li>Overusing div unnecessarily</li>
+  </ul>
+
+  <!-- =========================
+       6) Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Create a div container with 3 paragraphs inside.</li>
+    <li>Use span to color one word in each paragraph.</li>
+    <li>Try placing a div inside span (observe what happens).</li>
+  </ol>
+
+</body>
+</html>

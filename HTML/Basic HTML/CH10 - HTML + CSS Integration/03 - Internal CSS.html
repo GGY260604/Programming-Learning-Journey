@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Internal CSS.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Learn Internal CSS
+    - Use <style> inside <head>
+    - Understand basic selectors
+    - Keep structure cleaner than inline CSS
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - Internal CSS</title>
+
+  <!-- =========================
+       Internal CSS
+       ========================= -->
+
+  <style>
+    /*
+      This is Internal CSS.
+      It is written inside <style> tag in <head>.
+    */
+
+    /* Element selector */
+    h2 {
+      color: blue;
+    }
+
+    /* Class selector */
+    .highlight {
+      background-color: yellow;
+      padding: 5px;
+    }
+
+    /* ID selector */
+    #special {
+      color: white;
+      background-color: black;
+      padding: 10px;
+    }
+
+    /* Styling all buttons */
+    button {
+      background-color: green;
+      color: white;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>CH10 - Internal CSS</h1>
+
+  <!-- =========================
+       1) Element Selector
+       ========================= -->
+
+  <h2>This heading is styled using element selector</h2>
+
+  <!-- =========================
+       2) Class Selector
+       ========================= -->
+
+  <p class="highlight">
+    This paragraph uses class selector.
+  </p>
+
+  <p class="highlight">
+    This one uses the same class.
+  </p>
+
+  <!-- =========================
+       3) ID Selector
+       ========================= -->
+
+  <p id="special">
+    This paragraph uses an ID selector.
+  </p>
+
+  <!-- =========================
+       4) Button Styling
+       ========================= -->
+
+  <button>Styled Button</button>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Explanation</h2>
+
+  <ul>
+    <li><strong>Internal CSS</strong> goes inside &lt;style&gt;</li>
+    <li>Better than inline CSS</li>
+    <li>Still not ideal for large projects</li>
+    <li>Used for single-page styling</li>
+  </ul>
+
+  <!-- =========================
+       Priority Reminder
+       ========================= -->
+
+  <p>
+    CSS Priority (highest to lowest so far):
+  </p>
+
+  <ol>
+    <li>Inline CSS</li>
+    <li>Internal CSS</li>
+    <li>External CSS (we will learn next)</li>
+  </ol>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Change h2 color to red.</li>
+    <li>Add border to .highlight class.</li>
+    <li>Create a new class and apply to button.</li>
+  </ol>
+
+</body>
+</html>

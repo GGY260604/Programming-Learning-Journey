@@ -1,0 +1,3 @@
+Learning Python
+File handling is important
+Appending new line

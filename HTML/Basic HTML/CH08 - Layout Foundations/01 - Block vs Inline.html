@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Block vs Inline.html
+    TOPIC: CH08 - Layout Foundations (HTML only)
+
+    GOAL:
+    - Understand block elements vs inline elements
+    - See how they behave visually
+    - Learn common examples: div/p/h1 (block) vs span/a/strong/em (inline)
+
+    NOTE:
+    - CSS is used here ONLY to make the differences obvious.
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH08 - Block vs Inline</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+
+    /* Visual helpers */
+    .block-demo { border: 2px solid #000; padding: 8px; margin: 6px 0; }
+    .inline-demo { border: 2px solid #000; padding: 2px 6px; }
+    .hint { background: #eef6ff; padding: 10px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH08 - Block vs Inline</h1>
+
+  <p>
+    HTML elements are generally either <strong>block</strong> or <strong>inline</strong>.
+  </p>
+
+  <!-- =========================
+       1) Block Elements
+       ========================= -->
+
+  <p class="label">Block Elements:</p>
+
+  <div class="box">
+    <!--
+      Block elements:
+      - Start on a new line
+      - Take full available width by default
+      - Examples: <div>, <p>, <h1>-<h6>, <ul>, <ol>, <li>, <table>, <section>
+    -->
+
+    <div class="block-demo">
+      I am a <code>&lt;div&gt;</code> (block). I start on a new line.
+    </div>
+
+    <p class="block-demo">
+      I am a <code>&lt;p&gt;</code> (block). I also start on a new line.
+    </p>
+
+    <h2 class="block-demo">
+      I am a <code>&lt;h2&gt;</code> (block). New line again.
+    </h2>
+  </div>
+
+  <div class="hint">
+    Block elements are commonly used to build page sections/structure.
+  </div>
+
+  <!-- =========================
+       2) Inline Elements
+       ========================= -->
+
+  <p class="label">Inline Elements:</p>
+
+  <div class="box">
+    <!--
+      Inline elements:
+      - Do NOT start on a new line
+      - Only take the width of their content
+      - Examples: <span>, <a>, <strong>, <em>, <code>, <kbd>
+    -->
+
+    <p>
+      This sentence contains
+      <span class="inline-demo"><code>&lt;span&gt;</code> (inline)</span>
+      and it stays in the same line.
+    </p>
+
+    <p>
+      Here is a link:
+      <a class="inline-demo" href="https://example.com" target="_blank">
+        <code>&lt;a&gt;</code> (inline)
+      </a>
+      still remains in the same line.
+    </p>
+
+    <p>
+      You can also make text
+      <strong class="inline-demo">strong</strong>
+      and
+      <em class="inline-demo">emphasized</em>
+      without breaking the line.
+    </p>
+  </div>
+
+  <div class="hint">
+    Inline elements are used to style/mark parts of text inside a block.
+  </div>
+
+  <!-- =========================
+       3) Quick Comparison
+       ========================= -->
+
+  <p class="label">Quick Comparison:</p>
+
+  <ul>
+    <li><strong>Block</strong>: new line + full width by default</li>
+    <li><strong>Inline</strong>: same line + content width only</li>
+  </ul>
+
+  <!-- =========================
+       4) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+  <ul>
+    <li>Putting a block element inside an inline element (can cause invalid HTML)</li>
+    <li>Using <code>&lt;br&gt;</code> to force layout instead of learning structure</li>
+    <li>Thinking block/inline is about style only (it affects layout behavior)</li>
+  </ul>
+
+  <!-- =========================
+       5) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+  <ol>
+    <li>Add another block element (like <code>&lt;section&gt;</code>) and observe its behavior.</li>
+    <li>Add 3 inline elements inside a paragraph (span/strong/em) and see they stay on one line.</li>
+    <li>Try placing a <code>&lt;div&gt;</code> inside a <code>&lt;span&gt;</code> and check what happens (then undo).</li>
+  </ol>
+
+</body>
+</html>

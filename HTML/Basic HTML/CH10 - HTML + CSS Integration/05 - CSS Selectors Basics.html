@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - CSS Selectors Basics.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Understand how CSS selects elements
+    - Learn:
+        * Element selector
+        * Class selector
+        * ID selector
+        * Grouping selector
+        * Descendant selector
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - CSS Selectors Basics</title>
+
+  <style>
+
+    /* =========================
+       1) Element Selector
+       ========================= */
+
+    /* Selects ALL <h2> elements */
+    h2 {
+      color: blue;
+    }
+
+    /* =========================
+       2) Class Selector
+       ========================= */
+
+    /* Selects elements with class="highlight" */
+    .highlight {
+      background-color: yellow;
+      padding: 5px;
+    }
+
+    /* =========================
+       3) ID Selector
+       ========================= */
+
+    /* Selects element with id="special" */
+    #special {
+      color: white;
+      background-color: black;
+      padding: 10px;
+    }
+
+    /* =========================
+       4) Grouping Selector
+       ========================= */
+
+    /* Applies same style to h3 AND p */
+    h3, p {
+      font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       5) Descendant Selector
+       ========================= */
+
+    /* Selects <span> inside .container */
+    .container span {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Styling container box */
+    .container {
+      border: 2px dashed #555;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>CH10 - CSS Selectors Basics</h1>
+
+  <!-- =========================
+       Element Selector Demo
+       ========================= -->
+
+  <h2>This is styled by element selector</h2>
+
+  <!-- =========================
+       Class Selector Demo
+       ========================= -->
+
+  <p class="highlight">
+    This paragraph uses class selector.
+  </p>
+
+  <!-- =========================
+       ID Selector Demo
+       ========================= -->
+
+  <p id="special">
+    This paragraph uses ID selector.
+  </p>
+
+  <!-- =========================
+       Grouping Selector Demo
+       ========================= -->
+
+  <h3>This heading uses grouping selector</h3>
+  <p>This paragraph also uses grouping selector.</p>
+
+  <!-- =========================
+       Descendant Selector Demo
+       ========================= -->
+
+  <div class="container">
+    <p>
+      This is normal text,
+      but <span>this span inside container</span> is styled.
+    </p>
+  </div>
+
+  <p>
+    This <span>span outside container</span> is not affected.
+  </p>
+
+  <!-- =========================
+       Explanation
+       ========================= -->
+
+  <hr>
+
+  <h2>Selector Summary</h2>
+
+  <ul>
+    <li><strong>Element</strong>: h2 { }</li>
+    <li><strong>Class</strong>: .highlight { }</li>
+    <li><strong>ID</strong>: #special { }</li>
+    <li><strong>Grouping</strong>: h3, p { }</li>
+    <li><strong>Descendant</strong>: .container span { }</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Create a new class and apply it to 3 elements.</li>
+    <li>Create a new ID and style it.</li>
+    <li>Add a descendant selector for div p.</li>
+  </ol>
+
+</body>
+</html>

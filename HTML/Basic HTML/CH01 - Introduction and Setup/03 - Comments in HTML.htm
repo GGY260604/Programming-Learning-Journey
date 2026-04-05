@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Comments in HTML.html
+    TOPIC: CH01 - Introduction & Setup
+
+    GOAL:
+    - Learn HTML comment syntax
+    - Understand why comments are important
+    - See how comments do NOT appear in browser
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CH01 - Comments in HTML</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #777; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+    .highlight { background: #fff4cc; padding: 6px; border-radius: 6px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       1) Introduction
+       ========================= -->
+
+  <h1>CH01 - Comments in HTML</h1>
+
+  <p>
+    HTML comments are used to write notes inside your code.
+    They are NOT visible in the browser.
+  </p>
+
+  <!-- =========================
+       2) Comment Syntax
+       ========================= -->
+
+  <p class="label">Comment Syntax:</p>
+
+  <div class="box">
+    <pre>
+&lt;!-- This is a comment --&gt;
+    </pre>
+  </div>
+
+  <!-- =========================
+       3) Live Demonstration
+       ========================= -->
+
+  <p class="label">Live Demo:</p>
+
+  <div class="box">
+
+    <!-- This is a comment above a paragraph -->
+    <p>This paragraph is visible in the browser.</p>
+
+    <!--
+      The next line is commented out.
+      It will NOT appear in the browser.
+    -->
+    <!-- <p>This paragraph is hidden because it's inside a comment.</p> -->
+
+  </div>
+
+  <p class="highlight">
+    Try deleting the comment symbols around the hidden paragraph,
+    then save and refresh to see what happens.
+  </p>
+
+  <!-- =========================
+       4) Why Comments Are Important
+       ========================= -->
+
+  <p class="label">Why Use Comments?</p>
+
+  <ul>
+    <li>Explain your code for future you</li>
+    <li>Organize large sections clearly</li>
+    <li>Temporarily disable code for testing</li>
+    <li>Improve readability for teamwork</li>
+  </ul>
+
+  <!-- =========================
+       5) Professional Comment Style
+       ========================= -->
+
+  <p class="label">Professional Usage Example:</p>
+
+  <div class="box">
+    <pre>
+&lt;!-- =========================
+     Navigation Section
+     ========================= --&gt;
+
+&lt;!-- Main Heading --&gt;
+&lt;h1&gt;My Website&lt;/h1&gt;
+    </pre>
+  </div>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Forgetting to close a comment with <code>--&gt;</code></li>
+    <li>Trying to nest comments (HTML does NOT support nested comments)</li>
+    <li>Thinking comments are secure (they can still be seen in page source)</li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Add a comment above the heading explaining what this page is about.</li>
+    <li>Comment out the visible paragraph and refresh.</li>
+    <li>Uncomment it again.</li>
+  </ol>
+
+  <!-- =========================
+       End of File
+       ========================= -->
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Colors, Fonts and Text Styling.html
+    TOPIC: CH10 - HTML + CSS Integration
+
+    GOAL:
+    - Learn colors in CSS
+    - Learn font-family
+    - Learn font-size
+    - Learn text-align
+    - Learn font-weight
+    - Learn text-decoration
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH10 - Colors, Fonts & Text Styling</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    /* =========================
+       1) Text Color
+       ========================= */
+
+    .color-name {
+      color: red; /* color name */
+    }
+
+    .color-hex {
+      color: #0066ff; /* hex code */
+    }
+
+    .color-rgb {
+      color: rgb(0, 150, 0); /* rgb format */
+    }
+
+    /* =========================
+       2) Background Color
+       ========================= */
+
+    .bg-example {
+      background-color: black;
+      color: white;
+      padding: 10px;
+    }
+
+    /* =========================
+       3) Font Size & Family
+       ========================= */
+
+    .font-example {
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    /* =========================
+       4) Text Alignment
+       ========================= */
+
+    .center {
+      text-align: center;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    /* =========================
+       5) Font Weight
+       ========================= */
+
+    .bold-text {
+      font-weight: bold;
+    }
+
+    /* =========================
+       6) Text Decoration
+       ========================= */
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .no-underline {
+      text-decoration: none;
+    }
+
+    /* =========================
+       7) Text Transform
+       ========================= */
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .capitalize {
+      text-transform: capitalize;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 10px;
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>CH10 - Colors, Fonts and Text Styling</h1>
+
+  <!-- =========================
+       1) Colors
+       ========================= -->
+
+  <div class="box">
+    <p class="color-name">This text uses color name.</p>
+    <p class="color-hex">This text uses HEX color.</p>
+    <p class="color-rgb">This text uses RGB color.</p>
+  </div>
+
+  <!-- =========================
+       2) Background
+       ========================= -->
+
+  <div class="box">
+    <p class="bg-example">
+      This paragraph has background color.
+    </p>
+  </div>
+
+  <!-- =========================
+       3) Fonts
+       ========================= -->
+
+  <div class="box">
+    <p class="font-example">
+      This paragraph uses Georgia font and 20px size.
+    </p>
+  </div>
+
+  <!-- =========================
+       4) Text Alignment
+       ========================= -->
+
+  <div class="box">
+    <p class="center">This text is centered.</p>
+    <p class="right">This text is aligned right.</p>
+  </div>
+
+  <!-- =========================
+       5) Font Weight & Decoration
+       ========================= -->
+
+  <div class="box">
+    <p class="bold-text">This text is bold.</p>
+    <p class="underline">This text is underlined.</p>
+    <a href="#" class="no-underline">This link has no underline.</a>
+  </div>
+
+  <!-- =========================
+       6) Text Transform
+       ========================= -->
+
+  <div class="box">
+    <p class="uppercase">this becomes uppercase</p>
+    <p class="capitalize">this becomes capitalized words</p>
+  </div>
+
+  <!-- =========================
+       Summary
+       ========================= -->
+
+  <h2>Properties Learned</h2>
+
+  <ul>
+    <li>color</li>
+    <li>background-color</li>
+    <li>font-family</li>
+    <li>font-size</li>
+    <li>text-align</li>
+    <li>font-weight</li>
+    <li>text-decoration</li>
+    <li>text-transform</li>
+  </ul>
+
+  <!-- =========================
+       Mini Practice
+       ========================= -->
+
+  <h2>Mini Practice</h2>
+
+  <ol>
+    <li>Change font-family to Verdana.</li>
+    <li>Change text color using HEX code.</li>
+    <li>Make one paragraph italic (font-style).</li>
+    <li>Add line-through decoration.</li>
+  </ol>
+
+</body>
+</html>
