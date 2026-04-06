@@ -1,108 +1,42 @@
-Python/
-│
-├── CH01- Getting Started
-│   ├── 01- Hello World.py
-│   ├── 02- Comments and Print.py
-│   ├── 03- Variables and Data Types.py
-│   ├── 04- Input and Output.py
-│   ├── 05- Basic Errors.py
-│
-├── CH02- Operators and Expressions
-│   ├── 01- Arithmetic Operators.py
-│   ├── 02- Comparison Operators.py
-│   ├── 03- Logical Operators.py
-│   ├── 04- Assignment Operators.py
-│   ├── 05- Operator Precedence.py
-│
-├── CH03- Control Flow
-│   ├── 01- If Statement.py
-│   ├── 02- If Else.py
-│   ├── 03- If Elif Else.py
-│   ├── 04- Nested If.py
-│   ├── 05- Match Case (Switch).py
-│
-├── CH04- Loops
-│   ├── 01- For Loop.py
-│   ├── 02- While Loop.py
-│   ├── 03- Break and Continue.py
-│   ├── 04- Nested Loops.py
-│   ├── 05- Loop Exercises.py
-│
-├── CH05- Data Structures (Basic)
-│   ├── 01- Lists.py
-│   ├── 02- List Operations.py
-│   ├── 03- Tuples.py
-│   ├── 04- Sets.py
-│   ├── 05- Dictionaries.py
-│
-├── CH06- Strings
-│   ├── 01- String Basics.py
-│   ├── 02- String Methods.py
-│   ├── 03- String Slicing.py
-│   ├── 04- f-Strings.py
-│   ├── 05- String Exercises.py
-│
-├── CH07- Functions
-│   ├── 01- Function Basics.py
-│   ├── 02- Parameters and Arguments.py
-│   ├── 03- Return Values.py
-│   ├── 04- Default and Keyword Args.py
-│   ├── 05- Lambda Functions.py
-│
-├── CH08- Advanced Data Structures
-│   ├── 01- List Comprehension.py
-│   ├── 02- Dictionary Comprehension.py
-│   ├── 03- Nested Structures.py
-│   ├── 04- Sorting.py
-│   ├── 05- Copying Data.py
-│
-├── CH09- File Handling
-│   ├── 01- Reading Files.py
-│   ├── 02- Writing Files.py
-│   ├── 03- Appending Files.py
-│   ├── 04- Working with CSV.py
-│   ├── 05- File Exercises.py
-│
-├── CH10- Error Handling
-│   ├── 01- Try Except.py
-│   ├── 02- Multiple Exceptions.py
-│   ├── 03- Finally Block.py
-│   ├── 04- Custom Exceptions.py
-│   ├── 05- Debugging Tips.py
-│
-├── CH11- Modules and Packages
-│   ├── 01- Import Modules.py
-│   ├── 02- Built-in Modules.py
-│   ├── 03- Creating Modules.py
-│   ├── 04- Pip and Packages.py
-│   ├── 05- Virtual Environment.py
-│
-├── CH12- Object-Oriented Programming (OOP)
-│   ├── 01- Classes and Objects.py
-│   ├── 02- Constructors.py
-│   ├── 03- Inheritance.py
-│   ├── 04- Encapsulation.py
-│   ├── 05- Polymorphism.py
-│
-├── CH13- Working with Libraries
-│   ├── 01- Requests Library.py
-│   ├── 02- JSON Handling.py
-│   ├── 03- Datetime Module.py
-│   ├── 04- OS Module.py
-│   ├── 05- Random Module.py
-│
-├── CH14- Mini Projects
-│   ├── 01- Calculator.py
-│   ├── 02- Number Guessing Game.py
-│   ├── 03- To-Do List CLI.py
-│   ├── 04- Simple File Manager.py
-│   ├── 05- Password Generator.py
-│
-├── CH15- Advanced Topics (Optional)
-│   ├── 01- Decorators.py
-│   ├── 02- Generators.py
-│   ├── 03- Iterators.py
-│   ├── 04- Map Filter Reduce.py
-│   ├── 05- Intro to Async.py
-│
-└── README.md
+# Python Project
+
+## Overview
+
+This Python project is part of the **Programming Learning Journey** and serves as a structured collection of notes, examples, exercises, and mini projects for learning Python in a progressive and practical way. It is designed to build a strong understanding of Python programming fundamentals while also introducing more advanced topics through hands-on practice.
+
+## Goal
+
+The main goal of this project is to develop a solid foundation in Python by combining theory with implementation. Rather than focusing only on reading concepts, this project emphasizes writing code, solving small exercises, and applying knowledge through simple projects. It is intended to support continuous improvement in problem-solving, logical thinking, and programming confidence.
+
+## Scope
+
+This project covers a broad range of Python topics, beginning with the basics and gradually moving toward intermediate and advanced concepts. The content includes:
+
+- basic syntax and program structure
+- variables, data types, and operators
+- conditional statements and loops
+- strings, functions, and data structures
+- file handling and error handling
+- modules, packages, and libraries
+- object-oriented programming
+- practical mini projects for real application
+- optional advanced topics such as decorators, generators, and asynchronous programming
+
+## Learning Outcomes
+
+By working through this project, learners can expect to:
+
+- understand the core concepts and syntax of Python
+- write clear and functional Python programs
+- practice problem-solving through exercises and mini projects
+- learn how to organize code using functions, modules, and classes
+- gain experience working with files, exceptions, and standard libraries
+- strengthen the ability to apply Python knowledge in practical scenarios
+
+## Approach
+
+The project is organized into chapters so that learning can happen step by step. Each section focuses on a specific topic, followed by examples or exercises that reinforce understanding. The mini projects near the later chapters help connect individual concepts into complete programs, making the learning process more practical and meaningful.
+
+## Conclusion
+
+Overall, this Python project is designed as a personal learning resource and practice space for mastering Python progressively. It provides both conceptual understanding and practical coding experience, making it suitable for building a strong programming foundation over time.
