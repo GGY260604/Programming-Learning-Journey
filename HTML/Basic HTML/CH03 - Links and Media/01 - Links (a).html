@@ -8,20 +8,71 @@
     GOAL:
     - Learn how to create hyperlinks using <a>
     - Understand href attribute
-    - Learn target="_blank"
-    - Create internal and external links
+    - Learn all common target values
+    - Learn iframe target behavior
+    - Learn _parent and _top
   -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>CH03 - Links (a)</title>
 
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
-    .label { font-weight: bold; margin-top: 18px; }
-    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
-    .hint { background: #f0f8ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.7;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 24px;
+    }
+
+    code {
+      background: #f2f2f2;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .hint {
+      background: #f0f8ff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      border: 1px solid #999;
+      margin-top: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table th,
+    table td {
+      padding: 8px;
+    }
+
+    pre {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
   </style>
 </head>
 
@@ -38,131 +89,453 @@
     Links connect web pages together.
   </p>
 
+  <div class="hint">
+
+    Basic Syntax:
+    <br><br>
+
+    <code>
+      &lt;a href="URL"&gt;Link Text&lt;/a&gt;
+    </code>
+
+  </div>
+
   <!-- =========================
-       2) Basic Link
+       2) Basic External Link
        ========================= -->
 
-  <p class="label">Basic External Link:</p>
+  <p class="label">
+    Basic External Link
+  </p>
 
   <div class="box">
 
-    <!-- href specifies the destination URL -->
-    <a href="https://www.google.com">Go to Google</a>
+    <a href="https://www.google.com">
+      Go to Google
+    </a>
+
+  </div>
+
+  <!-- =========================
+       3) target="_blank"
+       ========================= -->
+
+  <p class="label">
+    target="_blank"
+  </p>
+
+  <div class="box">
+
+    <a
+      href="https://www.wikipedia.org"
+      target="_blank">
+
+      Open Wikipedia in New Tab
+
+    </a>
 
   </div>
 
   <div class="hint">
-    Syntax:
-    &lt;a href="URL"&gt;Link Text&lt;/a&gt;
+
+    <strong>_blank</strong>
+    opens the link in a new browser tab/window.
+
   </div>
 
   <!-- =========================
-       3) Open in New Tab
+       4) target="_self"
        ========================= -->
 
-  <p class="label">Open Link in New Tab:</p>
+  <p class="label">
+    target="_self"
+  </p>
 
   <div class="box">
 
-    <!-- target="_blank" opens link in new tab -->
-    <a href="https://www.wikipedia.org" target="_blank">
-      Open Wikipedia in New Tab
+    <a
+      href="https://www.example.com"
+      target="_self">
+
+      Open in Same Tab
+
     </a>
 
   </div>
 
+  <div class="hint">
+
+    <strong>_self</strong>
+    is the default behavior.
+
+  </div>
+
   <!-- =========================
-       4) Internal Link (Same Folder)
+       5) target="_parent"
        ========================= -->
 
-  <p class="label">Internal Link (Local File):</p>
+  <p class="label">
+    target="_parent"
+  </p>
 
   <div class="box">
 
-    <!--
-      This links to another HTML file in the same folder.
-      Make sure the file exists.
-    -->
+    <a
+      href="https://www.example.com"
+      target="_parent">
+
+      Open in Parent Frame
+
+    </a>
+
+  </div>
+
+  <div class="hint">
+
+    <strong>_parent</strong>
+    opens the link in the nearest parent iframe.
+
+  </div>
+
+  <!-- =========================
+       6) Nested iframe Demo
+       ========================= -->
+
+  <p class="label">
+    Nested iframe Demo (_parent)
+  </p>
+
+  <div class="box">
+
+    <p>
+      This demo uses 3 nested iframes.
+    </p>
+
+<pre>
+01 - Links (a).html
+ └── frames/
+      ├── level1.html
+      ├── level2.html
+      └── level3.html
+</pre>
+
+    <p>
+      The link inside Level 3 uses:
+    </p>
+
+    <code>
+      target="_parent"
+    </code>
+
+    <p>
+      When clicked:
+    </p>
+
+    <ul>
+      <li>Only Level 2 iframe changes</li>
+      <li>Level 1 remains</li>
+      <li>Main page remains</li>
+    </ul>
+
+    <iframe
+      src="frames/level1.html"
+      height="500">
+    </iframe>
+
+  </div>
+
+  <div class="hint">
+
+    <strong>_parent</strong>
+    only affects the nearest parent iframe.
+
+  </div>
+
+  <!-- =========================
+       7) target="_top"
+       ========================= -->
+
+  <p class="label">
+    target="_top"
+  </p>
+
+  <div class="box">
+
+    <a
+      href="https://www.example.com"
+      target="_top">
+
+      Open in Full Browser Window
+
+    </a>
+
+  </div>
+
+  <div class="hint">
+
+    <strong>_top</strong>
+    breaks out of ALL iframes and replaces the whole browser window.
+
+  </div>
+
+  <!-- =========================
+       8) Named iframe Target
+       ========================= -->
+
+  <p class="label">
+    Named iframe Target
+  </p>
+
+  <div class="box">
+
+    <a
+      href="https://example.com"
+      target="myFrame">
+
+      Open Example.com Inside iframe
+
+    </a>
+
+    <br><br>
+
+    <a
+      href="https://www.wikipedia.org"
+      target="myFrame">
+
+      Open Wikipedia Inside iframe
+
+    </a>
+
+    <iframe
+      name="myFrame"
+      height="180">
+    </iframe>
+
+  </div>
+
+  <div class="hint">
+
+    If target matches the iframe name,
+    the page opens inside that iframe.
+
+  </div>
+
+  <!-- =========================
+       9) Internal Link
+       ========================= -->
+
+  <p class="label">
+    Internal Link (Local File)
+  </p>
+
+  <div class="box">
+
     <a href="02 - Images (img).html">
-      Go to Image Lesson (if file exists)
+      Go to Image Lesson
     </a>
 
   </div>
 
   <!-- =========================
-       5) Email Link
+       10) Email Link
        ========================= -->
 
-  <p class="label">Email Link:</p>
+  <p class="label">
+    Email Link
+  </p>
 
   <div class="box">
 
-    <!-- mailto: opens email client -->
     <a href="mailto:example@email.com">
-      Send me an Email
+      Send Email
     </a>
 
   </div>
 
   <!-- =========================
-       6) Anchor Link (Jump in Page)
+       11) Telephone Link
        ========================= -->
 
-  <p class="label">Jump to Section (Anchor Link):</p>
+  <p class="label">
+    Telephone Link
+  </p>
 
   <div class="box">
 
-    <!-- This links to a section with id="bottom" -->
-    <a href="#bottom">Jump to Bottom Section</a>
+    <a href="tel:+60123456789">
+      Call This Number
+    </a>
+
+  </div>
+
+  <!-- =========================
+       12) Anchor Link
+       ========================= -->
+
+  <p class="label">
+    Jump Link (Anchor Link)
+  </p>
+
+  <div class="box">
+
+    <a href="#bottom">
+      Jump to Bottom Section
+    </a>
 
   </div>
 
   <br><br><br><br><br><br><br><br>
 
-  <!-- Target section -->
-  <h2 id="bottom">You Reached the Bottom!</h2>
+  <h2 id="bottom">
+    You Reached the Bottom!
+  </h2>
 
   <!-- =========================
-       7) Important Concepts
+       13) target Summary
        ========================= -->
 
-  <p class="label">Important Concepts:</p>
+  <p class="label">
+    Common target Values
+  </p>
+
+  <table border="1">
+
+    <tr>
+      <th>Value</th>
+      <th>Meaning</th>
+    </tr>
+
+    <tr>
+      <td>_self</td>
+      <td>Open in current tab/frame</td>
+    </tr>
+
+    <tr>
+      <td>_blank</td>
+      <td>Open in new tab/window</td>
+    </tr>
+
+    <tr>
+      <td>_parent</td>
+      <td>Open in nearest parent frame</td>
+    </tr>
+
+    <tr>
+      <td>_top</td>
+      <td>Break out of all frames</td>
+    </tr>
+
+    <tr>
+      <td>frameName</td>
+      <td>Open inside named iframe</td>
+    </tr>
+
+  </table>
+
+  <!-- =========================
+       14) Important Concepts
+       ========================= -->
+
+  <p class="label">
+    Important Concepts
+  </p>
 
   <ul>
-    <li><strong>href</strong> = destination</li>
-    <li><strong>target="_blank"</strong> = open in new tab</li>
-    <li><strong>mailto:</strong> = email link</li>
-    <li><strong>#id</strong> = jump within same page</li>
+
+    <li>
+      <strong>href</strong>
+      = destination URL
+    </li>
+
+    <li>
+      <strong>target</strong>
+      = where to open the link
+    </li>
+
+    <li>
+      <strong>mailto:</strong>
+      = email link
+    </li>
+
+    <li>
+      <strong>tel:</strong>
+      = telephone link
+    </li>
+
+    <li>
+      <strong>#id</strong>
+      = jump inside same page
+    </li>
+
   </ul>
 
   <!-- =========================
-       8) Common Mistakes
+       15) Common Mistakes
        ========================= -->
 
-  <p class="label">Common Mistakes:</p>
+  <p class="label">
+    Common Mistakes
+  </p>
 
   <ul>
-    <li>Forgetting href attribute</li>
-    <li>Incorrect file path</li>
-    <li>Forgetting to close </a> tag</li>
+
+    <li>
+      Forgetting href attribute
+    </li>
+
+    <li>
+      Incorrect file path
+    </li>
+
+    <li>
+      Forgetting closing &lt;/a&gt; tag
+    </li>
+
+    <li>
+      Misspelling target values
+    </li>
+
   </ul>
 
   <!-- =========================
-       9) Mini Practice
+       16) Mini Practice
        ========================= -->
 
-  <p class="label">Mini Practice:</p>
+  <p class="label">
+    Mini Practice
+  </p>
 
   <ol>
-    <li>Create a link to YouTube.</li>
-    <li>Make it open in new tab.</li>
-    <li>Create a jump link to a new section you add below.</li>
-    <li>Create an email link with your own email.</li>
-  </ol>
 
-  <!-- =========================
-       End of File
-       ========================= -->
+    <li>
+      Create a link to YouTube.
+    </li>
+
+    <li>
+      Make it open in new tab.
+    </li>
+
+    <li>
+      Create a jump link to another section.
+    </li>
+
+    <li>
+      Create an email link.
+    </li>
+
+    <li>
+      Create a telephone link.
+    </li>
+
+    <li>
+      Create a named iframe target link.
+    </li>
+
+    <li>
+      Test _parent using nested iframes.
+    </li>
+
+  </ol>
 
 </body>
 </html>
