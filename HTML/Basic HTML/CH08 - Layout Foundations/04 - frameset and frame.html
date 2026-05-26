@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - frameset and frame.html
+    TOPIC: CH08 - Layout Foundations
+
+    GOAL:
+    - Learn the old <frameset> and <frame> tags
+    - Understand how frames split a browser window
+    - Understand why frameset and frame are obsolete
+    - Know that <iframe> is the modern alternative
+
+    NOTE:
+    - <frameset> and <frame> are obsolete in HTML5.
+    - This file explains them for learning/history only.
+    - Do not use frameset/frame in modern websites.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH08 - frameset and frame</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
+    .label { font-weight: bold; margin-top: 18px; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+    pre { background: #f3f3f3; padding: 12px; border-radius: 8px; overflow-x: auto; }
+
+    /* Visual helpers */
+    .window-demo { border: 2px solid black; display: flex; min-height: 180px; margin-top: 10px; }
+    .frame-demo { padding: 12px; border-right: 2px solid black; }
+    .frame-demo:last-child { border-right: none; }
+    .small-frame { width: 30%; background: #eef6ff; }
+    .large-frame { width: 70%; background: #fff7df; }
+    .hint { background: #eef6ff; padding: 10px; border-radius: 6px; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH08 - frameset and frame</h1>
+
+  <p>
+    The <code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code> tags were used
+    in old HTML to split the browser window into separate sections.
+  </p>
+
+  <!-- =========================
+       1) What is frameset?
+       ========================= -->
+
+  <p class="label">What is frameset?</p>
+
+  <div class="box">
+    <!--
+      frameset:
+      - Replaced the normal <body> in old HTML
+      - Divided the window into rows or columns
+      - Contained one or more <frame> tags
+    -->
+
+    <p>
+      A <code>&lt;frameset&gt;</code> was used to divide the browser window into
+      multiple frames.
+    </p>
+
+    <div class="window-demo">
+      <div class="frame-demo small-frame">
+        30% left frame
+      </div>
+
+      <div class="frame-demo large-frame">
+        70% right frame
+      </div>
+    </div>
+  </div>
+
+  <div class="hint">
+    A frameset page did not use a normal <code>&lt;body&gt;</code> tag.
+  </div>
+
+  <!-- =========================
+       2) Basic frameset syntax
+       ========================= -->
+
+  <p class="label">Basic frameset Syntax:</p>
+
+  <div class="box">
+    <!--
+      This is shown as text because frameset/frame are obsolete.
+      In a real old HTML document, <frameset> would replace <body>.
+    -->
+
+    <pre><code>&lt;frameset cols="30%, 70%"&gt;
+  &lt;frame src="menu.html" name="menuFrame"&gt;
+  &lt;frame src="content.html" name="contentFrame"&gt;
+&lt;/frameset&gt;</code></pre>
+
+    <p>
+      This creates two vertical sections: one small frame and one larger frame.
+    </p>
+  </div>
+
+  <!-- =========================
+       3) rows and cols
+       ========================= -->
+
+  <p class="label">rows and cols:</p>
+
+  <div class="box">
+    <!--
+      cols = vertical columns
+      rows = horizontal rows
+    -->
+
+    <p>
+      Use <code>cols</code> to split the window into columns.
+    </p>
+
+    <pre><code>&lt;frameset cols="25%, 75%"&gt;
+  &lt;frame src="left.html"&gt;
+  &lt;frame src="right.html"&gt;
+&lt;/frameset&gt;</code></pre>
+
+    <p>
+      Use <code>rows</code> to split the window into rows.
+    </p>
+
+    <pre><code>&lt;frameset rows="20%, 80%"&gt;
+  &lt;frame src="top.html"&gt;
+  &lt;frame src="bottom.html"&gt;
+&lt;/frameset&gt;</code></pre>
+  </div>
+
+  <!-- =========================
+       4) Important Attributes
+       ========================= -->
+
+  <p class="label">Important Attributes:</p>
+
+  <ul>
+    <li><strong>cols</strong> = split the window into vertical columns</li>
+    <li><strong>rows</strong> = split the window into horizontal rows</li>
+    <li><strong>src</strong> = file loaded inside the frame</li>
+    <li><strong>name</strong> = frame name, useful for targeting links</li>
+  </ul>
+
+  <!-- =========================
+       5) Modern HTML note
+       ========================= -->
+
+  <div class="box">
+    <p>
+      <strong>Important:</strong>
+      <code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code>
+      are obsolete in HTML5.
+    </p>
+
+    <p>
+      For modern HTML, use <code>&lt;iframe&gt;</code> when you need to embed
+      another page inside your page.
+    </p>
+  </div>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">Common Mistakes:</p>
+
+  <ul>
+    <li>Using frameset and frame in modern HTML5 websites</li>
+    <li>Putting <code>&lt;frameset&gt;</code> inside a normal <code>&lt;body&gt;</code></li>
+    <li>Forgetting that each <code>&lt;frame&gt;</code> loads a separate page</li>
+    <li>Confusing <code>&lt;frame&gt;</code> with <code>&lt;iframe&gt;</code></li>
+  </ul>
+
+  <!-- =========================
+       7) Mini Practice
+       ========================= -->
+
+  <p class="label">Mini Practice:</p>
+
+  <ol>
+    <li>Change <code>cols="30%, 70%"</code> to <code>cols="50%, 50%"</code> in the example.</li>
+    <li>Write a frameset example that uses <code>rows</code> instead of <code>cols</code>.</li>
+    <li>Explain why <code>&lt;iframe&gt;</code> is used instead of <code>&lt;frame&gt;</code> today.</li>
+  </ol>
+
+</body>
+</html>
