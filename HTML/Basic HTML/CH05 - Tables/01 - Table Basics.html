@@ -10,36 +10,15 @@
     - Learn <tr> (table row)
     - Learn <th> (table header)
     - Learn <td> (table data)
-    - Understand basic table structure
+    - Learn old HTML table attributes
+    - Focus on HTML attributes instead of CSS
   -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>CH05 - Table Basics</title>
 
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
-    .label { font-weight: bold; margin-top: 18px; }
-    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
-
-    /* Simple table styling (for visibility only) */
-    table {
-      border-collapse: collapse;
-      margin-top: 10px;
-      width: 100%;
-    }
-
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
 </head>
 
 <body>
@@ -47,99 +26,450 @@
   <h1>CH05 - Table Basics</h1>
 
   <p>
-    Tables are used to display structured data in rows and columns.
+    Tables are used to display structured data
+    in rows and columns.
   </p>
 
   <!-- =========================
        1) Basic Table Structure
        ========================= -->
 
-  <p class="label">Basic Structure:</p>
+  <p>
+    <strong>Basic Structure:</strong>
+  </p>
 
-  <div class="box">
-    <!--
-      Structure:
+  <!--
+    border      = border thickness
+    cellpadding = spacing inside cell
+    cellspacing = spacing between cells
+    width       = table width
+  -->
 
-      <table>
-        <tr>
-          <th>Header</th>
-          <th>Header</th>
-        </tr>
-        <tr>
-          <td>Data</td>
-          <td>Data</td>
-        </tr>
-      </table>
-    -->
+  <table
+    border="1"
+    cellpadding="8"
+    cellspacing="0"
+    width="100%">
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Course</th>
-      </tr>
+    <tr>
 
-      <tr>
-        <td>Alex</td>
-        <td>20</td>
-        <td>Computer Science</td>
-      </tr>
+      <th>Name</th>
 
-      <tr>
-        <td>Maria</td>
-        <td>21</td>
-        <td>Software Engineering</td>
-      </tr>
-    </table>
+      <th>Age</th>
 
-  </div>
+      <th>Course</th>
+
+    </tr>
+
+    <tr>
+
+      <td>Alex</td>
+
+      <td>20</td>
+
+      <td>Computer Science</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Maria</td>
+
+      <td>21</td>
+
+      <td>Software Engineering</td>
+
+    </tr>
+
+  </table>
+
+  <hr>
 
   <!-- =========================
-       2) Explanation of Tags
+       2) Table Attributes
        ========================= -->
 
+  <p>
+    <strong>Common Table Attributes:</strong>
+  </p>
+
   <ul>
-    <li><strong>&lt;table&gt;</strong> = container for table</li>
-    <li><strong>&lt;tr&gt;</strong> = table row</li>
-    <li><strong>&lt;th&gt;</strong> = header cell (bold + centered by default)</li>
-    <li><strong>&lt;td&gt;</strong> = normal data cell</li>
+
+    <li>
+      <strong>border</strong>
+      = border thickness
+    </li>
+
+    <li>
+      <strong>cellpadding</strong>
+      = space INSIDE each cell
+    </li>
+
+    <li>
+      <strong>cellspacing</strong>
+      = space BETWEEN cells
+    </li>
+
+    <li>
+      <strong>width</strong>
+      = table width
+    </li>
+
+    <li>
+      <strong>align</strong>
+      = table alignment
+    </li>
+
+    <li>
+      <strong>bgcolor</strong>
+      = background color
+    </li>
+
   </ul>
 
   <!-- =========================
-       3) Important Concepts
+       3) border Attribute
        ========================= -->
 
-  <p class="label">Important Notes:</p>
+  <p>
+    <strong>border Attribute:</strong>
+  </p>
+
+  <table border="5">
+
+    <tr>
+
+      <th>Product</th>
+
+      <th>Price</th>
+
+    </tr>
+
+    <tr>
+
+      <td>Laptop</td>
+
+      <td>RM3000</td>
+
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <!-- =========================
+       4) cellpadding Attribute
+       ========================= -->
+
+  <p>
+    <strong>cellpadding Attribute:</strong>
+  </p>
+
+  <table
+    border="1"
+    cellpadding="20">
+
+    <tr>
+
+      <th>Name</th>
+
+      <th>Score</th>
+
+    </tr>
+
+    <tr>
+
+      <td>John</td>
+
+      <td>95</td>
+
+    </tr>
+
+  </table>
+
+  <p>
+    Larger cellpadding = more space inside cells.
+  </p>
+
+  <hr>
+
+  <!-- =========================
+       5) cellspacing Attribute
+       ========================= -->
+
+  <p>
+    <strong>cellspacing Attribute:</strong>
+  </p>
+
+  <table
+    border="1"
+    cellspacing="10">
+
+    <tr>
+
+      <th>Item</th>
+
+      <th>Quantity</th>
+
+    </tr>
+
+    <tr>
+
+      <td>Pen</td>
+
+      <td>5</td>
+
+    </tr>
+
+  </table>
+
+  <p>
+    Larger cellspacing = larger gap between cells.
+  </p>
+
+  <hr>
+
+  <!-- =========================
+       6) width Attribute
+       ========================= -->
+
+  <p>
+    <strong>width Attribute:</strong>
+  </p>
+
+  <table
+    border="1"
+    width="50%">
+
+    <tr>
+
+      <th>Country</th>
+
+      <th>Capital</th>
+
+    </tr>
+
+    <tr>
+
+      <td>Malaysia</td>
+
+      <td>Kuala Lumpur</td>
+
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <!-- =========================
+       7) align Attribute
+       ========================= -->
+
+  <p>
+    <strong>align Attribute:</strong>
+  </p>
+
+  <table
+    border="1"
+    width="300"
+    align="center">
+
+    <tr>
+
+      <th>Centered Table</th>
+
+    </tr>
+
+    <tr>
+
+      <td>This table is centered.</td>
+
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <!-- =========================
+       8) bgcolor Attribute
+       ========================= -->
+
+  <p>
+    <strong>bgcolor Attribute:</strong>
+  </p>
+
+  <table
+    border="1"
+    bgcolor="lightblue">
+
+    <tr>
+
+      <th>Name</th>
+
+      <th>Grade</th>
+
+    </tr>
+
+    <tr>
+
+      <td>Alice</td>
+
+      <td>A</td>
+
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <!-- =========================
+       9) td Attributes
+       ========================= -->
+
+  <p>
+    <strong>Cell Attributes:</strong>
+  </p>
+
+  <table border="1">
+
+    <tr>
+
+      <th width="200">
+        Width Attribute
+      </th>
+
+      <th bgcolor="yellow">
+        Background Color
+      </th>
+
+    </tr>
+
+    <tr>
+
+      <td align="center">
+        Centered Text
+      </td>
+
+      <td bgcolor="lightgreen">
+        Green Cell
+      </td>
+
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <!-- =========================
+       10) Explanation of Tags
+       ========================= -->
 
   <ul>
-    <li>Each row is wrapped inside <code>&lt;tr&gt;</code></li>
-    <li>Header row usually goes first</li>
-    <li>Number of <code>&lt;td&gt;</code> must match header count</li>
-    <li>Tables are for data, NOT for layout</li>
+
+    <li>
+      <strong>&lt;table&gt;</strong>
+      = container for table
+    </li>
+
+    <li>
+      <strong>&lt;tr&gt;</strong>
+      = table row
+    </li>
+
+    <li>
+      <strong>&lt;th&gt;</strong>
+      = table header
+    </li>
+
+    <li>
+      <strong>&lt;td&gt;</strong>
+      = normal data cell
+    </li>
+
   </ul>
 
   <!-- =========================
-       4) Common Mistakes
+       11) Important Notes
        ========================= -->
 
-  <p class="label">Common Mistakes:</p>
+  <p>
+    <strong>Important Notes:</strong>
+  </p>
 
   <ul>
-    <li>Forgetting to close <code>&lt;tr&gt;</code></li>
-    <li>Uneven number of <code>&lt;td&gt;</code></li>
-    <li>Using table for page layout (bad practice)</li>
+
+    <li>
+      Header cells are bold and centered by default
+    </li>
+
+    <li>
+      Each row uses
+      <code>&lt;tr&gt;</code>
+    </li>
+
+    <li>
+      Tables should store data,
+      NOT webpage layout
+    </li>
+
+    <li>
+      Many table attributes are old/legacy HTML
+    </li>
+
   </ul>
 
   <!-- =========================
-       5) Mini Practice
+       12) Common Mistakes
        ========================= -->
 
-  <p class="label">Mini Practice:</p>
+  <p>
+    <strong>Common Mistakes:</strong>
+  </p>
+
+  <ul>
+
+    <li>
+      Forgetting closing tags
+    </li>
+
+    <li>
+      Uneven number of
+      <code>&lt;td&gt;</code>
+    </li>
+
+    <li>
+      Using tables for full webpage layout
+    </li>
+
+  </ul>
+
+  <!-- =========================
+       13) Mini Practice
+       ========================= -->
+
+  <p>
+    <strong>Mini Practice:</strong>
+  </p>
 
   <ol>
-    <li>Create a table of 3 products with price and stock.</li>
-    <li>Add at least 4 rows.</li>
-    <li>Try adding one extra <code>&lt;td&gt;</code> and observe structure issue.</li>
+
+    <li>
+      Create a table with 4 columns.
+    </li>
+
+    <li>
+      Add border, cellpadding, and width.
+    </li>
+
+    <li>
+      Change table background color.
+    </li>
+
+    <li>
+      Center one cell using
+      <code>align</code>.
+    </li>
+
   </ol>
 
 </body>
