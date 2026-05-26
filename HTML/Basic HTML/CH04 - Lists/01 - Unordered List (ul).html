@@ -8,20 +8,51 @@
     GOAL:
     - Learn <ul> (unordered list)
     - Learn <li> (list item)
-    - Understand list nesting (list inside list)
-    - Learn basic list styling using "type" (legacy) and minimal CSS (for visibility)
+    - Understand list nesting
+    - Learn bullet styles
+    - Learn BOTH:
+        1) HTML type attribute (legacy)
+        2) CSS list-style-type
   -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>CH04 - Unordered List (ul)</title>
 
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-    .box { border: 2px dashed #555; padding: 12px; margin-top: 12px; border-radius: 8px; }
-    .label { font-weight: bold; margin-top: 18px; }
-    code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
-    .hint { background: #eef6ff; padding: 8px; border-radius: 6px; margin-top: 10px; }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .box {
+      border: 2px dashed #555;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    code {
+      background: #f3f3f3;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .hint {
+      background: #eef6ff;
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
   </style>
 </head>
 
@@ -30,111 +61,336 @@
   <h1>CH04 - Unordered List (ul)</h1>
 
   <p>
-    An unordered list uses <code>&lt;ul&gt;</code> and each item uses
+
+    An unordered list uses
+    <code>&lt;ul&gt;</code>
+
+    and each item uses
+
     <code>&lt;li&gt;</code>.
+
     It shows bullet points by default.
+
   </p>
 
   <!-- =========================
        1) Basic Unordered List
        ========================= -->
 
-  <p class="label">Basic Unordered List:</p>
+  <p class="label">
+    Basic Unordered List:
+  </p>
 
   <div class="box">
+
     <!--
       Structure:
+
       <ul>
         <li>Item 1</li>
         <li>Item 2</li>
       </ul>
     -->
+
     <ul>
+
       <li>HTML</li>
+
       <li>CSS</li>
+
       <li>JavaScript</li>
+
     </ul>
+
   </div>
 
   <div class="hint">
-    Tip: Use <code>&lt;ul&gt;</code> when order does NOT matter.
+
+    Tip:
+    Use <code>&lt;ul&gt;</code>
+    when order does NOT matter.
+
   </div>
 
   <!-- =========================
-       2) Nested Unordered List
+       2) Nested List
        ========================= -->
 
-  <p class="label">Nested List (List inside a List):</p>
+  <p class="label">
+    Nested List (List inside a List):
+  </p>
 
   <div class="box">
+
     <!--
-      A nested list is placed inside an <li>.
-      This is common for menus and categories.
+      Nested list should be inside <li>
     -->
+
     <ul>
+
       <li>
+
         Frontend
+
         <ul>
+
           <li>HTML</li>
+
           <li>CSS</li>
+
           <li>JavaScript</li>
+
         </ul>
+
       </li>
+
       <li>
+
         Backend
+
         <ul>
+
           <li>Node.js</li>
+
           <li>Java</li>
+
           <li>Python</li>
+
         </ul>
+
       </li>
+
     </ul>
+
   </div>
 
   <!-- =========================
-       3) Bullet Style (simple demo)
+       3) HTML type Attribute
        ========================= -->
 
-  <p class="label">Bullet Style (CSS Demo):</p>
+  <p class="label">
+    Bullet Style using HTML <code>type</code> Attribute:
+  </p>
 
   <div class="box">
-    <!--
-      We haven't learned CSS formally yet.
-      This is just to show that bullets can change.
-    -->
-    <ul style="list-style-type: square;">
-      <li>Square bullet</li>
-      <li>Square bullet</li>
+
+    <!-- disc -->
+    <p>
+      type="disc"
+    </p>
+
+    <ul type="disc">
+
+      <li>Disc bullet</li>
+
+      <li>Disc bullet</li>
+
     </ul>
 
-    <ul style="list-style-type: circle;">
+    <!-- circle -->
+    <p>
+      type="circle"
+    </p>
+
+    <ul type="circle">
+
       <li>Circle bullet</li>
+
       <li>Circle bullet</li>
+
     </ul>
+
+    <!-- square -->
+    <p>
+      type="square"
+    </p>
+
+    <ul type="square">
+
+      <li>Square bullet</li>
+
+      <li>Square bullet</li>
+
+    </ul>
+
+  </div>
+
+  <div class="hint">
+
+    <strong>type</strong>
+    is an old (legacy) HTML attribute.
+
   </div>
 
   <!-- =========================
-       4) Common Mistakes
+       4) Inline CSS Styling
        ========================= -->
 
-  <p class="label">Common Mistakes:</p>
+  <p class="label">
+    Bullet Style using Inline CSS:
+  </p>
+
+  <div class="box">
+
+    <!-- square -->
+    <ul style="list-style-type: square;">
+
+      <li>Square bullet</li>
+
+      <li>Square bullet</li>
+
+    </ul>
+
+    <!-- circle -->
+    <ul style="list-style-type: circle;">
+
+      <li>Circle bullet</li>
+
+      <li>Circle bullet</li>
+
+    </ul>
+
+    <!-- disc -->
+    <ul style="list-style-type: disc;">
+
+      <li>Disc bullet</li>
+
+      <li>Disc bullet</li>
+
+    </ul>
+
+    <!-- none -->
+    <ul style="list-style-type: none;">
+
+      <li>No bullet</li>
+
+      <li>No bullet</li>
+
+    </ul>
+
+  </div>
+
+  <div class="hint">
+
+    Modern websites usually use CSS instead of the old
+    <code>type</code> attribute.
+
+  </div>
+
+  <!-- =========================
+       5) Comparison
+       ========================= -->
+
+  <p class="label">
+    Comparison:
+  </p>
+
+  <table border="1" cellpadding="8">
+
+    <tr>
+
+      <th>Method</th>
+
+      <th>Status</th>
+
+    </tr>
+
+    <tr>
+
+      <td>type="square"</td>
+
+      <td>Old / Legacy HTML</td>
+
+    </tr>
+
+    <tr>
+
+      <td>style="list-style-type: square;"</td>
+
+      <td>Modern CSS Method</td>
+
+    </tr>
+
+  </table>
+
+  <!-- =========================
+       6) Common Mistakes
+       ========================= -->
+
+  <p class="label">
+    Common Mistakes:
+  </p>
 
   <ul>
-    <li>Putting text directly inside <code>&lt;ul&gt;</code> without <code>&lt;li&gt;</code></li>
-    <li>Forgetting to close <code>&lt;li&gt;</code> tags</li>
-    <li>Nesting a list outside an <code>&lt;li&gt;</code> (should be inside)</li>
+
+    <li>
+
+      Putting text directly inside
+      <code>&lt;ul&gt;</code>
+
+      without
+      <code>&lt;li&gt;</code>
+
+    </li>
+
+    <li>
+
+      Forgetting to close
+      <code>&lt;li&gt;</code>
+
+      tags
+
+    </li>
+
+    <li>
+
+      Nesting a list outside an
+      <code>&lt;li&gt;</code>
+
+    </li>
+
+    <li>
+
+      Using
+      <code>type</code>
+
+      on
+      <code>&lt;li&gt;</code>
+
+      instead of
+      <code>&lt;ul&gt;</code>
+
+    </li>
+
   </ul>
 
   <!-- =========================
-       5) Mini Practice
+       7) Mini Practice
        ========================= -->
 
-  <p class="label">Mini Practice:</p>
+  <p class="label">
+    Mini Practice:
+  </p>
 
   <ol>
-    <li>Create a list of your favorite foods (at least 5 items).</li>
-    <li>Create a nested list: “Drinks” and “Foods” categories.</li>
-    <li>Change bullet style to <code>square</code> using inline style.</li>
+
+    <li>
+      Create a list of your favorite foods.
+    </li>
+
+    <li>
+      Create a nested list.
+    </li>
+
+    <li>
+      Use <code>type="square"</code>.
+    </li>
+
+    <li>
+      Use inline CSS with
+      <code>list-style-type</code>.
+    </li>
+
   </ol>
 
 </body>
