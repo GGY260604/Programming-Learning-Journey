@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Display Table.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Learn display: table, table-row, and table-cell.
+    - Understand that CSS can make non-table elements behave like table layout.
+    - Know that modern layout usually prefers Flexbox or Grid.
+
+    IMPORTANT:
+    - display: table can be useful for some old layout techniques.
+    - However, for modern websites, Flexbox and Grid are usually better.
+    - This file is for understanding, not for recommending table layout everywhere.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Display Table</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .fake-table {
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    .fake-row {
+      display: table-row;
+    }
+
+    .fake-cell {
+      display: table-cell;
+      border: 2px solid #333;
+      padding: 12px;
+      vertical-align: middle;
+    }
+
+    .header-cell {
+      background-color: #0057d9;
+      color: white;
+      font-weight: bold;
+    }
+
+    .tall-cell {
+      height: 90px;
+      background-color: #eaf0ff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>display: table</h1>
+
+  <div class="box">
+    <h2>Divs Behaving Like a Table</h2>
+
+    <div class="fake-table">
+
+      <div class="fake-row">
+        <div class="fake-cell header-cell">
+          Name
+        </div>
+
+        <div class="fake-cell header-cell">
+          Role
+        </div>
+
+        <div class="fake-cell header-cell">
+          Level
+        </div>
+      </div>
+
+      <div class="fake-row">
+        <div class="fake-cell tall-cell">
+          Galen
+        </div>
+
+        <div class="fake-cell tall-cell">
+          Student
+        </div>
+
+        <div class="fake-cell tall-cell">
+          Beginner
+        </div>
+      </div>
+
+    </div>
+
+    <p>
+      These are <code>div</code> elements, but CSS makes them behave like table parts.
+    </p>
+  </div>
+
+</body>
+</html>

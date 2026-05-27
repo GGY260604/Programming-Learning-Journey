@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Box Sizing.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn box-sizing.
+    - Understand content-box.
+    - Understand border-box.
+    - Learn why many projects use box-sizing: border-box.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>07 - Box Sizing</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo {
+      width: 300px;
+      padding: 30px;
+      border: 10px solid #0057d9;
+      background-color: #eaf0ff;
+      margin-bottom: 16px;
+    }
+
+    .content-box-demo {
+      box-sizing: content-box;
+    }
+
+    .border-box-demo {
+      box-sizing: border-box;
+    }
+
+    .measure {
+      background-color: #fff4d6;
+      border: 2px dashed orange;
+      width: 300px;
+      padding: 8px;
+      margin-bottom: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Box Sizing</h1>
+
+  <div class="box">
+    <h2>content-box</h2>
+
+    <div class="measure">
+      300px reference width
+    </div>
+
+    <div class="demo content-box-demo">
+      box-sizing: content-box;
+      <br>
+      width: 300px + padding + border
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>border-box</h2>
+
+    <div class="measure">
+      300px reference width
+    </div>
+
+    <div class="demo border-box-demo">
+      box-sizing: border-box;
+      <br>
+      total visible width remains 300px
+    </div>
+
+    <pre>
+* {
+  box-sizing: border-box;
+}</pre>
+  </div>
+
+</body>
+</html>

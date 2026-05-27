@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Display Flow Root.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Learn display: flow-root.
+    - Understand how it creates a new block formatting context.
+    - Understand one practical use: containing floated elements.
+
+    IMPORTANT:
+    - Older CSS layouts often used float.
+    - A parent may collapse if it contains only floated children.
+    - display: flow-root helps the parent contain floated children cleanly.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Display Flow Root</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      A floated element is removed from normal flow.
+      This can make the parent height collapse if the parent contains only floated children.
+    */
+    .float-child {
+      float: left;
+      width: 120px;
+      height: 80px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      margin-right: 10px;
+      text-align: center;
+      padding-top: 24px;
+    }
+
+    .no-flow-root {
+      border: 4px solid red;
+      background-color: #ffe5e5;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    /*
+      display: flow-root:
+      - Creates a new block formatting context.
+      - It contains floated children properly.
+    */
+    .with-flow-root {
+      display: flow-root;
+      border: 4px solid green;
+      background-color: #eaffea;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>display: flow-root</h1>
+
+  <div class="box">
+    <h2>Without flow-root</h2>
+
+    <div class="demo-area">
+      <div class="no-flow-root">
+        <div class="float-child">
+          Float 1
+        </div>
+
+        <div class="float-child">
+          Float 2
+        </div>
+      </div>
+
+      <p>
+        This paragraph may appear close to the floated elements because the parent does not fully contain them.
+      </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>With display: flow-root</h2>
+
+    <div class="demo-area">
+      <div class="with-flow-root">
+        <div class="float-child">
+          Float 1
+        </div>
+
+        <div class="float-child">
+          Float 2
+        </div>
+      </div>
+    </div>
+
+    <p>
+      The green parent contains the floated children because it uses <code>display: flow-root;</code>.
+    </p>
+  </div>
+
+</body>
+</html>

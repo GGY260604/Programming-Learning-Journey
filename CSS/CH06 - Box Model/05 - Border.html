@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Border.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn border-width, border-style, and border-color.
+    - Learn border shorthand.
+    - Learn individual side borders.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>05 - Border</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo {
+      background-color: #f9f9f9;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .solid-border {
+      border: 4px solid #0057d9;
+    }
+
+    .dashed-border {
+      border: 4px dashed green;
+    }
+
+    .dotted-border {
+      border: 4px dotted red;
+    }
+
+    .double-border {
+      border: 6px double purple;
+    }
+
+    .longhand-border {
+      border-width: 5px;
+      border-style: solid;
+      border-color: orange;
+    }
+
+    .side-border {
+      border-top: 5px solid red;
+      border-right: 5px dashed blue;
+      border-bottom: 5px dotted green;
+      border-left: 5px double purple;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Border</h1>
+
+  <div class="box">
+    <h2>Border Styles</h2>
+
+    <div class="demo solid-border">
+      border: 4px solid #0057d9;
+    </div>
+
+    <div class="demo dashed-border">
+      border: 4px dashed green;
+    </div>
+
+    <div class="demo dotted-border">
+      border: 4px dotted red;
+    </div>
+
+    <div class="demo double-border">
+      border: 6px double purple;
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Border Longhand</h2>
+
+    <div class="demo longhand-border">
+      This border is written using border-width, border-style, and border-color.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Individual Side Borders</h2>
+
+    <div class="demo side-border">
+      Each side has a different border.
+    </div>
+  </div>
+
+</body>
+</html>

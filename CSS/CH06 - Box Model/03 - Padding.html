@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Padding.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn padding.
+    - Learn padding-top, padding-right, padding-bottom, padding-left.
+    - Learn padding shorthand values.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>03 - Padding</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo {
+      background-color: #eaf0ff;
+      border: 3px solid #0057d9;
+      margin-bottom: 16px;
+    }
+
+    .padding-all {
+      padding: 30px;
+    }
+
+    .padding-individual {
+      padding-top: 10px;
+      padding-right: 40px;
+      padding-bottom: 25px;
+      padding-left: 70px;
+    }
+
+    .padding-two-values {
+      padding: 20px 60px;
+    }
+
+    .padding-four-values {
+      padding: 10px 30px 50px 70px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Padding</h1>
+
+  <div class="box">
+    <h2>Same Padding on All Sides</h2>
+
+    <div class="demo padding-all">
+      padding: 30px;
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Individual Padding</h2>
+
+    <div class="demo padding-individual">
+      This box has different padding on each side.
+    </div>
+
+    <pre>
+.padding-individual {
+  padding-top: 10px;
+  padding-right: 40px;
+  padding-bottom: 25px;
+  padding-left: 70px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Padding Shorthand</h2>
+
+    <div class="demo padding-two-values">
+      padding: 20px 60px;
+    </div>
+
+    <p>
+      Two-value order is vertical, horizontal.
+    </p>
+
+    <div class="demo padding-four-values">
+      padding: 10px 30px 50px 70px;
+    </div>
+
+    <p>
+      Four-value order is top, right, bottom, left.
+    </p>
+  </div>
+
+</body>
+</html>

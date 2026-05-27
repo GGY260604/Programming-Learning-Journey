@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Box Model Overview.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Understand that every HTML element is treated like a box.
+    - Learn content, padding, border, and margin.
+    - See how the parts of the box model appear visually.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>01 - Box Model Overview</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      This demo element shows the box model visually.
+
+      width and height:
+      - Control the content area by default.
+
+      padding:
+      - Space inside the border.
+
+      border:
+      - The visible line around the padding and content.
+
+      margin:
+      - Space outside the border.
+    */
+    .box-model-demo {
+      width: 260px;
+      height: 100px;
+      padding: 30px;
+      border: 10px solid #0057d9;
+      margin: 30px;
+      background-color: #fff4d6;
+    }
+
+    .content-label {
+      background-color: #eaffea;
+      border: 2px dashed green;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Box Model Overview</h1>
+
+  <div class="box">
+    <h2>Every Element is a Box</h2>
+
+    <p>
+      CSS treats HTML elements as boxes.
+      The box is made of content, padding, border, and margin.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Visual Box Model Demo</h2>
+
+    <div class="box-model-demo">
+      <div class="content-label">
+        Content Area
+      </div>
+    </div>
+
+    <p>
+      The green area is content.
+      The yellow area is padding.
+      The blue line is border.
+      The empty space outside the border is margin.
+    </p>
+
+    <pre>
+.box-model-demo {
+  width: 260px;
+  height: 100px;
+  padding: 30px;
+  border: 10px solid #0057d9;
+  margin: 30px;
+}</pre>
+  </div>
+
+</body>
+</html>

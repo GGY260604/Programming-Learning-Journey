@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Block Elements.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Understand block-level behavior.
+    - Learn common default block elements.
+    - Learn how width, margin, padding, and height affect block elements.
+
+    IMPORTANT:
+    - Block elements normally stack vertically.
+    - They start on a new line.
+    - They usually stretch to fill the available horizontal space.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Block Elements</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      These div elements are block elements by default.
+      display: block is written here only to make the behavior explicit.
+
+      Notice:
+      - Each element appears on a new line.
+      - Each element stretches across the container.
+    */
+    .block-item {
+      display: block;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    /*
+      A block element can have a fixed width.
+      When width is smaller than the container, it no longer fills all horizontal space.
+    */
+    .fixed-width-block {
+      display: block;
+      width: 300px;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    /*
+      margin: 0 auto;
+      - Centers a block element horizontally.
+      - The element must have a width.
+      - auto margin distributes the remaining horizontal space equally.
+    */
+    .centered-block {
+      display: block;
+      width: 300px;
+      margin: 0 auto;
+      background-color: #eaffea;
+      border: 2px solid green;
+      padding: 10px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Block Elements</h1>
+
+  <div class="box">
+    <h2>Default Block Behavior</h2>
+
+    <div class="demo-area">
+      <div class="block-item">
+        Block item 1
+      </div>
+
+      <div class="block-item">
+        Block item 2
+      </div>
+
+      <div class="block-item">
+        Block item 3
+      </div>
+    </div>
+
+    <p>
+      The items stack vertically because block elements start on a new line.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Block Element with Width</h2>
+
+    <div class="demo-area">
+      <div class="fixed-width-block">
+        This block has width: 300px;
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Centered Block</h2>
+
+    <div class="demo-area">
+      <div class="centered-block">
+        Centered with margin: 0 auto;
+      </div>
+    </div>
+
+    <pre>
+.centered-block {
+  width: 300px;
+  margin: 0 auto;
+}</pre>
+  </div>
+
+</body>
+</html>

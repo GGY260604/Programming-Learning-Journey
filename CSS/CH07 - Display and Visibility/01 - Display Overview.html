@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Display Overview.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Understand the display property.
+    - Learn that display controls how an element participates in layout.
+    - Compare common display values: block, inline, inline-block, and none.
+
+    IMPORTANT:
+    - display does not only change how an element looks.
+    - It changes how the element behaves in the document layout.
+    - Many layout problems happen because we do not understand the default display value.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Display Overview</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      display: block;
+      - The element starts on a new line.
+      - It usually takes the full available width.
+      - Common default block elements: div, p, h1, section, article.
+    */
+    .block-demo {
+      display: block;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+    /*
+      display: inline;
+      - The element stays in the same line with surrounding text.
+      - Width and height do not work normally on inline elements.
+      - Common default inline elements: span, a, strong, em.
+    */
+    .inline-demo {
+      display: inline;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      padding: 6px;
+    }
+
+    /*
+      display: inline-block;
+      - The element stays inline like text.
+      - But it can still accept width, height, padding, and margin better.
+      - Useful for buttons, badges, small cards, and navigation links.
+    */
+    .inline-block-demo {
+      display: inline-block;
+      width: 150px;
+      height: 60px;
+      background-color: #eaffea;
+      border: 2px solid green;
+      padding: 10px;
+      margin: 6px;
+      text-align: center;
+    }
+
+    /*
+      display: none;
+      - The element is completely removed from layout.
+      - It does not take up space.
+      - It is not visible on the page.
+    */
+    .none-demo {
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Display Overview</h1>
+
+  <div class="box">
+    <h2>What does display do?</h2>
+
+    <p>
+      The <code>display</code> property controls how an element is shown in layout.
+      It affects whether the element creates a new line, stays inline, accepts width and height,
+      or disappears completely.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>display: block</h2>
+
+    <div class="demo-area">
+      <div class="block-demo">
+        Block element 1
+      </div>
+
+      <div class="block-demo">
+        Block element 2
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>display: inline</h2>
+
+    <div class="demo-area">
+      Normal text before
+      <span class="inline-demo">inline element</span>
+      normal text after.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>display: inline-block</h2>
+
+    <div class="demo-area">
+      <span class="inline-block-demo">Box 1</span>
+      <span class="inline-block-demo">Box 2</span>
+      <span class="inline-block-demo">Box 3</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>display: none</h2>
+
+    <p>
+      There is a hidden element below this sentence, but it takes no space.
+    </p>
+
+    <div class="none-demo">
+      You cannot see this because display is none.
+    </div>
+
+    <pre>
+.none-demo {
+  display: none;
+}</pre>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Margin Collapse.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Understand margin collapse.
+    - Learn that vertical margins between block elements can collapse.
+    - Learn that horizontal margins do not collapse.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>08 - Margin Collapse</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 10px;
+      margin-bottom: 16px;
+    }
+
+    .collapse-one {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+
+    .collapse-two {
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      padding: 10px;
+      margin-top: 40px;
+    }
+
+    .no-collapse-parent {
+      padding-top: 1px;
+      background-color: #eaffea;
+      border: 2px solid green;
+    }
+
+    .child-margin {
+      background-color: white;
+      border: 2px solid #333;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Margin Collapse</h1>
+
+  <div class="box">
+    <h2>Vertical Margin Collapse</h2>
+
+    <div class="demo-area">
+      <div class="collapse-one">
+        First block: margin-bottom: 40px;
+      </div>
+
+      <div class="collapse-two">
+        Second block: margin-top: 40px;
+      </div>
+    </div>
+
+    <p>
+      Vertical margins may collapse instead of adding together.
+      This is why vertical margin can sometimes feel confusing.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Preventing Parent-Child Margin Collapse</h2>
+
+    <div class="no-collapse-parent">
+      <div class="child-margin">
+        This child has margin-top: 30px.
+        The parent has padding-top: 1px, which helps prevent collapse.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

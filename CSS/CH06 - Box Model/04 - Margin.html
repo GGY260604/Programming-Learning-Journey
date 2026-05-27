@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Margin.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn margin.
+    - Learn individual margin properties.
+    - Learn margin shorthand.
+    - Understand margin: auto for horizontal centering.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>04 - Margin</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 10px;
+      margin-bottom: 16px;
+    }
+
+    .demo {
+      background-color: #eaf0ff;
+      border: 3px solid #0057d9;
+      padding: 10px;
+    }
+
+    .margin-all {
+      margin: 30px;
+    }
+
+    .margin-individual {
+      margin-top: 10px;
+      margin-right: 40px;
+      margin-bottom: 25px;
+      margin-left: 70px;
+    }
+
+    .margin-two-values {
+      margin: 20px 60px;
+    }
+
+    /*
+      margin: auto is a common technique for horizontal centering.
+      - Set left and right margins to auto.
+      - Set a width to prevent it from taking full width.
+    */
+    .margin-auto {
+      width: 300px;
+      margin: 0 auto;
+      background-color: #eaffea;
+      border: 3px solid green;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Margin</h1>
+
+  <div class="box">
+    <h2>Same Margin on All Sides</h2>
+
+    <div class="demo-area">
+      <div class="demo margin-all">
+        margin: 30px;
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Individual Margin</h2>
+
+    <div class="demo-area">
+      <div class="demo margin-individual">
+        This box has different margin on each side.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Margin Shorthand</h2>
+
+    <div class="demo-area">
+      <div class="demo margin-two-values">
+        margin: 20px 60px;
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>margin: auto</h2>
+
+    <div class="margin-auto">
+      This box is horizontally centered using margin: 0 auto;
+    </div>
+  </div>
+
+</body>
+</html>

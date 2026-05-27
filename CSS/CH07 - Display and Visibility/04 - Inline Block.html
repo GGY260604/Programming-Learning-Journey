@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Inline Block.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Understand display: inline-block.
+    - Learn how inline-block combines inline and block behavior.
+    - Use inline-block for buttons, badges, and small boxes.
+
+    IMPORTANT:
+    - inline-block elements stay in the same line if there is enough space.
+    - They can still accept width, height, padding, margin, and border.
+    - This makes them useful for small UI components.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Inline Block</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      inline-block card:
+      - Stays beside other inline-block elements.
+      - Accepts width and height.
+      - Can use padding, border, and margin normally.
+    */
+    .mini-card {
+      display: inline-block;
+      width: 160px;
+      height: 90px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 6px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    /*
+      Button-like link:
+      - <a> is inline by default.
+      - display: inline-block makes padding and box styling more reliable.
+    */
+    .button-link {
+      display: inline-block;
+      color: white;
+      background-color: #0057d9;
+      border: 2px solid #0057d9;
+      border-radius: 999px;
+      padding: 10px 16px;
+      margin-right: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button-link:hover {
+      background-color: #003f9e;
+      border-color: #003f9e;
+    }
+
+    .badge {
+      display: inline-block;
+      color: #222;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Inline Block</h1>
+
+  <div class="box">
+    <h2>Inline-Block Cards</h2>
+
+    <div class="demo-area">
+      <div class="mini-card">
+        Card 1
+      </div>
+
+      <div class="mini-card">
+        Card 2
+      </div>
+
+      <div class="mini-card">
+        Card 3
+      </div>
+    </div>
+
+    <p>
+      These cards stay on the same row when there is enough space,
+      but they still have width and height.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Button Links and Badge</h2>
+
+    <div class="demo-area">
+      <a href="#" class="button-link">
+        Save
+      </a>
+
+      <a href="#" class="button-link">
+        Cancel
+      </a>
+
+      <span class="badge">
+        Active
+      </span>
+    </div>
+  </div>
+
+</body>
+</html>

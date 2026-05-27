@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Outline vs Border.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn outline.
+    - Compare outline with border.
+    - Understand that outline does not take up layout space.
+    - Understand outline is useful for focus styles.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>09 - Outline vs Border</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo {
+      background-color: #eaf0ff;
+      padding: 12px;
+      margin: 20px;
+      width: 300px;
+    }
+
+    .border-demo {
+      border: 6px solid #0057d9;
+    }
+
+    .outline-demo {
+      border: 2px solid #333;
+      outline: 6px solid orange;
+    }
+
+    .outline-offset-demo {
+      border: 2px solid #333;
+      outline: 4px dashed red;
+      outline-offset: 6px;
+    }
+
+    input {
+      padding: 8px;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+
+    input:focus {
+      outline: 4px solid orange;
+      outline-offset: 3px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Outline vs Border</h1>
+
+  <div class="box">
+    <h2>Border</h2>
+
+    <div class="demo border-demo">
+      This element uses border.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Outline</h2>
+
+    <div class="demo outline-demo">
+      This element uses outline.
+    </div>
+
+    <div class="demo outline-offset-demo">
+      This element uses outline-offset.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Focus Outline</h2>
+
+    <p>
+      Click the input field or use the keyboard to focus it.
+    </p>
+
+    <input type="text" placeholder="Focus me">
+  </div>
+
+</body>
+</html>

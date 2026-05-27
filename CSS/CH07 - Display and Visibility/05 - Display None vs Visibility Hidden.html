@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Display None vs Visibility Hidden.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Compare display: none and visibility: hidden.
+    - Understand that display: none removes the element from layout.
+    - Understand that visibility: hidden hides the element but keeps its space.
+
+    IMPORTANT:
+    - Both make the element invisible.
+    - But they affect layout differently.
+    - This difference is important for UI design and JavaScript interactions.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Display None vs Visibility Hidden</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+    /*
+      display: none;
+      - The element disappears.
+      - It does not take up space.
+      - The next element moves up.
+    */
+    .display-none {
+      display: none;
+    }
+
+    /*
+      visibility: hidden;
+      - The element is invisible.
+      - But it still takes up space.
+      - The layout gap remains.
+    */
+    .visibility-hidden {
+      visibility: hidden;
+    }
+
+    /*
+      opacity: 0;
+      - The element is transparent.
+      - It still takes up space.
+      - It can still be interactive unless pointer-events is changed.
+    */
+    .opacity-zero {
+      opacity: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>display: none vs visibility: hidden</h1>
+
+  <div class="box">
+    <h2>display: none</h2>
+
+    <div class="demo-area">
+      <div class="item">
+        Item 1
+      </div>
+
+      <div class="item display-none">
+        Item 2 is display: none
+      </div>
+
+      <div class="item">
+        Item 3 moves up because Item 2 takes no space.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>visibility: hidden</h2>
+
+    <div class="demo-area">
+      <div class="item">
+        Item 1
+      </div>
+
+      <div class="item visibility-hidden">
+        Item 2 is visibility: hidden
+      </div>
+
+      <div class="item">
+        Item 3 does not move up because Item 2 still takes space.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>opacity: 0</h2>
+
+    <div class="demo-area">
+      <div class="item">
+        Item 1
+      </div>
+
+      <div class="item opacity-zero">
+        Item 2 is opacity: 0
+      </div>
+
+      <div class="item">
+        Item 3 does not move up because Item 2 still takes space.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Display Contents.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Learn display: contents.
+    - Understand that the element's own box is removed.
+    - Understand that its children still appear.
+
+    IMPORTANT:
+    - display: contents is different from display: none.
+    - display: none hides the element and its children.
+    - display: contents removes only the parent box, but keeps the children visible.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Display Contents</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      Normal wrapper:
+      - This wrapper has its own visible box.
+      - The children are inside it.
+    */
+    .normal-wrapper {
+      background-color: #fff4d6;
+      border: 4px solid orange;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      display: contents:
+      - The wrapper itself does not generate a visible box.
+      - Its children behave as if they were placed directly in the parent.
+      - The wrapper's background, border, padding, and margin do not appear.
+    */
+    .contents-wrapper {
+      display: contents;
+      background-color: #fff4d6;
+      border: 4px solid orange;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .child {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>display: contents</h1>
+
+  <div class="box">
+    <h2>Normal Wrapper</h2>
+
+    <div class="demo-area">
+      <div class="normal-wrapper">
+        <div class="child">
+          Child 1 inside normal wrapper
+        </div>
+
+        <div class="child">
+          Child 2 inside normal wrapper
+        </div>
+      </div>
+    </div>
+
+    <p>
+      The orange wrapper box is visible because the wrapper creates its own layout box.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>display: contents Wrapper</h2>
+
+    <div class="demo-area">
+      <div class="contents-wrapper">
+        <div class="child">
+          Child 1 inside display: contents wrapper
+        </div>
+
+        <div class="child">
+          Child 2 inside display: contents wrapper
+        </div>
+      </div>
+    </div>
+
+    <p>
+      The wrapper's own orange box disappears, but the child elements are still visible.
+    </p>
+  </div>
+
+</body>
+</html>

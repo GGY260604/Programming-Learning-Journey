@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Width and Height.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn width and height.
+    - Learn min-width, max-width, min-height, and max-height.
+    - Understand why fixed height can sometimes cause overflow.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>02 - Width and Height</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .width-demo {
+      width: 300px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+    }
+
+    .height-demo {
+      width: 300px;
+      height: 80px;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      padding: 10px;
+      overflow: auto;
+    }
+
+    .max-width-demo {
+      max-width: 500px;
+      background-color: #eaffea;
+      border: 2px solid green;
+      padding: 10px;
+    }
+
+    .min-height-demo {
+      min-height: 120px;
+      background-color: #ffe5e5;
+      border: 2px solid red;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Width and Height</h1>
+
+  <div class="box">
+    <h2>width</h2>
+
+    <div class="width-demo">
+      This element uses width: 300px;
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>height</h2>
+
+    <div class="height-demo">
+      This element uses height: 80px.
+      If there is too much content inside, the content may overflow.
+      This example uses overflow: auto so a scrollbar can appear if needed.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>max-width</h2>
+
+    <div class="max-width-demo">
+      This element uses max-width: 500px.
+      It can shrink on small screens but will not grow larger than 500px.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>min-height</h2>
+
+    <div class="min-height-demo">
+      This element uses min-height: 120px.
+      It will be at least 120px tall, but it can grow if content becomes longer.
+    </div>
+  </div>
+
+</body>
+</html>

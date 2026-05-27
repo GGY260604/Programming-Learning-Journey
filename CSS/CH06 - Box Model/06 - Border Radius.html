@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Border Radius.html
+    TOPIC: CH06 - Box Model
+
+    GOAL:
+    - Learn border-radius.
+    - Create rounded corners.
+    - Create pill shapes and circles.
+
+    NOTE:
+    - This file is executable. Open it directly in a browser.
+    - Read the comments inside the CSS to understand each property.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>06 - Border Radius</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .demo-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .shape {
+      width: 160px;
+      height: 100px;
+      background-color: #eaf0ff;
+      border: 3px solid #0057d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .small-radius {
+      border-radius: 8px;
+    }
+
+    .large-radius {
+      border-radius: 24px;
+    }
+
+    .pill {
+      width: 220px;
+      height: 60px;
+      border-radius: 999px;
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+
+    .individual-radius {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Border Radius</h1>
+
+  <div class="box">
+    <h2>Rounded Corners</h2>
+
+    <div class="demo-row">
+      <div class="shape small-radius">
+        border-radius: 8px;
+      </div>
+
+      <div class="shape large-radius">
+        border-radius: 24px;
+      </div>
+
+      <div class="shape individual-radius">
+        Different corners
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Pill and Circle</h2>
+
+    <div class="demo-row">
+      <div class="shape pill">
+        Pill Shape
+      </div>
+
+      <div class="shape circle">
+        Circle
+      </div>
+    </div>
+
+    <p>
+      To create a circle, width and height should be equal,
+      then use <code>border-radius: 50%;</code>.
+    </p>
+  </div>
+
+</body>
+</html>

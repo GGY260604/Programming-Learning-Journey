@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Inline Elements.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Understand inline-level behavior.
+    - Learn common default inline elements.
+    - Understand why width and height do not work normally on inline elements.
+
+    IMPORTANT:
+    - Inline elements stay inside the text flow.
+    - They do not start on a new line.
+    - Width and height are usually ignored.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Inline Elements</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /*
+      Inline element:
+      - The span stays in the same line as surrounding text.
+      - It does not create a new row.
+    */
+    .inline-highlight {
+      display: inline;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      padding: 4px;
+    }
+
+    /*
+      Width and height on inline elements:
+      - These properties are written here intentionally.
+      - However, width and height do not work normally on inline elements.
+    */
+    .inline-size-test {
+      display: inline;
+      width: 200px;
+      height: 80px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 6px;
+    }
+
+    .custom-link {
+      color: darkblue;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Inline Elements</h1>
+
+  <div class="box">
+    <h2>Inline Text Flow</h2>
+
+    <div class="demo-area">
+      This is normal text before
+      <span class="inline-highlight">an inline span</span>
+      and this is normal text after it.
+    </div>
+
+    <p>
+      The span does not move to a new line because it is inline.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Width and Height Problem</h2>
+
+    <div class="demo-area">
+      Text before
+      <span class="inline-size-test">
+        Inline element with width and height
+      </span>
+      text after.
+    </div>
+
+    <p>
+      The CSS contains <code>width: 200px;</code> and <code>height: 80px;</code>,
+      but inline elements do not follow width and height like block elements.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Common Inline Elements</h2>
+
+    <p>
+      Examples include <code>span</code>, <code>a</code>, <code>strong</code>,
+      <code>em</code>, and <code>label</code>.
+    </p>
+
+    <p>
+      This is a
+      <a href="#" class="custom-link">custom inline link</a>
+      inside a paragraph.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Chapter Practice.html
+    TOPIC: CH07 - Display and Visibility
+
+    GOAL:
+    - Practice display: block, inline, inline-block, none.
+    - Practice visibility: hidden and opacity: 0.
+    - Build a simple navigation and card layout.
+
+    IMPORTANT:
+    - This practice does not use Flexbox or Grid yet.
+    - Flexbox and Grid will be taught in later chapters.
+    - Here, the focus is only on display and visibility behavior.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - Chapter Practice</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: block;
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .nav {
+      display: block;
+      background-color: #0057d9;
+      padding: 12px;
+      text-align: center;
+    }
+
+    /*
+      Navigation links:
+      - <a> is inline by default.
+      - display: inline-block makes padding, margin, and box shape easier to control.
+    */
+    .nav-link {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      margin: 4px;
+      border-radius: 999px;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .content {
+      display: block;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      display: inline-block;
+      width: 260px;
+      min-height: 180px;
+      vertical-align: top;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      color: #222;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .removed-card {
+      display: none;
+    }
+
+    .invisible-card {
+      visibility: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>
+      CH07 Practice: Display and Visibility
+    </h1>
+
+    <p>
+      This page practices how elements appear, disappear, and sit beside each other.
+    </p>
+  </header>
+
+  <nav class="nav">
+    <a href="#" class="nav-link">
+      Home
+    </a>
+
+    <a href="#" class="nav-link">
+      Notes
+    </a>
+
+    <a href="#" class="nav-link">
+      Practice
+    </a>
+  </nav>
+
+  <main class="content">
+
+    <section class="card">
+      <span class="badge">
+        Visible
+      </span>
+
+      <h2>
+        Normal Card
+      </h2>
+
+      <p>
+        This card uses <code>display: inline-block</code>,
+        so it can sit beside other cards.
+      </p>
+    </section>
+
+    <section class="card removed-card">
+      <span class="badge">
+        Removed
+      </span>
+
+      <h2>
+        display: none
+      </h2>
+
+      <p>
+        This card is removed from the layout.
+      </p>
+    </section>
+
+    <section class="card invisible-card">
+      <span class="badge">
+        Hidden
+      </span>
+
+      <h2>
+        visibility: hidden
+      </h2>
+
+      <p>
+        This card is invisible but still keeps its space.
+      </p>
+    </section>
+
+    <section class="card">
+      <span class="badge">
+        Visible
+      </span>
+
+      <h2>
+        After Hidden Card
+      </h2>
+
+      <p>
+        Notice the gap before this card because the hidden card still takes space.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
