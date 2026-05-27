@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Web Safe Fonts and External Font Idea.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Understand web safe fonts
+    - Understand the idea of external fonts
+    - Learn @font-face concept without needing actual font files
+
+    IMPORTANT:
+    - Do not randomly depend on fonts that users may not have installed.
+    - Use fallback fonts.
+    - For real projects, external fonts can be loaded using @font-face or a font provider.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Web Safe Fonts and External Font Idea</title>
+
+  <style>
+    /*
+      @font-face concept:
+
+      @font-face {
+        font-family: "MyCustomFont";
+        src: url("fonts/MyCustomFont.woff2") format("woff2");
+      }
+
+      Then use:
+
+      .example {
+        font-family: "MyCustomFont", Arial, sans-serif;
+      }
+
+      This file does not include an actual font file.
+      The purpose here is to understand the syntax and concept.
+    */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .font-stack-1 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .font-stack-2 {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .font-stack-3 {
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .fake-external-font {
+      /*
+        This pretends to use a custom font first.
+        If "MyCustomFont" does not exist, browser uses Arial, then sans-serif.
+      */
+      font-family: "MyCustomFont", Arial, sans-serif;
+      color: darkblue;
+      font-weight: bold;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Web Safe Fonts and External Font Idea</h1>
+
+  <div class="box">
+    <h2>Web Safe Font Stacks</h2>
+
+    <p class="font-stack-1">
+      Arial, Helvetica, sans-serif
+    </p>
+
+    <p class="font-stack-2">
+      Georgia, Times New Roman, serif
+    </p>
+
+    <p class="font-stack-3">
+      Courier New, Courier, monospace
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>@font-face Concept</h2>
+
+    <pre>
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("fonts/MyCustomFont.woff2") format("woff2");
+}
+
+.example {
+  font-family: "MyCustomFont", Arial, sans-serif;
+}</pre>
+
+    <p class="fake-external-font">
+      This paragraph tries to use "MyCustomFont", then falls back to Arial.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Best Practice</h2>
+
+    <p>
+      Always include fallback fonts after a custom font:
+      <code>font-family: "CustomFont", Arial, sans-serif;</code>
+    </p>
+  </div>
+
+</body>
+</html>

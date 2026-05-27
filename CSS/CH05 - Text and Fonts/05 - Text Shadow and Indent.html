@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Text Shadow and Indent.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn text-shadow
+    - Learn text-indent
+    - Learn how shadows and indentation affect text appearance
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Text Shadow and Indent</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      text-shadow syntax:
+      text-shadow: x-offset y-offset blur color;
+
+      x-offset:
+      - Moves shadow horizontally.
+
+      y-offset:
+      - Moves shadow vertically.
+
+      blur:
+      - Makes the shadow softer.
+
+      color:
+      - Sets shadow color.
+    */
+    .simple-shadow {
+      font-size: 32px;
+      text-shadow: 2px 2px 4px gray;
+    }
+
+    /*
+      Multiple shadows:
+      - Separate each shadow with a comma.
+    */
+    .multiple-shadow {
+      font-size: 32px;
+      color: white;
+      background-color: #333;
+      padding: 12px;
+      text-shadow:
+        2px 2px 0 red,
+        4px 4px 0 blue;
+    }
+
+    /*
+      text-indent:
+      - Adds indentation to the first line of a text block.
+      - Commonly used in paragraph formatting.
+    */
+    .indent-demo {
+      text-indent: 40px;
+      text-align: justify;
+    }
+
+    /*
+      Negative text-indent:
+      - Moves the first line backward.
+      - This is less common and should be used carefully.
+    */
+    .negative-indent-demo {
+      text-indent: -50px;
+      padding-left: 30px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Text Shadow and Indent</h1>
+
+  <div class="box">
+    <h2>text-shadow</h2>
+
+    <p class="simple-shadow">
+      Simple Text Shadow
+    </p>
+
+    <pre>
+.simple-shadow {
+  text-shadow: 2px 2px 4px gray;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Multiple text-shadow</h2>
+
+    <p class="multiple-shadow">
+      Multiple Shadows
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>text-indent</h2>
+
+    <p class="indent-demo">
+      This paragraph uses text-indent. Only the first line is indented.
+      If the paragraph wraps into more lines, only the first line moves to the right.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Negative text-indent</h2>
+
+    <p class="negative-indent-demo">
+      This paragraph uses negative text-indent. The first line moves backward.
+      This is less common but useful to understand.
+    </p>
+  </div>
+
+</body>
+</html>

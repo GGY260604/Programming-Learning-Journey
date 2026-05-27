@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Font Size Weight and Style.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn font-size
+    - Learn font-weight
+    - Learn font-style
+    - Learn the font shorthand property
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Font Size Weight and Style</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      font-size:
+      - Controls the size of text.
+      - Common units include px, rem, em, %, and vw.
+    */
+    .small-text {
+      font-size: 14px;
+    }
+
+    .large-text {
+      font-size: 28px;
+    }
+
+    /*
+      font-weight:
+      - Controls how thick the text is.
+      - Common values: normal, bold, 100 to 900.
+    */
+    .normal-weight {
+      font-weight: normal;
+    }
+
+    .bold-weight {
+      font-weight: bold;
+    }
+
+    .numeric-weight {
+      font-weight: 700;
+    }
+
+    /*
+      font-style:
+      - Common values: normal, italic, oblique.
+    */
+    .italic-style {
+      font-style: italic;
+    }
+
+    .oblique-style {
+      font-style: oblique;
+    }
+
+    /*
+      font shorthand:
+      - Combines multiple font-related properties.
+      - Common order:
+        font: font-style font-weight font-size/line-height font-family;
+    */
+    .font-shorthand {
+      font: italic bold 22px/1.5 Georgia, serif;
+      color: darkblue;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Font Size, Weight and Style</h1>
+
+  <div class="box">
+    <h2>font-size</h2>
+
+    <p class="small-text">
+      This text uses font-size: 14px;
+    </p>
+
+    <p class="large-text">
+      This text uses font-size: 28px;
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>font-weight</h2>
+
+    <p class="normal-weight">
+      This text uses font-weight: normal;
+    </p>
+
+    <p class="bold-weight">
+      This text uses font-weight: bold;
+    </p>
+
+    <p class="numeric-weight">
+      This text uses font-weight: 700;
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>font-style</h2>
+
+    <p class="italic-style">
+      This text uses font-style: italic;
+    </p>
+
+    <p class="oblique-style">
+      This text uses font-style: oblique;
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>font Shorthand</h2>
+
+    <p class="font-shorthand">
+      This text uses the font shorthand property.
+    </p>
+
+    <pre>
+.font-shorthand {
+  font: italic bold 22px/1.5 Georgia, serif;
+}</pre>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - White Space and Text Overflow.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn white-space
+    - Learn overflow
+    - Learn text-overflow
+    - Create single-line ellipsis text
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - White Space and Text Overflow</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo {
+      width: 320px;
+      border: 2px solid #333;
+      background-color: #eaf0ff;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    /*
+      white-space: normal;
+      - Default behavior.
+      - Multiple spaces collapse into one.
+      - Text wraps normally.
+    */
+    .normal-space {
+      white-space: normal;
+    }
+
+    /*
+      white-space: nowrap;
+      - Text does not wrap to the next line.
+    */
+    .nowrap-space {
+      white-space: nowrap;
+    }
+
+    /*
+      white-space: pre;
+      - Preserves spaces and line breaks.
+      - Similar to how <pre> behaves.
+    */
+    .pre-space {
+      white-space: pre;
+    }
+
+    /*
+      Single-line ellipsis pattern:
+      1. width must be limited.
+      2. white-space: nowrap;
+      3. overflow: hidden;
+      4. text-overflow: ellipsis;
+    */
+    .ellipsis-demo {
+      width: 320px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 2px solid #333;
+      background-color: #fff4d6;
+      padding: 10px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>White Space and Text Overflow</h1>
+
+  <div class="box">
+    <h2>white-space: normal</h2>
+
+    <div class="demo normal-space">
+      This     text     has     many     spaces, but normal white-space collapses them.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>white-space: nowrap</h2>
+
+    <div class="demo nowrap-space">
+      This is a very long sentence that will not wrap to the next line even when the box is too small.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>white-space: pre</h2>
+
+    <div class="demo pre-space">Line 1
+      Line 2 with spaces
+          Line 3 with more spaces</div>
+  </div>
+
+  <div class="box">
+    <h2>Single-Line Ellipsis</h2>
+
+    <div class="ellipsis-demo">
+      This is a very long title that cannot fit inside the box, so it will show ellipsis.
+    </div>
+
+    <pre>
+.ellipsis-demo {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}</pre>
+  </div>
+
+</body>
+</html>

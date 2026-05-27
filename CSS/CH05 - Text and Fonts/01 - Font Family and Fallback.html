@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Font Family and Fallback.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn font-family
+    - Understand font fallback
+    - Understand generic font families:
+      serif, sans-serif, monospace, cursive, fantasy
+
+    IMPORTANT:
+    - If the first font is not available, the browser tries the next font.
+    - Always end a font-family list with a generic family.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Font Family and Fallback</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      font-family:
+      - Controls the font used for text.
+      - The browser tries the first font first.
+      - If the first font is not available, it tries the next font.
+    */
+    .sans-serif-demo {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /*
+      serif:
+      - Serif fonts have small decorative strokes.
+      - They are common in formal documents.
+    */
+    .serif-demo {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /*
+      monospace:
+      - Every character has equal width.
+      - This is common for code examples.
+    */
+    .monospace-demo {
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    /*
+      cursive:
+      - Usually looks like handwriting.
+    */
+    .cursive-demo {
+      font-family: "Brush Script MT", cursive;
+      font-size: 24px;
+    }
+
+    /*
+      fantasy:
+      - Decorative font style.
+      - Not recommended for normal paragraph text.
+    */
+    .fantasy-demo {
+      font-family: Impact, fantasy;
+      font-size: 24px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Font Family and Fallback</h1>
+
+  <div class="box">
+    <h2>Font Fallback Concept</h2>
+
+    <p>
+      A font-family list gives the browser several font choices.
+      The first available font will be used.
+    </p>
+
+    <pre>
+.example {
+  font-family: Arial, Helvetica, sans-serif;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Generic Font Families</h2>
+
+    <p class="sans-serif-demo">
+      Sans-serif example: Arial, Helvetica, sans-serif
+    </p>
+
+    <p class="serif-demo">
+      Serif example: Georgia, Times New Roman, serif
+    </p>
+
+    <p class="monospace-demo">
+      Monospace example: Courier New, Courier, monospace
+    </p>
+
+    <p class="cursive-demo">
+      Cursive example: Brush Script MT, cursive
+    </p>
+
+    <p class="fantasy-demo">
+      Fantasy example: Impact, fantasy
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Best Practice</h2>
+
+    <p>
+      For most websites, use a readable font stack like
+      <code>font-family: Arial, sans-serif;</code>
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Chapter Practice.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Practice font-family, font-size, font-weight, and font-style
+    - Practice text-align, text-transform, and text-decoration
+    - Practice line-height, letter-spacing, text-shadow, and ellipsis
+    - Create a simple article preview card
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .article-card {
+      max-width: 520px;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    /*
+      Category label:
+      - Uses uppercase text.
+      - Uses letter spacing.
+      - Uses small font size.
+    */
+    .category {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: white;
+      background-color: #0057d9;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /*
+      Article title:
+      - Uses font-family fallback.
+      - Uses text-shadow.
+    */
+    .title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      line-height: 1.2;
+      color: #222;
+      text-shadow: 1px 1px 2px #cccccc;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: #666;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    /*
+      Summary:
+      - Uses comfortable line-height.
+      - Uses text-align: justify.
+    */
+    .summary {
+      line-height: 1.7;
+      text-align: justify;
+      color: #333;
+    }
+
+    /*
+      Ellipsis title:
+      - Useful for card titles, product names, and table columns.
+    */
+    .single-line-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: #fff4d6;
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: #0057d9;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 2px solid #0057d9;
+    }
+
+    .read-more:hover {
+      color: #003f9e;
+      border-bottom-color: #003f9e;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <article class="article-card">
+    <span class="category">
+      CSS Notes
+    </span>
+
+    <h1 class="title">
+      Text and Font Styling
+    </h1>
+
+    <p class="meta">
+      Written for executable CSS learning notes
+    </p>
+
+    <p class="summary">
+      Text styling is important because most websites contain a lot of readable content.
+      CSS allows us to control font family, size, weight, style, spacing, alignment,
+      decoration, transformation, and overflow behavior.
+    </p>
+
+    <p class="single-line-title">
+      This is a very long single-line title that will be cut using text-overflow ellipsis.
+    </p>
+
+    <a href="#" class="read-more">
+      Read more
+    </a>
+  </article>
+
+</body>
+</html>

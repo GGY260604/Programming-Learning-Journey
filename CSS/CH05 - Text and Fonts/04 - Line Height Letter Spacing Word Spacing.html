@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Line Height Letter Spacing Word Spacing.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn line-height
+    - Learn letter-spacing
+    - Learn word-spacing
+    - Learn how spacing affects readability
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Text Spacing</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      line-height:
+      - Controls the height of each line of text.
+      - A unitless number is common and recommended.
+    */
+    .line-height-small {
+      line-height: 1;
+      background-color: #ffe5e5;
+      padding: 10px;
+    }
+
+    .line-height-good {
+      line-height: 1.6;
+      background-color: #eaffea;
+      padding: 10px;
+    }
+
+    .line-height-large {
+      line-height: 2.4;
+      background-color: #eaf0ff;
+      padding: 10px;
+    }
+
+    /*
+      letter-spacing:
+      - Controls space between letters.
+    */
+    .letter-spacing-demo {
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    /*
+      word-spacing:
+      - Controls space between words.
+    */
+    .word-spacing-demo {
+      word-spacing: 14px;
+    }
+
+    /*
+      Combined text spacing:
+      - Useful for headings, labels, and special design.
+    */
+    .heading-style {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      word-spacing: 8px;
+      color: darkblue;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Line Height, Letter Spacing and Word Spacing</h1>
+
+  <div class="box">
+    <h2>line-height</h2>
+
+    <p class="line-height-small">
+      Small line-height can make paragraph text feel crowded and harder to read.
+      This example uses line-height: 1.
+    </p>
+
+    <p class="line-height-good">
+      A comfortable line-height makes reading easier.
+      This example uses line-height: 1.6.
+    </p>
+
+    <p class="line-height-large">
+      Large line-height creates more vertical space between lines.
+      This example uses line-height: 2.4.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>letter-spacing</h2>
+
+    <p class="letter-spacing-demo">
+      LETTER SPACING DEMO
+    </p>
+
+    <pre>
+.letter-spacing-demo {
+  letter-spacing: 4px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>word-spacing</h2>
+
+    <p class="word-spacing-demo">
+      This sentence has larger spacing between words.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Combined Heading Style</h2>
+
+    <h3 class="heading-style">
+      CSS Text Spacing
+    </h3>
+  </div>
+
+</body>
+</html>

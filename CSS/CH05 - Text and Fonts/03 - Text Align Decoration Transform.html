@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Text Align Decoration Transform.html
+    TOPIC: CH05 - Text and Fonts
+
+    GOAL:
+    - Learn text-align
+    - Learn text-decoration
+    - Learn text-transform
+    - Learn common text styling usage
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - Text Align Decoration Transform</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      text-align:
+      - Controls horizontal alignment of inline content.
+      - Common values: left, center, right, justify.
+    */
+    .align-left {
+      text-align: left;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-justify {
+      text-align: justify;
+    }
+
+    /*
+      text-decoration:
+      - Controls underline, overline, line-through, or none.
+      - It can also include color, style, and thickness.
+    */
+    .underline-demo {
+      text-decoration: underline;
+    }
+
+    .line-through-demo {
+      text-decoration: line-through;
+    }
+
+    .decorated-demo {
+      text-decoration: underline wavy red 2px;
+    }
+
+    .no-underline-link {
+      text-decoration: none;
+      color: darkblue;
+      font-weight: bold;
+    }
+
+    /*
+      text-transform:
+      - Changes text capitalization visually.
+      - It does not change the actual HTML text.
+    */
+    .uppercase-demo {
+      text-transform: uppercase;
+    }
+
+    .lowercase-demo {
+      text-transform: lowercase;
+    }
+
+    .capitalize-demo {
+      text-transform: capitalize;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Text Align, Decoration and Transform</h1>
+
+  <div class="box">
+    <h2>text-align</h2>
+
+    <p class="align-left">
+      Left aligned text.
+    </p>
+
+    <p class="align-center">
+      Center aligned text.
+    </p>
+
+    <p class="align-right">
+      Right aligned text.
+    </p>
+
+    <p class="align-justify">
+      Justified text tries to stretch the text so that both left and right edges are aligned.
+      This is more visible when the paragraph has enough words and a fixed line width.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>text-decoration</h2>
+
+    <p class="underline-demo">
+      This text is underlined.
+    </p>
+
+    <p class="line-through-demo">
+      This text has line-through.
+    </p>
+
+    <p class="decorated-demo">
+      This text has wavy red underline.
+    </p>
+
+    <p>
+      <a href="#" class="no-underline-link">
+        This link removes the default underline.
+      </a>
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>text-transform</h2>
+
+    <p class="uppercase-demo">
+      this text becomes uppercase visually.
+    </p>
+
+    <p class="lowercase-demo">
+      THIS TEXT BECOMES LOWERCASE VISUALLY.
+    </p>
+
+    <p class="capitalize-demo">
+      this text becomes capitalized visually.
+    </p>
+  </div>
+
+</body>
+</html>
