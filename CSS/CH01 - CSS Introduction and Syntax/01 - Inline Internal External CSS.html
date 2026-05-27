@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Inline Internal External CSS.html
+    TOPIC: CH01 - CSS Introduction and Syntax
+
+    GOAL:
+    - Learn the 3 common ways to apply CSS:
+      1. Inline CSS
+      2. Internal CSS
+      3. External CSS
+    - Understand which method is usually better for real projects.
+
+    HOW TO RUN:
+    - Open this file directly in your browser.
+    - Make sure "external-style.css" is in the same folder.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - Inline Internal External CSS</title>
+
+  <!--
+    EXTERNAL CSS:
+    - The <link> tag connects this HTML file to another CSS file.
+    - rel="stylesheet" tells the browser this linked file is a CSS stylesheet.
+    - href="external-style.css" tells the browser where the CSS file is located.
+  -->
+  <link rel="stylesheet" href="external-style.css">
+
+  <!--
+    INTERNAL CSS:
+    - CSS is written inside the <style> tag.
+    - This is useful for learning, testing, or styling one single HTML page.
+  -->
+  <style>
+    /*
+      CSS comment syntax:
+      - CSS comments start with slash + asterisk.
+      - CSS comments end with asterisk + slash.
+      - CSS comments are ignored by the browser.
+    */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+    }
+
+    .note {
+      background-color: #fff7cc;
+      border-left: 5px solid #e0a800;
+      padding: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .internal-example {
+      color: blue;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Applying Methods</h1>
+
+  <p class="note">
+    CSS can be applied using inline CSS, internal CSS, or external CSS.
+    In real projects, external CSS is usually preferred because it keeps HTML and CSS cleaner.
+  </p>
+
+  <div class="card">
+    <h2>1. Inline CSS</h2>
+
+    <!--
+      INLINE CSS:
+      - Written directly inside an HTML element.
+      - Uses the style="" attribute.
+      - Example: style="color: red;"
+      - It affects only this specific element.
+      - Not recommended for large projects because it is hard to reuse and maintain.
+    -->
+    <p style="color: red; font-weight: bold; background-color: #ffe5e5; padding: 8px;">
+      This paragraph uses inline CSS.
+    </p>
+
+    <p>
+      Code idea:
+      <code>&lt;p style="color: red;"&gt;</code>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>2. Internal CSS</h2>
+
+    <!--
+      INTERNAL CSS:
+      - This paragraph uses class="internal-example".
+      - The class selector .internal-example is defined inside the <style> tag above.
+    -->
+    <p class="internal-example">
+      This paragraph uses internal CSS.
+    </p>
+
+    <p>
+      Internal CSS is useful when one page has its own special styling.
+    </p>
+  </div>
+
+  <div class="card external-example">
+    <h2>3. External CSS</h2>
+
+    <!--
+      EXTERNAL CSS:
+      - This box uses class="external-example".
+      - The style is written in external-style.css.
+      - External CSS is the best habit for larger websites.
+    -->
+    <p>
+      This section is styled by an external CSS file.
+    </p>
+
+    <p>
+      Open <code>external-style.css</code> to see the CSS rule.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Descendant Child and Sibling Selectors.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Learn relationship selectors:
+      1. Descendant selector: parent child
+      2. Child selector: parent > child
+      3. Adjacent sibling selector: A + B
+      4. General sibling selector: A ~ B
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Relationship Selectors</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      DESCENDANT SELECTOR:
+      - .article p selects all <p> elements inside .article.
+      - It can select deeply nested paragraphs too.
+    */
+    .article p {
+      color: darkblue;
+    }
+
+    /*
+      CHILD SELECTOR:
+      - .menu > li selects only direct <li> children of .menu.
+      - It does not select nested <li> inside another <ul>.
+    */
+    .menu > li {
+      background-color: #eaf0ff;
+      margin-bottom: 6px;
+      padding: 6px;
+    }
+
+    /*
+      ADJACENT SIBLING SELECTOR:
+      - h3 + p selects the first <p> immediately after an <h3>.
+    */
+    h3 + p {
+      background-color: #fff4d6;
+      padding: 8px;
+      border-left: 5px solid #d79a00;
+    }
+
+    /*
+      GENERAL SIBLING SELECTOR:
+      - .start ~ p selects all <p> siblings after .start.
+      - They must share the same parent.
+    */
+    .start ~ p {
+      color: green;
+      font-weight: bold;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Descendant, Child and Sibling Selectors</h1>
+
+  <div class="box">
+    <h2>1. Descendant Selector</h2>
+
+    <div class="article">
+      <p>This paragraph is inside .article.</p>
+
+      <div>
+        <p>This nested paragraph is also inside .article.</p>
+      </div>
+    </div>
+
+    <p>This paragraph is outside .article, so it is not selected.</p>
+
+    <p>Selector: <code>.article p</code></p>
+  </div>
+
+  <div class="box">
+    <h2>2. Child Selector</h2>
+
+    <ul class="menu">
+      <li>Direct child item 1</li>
+      <li>
+        Direct child item 2
+        <ul>
+          <li>Nested item - not selected by .menu &gt; li</li>
+        </ul>
+      </li>
+      <li>Direct child item 3</li>
+    </ul>
+
+    <p>Selector: <code>.menu &gt; li</code></p>
+  </div>
+
+  <div class="box">
+    <h2>3. Adjacent Sibling Selector</h2>
+
+    <h3>Section Title</h3>
+    <p>This paragraph is immediately after h3, so it is selected.</p>
+    <p>This paragraph is not immediately after h3, so it is not selected by h3 + p.</p>
+
+    <p>Selector: <code>h3 + p</code></p>
+  </div>
+
+  <div class="box">
+    <h2>4. General Sibling Selector</h2>
+
+    <p>This paragraph appears before .start.</p>
+    <p class="start">This paragraph has class="start".</p>
+    <p>This paragraph appears after .start and is selected.</p>
+    <p>This paragraph also appears after .start and is selected.</p>
+
+    <div>
+      <p>This paragraph is not a sibling of .start, so it is not selected by .start ~ p.</p>
+    </div>
+
+    <p>Selector: <code>.start ~ p</code></p>
+  </div>
+
+</body>
+</html>

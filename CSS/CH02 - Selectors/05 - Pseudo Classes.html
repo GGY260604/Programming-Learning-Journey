@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Pseudo Classes.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Learn pseudo-classes.
+    - Pseudo-classes select elements based on state or position.
+    - Examples:
+      :hover, :focus, :checked, :first-child, :last-child, :nth-child()
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Pseudo Classes</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      :hover
+      - Applies when the mouse is over the element.
+    */
+    .hover-button {
+      background-color: #0057d9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .hover-button:hover {
+      background-color: #003f9e;
+      transform: scale(1.05);
+    }
+
+    /*
+      :focus
+      - Applies when an element is selected for typing or keyboard interaction.
+    */
+    input:focus {
+      outline: 3px solid orange;
+      border: 2px solid orange;
+    }
+
+    /*
+      :checked
+      - Applies when checkbox or radio input is checked.
+    */
+    input[type="checkbox"]:checked + label {
+      color: green;
+      font-weight: bold;
+    }
+
+    /*
+      :first-child
+      - Selects the first child inside its parent.
+    */
+    .list-demo li:first-child {
+      color: blue;
+      font-weight: bold;
+    }
+
+    /*
+      :last-child
+      - Selects the last child inside its parent.
+    */
+    .list-demo li:last-child {
+      color: red;
+      font-weight: bold;
+    }
+
+    /*
+      :nth-child()
+      - Selects elements based on a pattern.
+      - even selects 2nd, 4th, 6th...
+    */
+    .table-demo tr:nth-child(even) {
+      background-color: #eeeeee;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    td,
+    th {
+      border: 1px solid #333;
+      padding: 8px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Pseudo Classes</h1>
+
+  <div class="box">
+    <h2>:hover</h2>
+
+    <!--
+      Move your mouse over this button to trigger :hover.
+    -->
+    <button class="hover-button">Hover Me</button>
+
+    <p>Selector: <code>.hover-button:hover</code></p>
+  </div>
+
+  <div class="box">
+    <h2>:focus</h2>
+
+    <!--
+      Click inside the input to trigger :focus.
+    -->
+    <input type="text" placeholder="Click here to focus">
+
+    <p>Selector: <code>input:focus</code></p>
+  </div>
+
+  <div class="box">
+    <h2>:checked</h2>
+
+    <!--
+      The label comes immediately after the checkbox.
+      That is why input:checked + label can style it.
+    -->
+    <input type="checkbox" id="agree">
+    <label for="agree">I agree</label>
+
+    <p>Selector: <code>input[type="checkbox"]:checked + label</code></p>
+  </div>
+
+  <div class="box">
+    <h2>:first-child, :last-child</h2>
+
+    <ul class="list-demo">
+      <li>First item</li>
+      <li>Middle item</li>
+      <li>Last item</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>:nth-child()</h2>
+
+    <table class="table-demo">
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+      <tr>
+        <td>Ali</td>
+        <td>Student</td>
+      </tr>
+      <tr>
+        <td>Mei</td>
+        <td>Student</td>
+      </tr>
+      <tr>
+        <td>Galen</td>
+        <td>Student</td>
+      </tr>
+    </table>
+
+    <p>Selector: <code>.table-demo tr:nth-child(even)</code></p>
+  </div>
+
+</body>
+</html>

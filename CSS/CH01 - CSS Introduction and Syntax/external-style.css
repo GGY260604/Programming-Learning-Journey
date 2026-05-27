@@ -1,0 +1,53 @@
+/*
+  FILE: external-style.css
+  TOPIC: CH01 - CSS Introduction and Syntax
+
+  GOAL:
+  - This file is used to teach external CSS.
+  - Several HTML files in this chapter link to this same CSS file.
+
+  IMPORTANT:
+  - CSS files do not need <style> tags.
+  - CSS files contain CSS rules directly.
+*/
+
+/*
+  Used in:
+  01 - Inline Internal External CSS.html
+*/
+.external-example {
+  border-color: green;
+  background-color: #eaffea;
+}
+
+/*
+  Used in:
+  04 - CSS File Linking and Path.html
+*/
+.external-path-demo {
+  background-color: #eaf7ff;
+  border-color: #0077aa;
+}
+
+/*
+  Used in:
+  05 - Chapter Practice.html
+*/
+.practice-button {
+  background-color: #0057d9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*
+  :hover is a pseudo-class.
+  It applies styles when the mouse is placed over the button.
+  This will be explained in detail in CH02 - Selectors.
+*/
+.practice-button:hover {
+  background-color: #003f9e;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Inheritance.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Understand CSS inheritance.
+    - Learn that some properties are inherited by child elements.
+    - Learn that not all CSS properties are inherited.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Inheritance</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      INHERITANCE EXAMPLE:
+      - color and font-family are commonly inherited.
+      - Child elements inside .parent inherit color and font-family.
+    */
+    .parent {
+      color: darkblue;
+      font-family: Georgia, serif;
+      border: 3px solid darkblue;
+      padding: 12px;
+    }
+
+    .child {
+      margin-top: 10px;
+    }
+
+    /*
+      NOT EVERYTHING IS INHERITED:
+      - border is not automatically inherited.
+    */
+    .not-inherited-parent {
+      border: 4px solid red;
+      padding: 12px;
+    }
+
+    .not-inherited-child {
+      margin-top: 10px;
+      background-color: #ffe5e5;
+      padding: 8px;
+    }
+
+    .force-inherit-child {
+      border: inherit;
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Inheritance</h1>
+
+  <div class="box">
+    <h2>Inherited Properties</h2>
+
+    <div class="parent">
+      Parent element has dark blue text and Georgia font.
+
+      <!--
+        This child inherits color and font-family from its parent.
+      -->
+      <div class="child">
+        Child element inherits text color and font family.
+      </div>
+    </div>
+
+    <pre>
+.parent {
+  color: darkblue;
+  font-family: Georgia, serif;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Non-Inherited Properties</h2>
+
+    <div class="not-inherited-parent">
+      Parent has a red border.
+
+      <!--
+        This child does not automatically inherit the border.
+      -->
+      <div class="not-inherited-child">
+        Child does not inherit the parent's border automatically.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Forcing Inheritance</h2>
+
+    <div class="not-inherited-parent">
+      Parent has a red border.
+
+      <!--
+        This child uses border: inherit.
+        It manually copies the border from parent.
+      -->
+      <div class="force-inherit-child">
+        Child uses <code>border: inherit;</code>, so it copies the parent's border.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Common Inherited Properties</h2>
+
+    <p>Text-related properties are commonly inherited, such as:</p>
+
+    <p><code>color</code>, <code>font-family</code>, <code>font-size</code>, <code>line-height</code>, <code>text-align</code></p>
+
+    <p>Box-related properties usually are not inherited, such as:</p>
+
+    <p><code>margin</code>, <code>padding</code>, <code>border</code>, <code>background-color</code>, <code>width</code></p>
+  </div>
+
+</body>
+</html>

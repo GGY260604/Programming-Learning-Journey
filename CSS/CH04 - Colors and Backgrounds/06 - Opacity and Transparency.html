@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Opacity and Transparency.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn opacity property.
+    - Understand the difference between opacity and rgba background.
+    - Learn when to use transparent colors.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Opacity and Transparency</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-image: linear-gradient(45deg, #eeeeee 25%, transparent 25%),
+                        linear-gradient(-45deg, #eeeeee 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #eeeeee 75%),
+                        linear-gradient(-45deg, transparent 75%, #eeeeee 75%);
+      background-size: 30px 30px;
+      background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .demo-card {
+      width: 220px;
+      min-height: 120px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 12px;
+      background-color: #0057d9;
+      color: white;
+      font-weight: bold;
+    }
+
+    /*
+      opacity:
+      - Makes the entire element transparent.
+      - This includes text, border, background, and child elements.
+    */
+    .opacity-demo {
+      opacity: 0.45;
+    }
+
+    /*
+      rgba background:
+      - Only the background is transparent.
+      - The text remains fully visible.
+    */
+    .rgba-demo {
+      background-color: rgba(0, 87, 217, 0.45);
+      color: #000;
+    }
+
+    /*
+      transparent keyword:
+      - Means fully transparent.
+    */
+    .transparent-demo {
+      background-color: transparent;
+      color: #222;
+    }
+
+    code {
+      background-color: #eeeeee;
+      color: #222;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Opacity and Transparency</h1>
+
+  <div class="box">
+    <h2>opacity vs RGBA</h2>
+
+    <div class="demo-row">
+      <div class="demo-card opacity-demo">
+        opacity: 0.45;
+        <br>
+        Text also becomes transparent.
+      </div>
+
+      <div class="demo-card rgba-demo">
+        background-color: rgba(0, 87, 217, 0.45);
+        <br>
+        Text stays clear.
+      </div>
+
+      <div class="demo-card transparent-demo">
+        background-color: transparent;
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Important Difference</h2>
+
+    <p>
+      Use <code>opacity</code> when you want the whole element to be transparent.
+    </p>
+
+    <p>
+      Use <code>rgba()</code> or <code>hsla()</code> when you only want the background color to be transparent.
+    </p>
+
+    <pre>
+.opacity-demo {
+  opacity: 0.45;
+}
+
+.rgba-demo {
+  background-color: rgba(0, 87, 217, 0.45);
+}</pre>
+  </div>
+
+</body>
+</html>

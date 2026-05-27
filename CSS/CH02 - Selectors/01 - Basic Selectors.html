@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Basic Selectors.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Learn the most basic CSS selectors:
+      1. Universal selector: *
+      2. Type/Element selector: p, h1, div
+      3. Class selector: .class-name
+      4. ID selector: #id-name
+
+    IMPORTANT:
+    - A selector tells CSS which HTML element should be styled.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Basic Selectors</title>
+
+  <style>
+    /*
+      UNIVERSAL SELECTOR:
+      - The * selector selects every element on the page.
+      - It is commonly used to reset default spacing.
+    */
+    * {
+      box-sizing: border-box;
+    }
+
+    /*
+      TYPE SELECTOR:
+      - Selects all elements with the same tag name.
+      - This rule selects the whole <body>.
+    */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    /*
+      TYPE SELECTOR:
+      - This selects all <h1> elements.
+    */
+    h1 {
+      color: darkblue;
+    }
+
+    /*
+      TYPE SELECTOR:
+      - This selects all <p> elements.
+      - Every paragraph will receive this color unless another rule overrides it.
+    */
+    p {
+      color: #333;
+    }
+
+    /*
+      CLASS SELECTOR:
+      - Starts with a dot .
+      - Selects all elements with class="important".
+      - A class can be reused many times.
+    */
+    .important {
+      color: red;
+      font-weight: bold;
+      background-color: #ffe5e5;
+      padding: 8px;
+      border-left: 5px solid red;
+    }
+
+    /*
+      ID SELECTOR:
+      - Starts with #
+      - Selects one element with id="main-title".
+      - ID should be unique in one HTML page.
+    */
+    #main-title {
+      text-decoration: underline;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    This h1 is selected by:
+    1. h1 type selector
+    2. #main-title ID selector
+  -->
+  <h1 id="main-title">Basic CSS Selectors</h1>
+
+  <div class="box">
+    <h2>Type Selector</h2>
+
+    <!--
+      These paragraphs are selected by the p selector.
+    -->
+    <p>This paragraph is styled using the p type selector.</p>
+    <p>All paragraph elements receive the same base style.</p>
+  </div>
+
+  <div class="box">
+    <h2>Class Selector</h2>
+
+    <!--
+      This paragraph is selected by .important.
+    -->
+    <p class="important">
+      This paragraph uses class="important".
+    </p>
+
+    <!--
+      The same class can be reused on another element.
+    -->
+    <div class="important">
+      This div also uses class="important".
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>ID Selector</h2>
+
+    <p>
+      The page title uses <code>id="main-title"</code>.
+      The CSS selector is <code>#main-title</code>.
+    </p>
+  </div>
+
+</body>
+</html>

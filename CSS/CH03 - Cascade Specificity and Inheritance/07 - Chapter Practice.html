@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Chapter Practice.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Practice cascade, specificity, inheritance, and global values.
+    - Predict which CSS rule wins before checking the output.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .panel {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .status {
+      color: blue;
+      font-weight: bold;
+      padding: 8px;
+      background-color: #eaf0ff;
+    }
+
+    .warning {
+      color: orange;
+      background-color: #fff4d6;
+    }
+
+    #final-status {
+      color: red;
+    }
+
+    .locked {
+      color: purple !important;
+    }
+
+    .inherit-demo {
+      color: darkgreen;
+      font-style: italic;
+      border: 3px solid darkgreen;
+      padding: 12px;
+    }
+
+    .inherit-border {
+      border: inherit;
+      padding: 8px;
+    }
+
+    .reset-color {
+      color: initial;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH03 Practice: Which Rule Wins?</h1>
+
+  <div class="panel">
+    <h2>Practice 1: Same Specificity</h2>
+
+    <!--
+      This element has two classes: status and warning.
+      .warning appears after .status in CSS.
+      Both are class selectors, so they have equal specificity.
+      Therefore, .warning wins for color and background-color.
+    -->
+    <p class="status warning">
+      This status becomes orange because .warning appears later.
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>Practice 2: ID vs Class</h2>
+
+    <!--
+      This element is selected by .status, .warning, and #final-status.
+      The ID selector wins, so color becomes red.
+    -->
+    <p class="status warning" id="final-status">
+      This status becomes red because ID selector is stronger.
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>Practice 3: !important</h2>
+
+    <!--
+      This element is selected by .status, .warning, .locked, and #final-status.
+      The ID selector is strong, but .locked uses !important.
+      Therefore, color becomes purple.
+    -->
+    <p class="status warning locked" id="final-status">
+      This status becomes purple because .locked uses !important.
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>Practice 4: Inheritance and Global Values</h2>
+
+    <div class="inherit-demo">
+      Parent has dark green color, italic text, and border.
+
+      <p>
+        This child inherits color and font-style.
+      </p>
+
+      <p class="reset-color">
+        This child uses color: initial, so it resets the text color.
+      </p>
+
+      <p class="inherit-border">
+        This child uses border: inherit, so it copies the parent's border.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

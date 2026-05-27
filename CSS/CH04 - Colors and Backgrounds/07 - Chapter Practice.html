@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Chapter Practice.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Practice color, background-color, background-image, gradient,
+      background-repeat, background-size, background-position, and opacity.
+    - Create a simple hero section and card layout.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    /*
+      HERO SECTION:
+      - Uses multiple background layers.
+      - First layer: transparent dark overlay.
+      - Second layer: gradient background.
+    */
+    .hero {
+      color: white;
+      padding: 60px 20px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        linear-gradient(135deg, #0057d9, #8a2be2);
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin-top: 0;
+      font-size: 42px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 18px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .card-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 280px;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /*
+      Accent box:
+      - Uses a repeating background pattern.
+    */
+    .accent-box {
+      min-height: 90px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background-color: #eaf0ff;
+      background-image: radial-gradient(circle, #0057d9 20%, transparent 22%);
+      background-repeat: repeat;
+      background-size: 24px 24px;
+    }
+
+    .orange-card .accent-box {
+      background-color: #fff4d6;
+      background-image: radial-gradient(circle, orange 20%, transparent 22%);
+    }
+
+    .green-card .accent-box {
+      background-color: #eaffea;
+      background-image: radial-gradient(circle, green 20%, transparent 22%);
+    }
+
+    .tag {
+      display: inline-block;
+      color: white;
+      background-color: #333;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    /*
+      Transparent tag:
+      - Uses rgba background.
+      - Text remains fully visible.
+    */
+    .transparent-tag {
+      color: #222;
+      background-color: rgba(0, 87, 217, 0.18);
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1>Colors and Backgrounds</h1>
+    <p>
+      This practice page combines color, background-color, gradient backgrounds,
+      transparent overlays, patterns, and repeated backgrounds.
+    </p>
+  </section>
+
+  <main class="content">
+    <h2>Practice Cards</h2>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="accent-box"></div>
+        <span class="tag">Blue</span>
+        <h3>Background Pattern</h3>
+        <p>
+          This card uses <code>background-image</code>,
+          <code>background-repeat</code>, and <code>background-size</code>.
+        </p>
+      </div>
+
+      <div class="card orange-card">
+        <div class="accent-box"></div>
+        <span class="tag">Orange</span>
+        <h3>Color Variation</h3>
+        <p>
+          Same structure, different background color and pattern color.
+        </p>
+      </div>
+
+      <div class="card green-card">
+        <div class="accent-box"></div>
+        <span class="tag transparent-tag">Transparent</span>
+        <h3>Transparent Tag</h3>
+        <p>
+          This tag uses RGBA background, so the background is transparent
+          but the text remains clear.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

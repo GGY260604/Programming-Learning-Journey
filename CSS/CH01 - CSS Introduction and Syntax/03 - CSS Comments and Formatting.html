@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - CSS Comments and Formatting.html
+    TOPIC: CH01 - CSS Introduction and Syntax
+
+    GOAL:
+    - Learn how CSS comments work.
+    - Learn a readable CSS formatting style.
+    - Understand why formatting matters in larger files.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - CSS Comments and Formatting</title>
+
+  <style>
+    /*
+      CSS COMMENT:
+      - CSS comments use this format: slash + asterisk, then asterisk + slash.
+      - They can be single-line or multi-line.
+      - The browser ignores comments.
+      - Comments are useful for explaining why a style exists.
+    */
+
+    /*
+      FORMATTING STYLE USED IN THESE NOTES:
+
+      selector {
+        property: value;
+        property: value;
+      }
+
+      Why this style?
+      - Easy to read.
+      - Easy to add new properties.
+      - Easy to find mistakes.
+    */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .section {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      The following class styles the "good formatting" example.
+      Notice that each property is on its own line.
+    */
+    .good-format {
+      color: green;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #eaffea;
+      padding: 10px;
+      border: 2px solid green;
+    }
+
+    /*
+      This class is not wrong, but it is harder to read if too many properties are placed together.
+    */
+    .compact-format { color: brown; font-size: 20px; font-weight: bold; background-color: #fff0dc; padding: 10px; border: 2px solid brown; }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Comments and Formatting</h1>
+
+  <div class="section">
+    <h2>CSS Comment Syntax</h2>
+
+    <pre>
+/*
+  This is a CSS comment.
+  It will not appear on the webpage.
+*/</pre>
+
+    <p>
+      Comments are mainly for developers, not for users.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Recommended Formatting</h2>
+
+    <!--
+      This paragraph uses the readable multi-line CSS rule.
+    -->
+    <p class="good-format">
+      This paragraph uses readable CSS formatting.
+    </p>
+
+    <pre>
+.good-format {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}</pre>
+  </div>
+
+  <div class="section">
+    <h2>Compact Formatting</h2>
+
+    <!--
+      This paragraph uses a class whose CSS rule is written in one line.
+    -->
+    <p class="compact-format">
+      This also works, but the CSS rule is harder to read.
+    </p>
+
+    <pre>
+.compact-format { color: brown; font-size: 20px; font-weight: bold; }</pre>
+  </div>
+
+</body>
+</html>

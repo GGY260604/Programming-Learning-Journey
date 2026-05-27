@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Important Keyword.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Understand the !important keyword.
+    - Learn why !important should be used carefully.
+    - See how !important can override normal specificity.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Important Keyword</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .normal-rule {
+      color: blue;
+    }
+
+    .normal-rule {
+      color: green;
+    }
+
+    .important-demo {
+      color: purple !important;
+    }
+
+    #important-target {
+      color: red;
+    }
+
+    .alert {
+      background-color: #ffe5e5;
+      color: red !important;
+      border: 2px solid red;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .theme-dark .alert {
+      color: white;
+      background-color: #333;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS !important Keyword</h1>
+
+  <div class="box">
+    <h2>Normal Cascade</h2>
+
+    <p class="normal-rule">
+      This text becomes green because the later rule wins.
+    </p>
+
+    <pre>
+.normal-rule {
+  color: blue;
+}
+
+.normal-rule {
+  color: green;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Using !important</h2>
+
+    <!--
+      This paragraph has class="important-demo" and id="important-target".
+      Normally, the ID selector should win.
+      But .important-demo uses !important, so purple wins.
+    -->
+    <p class="important-demo" id="important-target">
+      This text becomes purple because !important overrides the normal ID rule.
+    </p>
+
+    <pre>
+.important-demo {
+  color: purple !important;
+}
+
+#important-target {
+  color: red;
+}</pre>
+  </div>
+
+  <div class="box theme-dark">
+    <h2>Why Use Carefully?</h2>
+
+    <!--
+      .theme-dark .alert tries to change the alert text to white.
+      But .alert has color: red !important, so red remains.
+    -->
+    <p class="alert">
+      This alert text stays red because color: red uses !important.
+    </p>
+
+    <p>
+      Too many <code>!important</code> rules make CSS difficult to control.
+    </p>
+  </div>
+
+</body>
+</html>

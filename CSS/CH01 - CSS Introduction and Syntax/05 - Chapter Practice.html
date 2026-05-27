@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Chapter Practice.html
+    TOPIC: CH01 - CSS Introduction and Syntax
+
+    GOAL:
+    - Practice everything learned in CH01.
+    - Use selectors, declaration blocks, properties, values, comments, and external CSS.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - Chapter Practice</title>
+
+  <link rel="stylesheet" href="external-style.css">
+
+  <style>
+    /*
+      PRACTICE:
+      This page creates a small profile card using CSS.
+    */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .profile-card {
+      background-color: white;
+      border: 2px solid #222;
+      border-radius: 12px;
+      padding: 20px;
+      width: 320px;
+    }
+
+    .profile-name {
+      color: #222;
+      font-size: 28px;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .profile-role {
+      color: white;
+      background-color: #333;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .profile-description {
+      color: #555;
+    }
+
+    .highlight {
+      color: darkblue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CH01 Practice: Simple Profile Card</h1>
+
+  <div class="profile-card">
+    <h2 class="profile-name">Galen</h2>
+
+    <p class="profile-role">CSS Beginner</p>
+
+    <p class="profile-description">
+      I am learning <span class="highlight">CSS syntax</span>,
+      CSS applying methods, and how to organize styles properly.
+    </p>
+
+    <!--
+      This button uses external CSS.
+      Its style is written in external-style.css using the .practice-button selector.
+    -->
+    <button class="practice-button">External CSS Button</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Specificity.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Understand CSS specificity.
+    - Learn why ID selectors are stronger than class selectors.
+    - Learn why class selectors are stronger than type selectors.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Specificity</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      SPECIFICITY LEVELS:
+
+      Lower specificity:
+      - Type selector: p
+
+      Higher specificity:
+      - Class selector: .message
+
+      Even higher specificity:
+      - ID selector: #special-message
+    */
+
+    p {
+      color: blue;
+    }
+
+    .message {
+      color: green;
+      font-weight: bold;
+    }
+
+    #special-message {
+      color: red;
+    }
+
+    .notice {
+      background-color: #eaf0ff;
+      padding: 10px;
+    }
+
+    div.notice {
+      background-color: #fff4d6;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Specificity</h1>
+
+  <div class="box">
+    <h2>Specificity Meaning</h2>
+
+    <p>
+      Specificity is the strength of a CSS selector.
+      If multiple selectors target the same element,
+      the more specific selector usually wins.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Type vs Class vs ID</h2>
+
+    <!--
+      This paragraph is selected by p and .message.
+      .message is stronger, so this text becomes green.
+    -->
+    <p class="message">
+      This paragraph has class="message", so the class selector wins over the type selector.
+    </p>
+
+    <!--
+      This paragraph is selected by p, .message, and #special-message.
+      The ID selector is strongest, so this text becomes red.
+    -->
+    <p class="message" id="special-message">
+      This paragraph has both class and ID. The ID selector wins.
+    </p>
+
+    <pre>
+p {
+  color: blue;
+}
+
+.message {
+  color: green;
+}
+
+#special-message {
+  color: red;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Combined Selector Specificity</h2>
+
+    <!--
+      This div is selected by .notice and div.notice.
+      div.notice is more specific because it combines a type selector and class selector.
+    -->
+    <div class="notice">
+      This div has class="notice", but div.notice gives it the final background color.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Simple Specificity Ranking</h2>
+
+    <p><code>Inline style</code> is very strong.</p>
+    <p><code>#id</code> is stronger than <code>.class</code>.</p>
+    <p><code>.class</code> is stronger than <code>element</code>.</p>
+    <p><code>element</code> is stronger than universal selector <code>*</code>.</p>
+  </div>
+
+</body>
+</html>

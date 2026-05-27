@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Text Color and Background Color.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn color property.
+    - Learn background-color property.
+    - Understand foreground color vs background color.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Text Color and Background Color</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      color:
+      - Controls the text color.
+    */
+    .text-color {
+      color: darkblue;
+    }
+
+    /*
+      background-color:
+      - Controls the background color of an element.
+    */
+    .background-color {
+      background-color: #fff4d6;
+      padding: 10px;
+    }
+
+    /*
+      Combining color and background-color:
+      - Make sure the text and background have enough contrast.
+    */
+    .combined-color {
+      color: white;
+      background-color: #333;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    /*
+      Poor contrast example:
+      - This is intentionally hard to read.
+      - Avoid similar text and background colors.
+    */
+    .poor-contrast {
+      color: #999999;
+      background-color: #eeeeee;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    /*
+      Better contrast example:
+      - Dark text on light background is easier to read.
+    */
+    .good-contrast {
+      color: #222222;
+      background-color: #ffffff;
+      border: 2px solid #222222;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Text Color and Background Color</h1>
+
+  <div class="box">
+    <h2>color Property</h2>
+
+    <!--
+      This paragraph uses color to change the text color.
+    -->
+    <p class="text-color">
+      This text uses color: darkblue;
+    </p>
+
+    <pre>
+.text-color {
+  color: darkblue;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>background-color Property</h2>
+
+    <!--
+      This paragraph uses background-color to change its background.
+    -->
+    <p class="background-color">
+      This paragraph uses background-color: #fff4d6;
+    </p>
+
+    <pre>
+.background-color {
+  background-color: #fff4d6;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Combining Both</h2>
+
+    <p class="combined-color">
+      This paragraph uses white text on a dark background.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Contrast Matters</h2>
+
+    <p class="poor-contrast">
+      Poor contrast: this text is harder to read.
+    </p>
+
+    <p class="good-contrast">
+      Good contrast: this text is easier to read.
+    </p>
+  </div>
+
+</body>
+</html>

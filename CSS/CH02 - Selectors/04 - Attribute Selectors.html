@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Attribute Selectors.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Learn how to select elements based on attributes.
+    - Attribute selectors are useful for forms, links, images, and custom data attributes.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Attribute Selectors</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      [attribute]
+      - Selects elements that contain the specified attribute.
+      - This selects input elements that have the required attribute.
+    */
+    input[required] {
+      border: 3px solid red;
+    }
+
+    /*
+      [attribute="value"]
+      - Selects elements where the attribute exactly equals the value.
+    */
+    input[type="email"] {
+      background-color: #eaf0ff;
+    }
+
+    /*
+      [attribute^="value"]
+      - Selects elements where the attribute value starts with a certain text.
+      - This selects links that start with https.
+    */
+    a[href^="https"] {
+      color: green;
+      font-weight: bold;
+    }
+
+    /*
+      [attribute$="value"]
+      - Selects elements where the attribute value ends with a certain text.
+      - This selects links ending with .pdf.
+    */
+    a[href$=".pdf"] {
+      color: red;
+    }
+
+    /*
+      [attribute*="value"]
+      - Selects elements where the attribute value contains a certain text.
+      - This selects links containing the word "github".
+    */
+    a[href*="github"] {
+      background-color: #fff4d6;
+      padding: 3px 6px;
+    }
+
+    /*
+      data-* attributes:
+      - HTML allows custom attributes using data-something.
+      - CSS can select them too.
+    */
+    [data-status="active"] {
+      border-left: 6px solid green;
+      padding-left: 10px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 260px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Attribute Selectors</h1>
+
+  <div class="box">
+    <h2>Form Attribute Selectors</h2>
+
+    <!--
+      The first input is selected by input[type="email"] and input[required].
+      The second input is not required, so it does not get the red border.
+    -->
+    <input type="email" required placeholder="Required email input">
+    <input type="text" placeholder="Normal text input">
+
+    <p>
+      Selectors:
+      <code>input[required]</code>,
+      <code>input[type="email"]</code>
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Link Attribute Selectors</h2>
+
+    <p><a href="https://example.com">HTTPS Link</a></p>
+    <p><a href="notes.pdf">PDF Link</a></p>
+    <p><a href="https://github.com/example">GitHub Link</a></p>
+
+    <p>
+      Selectors:
+      <code>a[href^="https"]</code>,
+      <code>a[href$=".pdf"]</code>,
+      <code>a[href*="github"]</code>
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Data Attribute Selector</h2>
+
+    <!--
+      This div is selected by [data-status="active"].
+    -->
+    <div data-status="active">
+      This element has data-status="active".
+    </div>
+
+    <p>
+      Selector:
+      <code>[data-status="active"]</code>
+    </p>
+  </div>
+
+</body>
+</html>

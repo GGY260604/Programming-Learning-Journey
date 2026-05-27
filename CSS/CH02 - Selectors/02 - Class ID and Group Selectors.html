@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Class ID and Group Selectors.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Understand class selectors.
+    - Understand ID selectors.
+    - Understand group selectors.
+    - Understand when to use class and ID.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Class ID and Group Selectors</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    /*
+      GROUP SELECTOR:
+      - Use comma , to apply the same style to multiple selectors.
+      - This rule styles h1, h2, and h3 together.
+    */
+    h1,
+    h2,
+    h3 {
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .card {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      CLASS SELECTOR:
+      - Reusable.
+      - Good for shared styles.
+    */
+    .success {
+      color: green;
+      font-weight: bold;
+      background-color: #eaffea;
+      padding: 8px;
+    }
+
+    .warning {
+      color: #8a5a00;
+      font-weight: bold;
+      background-color: #fff4d6;
+      padding: 8px;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      background-color: #ffe5e5;
+      padding: 8px;
+    }
+
+    /*
+      MULTIPLE CLASSES:
+      - This selector selects elements that have BOTH classes:
+        class="badge rounded"
+      - There is no space between .badge and .rounded.
+    */
+    .badge.rounded {
+      border-radius: 999px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #222;
+      color: white;
+      padding: 6px 12px;
+    }
+
+    /*
+      ID SELECTOR:
+      - Should be unique.
+      - Useful for one special element.
+    */
+    #special-message {
+      border: 3px dashed blue;
+      padding: 12px;
+      background-color: #eaf0ff;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Class, ID and Group Selectors</h1>
+
+  <div class="card">
+    <h2>Class Selectors</h2>
+
+    <p class="success">Success message styled by .success</p>
+    <p class="warning">Warning message styled by .warning</p>
+    <p class="error">Error message styled by .error</p>
+  </div>
+
+  <div class="card">
+    <h2>Multiple Classes</h2>
+
+    <!--
+      This element has two classes:
+      1. badge
+      2. rounded
+
+      It receives styles from:
+      - .badge
+      - .badge.rounded
+    -->
+    <span class="badge rounded">Rounded Badge</span>
+
+    <p>
+      Selector used:
+      <code>.badge.rounded</code>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>ID Selector</h2>
+
+    <!--
+      This element should be the only element with id="special-message".
+    -->
+    <p id="special-message">
+      This paragraph is selected by #special-message.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Group Selector</h2>
+
+    <h3>This h3 is included in the h1, h2, h3 group selector.</h3>
+
+    <p>
+      Group selector example:
+      <code>h1, h2, h3 { color: #222; }</code>
+    </p>
+  </div>
+
+</body>
+</html>

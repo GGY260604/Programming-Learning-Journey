@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Color Values.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn different CSS color value formats:
+      1. Color name
+      2. HEX
+      3. RGB
+      4. RGBA
+      5. HSL
+      6. HSLA
+
+    IMPORTANT:
+    - Different formats can produce the same color.
+    - RGBA and HSLA allow transparency using alpha value.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Color Values</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .sample {
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /*
+      COLOR NAME:
+      - CSS supports many predefined color names.
+      - Example: red, blue, green, orange, purple.
+    */
+    .color-name {
+      color: white;
+      background-color: red;
+    }
+
+    /*
+      HEX COLOR:
+      - Starts with #
+      - Uses hexadecimal values.
+      - #0000FF means a blue color.
+      - The first two digits are red, the next two are green, and the last two are blue.
+    */
+    .hex-color {
+      color: white;
+      background-color: #0000FF;
+    }
+
+    /*
+      RGB COLOR:
+      - rgb(red, green, blue)
+      - Each value usually ranges from 0 to 255.
+    */
+    .rgb-color {
+      color: white;
+      background-color: rgb(0, 128, 0);
+    }
+
+    /*
+      RGBA COLOR:
+      - rgba(red, green, blue, alpha)
+      - Alpha controls transparency.
+      - 1 means fully visible.
+      - 0 means fully transparent.
+    */
+    .rgba-color {
+      color: black;
+      background-color: rgba(255, 165, 0, 0.45);
+    }
+
+    /*
+      HSL COLOR:
+      - hsl(hue, saturation, lightness)
+      - Hue is a degree on the color wheel.
+      - Saturation controls color intensity.
+      - Lightness controls brightness.
+    */
+    .hsl-color {
+      color: white;
+      background-color: hsl(280, 80%, 40%);
+    }
+
+    /*
+      HSLA COLOR:
+      - hsla(hue, saturation, lightness, alpha)
+      - Alpha controls transparency.
+    */
+    .hsla-color {
+      color: black;
+      background-color: hsla(180, 80%, 50%, 0.4);
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Color Values</h1>
+
+  <div class="box">
+    <h2>Different Ways to Write Colors</h2>
+
+    <div class="sample color-name">Color name: red</div>
+    <div class="sample hex-color">HEX: #0000FF</div>
+    <div class="sample rgb-color">RGB: rgb(0, 128, 0)</div>
+    <div class="sample rgba-color">RGBA: rgba(255, 165, 0, 0.45)</div>
+    <div class="sample hsl-color">HSL: hsl(280, 80%, 40%)</div>
+    <div class="sample hsla-color">HSLA: hsla(180, 80%, 50%, 0.4)</div>
+  </div>
+
+  <div class="box">
+    <h2>When to Use Which?</h2>
+
+    <p><code>Color name</code> is simple, but limited.</p>
+    <p><code>HEX</code> is very common in web design.</p>
+    <p><code>RGB</code> is useful when working with red, green, and blue values.</p>
+    <p><code>RGBA</code> is useful when you need transparency.</p>
+    <p><code>HSL</code> is easier when adjusting hue, saturation, or brightness.</p>
+  </div>
+
+</body>
+</html>

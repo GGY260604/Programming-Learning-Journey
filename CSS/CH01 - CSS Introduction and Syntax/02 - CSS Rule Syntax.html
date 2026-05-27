@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - CSS Rule Syntax.html
+    TOPIC: CH01 - CSS Introduction and Syntax
+
+    GOAL:
+    - Understand the structure of a CSS rule.
+    - Learn selector, declaration block, property, value, colon, semicolon, and braces.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - CSS Rule Syntax</title>
+
+  <style>
+    /*
+      BASIC CSS RULE STRUCTURE:
+
+      selector {
+        property: value;
+      }
+
+      Example:
+
+      p {
+        color: red;
+      }
+
+      Explanation:
+      - p is the selector.
+      - { } is the declaration block.
+      - color is the property.
+      - red is the value.
+      - : separates property and value.
+      - ; ends one declaration.
+    */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .syntax-box {
+      background-color: white;
+      border: 2px solid #222;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-text {
+      color: purple;
+      font-size: 22px;
+      font-weight: bold;
+      background-color: #f0e6ff;
+      padding: 10px;
+    }
+
+    .property-list {
+      background-color: #ffffff;
+      border-left: 5px solid purple;
+      padding: 12px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Rule Syntax</h1>
+
+  <div class="syntax-box">
+    <h2>Basic Pattern</h2>
+
+    <!--
+      The <pre> tag preserves spacing and line breaks.
+      It is useful for showing code examples on the page.
+    -->
+    <pre>
+selector {
+  property: value;
+}</pre>
+
+    <p>
+      A CSS rule selects an HTML element and applies visual styles to it.
+    </p>
+  </div>
+
+  <div class="syntax-box">
+    <h2>Working Example</h2>
+
+    <!--
+      This paragraph is affected by the .demo-text CSS rule above.
+    -->
+    <p class="demo-text">
+      This text is styled using a CSS rule.
+    </p>
+
+    <pre>
+.demo-text {
+  color: purple;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #f0e6ff;
+  padding: 10px;
+}</pre>
+  </div>
+
+  <div class="property-list">
+    <h2>Important Terms</h2>
+
+    <p><code>.demo-text</code> is the selector.</p>
+    <p><code>color</code>, <code>font-size</code>, and <code>padding</code> are properties.</p>
+    <p><code>purple</code>, <code>22px</code>, and <code>10px</code> are values.</p>
+    <p><code>:</code> connects a property to its value.</p>
+    <p><code>;</code> ends one declaration.</p>
+  </div>
+
+</body>
+</html>

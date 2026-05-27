@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Background Image.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn background-image property.
+    - Use linear-gradient as a background image.
+    - Understand that CSS background-image can use image URLs or gradients.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Background Image</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo {
+      min-height: 160px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
+    /*
+      background-image with linear-gradient:
+      - A gradient is treated like a background image.
+      - This does not require any external image file.
+    */
+    .gradient-demo {
+      background-image: linear-gradient(to right, #0000FF, #8a2be2);
+    }
+
+    /*
+      background-image with radial-gradient:
+      - Starts from the center and spreads outward.
+    */
+    .radial-demo {
+      background-image: radial-gradient(circle, #ffcc00, #ff6600, #cc0000);
+    }
+
+    /*
+      background-image with repeating-linear-gradient:
+      - Repeats the gradient pattern.
+    */
+    .stripe-demo {
+      color: #222;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 10px,
+        #dddddd 10px,
+        #dddddd 20px
+      );
+    }
+
+    /*
+      background-image using url():
+      - Usually used to load an image file.
+      - Example:
+        background-image: url("image.jpg");
+    */
+    .image-idea-demo {
+      background-image: url("../Assests/Images/CSS Box Model.png");
+      background-size: 40px 40px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      color: #222;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Background Image</h1>
+
+  <div class="box">
+    <h2>Linear Gradient</h2>
+
+    <div class="demo gradient-demo">
+      background-image: linear-gradient(to right, #0000FF, #8a2be2);
+    </div>
+
+    <pre>
+.gradient-demo {
+  background-image: linear-gradient(to right, #0000FF, #8a2be2);
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Radial Gradient</h2>
+
+    <div class="demo radial-demo">
+      background-image: radial-gradient(circle, #ffcc00, #ff6600, #cc0000);
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Repeating Gradient</h2>
+
+    <div class="demo stripe-demo">
+      background-image: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 10px,
+        #dddddd 10px,
+        #dddddd 20px
+      );
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Image URL Concept</h2>
+
+    <div class="demo image-idea-demo">
+      Real image syntax example: background-image: url("image.jpg");
+    </div>
+
+    <p>
+      In real projects, place the image file in your project folder and use
+      <code>background-image: url("image.jpg");</code>
+    </p>
+  </div>
+
+</body>
+</html>

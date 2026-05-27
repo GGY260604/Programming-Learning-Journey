@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Cascade Order.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Understand what "cascade" means in CSS.
+    - Learn that when multiple CSS rules target the same element,
+      CSS decides which rule wins.
+    - Learn that later rules can override earlier rules when specificity is equal.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Cascade Order</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      CASCADE ORDER EXAMPLE:
+
+      Both rules below select the same element using the same selector:
+      .same-selector
+
+      Because both selectors have equal specificity,
+      the later rule wins.
+    */
+    .same-selector {
+      color: blue;
+    }
+
+    .same-selector {
+      color: red;
+    }
+
+    /*
+      Another example:
+      The background-color written later overrides the previous one.
+    */
+    .cascade-card {
+      background-color: lightblue;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .cascade-card {
+      background-color: #ffe5e5;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Cascade Order</h1>
+
+  <div class="box">
+    <h2>What is Cascade?</h2>
+
+    <p>
+      Cascade means CSS can have many rules targeting the same element,
+      and the browser decides which rule should apply.
+    </p>
+
+    <p>
+      When two selectors have the same strength, the later rule usually wins.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Same Selector Example</h2>
+
+    <!--
+      This paragraph is selected by .same-selector twice.
+      The first rule says blue.
+      The second rule says red.
+      Because the second rule appears later, the text becomes red.
+    -->
+    <p class="same-selector">
+      This text becomes red because the later CSS rule wins.
+    </p>
+
+    <pre>
+.same-selector {
+  color: blue;
+}
+
+.same-selector {
+  color: red;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Background Override Example</h2>
+
+    <div class="cascade-card">
+      This box first receives light blue background,
+      then it is overridden by light red background.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Simple Rule</h2>
+
+    <p>
+      If two CSS rules have the same specificity, the rule written later is applied.
+    </p>
+
+    <p>
+      Important idea:
+      <code>later rule + same specificity = later rule wins</code>
+    </p>
+  </div>
+
+</body>
+</html>

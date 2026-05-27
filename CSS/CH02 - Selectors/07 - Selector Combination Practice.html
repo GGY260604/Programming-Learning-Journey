@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Selector Combination Practice.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Practice combining selectors.
+    - Understand how selectors can target elements more accurately.
+    - Review class, descendant, child, attribute, pseudo-class, and pseudo-element selectors.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Selector Combination Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .product-list {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      width: 260px;
+    }
+
+    /*
+      DESCENDANT SELECTOR:
+      - Selects h2 inside .product-card.
+    */
+    .product-card h2 {
+      margin-top: 0;
+      color: #222;
+    }
+
+    /*
+      CHILD SELECTOR:
+      - Selects direct p children inside .product-card.
+    */
+    .product-card > p {
+      color: #555;
+    }
+
+    /*
+      ATTRIBUTE SELECTOR:
+      - Selects product cards where data-category equals featured.
+    */
+    .product-card[data-category="featured"] {
+      border-color: green;
+      background-color: #eaffea;
+    }
+
+    /*
+      PSEUDO-CLASS:
+      - Applies when user hovers over the card.
+    */
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-width: 3px;
+    }
+
+    /*
+      MULTIPLE CLASS SELECTOR:
+      - Selects elements that have both price and discount classes.
+    */
+    .price.discount {
+      color: red;
+      font-weight: bold;
+    }
+
+    /*
+      PSEUDO-ELEMENT:
+      - Adds text before featured product title.
+    */
+    .product-card[data-category="featured"] h2::before {
+      content: "★ ";
+      color: orange;
+    }
+
+    /*
+      GROUP SELECTOR:
+      - Styles button and link together.
+    */
+    button,
+    a {
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #0057d9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003f9e;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Selector Combination Practice</h1>
+
+  <p>
+    This practice page combines several selector types in one mini product layout.
+  </p>
+
+  <div class="product-list">
+
+    <!--
+      This product card has data-category="featured".
+      It will be selected by:
+      .product-card[data-category="featured"]
+    -->
+    <div class="product-card" data-category="featured">
+      <h2>CSS Starter Kit</h2>
+      <p>Learn selectors, colors, box model, and layout.</p>
+      <p class="price discount">RM 19.90</p>
+      <button>View Details</button>
+    </div>
+
+    <div class="product-card" data-category="normal">
+      <h2>HTML Starter Kit</h2>
+      <p>Learn tags, attributes, forms, tables, and media.</p>
+      <p class="price">RM 15.90</p>
+      <button>View Details</button>
+    </div>
+
+    <div class="product-card" data-category="normal">
+      <h2>JavaScript Starter Kit</h2>
+      <p>Learn variables, functions, DOM, events, and arrays.</p>
+      <p class="price">RM 29.90</p>
+      <button>View Details</button>
+    </div>
+
+  </div>
+
+  <p>
+    Try moving your mouse over each card to trigger the <code>:hover</code> selector.
+  </p>
+
+</body>
+</html>

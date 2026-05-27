@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - CSS File Linking and Path.html
+    TOPIC: CH01 - CSS Introduction and Syntax
+
+    GOAL:
+    - Understand how to link an external CSS file.
+    - Understand relative file paths.
+    - Learn common mistakes when CSS does not load.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - CSS File Linking and Path</title>
+
+  <!--
+    This is the important line for external CSS.
+
+    Because this HTML file and external-style.css are in the same folder,
+    the href can directly use:
+    href="external-style.css"
+
+    If the CSS file was inside a folder named css, then the path would be:
+    href="css/external-style.css"
+  -->
+  <link rel="stylesheet" href="external-style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    .local-card {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS File Linking and Path</h1>
+
+  <div class="local-card">
+    <h2>External CSS Link</h2>
+
+    <p>
+      This page is connected to <code>external-style.css</code>.
+    </p>
+
+    <pre>
+&lt;link rel="stylesheet" href="external-style.css"&gt;</pre>
+  </div>
+
+  <div class="external-path-demo">
+    <h2>External CSS Result</h2>
+
+    <!--
+      This paragraph uses a class that is styled inside external-style.css.
+      If the CSS file is linked correctly, this box should have a special background and border.
+    -->
+    <p>
+      This box proves that the external CSS file is loaded correctly.
+    </p>
+  </div>
+
+  <div class="local-card">
+    <h2>Common CSS Linking Mistakes</h2>
+
+    <p>1. Wrong file name, such as <code>external-stylee.css</code>.</p>
+    <p>2. Wrong folder path, such as <code>css/external-style.css</code> when the file is not inside a css folder.</p>
+    <p>3. Missing <code>rel="stylesheet"</code>.</p>
+    <p>4. Forgetting to save the CSS file after editing.</p>
+  </div>
+
+</body>
+</html>

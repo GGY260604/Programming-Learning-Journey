@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Pseudo Elements.html
+    TOPIC: CH02 - Selectors
+
+    GOAL:
+    - Learn pseudo-elements.
+    - Pseudo-elements style a specific part of an element.
+    - Examples:
+      ::before, ::after, ::first-letter, ::first-line, ::selection
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Pseudo Elements</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      ::before
+      - Inserts virtual content before the element content.
+      - content property is required.
+    */
+    .before-demo::before {
+      content: "IMPORTANT: ";
+      color: red;
+      font-weight: bold;
+    }
+
+    /*
+      ::after
+      - Inserts virtual content after the element content.
+      - content property is required.
+    */
+    .after-demo::after {
+      content: " ✓";
+      color: green;
+      font-weight: bold;
+    }
+
+    /*
+      ::first-letter
+      - Styles the first letter of the text.
+    */
+    .first-letter-demo::first-letter {
+      font-size: 40px;
+      color: darkblue;
+      font-weight: bold;
+    }
+
+    /*
+      ::first-line
+      - Styles only the first line of text.
+      - Resize the browser to see how the first line changes.
+    */
+    .first-line-demo::first-line {
+      color: purple;
+      font-weight: bold;
+    }
+
+    /*
+      ::selection
+      - Styles the text highlight when the user selects text.
+    */
+    .selection-demo::selection {
+      background-color: yellow;
+      color: black;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Pseudo Elements</h1>
+
+  <div class="box">
+    <h2>::before</h2>
+
+    <!--
+      The text "IMPORTANT:" is not written in the HTML.
+      It is inserted by CSS using ::before.
+    -->
+    <p class="before-demo">Please read this message carefully.</p>
+
+    <p>Selector: <code>.before-demo::before</code></p>
+  </div>
+
+  <div class="box">
+    <h2>::after</h2>
+
+    <!--
+      The check mark is inserted by CSS using ::after.
+    -->
+    <p class="after-demo">Task completed</p>
+
+    <p>Selector: <code>.after-demo::after</code></p>
+  </div>
+
+  <div class="box">
+    <h2>::first-letter</h2>
+
+    <p class="first-letter-demo">
+      css can style the first letter of a paragraph using pseudo-elements.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>::first-line</h2>
+
+    <p class="first-line-demo">
+      This paragraph is long enough to wrap into multiple lines depending on your browser size.
+      Only the first visible line will receive the special style from ::first-line.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>::selection</h2>
+
+    <p class="selection-demo">
+      Select this sentence with your mouse to see the custom selection color.
+    </p>
+  </div>
+
+</body>
+</html>

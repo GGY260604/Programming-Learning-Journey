@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Background Shorthand.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn the background shorthand property.
+    - Compare longhand properties with shorthand property.
+    - Understand multiple background layers.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Background Shorthand</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo {
+      min-height: 160px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    /*
+      LONGHAND VERSION:
+      - Each background feature is written separately.
+    */
+    .longhand-demo {
+      background-color: #eaf0ff;
+      background-image: radial-gradient(circle, #0057d9 20%, transparent 22%);
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: 80px 80px;
+    }
+
+    /*
+      SHORTHAND VERSION:
+      - Many background values can be written in one background property.
+      - Format used here:
+        background: color image repeat position / size;
+    */
+    .shorthand-demo {
+      background: #eaffea radial-gradient(circle, green 20%, transparent 22%) no-repeat right bottom / 80px 80px;
+    }
+
+    /*
+      Multiple backgrounds:
+      - CSS supports more than one background layer.
+      - The first background is placed on top.
+      - The last background is placed at the back.
+    */
+    .multiple-backgrounds {
+      color: white;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 25%),
+        linear-gradient(135deg, #0057d9, #8a2be2);
+    }
+
+    code {
+      background-color: #eeeeee;
+      color: #222;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Background Shorthand</h1>
+
+  <div class="box">
+    <h2>Longhand Background</h2>
+
+    <div class="demo longhand-demo">
+      This uses separate background properties.
+    </div>
+
+    <pre>
+.longhand-demo {
+  background-color: #eaf0ff;
+  background-image: radial-gradient(circle, #0057d9 20%, transparent 22%);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 80px 80px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Shorthand Background</h2>
+
+    <div class="demo shorthand-demo">
+      This uses the background shorthand property.
+    </div>
+
+    <pre>
+.shorthand-demo {
+  background: #eaffea radial-gradient(circle, green 20%, transparent 22%) no-repeat right bottom / 80px 80px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Multiple Background Layers</h2>
+
+    <div class="demo multiple-backgrounds">
+      This box uses two background layers.
+    </div>
+  </div>
+
+</body>
+</html>

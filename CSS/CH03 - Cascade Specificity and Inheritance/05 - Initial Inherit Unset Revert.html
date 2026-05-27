@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Initial Inherit Unset Revert.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Learn special CSS global values:
+      1. initial
+      2. inherit
+      3. unset
+      4. revert
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Initial Inherit Unset Revert</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .parent {
+      color: darkblue;
+      border: 3px solid darkblue;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .use-initial {
+      color: initial;
+    }
+
+    .use-inherit {
+      border: inherit;
+      padding: 8px;
+    }
+
+    .use-unset-color {
+      color: unset;
+    }
+
+    .use-unset-border {
+      border: unset;
+      padding: 8px;
+      background-color: #fff4d6;
+    }
+
+    .custom-button {
+      background-color: #0057d9;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .revert-button {
+      all: revert;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>initial, inherit, unset and revert</h1>
+
+  <div class="box">
+    <h2>initial</h2>
+
+    <div class="parent">
+      Parent has dark blue text.
+
+      <!--
+        color: initial resets the text color to the initial value.
+      -->
+      <p class="use-initial">
+        This child uses color: initial, so it does not stay dark blue.
+      </p>
+    </div>
+
+    <pre>
+.use-initial {
+  color: initial;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>inherit</h2>
+
+    <div class="parent">
+      Parent has a border.
+
+      <!--
+        border normally does not inherit.
+        border: inherit forces the child to copy the parent's border.
+      -->
+      <p class="use-inherit">
+        This child uses border: inherit.
+      </p>
+    </div>
+
+    <pre>
+.use-inherit {
+  border: inherit;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>unset</h2>
+
+    <div class="parent">
+      Parent has dark blue text and border.
+
+      <!--
+        color is normally inherited, so color: unset behaves like inherit.
+      -->
+      <p class="use-unset-color">
+        This child uses color: unset. Since color is inherited, it keeps parent color.
+      </p>
+
+      <!--
+        border is not normally inherited, so border: unset behaves like initial.
+      -->
+      <p class="use-unset-border">
+        This child uses border: unset. Since border is not inherited, it removes the border.
+      </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>revert</h2>
+
+    <p>
+      The first button uses custom CSS.
+      The second button uses <code>all: revert</code> to return closer to browser default styling.
+    </p>
+
+    <button class="custom-button">Custom Button</button>
+    <button class="custom-button revert-button">Reverted Button</button>
+
+    <pre>
+.revert-button {
+  all: revert;
+}</pre>
+  </div>
+
+</body>
+</html>

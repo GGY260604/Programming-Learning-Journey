@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Background Repeat Size Position.html
+    TOPIC: CH04 - Colors and Backgrounds
+
+    GOAL:
+    - Learn background-repeat.
+    - Learn background-size.
+    - Learn background-position.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Background Repeat Size Position</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo {
+      height: 180px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background-image: radial-gradient(circle, #0057d9 20%, transparent 22%);
+      background-color: #eaf0ff;
+    }
+
+    /*
+      background-repeat: repeat;
+      - Default behavior.
+      - Background repeats horizontally and vertically.
+    */
+    .repeat-demo {
+      background-repeat: repeat;
+      background-size: 50px 50px;
+    }
+
+    /*
+      background-repeat: no-repeat;
+      - Background appears only once.
+    */
+    .no-repeat-demo {
+      background-repeat: no-repeat;
+      background-size: 80px 80px;
+    }
+
+    /*
+      background-position:
+      - Controls where the background image is placed.
+      - Common values: top, bottom, left, right, center.
+    */
+    .position-demo {
+      background-repeat: no-repeat;
+      background-size: 80px 80px;
+      background-position: right bottom;
+    }
+
+    /*
+      background-size: cover;
+      - Makes the background cover the whole area.
+      - Some parts may be cropped.
+    */
+    .cover-demo {
+      background-image: url("../Assests/Images/CSS Box Model.png");
+      background-size: cover;
+      color: #222;
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    /*
+      background-size: contain;
+      - Makes the background fully visible inside the element.
+      - Empty space may appear.
+    */
+    .contain-demo {
+      background-image: url("../Assests/Images/CSS Box Model.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: #222;
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Background Repeat, Size and Position</h1>
+
+  <div class="box">
+    <h2>background-repeat: repeat</h2>
+    <div class="demo repeat-demo"></div>
+    <p>The pattern repeats because <code>background-repeat: repeat;</code> is used.</p>
+  </div>
+
+  <div class="box">
+    <h2>background-repeat: no-repeat</h2>
+    <div class="demo no-repeat-demo"></div>
+    <p>The pattern appears only once.</p>
+  </div>
+
+  <div class="box">
+    <h2>background-position</h2>
+    <div class="demo position-demo"></div>
+    <p>The pattern is placed at <code>right bottom</code>.</p>
+  </div>
+
+  <div class="box">
+    <h2>background-size: cover</h2>
+    <div class="demo cover-demo">
+      cover fills the whole box.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>background-size: contain</h2>
+    <div class="demo contain-demo">
+      contain keeps the whole background visible.
+    </div>
+  </div>
+
+</body>
+</html>

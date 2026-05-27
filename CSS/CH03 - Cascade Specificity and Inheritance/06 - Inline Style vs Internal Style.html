@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Inline Style vs Internal Style.html
+    TOPIC: CH03 - Cascade Specificity and Inheritance
+
+    GOAL:
+    - Compare inline CSS and internal CSS.
+    - Understand that inline style has very high priority.
+    - Understand why inline CSS can make overriding styles harder.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Inline Style vs Internal Style</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .inline-test {
+      color: blue;
+      background-color: #eaf0ff;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    #inline-target {
+      color: green;
+    }
+
+    .force-color {
+      color: purple !important;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Inline Style vs Internal Style</h1>
+
+  <div class="box">
+    <h2>Inline Style Has High Priority</h2>
+
+    <!--
+      This paragraph has:
+      - class="inline-test"
+      - id="inline-target"
+      - inline style="color: red;"
+
+      Even though class and ID rules exist in CSS,
+      the inline color wins, so the text becomes red.
+    -->
+    <p class="inline-test" id="inline-target" style="color: red;">
+      This text becomes red because inline style has high priority.
+    </p>
+
+    <pre>
+&lt;p class="inline-test" id="inline-target" style="color: red;"&gt;
+  This text becomes red.
+&lt;/p&gt;</pre>
+  </div>
+
+  <div class="box">
+    <h2>Overriding Inline Style with !important</h2>
+
+    <!--
+      This paragraph still has inline color red.
+      However, .force-color uses color: purple !important.
+      Therefore, purple wins.
+    -->
+    <p class="inline-test force-color" style="color: red;">
+      This text becomes purple because .force-color uses !important.
+    </p>
+
+    <pre>
+.force-color {
+  color: purple !important;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Best Practice</h2>
+
+    <p>
+      Avoid inline CSS for normal styling.
+      Use classes and external CSS files so your design is easier to maintain.
+    </p>
+  </div>
+
+</body>
+</html>
