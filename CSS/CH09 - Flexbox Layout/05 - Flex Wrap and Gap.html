@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Flex Wrap and Gap.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn flex-wrap.
+    - Learn gap, row-gap, and column-gap.
+    - Understand why wrapping is useful for responsive layouts.
+
+    IMPORTANT:
+    - Without flex-wrap, flex items try to fit into one line.
+    - With flex-wrap: wrap, items can move to the next line.
+    - gap creates spacing between flex items without using margins.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Flex Wrap and Gap</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 16px;
+      width: 180px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      nowrap:
+      - Default behavior.
+      - Items stay in one line even if they overflow.
+    */
+    .nowrap-demo {
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+
+    /*
+      wrap:
+      - Items can move to the next line when there is not enough space.
+    */
+    .wrap-demo {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /*
+      row-gap and column-gap:
+      - row-gap controls vertical spacing between rows.
+      - column-gap controls horizontal spacing between columns.
+    */
+    .separate-gap-demo {
+      flex-wrap: wrap;
+      row-gap: 24px;
+      column-gap: 8px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>flex-wrap and gap</h1>
+
+  <div class="box">
+    <h2>flex-wrap: nowrap</h2>
+
+    <div class="flex-container nowrap-demo">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+      <div class="flex-item">Item 4</div>
+      <div class="flex-item">Item 5</div>
+    </div>
+
+    <p>
+      If the screen is too narrow, the items may overflow because wrapping is disabled.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>flex-wrap: wrap</h2>
+
+    <div class="flex-container wrap-demo">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+      <div class="flex-item">Item 4</div>
+      <div class="flex-item">Item 5</div>
+    </div>
+
+    <pre>
+.wrap-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>row-gap and column-gap</h2>
+
+    <div class="flex-container separate-gap-demo">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+      <div class="flex-item">Item 4</div>
+      <div class="flex-item">Item 5</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Common Flexbox Patterns.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Practice common Flexbox layout patterns:
+      1. Navigation bar
+      2. Centering content
+      3. Equal-width cards
+      4. Media object layout
+
+    IMPORTANT:
+    - Flexbox is very good for aligning items in one direction.
+    - For full page two-dimensional layouts, CSS Grid is often better.
+    - For smaller UI components, Flexbox is usually simple and powerful.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Common Flexbox Patterns</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      Pattern 1: Navigation bar
+
+      justify-content: space-between places the logo on the left
+      and the navigation links on the right.
+    */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /*
+      Pattern 2: Perfect center
+
+      justify-content centers horizontally.
+      align-items centers vertically.
+    */
+    .center-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 180px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    /*
+      Pattern 3: Equal-width cards
+
+      flex: 1 makes each card share available space equally.
+    */
+    .card-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .card {
+      flex: 1;
+      background-color: #eaffea;
+      border: 2px solid green;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    /*
+      Pattern 4: Media object
+
+      The image/avatar is on the left.
+      The content is on the right.
+    */
+    .media {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background-color: #fff4d6;
+      border: 2px solid orange;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      background-color: #0057d9;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Common Flexbox Patterns</h1>
+
+  <div class="box">
+    <h2>Navigation Bar</h2>
+
+    <nav class="navbar">
+      <div class="logo">
+        CSS Notes
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Lessons</a>
+        <a href="#">Practice</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="box">
+    <h2>Perfect Center</h2>
+
+    <div class="center-box">
+      Centered content
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Equal-Width Cards</h2>
+
+    <div class="card-row">
+      <div class="card">
+        Card 1
+      </div>
+
+      <div class="card">
+        Card 2
+      </div>
+
+      <div class="card">
+        Card 3
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Media Object</h2>
+
+    <div class="media">
+      <div class="avatar">
+        G
+      </div>
+
+      <div>
+        <h3>
+          Galen
+        </h3>
+
+        <p>
+          The avatar and content are arranged using Flexbox.
+          The avatar uses <code>flex-shrink: 0;</code> so it does not shrink.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Repeat Minmax and Auto Fit.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Learn repeat().
+    - Learn minmax().
+    - Learn auto-fit.
+    - Build a responsive grid without media queries.
+
+    IMPORTANT:
+    - repeat() avoids writing the same value many times.
+    - minmax(min, max) sets a minimum and maximum size.
+    - auto-fit automatically fits as many columns as possible.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Repeat Minmax and Auto Fit</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      repeat(3, 1fr):
+      - Same as 1fr 1fr 1fr.
+      - Easier to write and maintain.
+    */
+    .repeat-demo {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /*
+      minmax(160px, 1fr):
+      - Each column should be at least 160px.
+      - Each column can grow up to 1fr.
+    */
+    .minmax-demo {
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+    }
+
+    /*
+      Responsive grid:
+      - auto-fit creates as many columns as can fit.
+      - minmax(180px, 1fr) means each card should be at least 180px.
+      - When there is not enough space, cards wrap into fewer columns.
+    */
+    .auto-fit-demo {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>repeat(), minmax() and auto-fit</h1>
+
+  <div class="box">
+    <h2>repeat()</h2>
+
+    <div class="grid repeat-demo">
+      <div class="item">1fr</div>
+      <div class="item">1fr</div>
+      <div class="item">1fr</div>
+    </div>
+
+    <pre>
+.repeat-demo {
+  grid-template-columns: repeat(3, 1fr);
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>minmax()</h2>
+
+    <div class="grid minmax-demo">
+      <div class="item">minmax</div>
+      <div class="item">minmax</div>
+      <div class="item">minmax</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>auto-fit Responsive Grid</h2>
+
+    <p>
+      Resize the browser window.
+      The number of columns will change automatically.
+    </p>
+
+    <div class="grid auto-fit-demo">
+      <div class="item">Card 1</div>
+      <div class="item">Card 2</div>
+      <div class="item">Card 3</div>
+      <div class="item">Card 4</div>
+      <div class="item">Card 5</div>
+      <div class="item">Card 6</div>
+    </div>
+
+    <pre>
+.auto-fit-demo {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}</pre>
+  </div>
+
+</body>
+</html>

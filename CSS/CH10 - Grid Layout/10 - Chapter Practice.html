@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 10 - Chapter Practice.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Practice CSS Grid by building a dashboard page.
+    - Use:
+      1. display: grid
+      2. grid-template-columns
+      3. grid-template-areas
+      4. gap
+      5. grid-column
+      6. responsive media query
+
+    IMPORTANT:
+    - This practice combines several Grid concepts.
+    - The layout changes on smaller screens using a media query.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    /*
+      Main page grid:
+      - Creates a dashboard-style layout.
+      - The sidebar is fixed-width.
+      - The main content uses remaining space.
+    */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #222;
+      color: white;
+      padding: 20px;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: white;
+      border-bottom: 2px solid #333;
+      padding: 20px;
+    }
+
+    .main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    /*
+      Stats grid:
+      - Uses auto-fit and minmax.
+      - Cards automatically wrap based on available space.
+    */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 28px;
+      color: #0057d9;
+    }
+
+    /*
+      Content grid:
+      - Creates a main panel and side panel.
+    */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+    }
+
+    .panel {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 220px;
+    }
+
+    .panel.large {
+      grid-row: span 2;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /*
+      Responsive layout:
+      - On smaller screens, the sidebar moves above the content.
+      - The content grid becomes one column.
+    */
+    @media (max-width: 760px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "sidebar"
+          "header"
+          "main";
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar">
+      <h2>
+        CSS Grid
+      </h2>
+
+      <a href="#">
+        Dashboard
+      </a>
+
+      <a href="#">
+        Lessons
+      </a>
+
+      <a href="#">
+        Practice
+      </a>
+    </aside>
+
+    <header class="header">
+      <h1>
+        CH10 Practice: Grid Dashboard
+      </h1>
+
+      <p>
+        This layout uses <code>grid-template-areas</code>,
+        responsive card grids, and content panels.
+      </p>
+    </header>
+
+    <main class="main">
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span>
+            Lessons
+          </span>
+
+          <strong>
+            10
+          </strong>
+        </article>
+
+        <article class="stat-card">
+          <span>
+            Examples
+          </span>
+
+          <strong>
+            40+
+          </strong>
+        </article>
+
+        <article class="stat-card">
+          <span>
+            Practice
+          </span>
+
+          <strong>
+            1
+          </strong>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel large">
+          <h2>
+            Main Panel
+          </h2>
+
+          <p>
+            This large panel spans two rows using <code>grid-row: span 2;</code>.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>
+            Side Panel 1
+          </h2>
+
+          <p>
+            This is a smaller dashboard panel.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>
+            Side Panel 2
+          </h2>
+
+          <p>
+            This is another smaller dashboard panel.
+          </p>
+        </article>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

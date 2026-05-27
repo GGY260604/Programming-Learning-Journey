@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Absolute Position.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Understand position: absolute.
+    - Learn that absolute elements are removed from normal flow.
+    - Learn how an absolute element chooses its positioning reference.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Absolute Position</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .relative-parent {
+      position: relative;
+      min-height: 240px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .normal-box {
+      background-color: white;
+      border: 2px solid #333;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    /*
+      position: absolute;
+      - Removed from normal flow.
+      - Does not reserve its original space.
+      - Positioned using top and right relative to .relative-parent.
+    */
+    .absolute-child {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 180px;
+      background-color: #fff4d6;
+      border: 3px solid orange;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .product-card {
+      position: relative;
+      width: 260px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+
+    .sale-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background-color: red;
+      color: white;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>position: absolute</h1>
+
+  <div class="box">
+    <h2>Absolute inside relative parent</h2>
+
+    <div class="relative-parent">
+      <div class="normal-box">
+        Normal content 1
+      </div>
+
+      <div class="absolute-child">
+        Absolute child at top right
+      </div>
+
+      <div class="normal-box">
+        Normal content 2
+      </div>
+    </div>
+
+    <p>
+      The absolute child is removed from normal flow.
+      It is placed at the top-right corner of the relative parent.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Common use: corner badge</h2>
+
+    <div class="product-card">
+      <span class="sale-badge">
+        SALE
+      </span>
+
+      <h3>
+        CSS Course
+      </h3>
+
+      <p>
+        The sale badge is positioned absolutely inside the card.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

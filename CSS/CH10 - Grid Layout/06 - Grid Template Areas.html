@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Grid Template Areas.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Learn grid-template-areas.
+    - Learn grid-area.
+    - Build a page layout using named areas.
+
+    IMPORTANT:
+    - grid-template-areas lets you design layout using readable names.
+    - Each quoted line represents one grid row.
+    - Repeating a name makes that area span multiple columns or rows.
+    - A dot . means an empty cell.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Grid Template Areas</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      Page grid:
+      - The layout has 3 columns.
+      - The header spans all columns.
+      - The sidebar is on the left.
+      - The main content is in the center.
+      - The ads section is on the right.
+      - The footer spans all columns.
+    */
+    .page-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr 160px;
+      grid-template-rows: auto 240px auto;
+      grid-template-areas:
+        "header header header"
+        "sidebar main ads"
+        "footer footer footer";
+      gap: 12px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+    }
+
+    .area {
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /*
+      grid-area connects an element to a named area.
+    */
+    .header {
+      grid-area: header;
+      background-color: #222;
+      color: white;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #eaf0ff;
+      border-color: #0057d9;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: #eaffea;
+      border-color: green;
+    }
+
+    .ads {
+      grid-area: ads;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>grid-template-areas</h1>
+
+  <div class="box">
+    <h2>Named Page Layout</h2>
+
+    <div class="page-grid">
+      <header class="area header">
+        Header
+      </header>
+
+      <aside class="area sidebar">
+        Sidebar
+      </aside>
+
+      <main class="area main">
+        Main Content
+      </main>
+
+      <aside class="area ads">
+        Ads
+      </aside>
+
+      <footer class="area footer">
+        Footer
+      </footer>
+    </div>
+
+    <pre>
+.page-grid {
+  grid-template-areas:
+    "header header header"
+    "sidebar main ads"
+    "footer footer footer";
+}
+
+.header {
+  grid-area: header;
+}</pre>
+  </div>
+
+</body>
+</html>

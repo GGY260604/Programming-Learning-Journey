@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Top Right Bottom Left.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Learn top, right, bottom, and left.
+    - Understand how offset properties move positioned elements.
+    - Compare different corner placements.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Top Right Bottom Left</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .position-area {
+      position: relative;
+      height: 320px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      margin-bottom: 16px;
+    }
+
+    .corner-box {
+      position: absolute;
+      width: 130px;
+      padding: 10px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .top-left {
+      top: 20px;
+      left: 20px;
+    }
+
+    .top-right {
+      top: 20px;
+      right: 20px;
+    }
+
+    .bottom-left {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .bottom-right {
+      right: 20px;
+      bottom: 20px;
+    }
+
+    .center {
+      top: 50%;
+      left: 50%;
+      background-color: #fff4d6;
+      border-color: orange;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>top, right, bottom and left</h1>
+
+  <div class="box">
+    <h2>Corner placement</h2>
+
+    <div class="position-area">
+      <div class="corner-box top-left">top left</div>
+      <div class="corner-box top-right">top right</div>
+      <div class="corner-box bottom-left">bottom left</div>
+      <div class="corner-box bottom-right">bottom right</div>
+      <div class="corner-box center">center</div>
+    </div>
+
+    <p>
+      The parent uses <code>position: relative</code>.
+      Each child uses <code>position: absolute</code> and offset properties.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Common Grid Patterns.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Practice common Grid layout patterns:
+      1. Responsive card grid
+      2. Dashboard layout
+      3. Feature layout with spanning item
+
+    IMPORTANT:
+    - Grid is excellent when you need rows and columns.
+    - Grid can create responsive cards with auto-fit and minmax.
+    - Grid can create dashboard layouts more easily than manual positioning.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Common Grid Patterns</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      Pattern 1: Responsive card grid.
+    */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /*
+      Pattern 2: Dashboard layout.
+    */
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .dashboard-card {
+      background-color: #eaffea;
+      border: 2px solid green;
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 100px;
+    }
+
+    .dashboard-card.large {
+      grid-column: span 2;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+    /*
+      Pattern 3: Feature layout.
+    */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+    }
+
+    .feature-main,
+    .feature-side {
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: white;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 700px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-card.large {
+        grid-column: span 1;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Common Grid Patterns</h1>
+
+  <div class="box">
+    <h2>Responsive Card Grid</h2>
+
+    <div class="card-grid">
+      <div class="card">Card 1</div>
+      <div class="card">Card 2</div>
+      <div class="card">Card 3</div>
+      <div class="card">Card 4</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Dashboard Layout</h2>
+
+    <div class="dashboard">
+      <div class="dashboard-card large">
+        Large card spanning 2 columns
+      </div>
+
+      <div class="dashboard-card">
+        Small card
+      </div>
+
+      <div class="dashboard-card">
+        Small card
+      </div>
+
+      <div class="dashboard-card">
+        Small card
+      </div>
+
+      <div class="dashboard-card">
+        Small card
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Feature Layout</h2>
+
+    <div class="feature-grid">
+      <div class="feature-main">
+        Main feature content
+      </div>
+
+      <div class="feature-side">
+        Side content
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Justify Align Place Items.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Learn justify-items.
+    - Learn align-items.
+    - Learn place-items.
+    - Understand item alignment inside grid cells.
+
+    IMPORTANT:
+    - justify-items aligns grid items horizontally inside their cells.
+    - align-items aligns grid items vertically inside their cells.
+    - place-items is shorthand for align-items and justify-items.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Justify Align Place Items</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 120px);
+      gap: 12px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .item {
+      width: 80px;
+      height: 50px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      text-align: center;
+      font-weight: bold;
+      padding-top: 12px;
+    }
+
+    /*
+      justify-items: center;
+      - Centers items horizontally inside their grid cells.
+    */
+    .justify-center {
+      justify-items: center;
+    }
+
+    /*
+      align-items: center;
+      - Centers items vertically inside their grid cells.
+    */
+    .align-center {
+      align-items: center;
+    }
+
+    /*
+      place-items: center;
+      - Shorthand for:
+        align-items: center;
+        justify-items: center;
+    */
+    .place-center {
+      place-items: center;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>justify-items, align-items and place-items</h1>
+
+  <div class="box">
+    <h2>justify-items: center</h2>
+
+    <div class="grid justify-center">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>align-items: center</h2>
+
+    <div class="grid align-center">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>place-items: center</h2>
+
+    <div class="grid place-center">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+
+    <p>
+      <code>place-items: center;</code> centers each item horizontally and vertically inside its cell.
+    </p>
+  </div>
+
+</body>
+</html>

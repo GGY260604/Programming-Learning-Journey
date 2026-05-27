@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Flex Grow Shrink Basis.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn flex-grow.
+    - Learn flex-shrink.
+    - Learn flex-basis.
+    - Learn the flex shorthand property.
+
+    IMPORTANT:
+    - These properties are applied to flex items, not the container.
+    - flex-grow controls how extra space is distributed.
+    - flex-shrink controls how items shrink when space is not enough.
+    - flex-basis sets the starting size before growing or shrinking.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Flex Grow Shrink Basis</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      flex-grow:
+      - If there is extra space, items with flex-grow can expand.
+      - Bigger number means the item receives more extra space.
+    */
+    .grow {
+      flex-grow: 1;
+    }
+
+    .grow-2 {
+      flex-grow: 2;
+    }
+
+    /*
+      flex-basis:
+      - Starting size of the flex item before growing or shrinking.
+    */
+    .basis-demo {
+      flex-basis: 200px;
+    }
+
+    /*
+      flex shorthand:
+      - Common format:
+        flex: grow shrink basis;
+    */
+    .flex-shorthand-1 {
+      flex: 1 1 0;
+    }
+
+    .flex-shorthand-2 {
+      flex: 2 1 0;
+    }
+
+    .flex-shorthand-3 {
+      flex: 1 1 0;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>flex-grow, flex-shrink and flex-basis</h1>
+
+  <div class="box">
+    <h2>flex-grow</h2>
+
+    <div class="flex-container">
+      <div class="flex-item grow">
+        grow 1
+      </div>
+
+      <div class="flex-item grow-2">
+        grow 2
+      </div>
+
+      <div class="flex-item grow">
+        grow 1
+      </div>
+    </div>
+
+    <p>
+      The middle item gets more extra space because it has <code>flex-grow: 2;</code>.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>flex-basis</h2>
+
+    <div class="flex-container">
+      <div class="flex-item">
+        normal
+      </div>
+
+      <div class="flex-item basis-demo">
+        basis 200px
+      </div>
+
+      <div class="flex-item">
+        normal
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>flex shorthand</h2>
+
+    <div class="flex-container">
+      <div class="flex-item flex-shorthand-1">
+        flex: 1 1 0
+      </div>
+
+      <div class="flex-item flex-shorthand-2">
+        flex: 2 1 0
+      </div>
+
+      <div class="flex-item flex-shorthand-3">
+        flex: 1 1 0
+      </div>
+    </div>
+
+    <pre>
+.item {
+  flex: 1 1 0;
+}</pre>
+  </div>
+
+</body>
+</html>

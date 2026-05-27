@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 11 - Chapter Practice.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Practice important Flexbox concepts:
+      1. display: flex
+      2. flex-direction
+      3. justify-content
+      4. align-items
+      5. gap
+      6. flex-wrap
+      7. flex shorthand
+
+    TASK:
+    - Build a small landing page layout using Flexbox.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    /*
+      Header:
+      - display: flex places logo and links in one row.
+      - justify-content: space-between pushes them to opposite sides.
+      - align-items: center vertically aligns them.
+    */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background-color: #222;
+      color: white;
+      padding: 16px 24px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /*
+      Hero:
+      - Uses Flexbox to place text and visual side by side.
+      - flex-wrap allows stacking on smaller screens.
+    */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .hero-text {
+      flex: 1 1 320px;
+    }
+
+    .hero-visual {
+      flex: 1 1 280px;
+      min-height: 240px;
+      background: linear-gradient(135deg, #0057d9, #8a2be2);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      color: white;
+      background-color: #0057d9;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .button.secondary {
+      color: #0057d9;
+      background-color: white;
+      border: 2px solid #0057d9;
+    }
+
+    /*
+      Feature cards:
+      - The row wraps when there is not enough space.
+      - Each card uses flex: 1 1 220px.
+    */
+    .features {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .feature-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .feature-card {
+      flex: 1 1 220px;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      CSS Flexbox
+    </div>
+
+    <nav class="nav">
+      <a href="#">
+        Home
+      </a>
+
+      <a href="#">
+        Lessons
+      </a>
+
+      <a href="#">
+        Practice
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Learn Flexbox by Executable Examples
+        </h1>
+
+        <p>
+          Flexbox helps you align, distribute, and wrap elements in a row or column.
+          It is one of the most useful CSS layout systems for real websites.
+        </p>
+
+        <div class="button-row">
+          <a href="#" class="button">
+            Start Learning
+          </a>
+
+          <a href="#" class="button secondary">
+            View Practice
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        FLEX
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>
+        What You Practiced
+      </h2>
+
+      <div class="feature-row">
+        <article class="feature-card">
+          <h3>
+            Alignment
+          </h3>
+
+          <p>
+            Use <code>justify-content</code> and <code>align-items</code>
+            to control item alignment.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>
+            Wrapping
+          </h3>
+
+          <p>
+            Use <code>flex-wrap</code> and <code>gap</code>
+            to create responsive rows.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>
+            Flexible Size
+          </h3>
+
+          <p>
+            Use <code>flex: 1 1 220px</code>
+            to create flexible responsive cards.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

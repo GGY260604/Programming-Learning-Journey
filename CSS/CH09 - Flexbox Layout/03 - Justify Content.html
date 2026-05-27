@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Justify Content.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn justify-content.
+    - Understand main-axis alignment.
+    - Compare common values:
+      flex-start, center, flex-end, space-between, space-around, space-evenly.
+
+    IMPORTANT:
+    - justify-content aligns items along the main axis.
+    - If flex-direction is row, it controls horizontal alignment.
+    - If flex-direction is column, it controls vertical alignment.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Justify Content</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 12px;
+      width: 70px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    /*
+      flex-start is the default value of justify-content.
+    */
+    .start-demo {
+      justify-content: flex-start;
+    }
+
+    .center-demo {
+      justify-content: center;
+    }
+
+    .end-demo {
+      justify-content: flex-end;
+    }
+
+    .between-demo {
+      justify-content: space-between;
+    }
+
+    .around-demo {
+      justify-content: space-around;
+    }
+
+    .evenly-demo {
+      justify-content: space-evenly;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>justify-content</h1>
+
+  <div class="box">
+    <h2>flex-start</h2>
+
+    <div class="flex-container start-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Items stay at the start of the main axis.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>center</h2>
+
+    <div class="flex-container center-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>flex-end</h2>
+
+    <div class="flex-container end-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>space-between</h2>
+
+    <div class="flex-container between-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      First item goes to the start, last item goes to the end,
+      and remaining space is placed between items.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>space-around</h2>
+
+    <div class="flex-container around-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Space is distributed evenly around items. This means that the space
+      between items will be twice as much as the space before the first
+      item and after the last item.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>space-evenly</h2>
+
+    <div class="flex-container evenly-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Space is distributed evenly before, between, and after all items.
+    </p>
+  </div>
+
+</body>
+</html>

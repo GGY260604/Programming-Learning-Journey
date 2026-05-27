@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 10 - Chapter Practice.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Practice relative, absolute, fixed, sticky, and z-index.
+    - Build a small dashboard-like page.
+    - Combine multiple positioning patterns in one page.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Chapter Practice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #222;
+      color: white;
+      padding: 16px 20px;
+      z-index: 20;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px 100px;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      position: relative;
+      width: 260px;
+      min-height: 180px;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background-color: #0057d9;
+      color: white;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 14px;
+      height: 14px;
+      background-color: red;
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+
+    .placeholder-section {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 12px;
+      padding: 20px;
+      min-height: 220px;
+      margin-top: 20px;
+    }
+
+    .help-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: #0057d9;
+      color: white;
+      border-radius: 999px;
+      padding: 12px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 30;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <header class="header">
+    <h1>
+      CH08 Practice: Positioning Dashboard
+    </h1>
+  </header>
+
+  <main class="content">
+    <h2>
+      Dashboard Cards
+    </h2>
+
+    <div class="card-row">
+      <section class="card">
+        <span class="card-badge">NEW</span>
+
+        <h3>Relative + Absolute</h3>
+
+        <p>
+          This card has an absolute badge.
+          The card itself is the relative positioning reference.
+        </p>
+      </section>
+
+      <section class="card">
+        <span class="notification-dot"></span>
+
+        <h3>Notification Dot</h3>
+
+        <p>
+          The red dot is positioned at the top-right inside the card.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>Normal Card</h3>
+
+        <p>
+          This card has no absolute child,
+          so it behaves like a normal card.
+        </p>
+      </section>
+    </div>
+
+    <section class="placeholder-section">
+      <h2>Scroll Content 1</h2>
+
+      <p>
+        Scroll down to see that the header stays sticky and the help button stays fixed.
+      </p>
+    </section>
+
+    <section class="placeholder-section">
+      <h2>Scroll Content 2</h2>
+
+      <p>
+        The fixed help button is positioned relative to the viewport,
+        not relative to this section.
+      </p>
+    </section>
+  </main>
+
+  <a href="#" class="help-button">
+    Help
+  </a>
+
+</body>
+</html>

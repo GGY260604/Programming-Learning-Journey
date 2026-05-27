@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Common Positioning Patterns.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Practice common real-world positioning patterns.
+    - Use relative parent and absolute child.
+    - Create card badge, close button, and overlay patterns.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Common Positioning Patterns</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .pattern-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      position: relative;
+      width: 260px;
+      min-height: 170px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background-color: red;
+      color: white;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 50%;
+      background-color: #333;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .image-card {
+      position: relative;
+      width: 260px;
+      height: 170px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0057d9, #8a2be2);
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>Common Positioning Patterns</h1>
+
+  <div class="box">
+    <h2>Relative parent + absolute child</h2>
+
+    <p>
+      This is one of the most common positioning patterns.
+      The parent uses <code>position: relative</code>,
+      and the child uses <code>position: absolute</code>.
+    </p>
+
+    <div class="pattern-row">
+      <div class="card">
+        <span class="badge">NEW</span>
+
+        <h3>Card Badge</h3>
+
+        <p>
+          The badge is placed at the top-right corner of this card.
+        </p>
+      </div>
+
+      <div class="card">
+        <button class="close-button">×</button>
+
+        <h3>Close Button</h3>
+
+        <p>
+          The close button is absolutely positioned inside this card.
+        </p>
+      </div>
+
+      <div class="image-card">
+        <div class="overlay">
+          Overlay text centered inside the card
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

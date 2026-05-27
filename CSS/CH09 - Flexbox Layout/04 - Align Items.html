@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Align Items.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn align-items.
+    - Understand cross-axis alignment.
+    - Compare stretch, flex-start, center, flex-end, and baseline.
+
+    IMPORTANT:
+    - align-items aligns items along the cross axis.
+    - If flex-direction is row, the cross axis is vertical.
+    - If flex-direction is column, the cross axis is horizontal.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Align Items</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      height: 160px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 12px;
+      width: 90px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .tall-item {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .stretch-demo {
+      align-items: stretch;
+    }
+
+    .start-demo {
+      align-items: flex-start;
+    }
+
+    .center-demo {
+      align-items: center;
+    }
+
+    .end-demo {
+      align-items: flex-end;
+    }
+
+    .baseline-demo {
+      align-items: baseline;
+    }
+
+    .big-text {
+      font-size: 32px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>align-items</h1>
+
+  <div class="box">
+    <h2>stretch</h2>
+
+    <div class="flex-container stretch-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      <code>stretch</code> is the default value.
+      Items stretch to fill the cross axis if their height is not fixed.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>flex-start</h2>
+
+    <div class="flex-container start-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item tall-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Items are aligned to the start of the cross axis.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>center</h2>
+
+    <div class="flex-container center-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item tall-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Items are vertically centered because the main direction is row.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>flex-end</h2>
+
+    <div class="flex-container end-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item tall-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      Items are aligned to the end of the cross axis.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>baseline</h2>
+
+    <div class="flex-container baseline-demo">
+      <div class="flex-item">Small</div>
+      <div class="flex-item big-text">Big</div>
+      <div class="flex-item">Text</div>
+    </div>
+
+    <p>
+      Baseline aligns items based on their text baseline.
+    </p>
+  </div>
+
+</body>
+</html>

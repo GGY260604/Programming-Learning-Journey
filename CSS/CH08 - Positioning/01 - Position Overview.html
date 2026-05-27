@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Position Overview.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Understand the CSS position property.
+    - Compare static, relative, absolute, fixed, and sticky.
+    - Understand why positioning affects layout behavior.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Position Overview</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+    /*
+      position: static;
+      - This is the default value for most elements.
+      - The element follows normal document flow.
+      - top, right, bottom, and left do not move a static element.
+    */
+    .static-demo {
+      position: static;
+      top: 30px;
+      left: 30px;
+    }
+
+    /*
+      position: relative;
+      - The element stays in normal flow.
+      - Then it is visually shifted from its original position.
+      - Its original space is still kept in the page layout.
+    */
+    .relative-demo {
+      position: relative;
+      top: 20px;
+      left: 30px;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>CSS Position Overview</h1>
+
+  <div class="box">
+    <h2>What does position do?</h2>
+
+    <p>
+      The <code>position</code> property controls how an element is placed in the page.
+      It also decides whether <code>top</code>, <code>right</code>, <code>bottom</code>,
+      and <code>left</code> can move the element.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>static vs relative</h2>
+
+    <div class="demo-area">
+      <div class="item static-demo">
+        position: static; top and left do not move me.
+      </div>
+
+      <div class="item relative-demo">
+        position: relative; top and left move me visually.
+      </div>
+
+      <div class="item">
+        Normal item after the relative element.
+      </div>
+    </div>
+
+    <p>
+      Notice that the relative element moves visually,
+      but the page still keeps its original space.
+    </p>
+
+    <pre>
+.relative-demo {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}</pre>
+  </div>
+
+</body>
+</html>

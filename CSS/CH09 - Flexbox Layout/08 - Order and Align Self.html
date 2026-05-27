@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Order and Align Self.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn order.
+    - Learn align-self.
+    - Understand how individual flex items can behave differently.
+
+    IMPORTANT:
+    - order changes the visual order, not the HTML order.
+    - align-self overrides align-items for one specific flex item.
+    - Use order carefully because changing visual order can confuse keyboard navigation and screen readers.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Order and Align Self</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      align-items: flex-start;
+      height: 180px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 12px;
+      width: 100px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      order:
+      - Default order is 0.
+      - Smaller order appears earlier.
+      - Larger order appears later.
+    */
+    .order-first {
+      order: -1;
+      background-color: #eaffea;
+      border-color: green;
+    }
+
+    .order-last {
+      order: 2;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+    /*
+      align-self:
+      - Overrides the container's align-items value for one item.
+      - This item moves to the bottom of the cross axis.
+    */
+    .self-end {
+      align-self: flex-end;
+      background-color: #ffe5e5;
+      border-color: red;
+    }
+
+    .self-center {
+      align-self: center;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>order and align-self</h1>
+
+  <div class="box">
+    <h2>order</h2>
+
+    <div class="flex-container">
+      <div class="flex-item">
+        HTML 1
+      </div>
+
+      <div class="flex-item order-last">
+        HTML 2
+        <br>
+        order 2
+      </div>
+
+      <div class="flex-item order-first">
+        HTML 3
+        <br>
+        order -1
+      </div>
+    </div>
+
+    <p>
+      The third item appears first visually because it uses <code>order: -1;</code>.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>align-self</h2>
+
+    <div class="flex-container">
+      <div class="flex-item">
+        normal
+      </div>
+
+      <div class="flex-item self-center">
+        center
+      </div>
+
+      <div class="flex-item self-end">
+        end
+      </div>
+    </div>
+
+    <pre>
+.self-end {
+  align-self: flex-end;
+}</pre>
+  </div>
+
+</body>
+</html>

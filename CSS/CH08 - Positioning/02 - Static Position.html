@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Static Position.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Understand position: static.
+    - Learn that static is the default position.
+    - Understand why top, right, bottom, and left do not affect static elements.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Static Position</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .static-item {
+      position: static;
+      top: 50px;
+      left: 50px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .normal-item {
+      background-color: white;
+      border: 2px solid #333;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>position: static</h1>
+
+  <div class="box">
+    <h2>Static follows normal flow</h2>
+
+    <div class="demo-area">
+      <div class="normal-item">
+        Normal item 1
+      </div>
+
+      <div class="static-item">
+        Static item. Even though top: 50px and left: 50px are written, I do not move.
+      </div>
+
+      <div class="normal-item">
+        Normal item 2
+      </div>
+    </div>
+
+    <p>
+      The static element stays in its normal place.
+      This is because <code>top</code> and <code>left</code> do not affect static elements.
+    </p>
+
+    <pre>
+.static-item {
+  position: static;
+  top: 50px;
+  left: 50px;
+}</pre>
+  </div>
+
+</body>
+</html>

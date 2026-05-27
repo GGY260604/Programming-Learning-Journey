@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Flexbox Overview.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Understand what Flexbox is used for.
+    - Learn that Flexbox is a one-dimensional layout system.
+    - Understand flex container and flex items.
+
+    IMPORTANT:
+    - Flexbox is mainly for arranging items in one direction:
+      row or column.
+    - The parent element becomes the flex container.
+    - The direct children become flex items.
+    - Flexbox is very useful for navigation bars, cards, buttons,
+      forms, and simple responsive layouts.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Flexbox Overview</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      Flex container:
+      - display: flex turns this parent into a flex container.
+      - Its direct children become flex items.
+      - By default, flex-direction is row.
+      - That means items are placed horizontally from left to right.
+    */
+    .flex-container {
+      display: flex;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 12px;
+    }
+
+    /*
+      Flex items:
+      - These are direct children of the flex container.
+      - Flexbox controls how these items are arranged.
+    */
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Flexbox Overview</h1>
+
+  <div class="box">
+    <h2>What is Flexbox?</h2>
+
+    <p>
+      Flexbox is a CSS layout system used to arrange items in a row or column.
+      It is especially useful when you want to align, distribute, and resize items easily.
+    </p>
+
+    <p>
+      To start Flexbox, apply <code>display: flex;</code> to the parent element.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Flex Container and Flex Items</h2>
+
+    <div class="flex-container">
+      <div class="flex-item">
+        Item 1
+      </div>
+
+      <div class="flex-item">
+        Item 2
+      </div>
+
+      <div class="flex-item">
+        Item 3
+      </div>
+    </div>
+
+    <p>
+      The grey parent is the flex container.
+      The blue boxes are flex items.
+    </p>
+
+    <pre>
+.flex-container {
+  display: flex;
+}</pre>
+  </div>
+
+</body>
+</html>

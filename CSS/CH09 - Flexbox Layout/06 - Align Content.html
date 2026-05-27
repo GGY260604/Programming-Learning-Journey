@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Align Content.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn align-content.
+    - Understand how multiple flex lines are aligned.
+    - Compare align-content with align-items.
+
+    IMPORTANT:
+    - align-content works only when there are multiple flex lines.
+    - That means flex-wrap: wrap is usually needed.
+    - align-items aligns items inside a line.
+    - align-content aligns the lines themselves.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Align Content</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 420px;
+      height: 260px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      width: 120px;
+      height: 50px;
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      text-align: center;
+      font-weight: bold;
+      padding-top: 12px;
+    }
+
+    .content-start {
+      align-content: flex-start;
+    }
+
+    .content-center {
+      align-content: center;
+    }
+
+    .content-end {
+      align-content: flex-end;
+    }
+
+    .content-between {
+      align-content: space-between;
+    }
+
+    .content-around {
+      align-content: space-around;
+    }
+
+    .content-evenly {
+      align-content: space-evenly;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>align-content</h1>
+
+  <div class="box">
+    <h2>align-content: flex-start</h2>
+
+    <div class="flex-container content-start">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <p>
+      All flex lines stay at the start of the cross axis.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>align-content: center</h2>
+
+    <div class="flex-container content-center">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>align-content: flex-end</h2>
+
+    <div class="flex-container content-end">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>align-content: space-between</h2>
+
+    <div class="flex-container content-between">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>align-content: space-around</h2>
+
+    <div class="flex-container content-around">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <p>
+      Space is distributed evenly around lines. This means that the space
+      between lines will be twice as much as the space before the first line
+      and after the last line.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>align-content: space-evenly</h2>
+
+    <div class="flex-container content-evenly">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <p>
+      Space is distributed evenly around lines. This means that the space
+      between lines is twice as much as the space before the first line
+      and after the last line.
+    </p>
+  </div>
+
+</body>
+</html>

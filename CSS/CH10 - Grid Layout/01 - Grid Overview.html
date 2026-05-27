@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Grid Overview.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Understand what CSS Grid is used for.
+    - Learn that Grid is a two-dimensional layout system.
+    - Understand grid container and grid items.
+
+    IMPORTANT:
+    - Flexbox is usually best for one-dimensional layout:
+      row OR column.
+    - Grid is usually best for two-dimensional layout:
+      rows AND columns.
+    - The parent becomes a grid container using display: grid.
+    - The direct children become grid items.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Grid Overview</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    /*
+      Grid container:
+      - display: grid turns this parent into a grid container.
+      - grid-template-columns defines the columns.
+      - gap creates spacing between rows and columns.
+      - grid-template-rows has values unit like fr, px, %, auto, etc.
+    */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+    }
+
+    /*
+      Grid items:
+      - These are direct children of the grid container.
+      - Grid controls where they are placed.
+    */
+    .grid-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Grid Overview</h1>
+
+  <div class="box">
+    <h2>What is Grid?</h2>
+
+    <p>
+      CSS Grid is a layout system for arranging elements in rows and columns.
+      It is useful for page layouts, dashboards, galleries, cards, and complex sections.
+    </p>
+
+    <p>
+      To start Grid, apply <code>display: grid;</code> to the parent element.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Grid Container and Grid Items</h2>
+
+    <div class="grid-container">
+      <div class="grid-item">Item 1</div>
+      <div class="grid-item">Item 2</div>
+      <div class="grid-item">Item 3</div>
+      <div class="grid-item">Item 4</div>
+      <div class="grid-item">Item 5</div>
+      <div class="grid-item">Item 6</div>
+    </div>
+
+    <pre>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}</pre>
+  </div>
+
+</body>
+</html>

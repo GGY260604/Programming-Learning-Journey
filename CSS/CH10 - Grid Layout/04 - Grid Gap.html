@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Grid Gap.html
+    TOPIC: CH10 - Grid Layout
+
+    GOAL:
+    - Learn gap.
+    - Learn row-gap.
+    - Learn column-gap.
+    - Understand spacing between grid cells.
+
+    IMPORTANT:
+    - gap creates space between grid tracks.
+    - It does not create outer spacing around the grid.
+    - gap is cleaner than adding margin to every grid item.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - Grid Gap</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      gap:
+      - Sets both row gap and column gap.
+    */
+    .gap-demo {
+      gap: 16px;
+    }
+
+    /*
+      row-gap:
+      - Controls vertical space between rows.
+    */
+    .row-gap-demo {
+      row-gap: 28px;
+      column-gap: 8px;
+    }
+
+    /*
+      column-gap:
+      - Controls horizontal space between columns.
+    */
+    .column-gap-demo {
+      row-gap: 8px;
+      column-gap: 28px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Grid Gap</h1>
+
+  <div class="box">
+    <h2>gap</h2>
+
+    <div class="grid gap-demo">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+
+    <p>
+      <code>gap: 16px;</code> creates equal spacing between rows and columns.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>row-gap</h2>
+
+    <div class="grid row-gap-demo">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>column-gap</h2>
+
+    <div class="grid column-gap-demo">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+</body>
+</html>

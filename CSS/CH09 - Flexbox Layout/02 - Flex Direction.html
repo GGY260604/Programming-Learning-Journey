@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Flex Direction.html
+    TOPIC: CH09 - Flexbox Layout
+
+    GOAL:
+    - Learn flex-direction.
+    - Compare row, row-reverse, column, and column-reverse.
+
+    IMPORTANT:
+    - flex-direction controls the main axis.
+    - Main axis means the main direction where flex items are placed.
+    - If direction is row, the main axis is horizontal.
+    - If direction is column, the main axis is vertical.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - Flex Direction</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .flex-item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 14px;
+      min-width: 80px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /*
+      row:
+      - Default flex-direction.
+      - Items go from left to right.
+    */
+    .row-demo {
+      flex-direction: row;
+    }
+
+    /*
+      row-reverse:
+      - Items go from right to left.
+      - The visual order is reversed.
+    */
+    .row-reverse-demo {
+      flex-direction: row-reverse;
+    }
+
+    /*
+      column:
+      - Items go from top to bottom.
+    */
+    .column-demo {
+      flex-direction: column;
+    }
+
+    /*
+      column-reverse:
+      - Items go from bottom to top visually.
+    */
+    .column-reverse-demo {
+      flex-direction: column-reverse;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>flex-direction</h1>
+
+  <div class="box">
+    <h2>row</h2>
+
+    <div class="flex-container row-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      <code>flex-direction: row;</code> places items horizontally.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>row-reverse</h2>
+
+    <div class="flex-container row-reverse-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      <code>flex-direction: row-reverse;</code> reverses the visual row direction.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>column</h2>
+
+    <div class="flex-container column-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      <code>flex-direction: column;</code> places items vertically.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>column-reverse</h2>
+
+    <div class="flex-container column-reverse-demo">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+    <p>
+      <code>flex-direction: column-reverse;</code> reverses the visual column direction.
+    </p>
+  </div>
+
+</body>
+</html>

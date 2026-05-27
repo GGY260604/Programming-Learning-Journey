@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Relative Position.html
+    TOPIC: CH08 - Positioning
+
+    GOAL:
+    - Understand position: relative.
+    - Learn how top, right, bottom, and left move a relative element.
+    - Understand that the original space is still reserved.
+
+    IMPORTANT:
+    - Positioning controls where an element is placed on the page.
+    - top, right, bottom, and left work only on positioned elements.
+    - A positioned element means position is relative, absolute, fixed, or sticky.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - Relative Position</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-area {
+      background-color: #eeeeee;
+      border: 2px dashed #777;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    code {
+      background-color: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+
+    .demo-area {
+      min-height: 220px;
+    }
+
+    .item {
+      background-color: #eaf0ff;
+      border: 2px solid #0057d9;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    /*
+      The relative item moves from its normal position.
+      top: 25px means move down by 25px.
+      left: 40px means move right by 40px.
+    */
+    .relative-item {
+      position: relative;
+      top: 25px;
+      left: 40px;
+      background-color: #fff4d6;
+      border-color: orange;
+    }
+
+    .relative-parent {
+      position: relative;
+      background-color: #eaffea;
+      border: 2px solid green;
+      padding: 16px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>position: relative</h1>
+
+  <div class="box">
+    <h2>Relative movement</h2>
+
+    <div class="demo-area">
+      <div class="item">
+        Normal item 1
+      </div>
+
+      <div class="item relative-item">
+        Relative item moved down and right.
+      </div>
+
+      <div class="item">
+        Normal item 2 still behaves as if the relative item stayed in original position.
+      </div>
+    </div>
+
+    <pre>
+.relative-item {
+  position: relative;
+  top: 25px;
+  left: 40px;
+}</pre>
+  </div>
+
+  <div class="box">
+    <h2>Common use of relative</h2>
+
+    <div class="relative-parent">
+      A parent often uses position: relative so that an absolute child can be positioned inside it.
+    </div>
+  </div>
+
+</body>
+</html>
