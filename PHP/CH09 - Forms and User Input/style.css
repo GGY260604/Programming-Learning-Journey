@@ -1,0 +1,172 @@
+/*
+  FILE: style.css
+  TOPIC: CH09 - Forms and User Input
+
+  This CSS file is local to CH09 only.
+  It is used to make the PHP form examples easier to read in the browser.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+.info-box {
+  border: 2px solid #8aa4c8;
+  background-color: #eef5ff;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.result-box {
+  border: 2px solid #6ea86e;
+  background-color: #efffee;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.warning-box {
+  border: 2px solid #d9a441;
+  background-color: #fff8e8;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.error-box {
+  border: 2px solid #cc5555;
+  background-color: #fff0f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+form {
+  border: 2px dashed #777777;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+  background-color: #fbfbfb;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.inline-label {
+  display: inline-block;
+  font-weight: normal;
+  margin-right: 16px;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px;
+  border: 2px solid #aaaaaa;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button,
+input[type="submit"] {
+  padding: 10px 16px;
+  border: 2px solid #222222;
+  border-radius: 8px;
+  background-color: #222222;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #444444;
+}
+
+code {
+  background-color: #eeeeee;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+pre {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th,
+td {
+  border: 1px solid #999999;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #eeeeee;
+}
+
+.small-note {
+  color: #555555;
+  font-size: 14px;
+}
+
+ul {
+  margin-top: 8px;
+}
