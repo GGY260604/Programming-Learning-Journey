@@ -1,0 +1,4 @@
+Welcome to CH13 - File Handling.
+
+This text comes from data/sample-read.txt.
+PHP can read this file and display its content in the browser.
