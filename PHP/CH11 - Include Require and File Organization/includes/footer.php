@@ -15,6 +15,9 @@ $currentYear = date("Y");
             <p class="small-note">Footer loaded from <code>includes/footer.php</code>.</p>
             <p class="small-note">Copyright <?= $currentYear ?> - PHP Learning Note</p>
         </div>
+        <?php if (!empty($lessonNavigationHtml)) { ?>
+            <?= $lessonNavigationHtml ?>
+        <?php } ?>
     </div>
 </body>
 </html>

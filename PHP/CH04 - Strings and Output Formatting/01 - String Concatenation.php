@@ -72,13 +72,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - String Concatenation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>String Concatenation</h1>
+            <h1>CH04 - String Concatenation</h1>
 
             <p class="subtitle">
                 Concatenation means joining two or more strings together.
@@ -129,6 +130,11 @@ $examples = [
             <p class="footer-note">
                 Concatenation is commonly used when creating messages, receipts, SQL strings, and dynamic HTML output.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="../CH03 - Operators and Expressions/07 - Ternary Operator.php">&lsaquo; Previous: 07 - Ternary Operator.php</a>
+                <a class="next" href="02 - Double Quote vs Single Quote.php">Next: 02 - Double Quote vs Single Quote.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

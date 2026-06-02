@@ -89,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH14 - Rename Uploaded File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -148,6 +149,11 @@ $newName = "file_" . bin2hex(random_bytes(8)) . "." . $extension;</pre>
                 and direct trust in user-provided file names.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Validate File Size.php">&lsaquo; Previous: 03 - Validate File Size.php</a>
+            <a class="next" href="05 - Upload Image Preview.php">Next: 05 - Upload Image Preview.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

@@ -82,6 +82,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH18 - Sort Records</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -175,6 +176,11 @@ try {
                 used in <code>ORDER BY</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Search Records.php">&lsaquo; Previous: 04 - Search Records.php</a>
+            <a class="next" href="06 - Limit Records.php">Next: 06 - Limit Records.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

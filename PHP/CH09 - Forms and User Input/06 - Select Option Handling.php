@@ -25,12 +25,13 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Select Option Handling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Select Option Handling</h1>
 
             <p>
@@ -79,7 +80,12 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
                 If the user selects this option, PHP receives <code>php_basic</code>.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="05 - Checkbox Handling.php">&lsaquo; Previous: 05 - Checkbox Handling.php</a>
+                <a class="next" href="07 - Textarea Handling.php">Next: 07 - Textarea Handling.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

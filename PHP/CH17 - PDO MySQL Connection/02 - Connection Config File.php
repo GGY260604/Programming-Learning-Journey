@@ -61,6 +61,7 @@ $configExplanation = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH17 - Connection Config File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -124,6 +125,11 @@ $configExplanation = [
                 instead of searching through many files.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - PDO Connection Test.php">&lsaquo; Previous: 01 - PDO Connection Test.php</a>
+            <a class="next" href="03 - Reusable Database Connection.php">Next: 03 - Reusable Database Connection.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

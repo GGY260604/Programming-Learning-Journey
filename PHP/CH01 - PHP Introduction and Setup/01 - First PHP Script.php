@@ -55,6 +55,7 @@ $fileName = "01 - First PHP Script.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH01 - First PHP Script</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -108,6 +109,9 @@ echo "Hello World";
                 The <code>echo</code> statement prints output to the page.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="next" href="02 - PHP Inside HTML.php">Next: 02 - PHP Inside HTML.php &rsaquo;</a>
+        </nav>
 
     </div>
 

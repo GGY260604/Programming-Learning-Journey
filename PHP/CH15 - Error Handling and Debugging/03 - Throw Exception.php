@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH15 - Throw Exception</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -111,6 +112,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 a file cannot be found, or a database operation fails.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Try Catch.php">&lsaquo; Previous: 02 - Try Catch.php</a>
+            <a class="next" href="04 - Custom Error Message.php">Next: 04 - Custom Error Message.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

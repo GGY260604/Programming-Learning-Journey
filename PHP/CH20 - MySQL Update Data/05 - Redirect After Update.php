@@ -93,6 +93,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH20 - Redirect After Update</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -163,6 +164,11 @@ try {
             <pre>header(&quot;Location: page.php?updated=1&quot;);
 exit;</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Update with Prepared Statement.php">&lsaquo; Previous: 04 - Update with Prepared Statement.php</a>
+            <a class="next" href="../CH21 - MySQL Delete Data/01 - Delete Static Record.php">Next: 01 - Delete Static Record.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

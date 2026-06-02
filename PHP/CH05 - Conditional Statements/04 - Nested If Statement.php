@@ -72,13 +72,14 @@ $steps = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - Nested If Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Nested If Statement</h1>
+            <h1>CH05 - Nested If Statement</h1>
 
             <p class="subtitle">
                 Nested <code>if</code> statements check conditions step by step.
@@ -130,6 +131,11 @@ $steps = [
             <p class="footer-note">
                 Use nested <code>if</code> carefully. Too many levels can make code hard to read.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="03 - Else If Statement.php">&lsaquo; Previous: 03 - Else If Statement.php</a>
+                <a class="next" href="05 - Switch Statement.php">Next: 05 - Switch Statement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

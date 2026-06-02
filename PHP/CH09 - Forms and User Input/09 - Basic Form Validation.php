@@ -65,12 +65,13 @@ $isValid = $isSubmitted && !$hasError;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Basic Form Validation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Basic Form Validation</h1>
 
             <p>
@@ -160,7 +161,12 @@ $isValid = $isSubmitted && !$hasError;
                 inserting or updating data in the database.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="08 - Sticky Form Value.php">&lsaquo; Previous: 08 - Sticky Form Value.php</a>
+                <a class="next" href="../CH10 - Superglobals/01 - REQUEST.php">Next: 01 - REQUEST.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

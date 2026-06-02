@@ -62,6 +62,7 @@ $finalPrice = calculateFinalPrice($totalPrice, $discount);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Return Value</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -110,6 +111,10 @@ $finalPrice = calculateFinalPrice($totalPrice, $discount);
 
 $totalPrice = calculateTotal(12.90, 3);</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Function Parameters.php">&lsaquo; Previous: 02 - Function Parameters.php</a>
+            <a class="next" href="04 - Default Parameter Value.php">Next: 04 - Default Parameter Value.php &rsaquo;</a>
+        </nav>
 
     </div>
 

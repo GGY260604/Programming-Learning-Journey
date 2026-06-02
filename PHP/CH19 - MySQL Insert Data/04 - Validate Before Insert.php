@@ -104,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH19 - Validate Before Insert</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -173,6 +174,11 @@ if (count($errors) === 0) {
     // Insert into database
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Insert with Prepared Statement.php">&lsaquo; Previous: 03 - Insert with Prepared Statement.php</a>
+            <a class="next" href="05 - Show Success and Error Message.php">Next: 05 - Show Success and Error Message.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

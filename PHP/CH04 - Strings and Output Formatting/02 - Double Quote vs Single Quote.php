@@ -61,13 +61,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Double Quote vs Single Quote</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Double Quote vs Single Quote</h1>
+            <h1>CH04 - Double Quote vs Single Quote</h1>
 
             <p class="subtitle">
                 PHP treats variables differently depending on whether the string uses double quotes or single quotes.
@@ -116,6 +117,11 @@ $examples = [
             <p class="footer-note">
                 For beginner PHP code, both quote styles are okay. The important part is knowing how variables behave inside them.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="01 - String Concatenation.php">&lsaquo; Previous: 01 - String Concatenation.php</a>
+                <a class="next" href="03 - Common String Functions.php">Next: 03 - Common String Functions.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

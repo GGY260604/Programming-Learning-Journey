@@ -53,5 +53,11 @@ require_once __DIR__ . "/includes/helpers.php";</pre>
         </div>
 
 <?php
+$lessonNavigationHtml = '
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Reusable Navigation.php">&lsaquo; Previous: 04 - Reusable Navigation.php</a>
+            <a class="next" href="../CH12 - Sessions Cookies and Basic Login Concept/01 - Start Session.php">Next: 01 - Start Session.php &rsaquo;</a>
+        </nav>';
+
 require __DIR__ . "/includes/footer.php";
 ?>

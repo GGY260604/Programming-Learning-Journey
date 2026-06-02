@@ -44,5 +44,11 @@ require __DIR__ . "/includes/navigation.php";
         </div>
 
 <?php
+$lessonNavigationHtml = '
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Include Header and Footer.php">&lsaquo; Previous: 03 - Include Header and Footer.php</a>
+            <a class="next" href="05 - Config File Concept.php">Next: 05 - Config File Concept.php &rsaquo;</a>
+        </nav>';
+
 require __DIR__ . "/includes/footer.php";
 ?>

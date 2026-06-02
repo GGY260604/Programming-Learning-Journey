@@ -52,6 +52,7 @@ if (file_exists($filePath)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH13 - Read Text File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -102,6 +103,11 @@ if (file_exists($filePath)) {
                 That is why this example uses <code>htmlspecialchars()</code> before displaying it.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH12 - Sessions Cookies and Basic Login Concept/07 - Simple Session Login Demo.php">&lsaquo; Previous: 07 - Simple Session Login Demo.php</a>
+            <a class="next" href="02 - Write Text File.php">Next: 02 - Write Text File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

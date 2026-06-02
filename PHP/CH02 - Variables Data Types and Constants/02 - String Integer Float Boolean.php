@@ -98,6 +98,7 @@ $fileName = "02 - String Integer Float Boolean.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - String Integer Float Boolean</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -166,6 +167,10 @@ $isStudent = true;    // boolean
                 PHP automatically detects the type from the assigned value.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Variables.php">&lsaquo; Previous: 01 - Variables.php</a>
+            <a class="next" href="03 - Null and Empty Values.php">Next: 03 - Null and Empty Values.php &rsaquo;</a>
+        </nav>
 
     </div>
 

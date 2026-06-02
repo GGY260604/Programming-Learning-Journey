@@ -51,6 +51,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH18 - Limit Records</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -128,6 +129,11 @@ try {
                 where a website displays only a small number of records per page.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Sort Records.php">&lsaquo; Previous: 05 - Sort Records.php</a>
+            <a class="next" href="../CH19 - MySQL Insert Data/01 - Insert Static Data.php">Next: 01 - Insert Static Data.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

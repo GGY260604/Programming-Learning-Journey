@@ -51,6 +51,7 @@ $totalCalls = 3;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Basic Function</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -99,6 +100,10 @@ $totalCalls = 3;
 
 showWelcomeMessage();</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH07 - Arrays/06 - Array to HTML Table.php">&lsaquo; Previous: 06 - Array to HTML Table.php</a>
+            <a class="next" href="02 - Function Parameters.php">Next: 02 - Function Parameters.php &rsaquo;</a>
+        </nav>
 
     </div>
 

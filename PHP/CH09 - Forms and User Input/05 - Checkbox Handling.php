@@ -40,12 +40,13 @@ function isChecked(array $values, string $target): string
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Checkbox Handling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Checkbox Handling</h1>
 
             <p>
@@ -128,7 +129,12 @@ function isChecked(array $values, string $target): string
 
             <pre>$_POST["hobbies"]</pre>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="04 - Radio Button Handling.php">&lsaquo; Previous: 04 - Radio Button Handling.php</a>
+                <a class="next" href="06 - Select Option Handling.php">Next: 06 - Select Option Handling.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

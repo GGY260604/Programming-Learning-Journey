@@ -108,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH19 - Show Success and Error Message</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -188,6 +189,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Validate Before Insert.php">&lsaquo; Previous: 04 - Validate Before Insert.php</a>
+            <a class="next" href="../CH20 - MySQL Update Data/01 - Update Static Data.php">Next: 01 - Update Static Data.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

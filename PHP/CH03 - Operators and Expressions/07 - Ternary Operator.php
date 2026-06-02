@@ -80,13 +80,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH03 - Ternary Operator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Ternary Operator</h1>
+            <h1>CH03 - Ternary Operator</h1>
 
             <p class="subtitle">
                 The ternary operator is a shorter way to write simple if-else logic.
@@ -150,6 +151,11 @@ $examples = [
                     If the condition becomes too long, normal <code>if else</code> is easier to read.
                 </p>
             </div>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="06 - Increment and Decrement.php">&lsaquo; Previous: 06 - Increment and Decrement.php</a>
+                <a class="next" href="../CH04 - Strings and Output Formatting/01 - String Concatenation.php">Next: 01 - String Concatenation.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

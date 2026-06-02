@@ -71,6 +71,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH17 - Reusable Database Connection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -133,6 +134,11 @@ $pdo = getDatabaseConnection();</pre>
                 <code>students</code> table.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Connection Config File.php">&lsaquo; Previous: 02 - Connection Config File.php</a>
+            <a class="next" href="04 - Handle Connection Error.php">Next: 04 - Handle Connection Error.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

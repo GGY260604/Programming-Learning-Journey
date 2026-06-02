@@ -97,13 +97,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH03 - Increment and Decrement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Increment and Decrement</h1>
+            <h1>CH03 - Increment and Decrement</h1>
 
             <p class="subtitle">
                 Increment and decrement operators are commonly used in counters and loops.
@@ -157,6 +158,11 @@ $examples = [
                     The difference between pre-increment and post-increment becomes important when the operator is used inside a larger expression.
                 </p>
             </div>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="05 - String Operators.php">&lsaquo; Previous: 05 - String Operators.php</a>
+                <a class="next" href="07 - Ternary Operator.php">Next: 07 - Ternary Operator.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

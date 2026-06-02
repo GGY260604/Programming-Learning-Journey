@@ -31,6 +31,7 @@ $safeCategory = htmlspecialchars($category);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - GET</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -75,6 +76,11 @@ $safeCategory = htmlspecialchars($category);
             <p>Use <code>GET</code> when the data is not sensitive and can be shown in the URL.</p>
             <p>Do not use <code>GET</code> for passwords.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - REQUEST.php">&lsaquo; Previous: 01 - REQUEST.php</a>
+            <a class="next" href="03 - POST.php">Next: 03 - POST.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

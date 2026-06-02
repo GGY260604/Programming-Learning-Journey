@@ -104,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH14 - Basic File Upload</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -172,6 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 and rename uploaded files safely.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH13 - File Handling/06 - Write CSV File.php">&lsaquo; Previous: 06 - Write CSV File.php</a>
+            <a class="next" href="02 - Validate File Type.php">Next: 02 - Validate File Type.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

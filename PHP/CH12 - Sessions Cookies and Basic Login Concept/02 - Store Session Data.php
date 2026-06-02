@@ -54,6 +54,7 @@ $chapter = $_SESSION["chapter"] ?? "Not stored yet";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Store Session Data</title>
 </head>
 <body>
@@ -110,6 +111,11 @@ $chapter = $_SESSION["chapter"] ?? "Not stored yet";
                 For example, after login, we may store <code>$_SESSION["user_id"]</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Start Session.php">&lsaquo; Previous: 01 - Start Session.php</a>
+            <a class="next" href="03 - Destroy Session.php">Next: 03 - Destroy Session.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

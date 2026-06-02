@@ -58,6 +58,7 @@ $isPdoMysqlLoaded = extension_loaded("pdo_mysql") ? "Enabled" : "Not Enabled";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH01 - PHP Info Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -159,6 +160,10 @@ phpinfo();
             </div>
 
         <?php } ?>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - PHP Comments.php">&lsaquo; Previous: 04 - PHP Comments.php</a>
+            <a class="next" href="../CH02 - Variables Data Types and Constants/01 - Variables.php">Next: 01 - Variables.php &rsaquo;</a>
+        </nav>
 
     </div>
 

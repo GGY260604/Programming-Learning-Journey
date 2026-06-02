@@ -38,6 +38,7 @@ $safeAuthorName = htmlspecialchars($authorName);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH11 - Require File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -67,6 +68,11 @@ $safeAuthorName = htmlspecialchars($authorName);
             <p>Use <code>include</code> for optional files.</p>
             <p>Use <code>require</code> for important files such as configuration files, database connection files, and authentication files.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Include File.php">&lsaquo; Previous: 01 - Include File.php</a>
+            <a class="next" href="03 - Include Header and Footer.php">Next: 03 - Include Header and Footer.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

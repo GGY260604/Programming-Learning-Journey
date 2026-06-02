@@ -65,13 +65,14 @@ $conditionText = '$enteredPassword === $correctPassword';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - If Else Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>If Else Statement</h1>
+            <h1>CH05 - If Else Statement</h1>
 
             <p class="subtitle">
                 An <code>if else</code> statement lets PHP choose one of two possible paths.
@@ -118,6 +119,11 @@ $conditionText = '$enteredPassword === $correctPassword';
             <p class="footer-note">
                 Use <code>if else</code> when your logic has exactly two main possibilities.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="01 - If Statement.php">&lsaquo; Previous: 01 - If Statement.php</a>
+                <a class="next" href="03 - Else If Statement.php">Next: 03 - Else If Statement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

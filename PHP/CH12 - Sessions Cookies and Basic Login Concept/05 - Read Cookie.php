@@ -22,6 +22,7 @@ $studentName = $_COOKIE["student_name"] ?? "Cookie not found";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Read Cookie</title>
 </head>
 <body>
@@ -60,6 +61,11 @@ $studentName = $_COOKIE["student_name"] ?? "Cookie not found";
                 When displaying cookie values in HTML, use <code>htmlspecialchars()</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Create Cookie.php">&lsaquo; Previous: 04 - Create Cookie.php</a>
+            <a class="next" href="06 - Delete Cookie.php">Next: 06 - Delete Cookie.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

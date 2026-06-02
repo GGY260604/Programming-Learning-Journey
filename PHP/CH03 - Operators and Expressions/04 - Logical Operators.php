@@ -91,13 +91,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH03 - Logical Operators</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Logical Operators</h1>
+            <h1>CH03 - Logical Operators</h1>
 
             <p class="subtitle">
                 Logical operators are used to combine conditions, especially in login, validation, and permission checking.
@@ -151,6 +152,11 @@ $examples = [
                     This kind of condition will be very common when we learn sessions, login systems, and database validation.
                 </p>
             </div>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="03 - Comparison Operators.php">&lsaquo; Previous: 03 - Comparison Operators.php</a>
+                <a class="next" href="05 - String Operators.php">Next: 05 - String Operators.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

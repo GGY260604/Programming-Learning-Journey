@@ -67,6 +67,7 @@ $totalItems = countItems($cartItems);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Type Declaration</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -107,6 +108,10 @@ $totalItems = countItems($cartItems);
     return $price * $quantity;
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Default Parameter Value.php">&lsaquo; Previous: 04 - Default Parameter Value.php</a>
+            <a class="next" href="06 - Variable Scope.php">Next: 06 - Variable Scope.php &rsaquo;</a>
+        </nav>
 
     </div>
 

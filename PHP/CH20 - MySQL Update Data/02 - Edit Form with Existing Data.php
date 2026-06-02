@@ -59,6 +59,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH20 - Edit Form with Existing Data</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -131,6 +132,11 @@ try {
 
             <pre>&lt;input type="text" name="student_name" value="&lt;?= htmlspecialchars($student[&quot;student_name&quot;]) ?&gt;"&gt;</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Update Static Data.php">&lsaquo; Previous: 01 - Update Static Data.php</a>
+            <a class="next" href="03 - Update Data from Form.php">Next: 03 - Update Data from Form.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

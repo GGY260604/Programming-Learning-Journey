@@ -51,6 +51,7 @@ $safeLessonName = htmlspecialchars($lessonName ?? "No lesson name found.");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH11 - Include File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -80,6 +81,11 @@ $safeLessonName = htmlspecialchars($lessonName ?? "No lesson name found.");
             <h2>Important Reminder</h2>
             <p>If the included file is missing, PHP will show a warning, but the script may continue running.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH10 - Superglobals/07 - COOKIE Preview.php">&lsaquo; Previous: 07 - COOKIE Preview.php</a>
+            <a class="next" href="02 - Require File.php">Next: 02 - Require File.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

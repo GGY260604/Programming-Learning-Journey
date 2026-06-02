@@ -37,6 +37,7 @@ $currentSessionId = session_id();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Start Session</title>
 </head>
 <body>
@@ -79,6 +80,11 @@ $currentSessionId = session_id();
                 before the page content is sent to the browser.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH11 - Include Require and File Organization/05 - Config File Concept.php">&lsaquo; Previous: 05 - Config File Concept.php</a>
+            <a class="next" href="02 - Store Session Data.php">Next: 02 - Store Session Data.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

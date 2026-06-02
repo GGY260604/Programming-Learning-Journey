@@ -30,6 +30,7 @@ $safeMessage = htmlspecialchars($message);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - POST</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -64,6 +65,11 @@ $safeMessage = htmlspecialchars($message);
                 <p><?= nl2br($safeMessage === "" ? "No message entered." : $safeMessage) ?></p>
             <?php } ?>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - GET.php">&lsaquo; Previous: 02 - GET.php</a>
+            <a class="next" href="04 - SERVER.php">Next: 04 - SERVER.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

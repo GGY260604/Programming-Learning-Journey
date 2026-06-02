@@ -97,6 +97,7 @@ $currentSessionId = session_id();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Session Protection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -182,6 +183,10 @@ $currentSessionId = session_id();
                 <li>Destroy session data during logout.</li>
             </ul>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Password Hashing.php">&lsaquo; Previous: 05 - Password Hashing.php</a>
+            <a class="next" href="07 - CSRF Token Basic Demo.php">Next: 07 - CSRF Token Basic Demo.php &rsaquo;</a>
+        </nav>
 
     </div>
 

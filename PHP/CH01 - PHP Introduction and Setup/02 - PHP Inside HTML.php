@@ -41,6 +41,7 @@ $learningStatus = "In Progress";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH01 - PHP Inside HTML</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -90,6 +91,10 @@ $learningStatus = "In Progress";
                 or databases.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - First PHP Script.php">&lsaquo; Previous: 01 - First PHP Script.php</a>
+            <a class="next" href="03 - Echo and Print.php">Next: 03 - Echo and Print.php &rsaquo;</a>
+        </nav>
 
     </div>
 

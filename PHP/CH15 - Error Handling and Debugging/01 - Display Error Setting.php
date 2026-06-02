@@ -56,6 +56,7 @@ $errorSettings = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH15 - Display Error Setting</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -115,6 +116,11 @@ error_reporting(E_ALL);</pre>
                 during development.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH14 - File Upload/05 - Upload Image Preview.php">&lsaquo; Previous: 05 - Upload Image Preview.php</a>
+            <a class="next" href="02 - Try Catch.php">Next: 02 - Try Catch.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

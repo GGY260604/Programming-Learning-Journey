@@ -79,13 +79,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Short Echo Tag</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Short Echo Tag</h1>
+            <h1>CH04 - Short Echo Tag</h1>
 
             <p class="subtitle">
                 The short echo tag is a faster way to output PHP values inside HTML.
@@ -199,6 +200,11 @@ $examples = [
             <p class="footer-note">
                 Use short echo tags to keep HTML templates clean, but always remember to escape user input.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="06 - Output HTML Safely.php">&lsaquo; Previous: 06 - Output HTML Safely.php</a>
+                <a class="next" href="../CH05 - Conditional Statements/01 - If Statement.php">Next: 01 - If Statement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

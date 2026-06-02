@@ -75,6 +75,7 @@ $fileName = "03 - Null and Empty Values.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - Null and Empty Values</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -150,6 +151,10 @@ $fileName = "03 - Null and Empty Values.php";
                 This avoids warning messages and unexpected behavior.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - String Integer Float Boolean.php">&lsaquo; Previous: 02 - String Integer Float Boolean.php</a>
+            <a class="next" href="04 - Constants.php">Next: 04 - Constants.php &rsaquo;</a>
+        </nav>
 
     </div>
 

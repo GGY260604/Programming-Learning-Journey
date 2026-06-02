@@ -80,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH19 - Insert Static Data</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -124,6 +125,11 @@ VALUES ('Static Student', 'static.student@example.com', 'Software Engineering', 
                 <code>INSERT INTO</code> is used to add a new row into a table.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH18 - MySQL Select and Display Data/06 - Limit Records.php">&lsaquo; Previous: 06 - Limit Records.php</a>
+            <a class="next" href="02 - Insert Data from Form.php">Next: 02 - Insert Data from Form.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

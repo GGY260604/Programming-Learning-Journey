@@ -38,6 +38,7 @@ $student = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH07 - Array Looping</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -132,6 +133,10 @@ foreach ($array as $key => $value) {
     echo $value;
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Multidimensional Array.php">&lsaquo; Previous: 03 - Multidimensional Array.php</a>
+            <a class="next" href="05 - Common Array Functions.php">Next: 05 - Common Array Functions.php &rsaquo;</a>
+        </nav>
 
     </div>
 

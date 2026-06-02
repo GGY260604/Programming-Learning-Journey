@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH15 - Custom Error Message</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -134,6 +135,11 @@ if (empty($errors)) {
                 <code>htmlspecialchars()</code> because some values may come from user input.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Throw Exception.php">&lsaquo; Previous: 03 - Throw Exception.php</a>
+            <a class="next" href="05 - Debug with var_dump.php">Next: 05 - Debug with var_dump.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

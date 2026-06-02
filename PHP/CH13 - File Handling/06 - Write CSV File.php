@@ -77,6 +77,7 @@ if (file_exists($filePath)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH13 - Write CSV File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -132,6 +133,11 @@ fclose($file);</pre>
                 <code>fputcsv()</code> converts the array into a proper CSV row automatically.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Read CSV File.php">&lsaquo; Previous: 05 - Read CSV File.php</a>
+            <a class="next" href="../CH14 - File Upload/01 - Basic File Upload.php">Next: 01 - Basic File Upload.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

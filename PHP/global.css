@@ -1,0 +1,65 @@
+.lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 32px;
+    margin-bottom: 0;
+    padding: 24px 0 0;
+    background: transparent;
+    border-top: 1px solid #d8dee9;
+    border-radius: 0;
+}
+
+.lesson-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 48%;
+    padding: 12px 18px;
+    border: 1px solid #1d4ed8;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-right: 0;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-nav a:hover,
+.lesson-nav a:focus {
+    background: #1d4ed8;
+    border-color: #1e40af;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.lesson-nav a:focus {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+.lesson-nav .next {
+    margin-left: auto;
+    text-align: right;
+}
+
+@media (max-width: 700px) {
+    .lesson-nav {
+        flex-direction: column;
+    }
+
+    .lesson-nav a {
+        justify-content: center;
+        max-width: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .lesson-nav .next {
+        margin-left: 0;
+    }
+}

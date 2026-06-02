@@ -51,6 +51,7 @@ if ($isSubmitted) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Password Hashing</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -107,6 +108,10 @@ if ($isSubmitted) {
             <pre><?= htmlspecialchars('$hash = password_hash($password, PASSWORD_DEFAULT);') ?></pre>
             <pre><?= htmlspecialchars('$isCorrect = password_verify($enteredPassword, $storedHash);') ?></pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Sanitize Input.php">&lsaquo; Previous: 04 - Sanitize Input.php</a>
+            <a class="next" href="06 - Session Protection.php">Next: 06 - Session Protection.php &rsaquo;</a>
+        </nav>
 
     </div>
 

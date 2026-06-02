@@ -75,6 +75,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH21 - Delete by ID</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -150,6 +151,11 @@ $statement-&gt;execute([
     "student_id" =&gt; (int) $studentId
 ]);</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Delete Static Record.php">&lsaquo; Previous: 01 - Delete Static Record.php</a>
+            <a class="next" href="03 - Delete Confirmation Page.php">Next: 03 - Delete Confirmation Page.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

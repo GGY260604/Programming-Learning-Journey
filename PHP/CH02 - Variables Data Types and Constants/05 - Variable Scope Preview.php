@@ -98,6 +98,7 @@ $fileName = "05 - Variable Scope Preview.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - Variable Scope Preview</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -166,6 +167,10 @@ $fileName = "05 - Variable Scope Preview.php";
                 too many global variables can make the program harder to maintain.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Constants.php">&lsaquo; Previous: 04 - Constants.php</a>
+            <a class="next" href="06 - Type Checking.php">Next: 06 - Type Checking.php &rsaquo;</a>
+        </nav>
 
     </div>
 

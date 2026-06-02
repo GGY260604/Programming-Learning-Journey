@@ -46,6 +46,7 @@ $safeCourse = htmlspecialchars($course);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - SESSION Preview</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -95,6 +96,11 @@ $safeCourse = htmlspecialchars($course);
             <h2>Important Reminder</h2>
             <p><code>session_start()</code> must be placed before any HTML output.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - FILES Preview.php">&lsaquo; Previous: 05 - FILES Preview.php</a>
+            <a class="next" href="07 - COOKIE Preview.php">Next: 07 - COOKIE Preview.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

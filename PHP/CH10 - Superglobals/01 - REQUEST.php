@@ -36,6 +36,7 @@ $safeChapter = htmlspecialchars($chapter);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - REQUEST</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -66,6 +67,11 @@ $safeChapter = htmlspecialchars($chapter);
             <h2>Important Reminder</h2>
             <p><code>$_REQUEST["name"]</code> does not clearly show whether the value comes from GET, POST, or COOKIE.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH09 - Forms and User Input/09 - Basic Form Validation.php">&lsaquo; Previous: 09 - Basic Form Validation.php</a>
+            <a class="next" href="02 - GET.php">Next: 02 - GET.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

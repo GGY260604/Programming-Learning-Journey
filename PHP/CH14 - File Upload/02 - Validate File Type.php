@@ -93,6 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH14 - Validate File Type</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -162,6 +163,11 @@ $detectedMimeType = finfo_file($fileInfo, $temporaryPath);</pre>
                 It is useful for display, but it should not be the only validation rule.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Basic File Upload.php">&lsaquo; Previous: 01 - Basic File Upload.php</a>
+            <a class="next" href="03 - Validate File Size.php">Next: 03 - Validate File Size.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

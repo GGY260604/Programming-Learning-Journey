@@ -52,6 +52,7 @@ $multiLineComment = "/* This is a multi-line PHP comment. */";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH01 - PHP Comments</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -124,6 +125,10 @@ echo "Hello World";
                 This prevents the PHP server from reading the example as real PHP code.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Echo and Print.php">&lsaquo; Previous: 03 - Echo and Print.php</a>
+            <a class="next" href="05 - PHP Info Page.php">Next: 05 - PHP Info Page.php &rsaquo;</a>
+        </nav>
 
     </div>
 

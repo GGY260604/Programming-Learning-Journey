@@ -72,13 +72,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Heredoc and Nowdoc</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Heredoc and Nowdoc</h1>
+            <h1>CH04 - Heredoc and Nowdoc</h1>
 
             <p class="subtitle">
                 Heredoc and nowdoc are useful when you want to store long multiline text.
@@ -131,6 +132,11 @@ $examples = [
             <p class="footer-note">
                 Heredoc and nowdoc are not always needed, but they make long strings easier to read.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="04 - Escape Characters.php">&lsaquo; Previous: 04 - Escape Characters.php</a>
+                <a class="next" href="06 - Output HTML Safely.php">Next: 06 - Output HTML Safely.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

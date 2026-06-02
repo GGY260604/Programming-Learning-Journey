@@ -38,12 +38,13 @@ $ageAsInteger = $age !== "" ? (int) $age : 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Text Input Handling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Text Input Handling</h1>
 
             <p>
@@ -107,7 +108,12 @@ $ageAsInteger = $age !== "" ? (int) $age : 0;
 
 $name = $_POST["name"] ?? "";</pre>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="02 - POST Form.php">&lsaquo; Previous: 02 - POST Form.php</a>
+                <a class="next" href="04 - Radio Button Handling.php">Next: 04 - Radio Button Handling.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

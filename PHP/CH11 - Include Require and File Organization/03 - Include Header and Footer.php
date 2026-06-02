@@ -58,6 +58,11 @@ require __DIR__ . "/includes/footer.php";</pre>
   Load the reusable footer.
   The footer file closes the container, body, and html tags.
 */
+$lessonNavigationHtml = '
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Require File.php">&lsaquo; Previous: 02 - Require File.php</a>
+            <a class="next" href="04 - Reusable Navigation.php">Next: 04 - Reusable Navigation.php &rsaquo;</a>
+        </nav>';
 
 require __DIR__ . "/includes/footer.php";
 ?>

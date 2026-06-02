@@ -39,6 +39,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH18 - Display Records in HTML Table</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -99,6 +100,11 @@ try {
 
             <pre>&lt;?= htmlspecialchars($student["student_name"]) ?&gt;</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Select All Records.php">&lsaquo; Previous: 01 - Select All Records.php</a>
+            <a class="next" href="03 - Select One Record by ID.php">Next: 03 - Select One Record by ID.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

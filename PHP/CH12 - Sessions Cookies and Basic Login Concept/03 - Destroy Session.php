@@ -61,6 +61,7 @@ if (isset($_GET["action"]) && $_GET["action"] === "destroy") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Destroy Session</title>
 </head>
 <body>
@@ -98,6 +99,11 @@ session_destroy();</pre>
                 and then redirects the user back to the login page.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Store Session Data.php">&lsaquo; Previous: 02 - Store Session Data.php</a>
+            <a class="next" href="04 - Create Cookie.php">Next: 04 - Create Cookie.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

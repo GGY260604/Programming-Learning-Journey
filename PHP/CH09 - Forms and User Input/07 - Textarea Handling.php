@@ -26,12 +26,13 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Textarea Handling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Textarea Handling</h1>
 
             <p>
@@ -80,7 +81,12 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
 
             <pre>nl2br(htmlspecialchars($message))</pre>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="06 - Select Option Handling.php">&lsaquo; Previous: 06 - Select Option Handling.php</a>
+                <a class="next" href="08 - Sticky Form Value.php">Next: 08 - Sticky Form Value.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

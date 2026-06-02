@@ -100,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH14 - Upload Image Preview</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -172,6 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 but the browser displays the image using <code>uploads/filename.jpg</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Rename Uploaded File.php">&lsaquo; Previous: 04 - Rename Uploaded File.php</a>
+            <a class="next" href="../CH15 - Error Handling and Debugging/01 - Display Error Setting.php">Next: 01 - Display Error Setting.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

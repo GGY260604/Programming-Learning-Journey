@@ -62,13 +62,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Output HTML Safely</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Output HTML Safely</h1>
+            <h1>CH04 - Output HTML Safely</h1>
 
             <p class="subtitle">
                 When displaying user input in an HTML page, escape the output first.
@@ -120,6 +121,11 @@ $examples = [
             <p class="footer-note">
                 In backend PHP development, safe output is one of the most important habits to build early.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="05 - Heredoc and Nowdoc.php">&lsaquo; Previous: 05 - Heredoc and Nowdoc.php</a>
+                <a class="next" href="07 - Short Echo Tag.php">Next: 07 - Short Echo Tag.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

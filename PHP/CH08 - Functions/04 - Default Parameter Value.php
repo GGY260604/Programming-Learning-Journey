@@ -58,6 +58,7 @@ $messageThree = createStatusMessage("Database connection failed.", "error");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Default Parameter Value</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -114,6 +115,10 @@ $messageThree = createStatusMessage("Database connection failed.", "error");
 showProfile("Galen");
 showProfile("Cleo", "Admin");</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Return Value.php">&lsaquo; Previous: 03 - Return Value.php</a>
+            <a class="next" href="05 - Type Declaration.php">Next: 05 - Type Declaration.php &rsaquo;</a>
+        </nav>
 
     </div>
 

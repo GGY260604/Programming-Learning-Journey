@@ -68,12 +68,15 @@ $students = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - Foreach Loop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - Foreach Loop</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - Foreach Loop</h1>
 
         <div class="box example">
             <h2>What is Foreach?</h2>
@@ -145,7 +148,12 @@ $students = [
                 We can use <code>foreach</code> to display each database row in an HTML table.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="03 - For Loop.php">&lsaquo; Previous: 03 - For Loop.php</a>
+                <a class="next" href="05 - Break and Continue.php">Next: 05 - Break and Continue.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

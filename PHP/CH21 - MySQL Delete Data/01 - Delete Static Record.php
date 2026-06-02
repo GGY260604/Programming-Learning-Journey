@@ -87,6 +87,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH21 - Delete Static Record</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -160,6 +161,11 @@ $statement-&gt;execute([
     "student_id" =&gt; $studentIdToDelete
 ]);</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH20 - MySQL Update Data/05 - Redirect After Update.php">&lsaquo; Previous: 05 - Redirect After Update.php</a>
+            <a class="next" href="02 - Delete by ID.php">Next: 02 - Delete by ID.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

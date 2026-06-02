@@ -76,6 +76,7 @@ $hasEmail = array_key_exists("email", $student);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH07 - Associative Array</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -146,6 +147,10 @@ $student["status"] = "Active";
 
 $hasEmail = array_key_exists("email", $student);</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Indexed Array.php">&lsaquo; Previous: 01 - Indexed Array.php</a>
+            <a class="next" href="03 - Multidimensional Array.php">Next: 03 - Multidimensional Array.php &rsaquo;</a>
+        </nav>
 
     </div>
 

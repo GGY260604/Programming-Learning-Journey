@@ -88,6 +88,7 @@ $pageViewThree = countPageView();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Variable Scope</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -142,6 +143,10 @@ $pageViewThree = countPageView();
     return $counter;
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Type Declaration.php">&lsaquo; Previous: 05 - Type Declaration.php</a>
+            <a class="next" href="07 - Reusable Helper Function.php">Next: 07 - Reusable Helper Function.php &rsaquo;</a>
+        </nav>
 
     </div>
 

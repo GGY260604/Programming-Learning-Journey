@@ -54,12 +54,13 @@ $isSubmitted = isset($_GET["search"]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - GET Form</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - GET Form</h1>
 
             <p>
@@ -130,7 +131,12 @@ $_GET["keyword"]</pre>
                 when working with PHP forms.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="../CH08 - Functions/07 - Reusable Helper Function.php">&lsaquo; Previous: 07 - Reusable Helper Function.php</a>
+                <a class="next" href="02 - POST Form.php">Next: 02 - POST Form.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

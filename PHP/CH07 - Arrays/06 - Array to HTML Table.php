@@ -78,6 +78,7 @@ foreach ($products as $product) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH07 - Array to HTML Table</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -152,6 +153,10 @@ foreach ($products as $product) {
                 Output security will be explained in more detail in the security chapter.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Common Array Functions.php">&lsaquo; Previous: 05 - Common Array Functions.php</a>
+            <a class="next" href="../CH08 - Functions/01 - Basic Function.php">Next: 01 - Basic Function.php &rsaquo;</a>
+        </nav>
 
     </div>
 

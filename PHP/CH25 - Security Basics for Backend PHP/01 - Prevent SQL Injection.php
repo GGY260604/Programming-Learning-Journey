@@ -78,6 +78,7 @@ CODE;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Prevent SQL Injection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -150,6 +151,10 @@ CODE;
                 Use prepared statements instead.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH24 - Login Register and Authentication/02 - Register Form.php">&lsaquo; Previous: CH24 - Login Register and Authentication</a>
+            <a class="next" href="02 - Prevent XSS with htmlspecialchars.php">Next: 02 - Prevent XSS with htmlspecialchars.php &rsaquo;</a>
+        </nav>
 
     </div>
 

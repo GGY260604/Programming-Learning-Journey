@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - CSRF Token Basic Demo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -123,6 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <pre><?= htmlspecialchars('$_SESSION["csrf_token"] = bin2hex(random_bytes(32));') ?></pre>
             <pre><?= htmlspecialchars('hash_equals($_SESSION["csrf_token"], $_POST["csrf_token"])') ?></pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="06 - Session Protection.php">&lsaquo; Previous: 06 - Session Protection.php</a>
+        </nav>
 
     </div>
 

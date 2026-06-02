@@ -25,12 +25,13 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Radio Button Handling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Radio Button Handling</h1>
 
             <p>
@@ -98,7 +99,12 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
                 Because they share the same name, only one value will be sent to PHP.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="03 - Text Input Handling.php">&lsaquo; Previous: 03 - Text Input Handling.php</a>
+                <a class="next" href="05 - Checkbox Handling.php">Next: 05 - Checkbox Handling.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

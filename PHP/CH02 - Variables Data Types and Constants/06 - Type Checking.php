@@ -93,6 +93,7 @@ $fileName = "06 - Type Checking.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - Type Checking</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -216,6 +217,10 @@ $fileName = "06 - Type Checking.php";
                 check and convert the type first. This can reduce bugs in backend logic.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - Variable Scope Preview.php">&lsaquo; Previous: 05 - Variable Scope Preview.php</a>
+            <a class="next" href="../CH03 - Operators and Expressions/01 - Arithmetic Operators.php">Next: 01 - Arithmetic Operators.php &rsaquo;</a>
+        </nav>
 
     </div>
 

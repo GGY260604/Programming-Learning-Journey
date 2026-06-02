@@ -97,6 +97,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH20 - Update Static Data</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -175,6 +176,11 @@ SET student_name = :student_name,
     year_level = :year_level
 WHERE student_id = :student_id;</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH19 - MySQL Insert Data/05 - Show Success and Error Message.php">&lsaquo; Previous: 05 - Show Success and Error Message.php</a>
+            <a class="next" href="02 - Edit Form with Existing Data.php">Next: 02 - Edit Form with Existing Data.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

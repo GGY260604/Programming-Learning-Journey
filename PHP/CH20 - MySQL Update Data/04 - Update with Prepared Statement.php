@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH20 - Update with Prepared Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -130,6 +131,11 @@ $statement-&gt;bindValue(&quot;:year_level&quot;, (int) $yearLevel, PDO::PARAM_I
 $statement-&gt;bindValue(&quot;:student_id&quot;, (int) $studentId, PDO::PARAM_INT);
 $statement-&gt;execute();</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Update Data from Form.php">&lsaquo; Previous: 03 - Update Data from Form.php</a>
+            <a class="next" href="05 - Redirect After Update.php">Next: 05 - Redirect After Update.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

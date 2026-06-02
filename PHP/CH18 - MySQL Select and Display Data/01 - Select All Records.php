@@ -73,6 +73,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH18 - Select All Records</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -119,6 +120,11 @@ $students = $statement-&gt;fetchAll();</pre>
                 multiple database records.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH17 - PDO MySQL Connection/04 - Handle Connection Error.php">&lsaquo; Previous: 04 - Handle Connection Error.php</a>
+            <a class="next" href="02 - Display Records in HTML Table.php">Next: 02 - Display Records in HTML Table.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

@@ -76,6 +76,7 @@ $fileName = "04 - Constants.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - Constants</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -170,6 +171,10 @@ echo APP_NAME;
 echo AUTHOR_NAME;
 ?&gt;</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Null and Empty Values.php">&lsaquo; Previous: 03 - Null and Empty Values.php</a>
+            <a class="next" href="05 - Variable Scope Preview.php">Next: 05 - Variable Scope Preview.php &rsaquo;</a>
+        </nav>
 
     </div>
 

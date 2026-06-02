@@ -32,6 +32,7 @@ $filesToCheck = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH13 - Check File Exists</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -93,6 +94,11 @@ $filesToCheck = [
                 and <code>is_writable()</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Append Text File.php">&lsaquo; Previous: 03 - Append Text File.php</a>
+            <a class="next" href="05 - Read CSV File.php">Next: 05 - Read CSV File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

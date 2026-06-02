@@ -49,6 +49,7 @@ $students = $statement->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH23 - INNER JOIN Display</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -106,6 +107,10 @@ INNER JOIN ch23_courses AS c
                 Because this file uses <code>INNER JOIN</code>, she is not shown.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - One to Many Relationship.php">&lsaquo; Previous: 02 - One to Many Relationship.php</a>
+            <a class="next" href="04 - LEFT JOIN Display.php">Next: 04 - LEFT JOIN Display.php &rsaquo;</a>
+        </nav>
 
     </div>
 

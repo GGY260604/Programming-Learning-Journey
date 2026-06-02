@@ -73,13 +73,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH03 - Arithmetic Operators</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Arithmetic Operators</h1>
+            <h1>CH03 - Arithmetic Operators</h1>
 
             <p class="subtitle">
                 Arithmetic operators are used to perform mathematical calculations.
@@ -131,6 +132,11 @@ $examples = [
             <p class="footer-note">
                 Operators are very useful when calculating totals, prices, discounts, quantities, and database values later.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="../CH02 - Variables Data Types and Constants/06 - Type Checking.php">&lsaquo; Previous: 06 - Type Checking.php</a>
+                <a class="next" href="02 - Assignment Operators.php">Next: 02 - Assignment Operators.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

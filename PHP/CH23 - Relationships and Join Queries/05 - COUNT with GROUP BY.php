@@ -50,6 +50,7 @@ $courses = $statement->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH23 - COUNT with GROUP BY</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -106,6 +107,10 @@ GROUP BY c.course_id, c.course_name;</pre>
                 For example, counting orders by customer or counting products by category.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - LEFT JOIN Display.php">&lsaquo; Previous: 04 - LEFT JOIN Display.php</a>
+            <a class="next" href="06 - Order with Customer Example.php">Next: 06 - Order with Customer Example.php &rsaquo;</a>
+        </nav>
 
     </div>
 

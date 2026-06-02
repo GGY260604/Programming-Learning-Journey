@@ -24,6 +24,7 @@ $error = $_GET["error"] ?? "";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH24 - Register Form</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -108,6 +109,10 @@ $error = $_GET["error"] ?? "";
         <p>
             <a class="button secondary" href="04 - Login Form.php">Go to Login Form</a>
         </p>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH23 - Relationships and Join Queries/06 - Order with Customer Example.php">&lsaquo; Previous: 06 - Order with Customer Example.php</a>
+            <a class="next" href="../CH25 - Security Basics for Backend PHP/01 - Prevent SQL Injection.php">Next: 01 - Prevent SQL Injection.php &rsaquo;</a>
+        </nav>
 
     </div>
 

@@ -67,12 +67,15 @@ for ($i = 1; $i <= 10; $i++) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - For Loop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - For Loop</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - For Loop</h1>
 
         <div class="box example">
             <h2>For Loop Structure</h2>
@@ -128,7 +131,12 @@ for ($i = 1; $i <= 10; $i++) {
                 the end condition, and how the value should change after each loop cycle.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="02 - Do While Loop.php">&lsaquo; Previous: 02 - Do While Loop.php</a>
+                <a class="next" href="04 - Foreach Loop.php">Next: 04 - Foreach Loop.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

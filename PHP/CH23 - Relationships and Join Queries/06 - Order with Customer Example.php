@@ -66,6 +66,7 @@ $itemStatement = $pdo->prepare($itemSql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH23 - Order with Customer Example</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -152,6 +153,10 @@ ch23_orders    1 ---- many ch23_order_items</pre>
                 while the order items table stores product-level data for that order.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="05 - COUNT with GROUP BY.php">&lsaquo; Previous: 05 - COUNT with GROUP BY.php</a>
+            <a class="next" href="../CH24 - Login Register and Authentication/02 - Register Form.php">Next: CH24 - Login Register and Authentication &rsaquo;</a>
+        </nav>
 
     </div>
 

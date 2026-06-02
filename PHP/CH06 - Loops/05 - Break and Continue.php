@@ -98,12 +98,15 @@ foreach ($orders as $order) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - Break and Continue</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - Break and Continue</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - Break and Continue</h1>
 
         <div class="box example">
             <h2>Meaning</h2>
@@ -166,7 +169,12 @@ foreach ($orders as $order) {
                 <?php } ?>
             </table>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="04 - Foreach Loop.php">&lsaquo; Previous: 04 - Foreach Loop.php</a>
+                <a class="next" href="06 - Loop with HTML Table.php">Next: 06 - Loop with HTML Table.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

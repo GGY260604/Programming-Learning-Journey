@@ -78,12 +78,15 @@ while ($index < count($tasks)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - While Loop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - While Loop</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - While Loop</h1>
 
         <div class="box example">
             <h2>What is a While Loop?</h2>
@@ -125,7 +128,12 @@ while ($index < count($tasks)) {
                 Always make sure the loop variable is updated properly.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="../CH05 - Conditional Statements/06 - Match Expression.php">&lsaquo; Previous: 06 - Match Expression.php</a>
+                <a class="next" href="02 - Do While Loop.php">Next: 02 - Do While Loop.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

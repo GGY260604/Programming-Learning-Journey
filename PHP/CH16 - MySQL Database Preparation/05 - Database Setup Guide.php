@@ -70,6 +70,7 @@ $databaseInfo = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH16 - Database Setup Guide</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -186,6 +187,11 @@ SELECT * FROM table_name;</pre>
                 <code>php_note_db</code> and run SQL commands from PHP.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH15 - Error Handling and Debugging/05 - Debug with var_dump.php">&lsaquo; Previous: 05 - Debug with var_dump.php</a>
+            <a class="next" href="../CH17 - PDO MySQL Connection/01 - PDO Connection Test.php">Next: 01 - PDO Connection Test.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

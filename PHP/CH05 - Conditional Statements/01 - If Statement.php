@@ -66,13 +66,14 @@ $conditionText = '$mark >= $passingMark';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - If Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>If Statement</h1>
+            <h1>CH05 - If Statement</h1>
 
             <p class="subtitle">
                 An <code>if</code> statement runs a block of code only when the condition is true.
@@ -115,6 +116,11 @@ $conditionText = '$mark >= $passingMark';
             <p class="footer-note">
                 The basic <code>if</code> statement is the foundation of decision-making in PHP.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="../CH04 - Strings and Output Formatting/07 - Short Echo Tag.php">&lsaquo; Previous: 07 - Short Echo Tag.php</a>
+                <a class="next" href="02 - If Else Statement.php">Next: 02 - If Else Statement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

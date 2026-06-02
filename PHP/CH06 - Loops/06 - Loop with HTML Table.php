@@ -77,12 +77,15 @@ foreach ($products as $product) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - Loop with HTML Table</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - Loop with HTML Table</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - Loop with HTML Table</h1>
 
         <div class="box example">
             <h2>Why Loop with HTML?</h2>
@@ -158,7 +161,12 @@ foreach ($products as $product) {
                 In later database chapters, the same table display pattern will be used with MySQL records.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="05 - Break and Continue.php">&lsaquo; Previous: 05 - Break and Continue.php</a>
+                <a class="next" href="../CH07 - Arrays/01 - Indexed Array.php">Next: 01 - Indexed Array.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

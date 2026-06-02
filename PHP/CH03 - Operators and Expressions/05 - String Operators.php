@@ -63,13 +63,14 @@ $listHtml .= "</ul>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH03 - String Operators</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>String Operators</h1>
+            <h1>CH03 - String Operators</h1>
 
             <p class="subtitle">
                 String operators are used to join text together.
@@ -122,6 +123,11 @@ $listHtml .= "</ul>";
                     Later, we will use <code>htmlspecialchars()</code> to prevent XSS.
                 </p>
             </div>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="04 - Logical Operators.php">&lsaquo; Previous: 04 - Logical Operators.php</a>
+                <a class="next" href="06 - Increment and Decrement.php">Next: 06 - Increment and Decrement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

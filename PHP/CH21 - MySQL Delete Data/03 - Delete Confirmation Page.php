@@ -82,6 +82,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH21 - Delete Confirmation Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -184,6 +185,11 @@ try {
                 <p class="empty-message">No students found.</p>
             <?php } ?>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Delete by ID.php">&lsaquo; Previous: 02 - Delete by ID.php</a>
+            <a class="next" href="04 - Soft Delete Concept.php">Next: 04 - Soft Delete Concept.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

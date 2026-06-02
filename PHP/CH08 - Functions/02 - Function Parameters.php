@@ -57,6 +57,7 @@ function showOrderSummary($productName, $price, $quantity) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Function Parameters</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -116,6 +117,10 @@ function showOrderSummary($productName, $price, $quantity) {
 
 greetUser("Galen");</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Basic Function.php">&lsaquo; Previous: 01 - Basic Function.php</a>
+            <a class="next" href="03 - Return Value.php">Next: 03 - Return Value.php &rsaquo;</a>
+        </nav>
 
     </div>
 

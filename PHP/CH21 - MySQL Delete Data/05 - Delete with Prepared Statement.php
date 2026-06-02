@@ -91,6 +91,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH21 - Delete with Prepared Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -163,6 +164,11 @@ $affectedRows = $statement-&gt;rowCount();</pre>
                 <p class="empty-message">No students found.</p>
             <?php } ?>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Soft Delete Concept.php">&lsaquo; Previous: 04 - Soft Delete Concept.php</a>
+            <a class="next" href="../CH22 - Complete CRUD System/01 - Student CRUD/01 - index.php">Next: 01 - Student CRUD System &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

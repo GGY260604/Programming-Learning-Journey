@@ -88,6 +88,7 @@ $fileName = "01 - Variables.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH02 - Variables</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -145,6 +146,10 @@ echo $studentName;
                 <li>Using different letter cases accidentally, such as <code>$name</code> and <code>$Name</code>.</li>
             </ul>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH01 - PHP Introduction and Setup/05 - PHP Info Page.php">&lsaquo; Previous: 05 - PHP Info Page.php</a>
+            <a class="next" href="02 - String Integer Float Boolean.php">Next: 02 - String Integer Float Boolean.php &rsaquo;</a>
+        </nav>
 
     </div>
 

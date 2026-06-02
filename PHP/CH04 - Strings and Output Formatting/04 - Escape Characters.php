@@ -69,13 +69,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Escape Characters</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Escape Characters</h1>
+            <h1>CH04 - Escape Characters</h1>
 
             <p class="subtitle">
                 Escape characters allow special characters to be written inside strings.
@@ -135,6 +136,11 @@ $examples = [
             <p class="footer-note">
                 Escape characters are useful when storing paths, messages, quotes, and textarea input.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="03 - Common String Functions.php">&lsaquo; Previous: 03 - Common String Functions.php</a>
+                <a class="next" href="05 - Heredoc and Nowdoc.php">Next: 05 - Heredoc and Nowdoc.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

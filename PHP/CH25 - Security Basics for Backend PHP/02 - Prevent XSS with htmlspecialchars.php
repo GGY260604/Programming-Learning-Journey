@@ -35,6 +35,7 @@ $safeMessage = htmlspecialchars($userMessage, ENT_QUOTES, "UTF-8");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Prevent XSS with htmlspecialchars</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -98,6 +99,10 @@ $safeMessage = htmlspecialchars($userMessage, ENT_QUOTES, "UTF-8");
 
             <pre><?= htmlspecialchars('<?= htmlspecialchars($value) ?>') ?></pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Prevent SQL Injection.php">&lsaquo; Previous: 01 - Prevent SQL Injection.php</a>
+            <a class="next" href="03 - Validate Input.php">Next: 03 - Validate Input.php &rsaquo;</a>
+        </nav>
 
     </div>
 

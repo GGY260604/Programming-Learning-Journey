@@ -52,6 +52,7 @@ $cleanComment = trim(strip_tags($rawComment));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Sanitize Input</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -119,6 +120,10 @@ $cleanComment = trim(strip_tags($rawComment));
                 the phone number has the correct length.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Validate Input.php">&lsaquo; Previous: 03 - Validate Input.php</a>
+            <a class="next" href="05 - Password Hashing.php">Next: 05 - Password Hashing.php &rsaquo;</a>
+        </nav>
 
     </div>
 

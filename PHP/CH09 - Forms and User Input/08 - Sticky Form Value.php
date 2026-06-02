@@ -30,12 +30,13 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - Sticky Form Value</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - Sticky Form Value</h1>
 
             <p>
@@ -122,7 +123,12 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
                 <code>checked</code> or <code>selected</code>.
             </p>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="07 - Textarea Handling.php">&lsaquo; Previous: 07 - Textarea Handling.php</a>
+                <a class="next" href="09 - Basic Form Validation.php">Next: 09 - Basic Form Validation.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

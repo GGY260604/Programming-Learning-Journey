@@ -90,6 +90,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH17 - PDO Connection Test</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -156,6 +157,11 @@ $pdo = new PDO($dsn, $username, $password);</pre>
                 <li>The PDO MySQL extension is not enabled.</li>
             </ul>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH16 - MySQL Database Preparation/05 - Database Setup Guide.php">&lsaquo; Previous: 05 - Database Setup Guide.php</a>
+            <a class="next" href="02 - Connection Config File.php">Next: 02 - Connection Config File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

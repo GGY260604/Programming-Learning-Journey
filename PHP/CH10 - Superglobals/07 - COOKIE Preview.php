@@ -40,6 +40,7 @@ $safeTheme = htmlspecialchars($theme);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - COOKIE Preview</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -81,6 +82,11 @@ $safeTheme = htmlspecialchars($theme);
             <h2>Important Reminder</h2>
             <p>Cookie values are stored in the browser, so users can modify them. Do not trust cookies blindly for sensitive backend decisions.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="06 - SESSION Preview.php">&lsaquo; Previous: 06 - SESSION Preview.php</a>
+            <a class="next" href="../CH11 - Include Require and File Organization/01 - Include File.php">Next: 01 - Include File.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

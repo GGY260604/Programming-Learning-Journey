@@ -70,6 +70,7 @@ $typeInformation = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH15 - Debug with var_dump</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -152,6 +153,11 @@ $typeInformation = [
                 Remove or hide <code>var_dump()</code> and <code>print_r()</code> before deploying a real system.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Custom Error Message.php">&lsaquo; Previous: 04 - Custom Error Message.php</a>
+            <a class="next" href="../CH16 - MySQL Database Preparation/05 - Database Setup Guide.php">Next: 05 - Database Setup Guide.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

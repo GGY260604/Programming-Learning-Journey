@@ -47,6 +47,7 @@ if (isset($_GET["create"]) && $_GET["create"] === "1") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Create Cookie</title>
 </head>
 <body>
@@ -82,6 +83,11 @@ if (isset($_GET["create"]) && $_GET["create"] === "1") {
 
             <pre>setcookie("student_name", "Galen", time() + 3600, "/");</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Destroy Session.php">&lsaquo; Previous: 03 - Destroy Session.php</a>
+            <a class="next" href="05 - Read Cookie.php">Next: 05 - Read Cookie.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

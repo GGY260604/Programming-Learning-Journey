@@ -69,13 +69,14 @@ $zones = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - Match Expression</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Match Expression</h1>
+            <h1>CH05 - Match Expression</h1>
 
             <p class="subtitle">
                 A <code>match</code> expression is a modern PHP syntax that returns a value from matching conditions.
@@ -140,6 +141,11 @@ $zones = [
             <p class="footer-note">
                 Use <code>match</code> when you want a cleaner expression for returning values from fixed conditions.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="05 - Switch Statement.php">&lsaquo; Previous: 05 - Switch Statement.php</a>
+                <a class="next" href="../CH06 - Loops/01 - While Loop.php">Next: 01 - While Loop.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

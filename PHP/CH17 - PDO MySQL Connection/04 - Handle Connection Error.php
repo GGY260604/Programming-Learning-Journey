@@ -72,6 +72,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH17 - Handle Connection Error</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -155,6 +156,11 @@ try {
     $message = $error-&gt;getMessage();
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Reusable Database Connection.php">&lsaquo; Previous: 03 - Reusable Database Connection.php</a>
+            <a class="next" href="../CH18 - MySQL Select and Display Data/01 - Select All Records.php">Next: 01 - Select All Records.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

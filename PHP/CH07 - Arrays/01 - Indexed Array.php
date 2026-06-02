@@ -81,6 +81,7 @@ $totalLanguages = count($languages);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH07 - Indexed Array</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -131,6 +132,10 @@ $languages[2] = "Python";
 
 $languages[] = "Ruby";</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH06 - Loops/06 - Loop with HTML Table.php">&lsaquo; Previous: 06 - Loop with HTML Table.php</a>
+            <a class="next" href="02 - Associative Array.php">Next: 02 - Associative Array.php &rsaquo;</a>
+        </nav>
 
     </div>
 

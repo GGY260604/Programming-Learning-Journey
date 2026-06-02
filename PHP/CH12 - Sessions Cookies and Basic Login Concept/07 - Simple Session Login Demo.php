@@ -72,6 +72,7 @@ $currentUsername = $_SESSION["username"] ?? "Guest";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
     <title>CH12 - Simple Session Login Demo</title>
 </head>
 <body>
@@ -152,6 +153,11 @@ $_SESSION["username"] = $username;</pre>
                 <code>password_verify()</code>.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="06 - Delete Cookie.php">&lsaquo; Previous: 06 - Delete Cookie.php</a>
+            <a class="next" href="../CH13 - File Handling/01 - Read Text File.php">Next: 01 - Read Text File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

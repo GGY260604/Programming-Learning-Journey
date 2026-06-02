@@ -71,13 +71,14 @@ $gradeRules = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - Else If Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Else If Statement</h1>
+            <h1>CH05 - Else If Statement</h1>
 
             <p class="subtitle">
                 <code>elseif</code> is used when PHP needs to check multiple possible conditions.
@@ -128,6 +129,11 @@ $gradeRules = [
             <p class="footer-note">
                 Use <code>elseif</code> when your backend logic has multiple possible results.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="02 - If Else Statement.php">&lsaquo; Previous: 02 - If Else Statement.php</a>
+                <a class="next" href="04 - Nested If Statement.php">Next: 04 - Nested If Statement.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

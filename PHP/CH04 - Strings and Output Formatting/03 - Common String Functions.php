@@ -75,13 +75,14 @@ $examples = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH04 - Common String Functions</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Common String Functions</h1>
+            <h1>CH04 - Common String Functions</h1>
 
             <p class="subtitle">
                 String functions help us process and clean text data.
@@ -132,6 +133,11 @@ $examples = [
             <p class="footer-note">
                 String functions are small tools, but they are very useful in form handling and database systems.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="02 - Double Quote vs Single Quote.php">&lsaquo; Previous: 02 - Double Quote vs Single Quote.php</a>
+                <a class="next" href="04 - Escape Characters.php">Next: 04 - Escape Characters.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

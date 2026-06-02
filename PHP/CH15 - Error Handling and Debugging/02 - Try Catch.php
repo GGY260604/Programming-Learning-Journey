@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH15 - Try Catch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -119,6 +120,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 to handle connection errors and SQL errors.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Display Error Setting.php">&lsaquo; Previous: 01 - Display Error Setting.php</a>
+            <a class="next" href="03 - Throw Exception.php">Next: 03 - Throw Exception.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

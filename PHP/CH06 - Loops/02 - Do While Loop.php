@@ -64,12 +64,15 @@ do {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH06 - Do While Loop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1>CH06 - Do While Loop</h1>
+        
+        <div class="page-card">
+            <h1>CH06 - Do While Loop</h1>
 
         <div class="box example">
             <h2>What is a Do While Loop?</h2>
@@ -126,7 +129,12 @@ do {
                 </tr>
             </table>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="01 - While Loop.php">&lsaquo; Previous: 01 - While Loop.php</a>
+                <a class="next" href="03 - For Loop.php">Next: 03 - For Loop.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

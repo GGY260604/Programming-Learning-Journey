@@ -67,6 +67,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH18 - Search Records</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -156,6 +157,11 @@ $statement-&gt;execute([
                 contain the keyword anywhere inside the text.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - Select One Record by ID.php">&lsaquo; Previous: 03 - Select One Record by ID.php</a>
+            <a class="next" href="05 - Sort Records.php">Next: 05 - Sort Records.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

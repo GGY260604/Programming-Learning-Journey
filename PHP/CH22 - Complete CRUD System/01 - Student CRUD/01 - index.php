@@ -62,6 +62,7 @@ $students = $statement->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH22 - Student CRUD</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../global.css">
 </head>
 <body>
 
@@ -136,6 +137,10 @@ $students = $statement->fetchAll();
                 It gives users access to create, edit, and delete operations.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../../CH21 - MySQL Delete Data/05 - Delete with Prepared Statement.php">&lsaquo; Previous: 05 - Delete with Prepared Statement.php</a>
+            <a class="next" href="../02 - Product CRUD/01 - index.php">Next: 02 - Product CRUD System &rsaquo;</a>
+        </nav>
 
     </div>
 

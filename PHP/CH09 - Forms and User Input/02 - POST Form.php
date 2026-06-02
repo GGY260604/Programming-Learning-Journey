@@ -40,12 +40,13 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH09 - POST Form</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
-
-        <div class="card">
+        <div class="page-card">
+            <div class="card">
             <h1>CH09 - POST Form</h1>
 
             <p>
@@ -112,7 +113,12 @@ $isSubmitted = $_SERVER["REQUEST_METHOD"] === "POST";
                 </tr>
             </table>
         </div>
-
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="01 - GET Form.php">&lsaquo; Previous: 01 - GET Form.php</a>
+                <a class="next" href="03 - Text Input Handling.php">Next: 03 - Text Input Handling.php &rsaquo;</a>
+            </nav>
+
+        </div>
     </div>
 
 </body>

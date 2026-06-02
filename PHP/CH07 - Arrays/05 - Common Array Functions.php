@@ -78,6 +78,7 @@ $webTopics = array_merge($backendTopics, $frontendTopics);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH07 - Common Array Functions</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -171,6 +172,10 @@ array_sum($array);
 
 array_merge($arrayOne, $arrayTwo);</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Array Looping.php">&lsaquo; Previous: 04 - Array Looping.php</a>
+            <a class="next" href="06 - Array to HTML Table.php">Next: 06 - Array to HTML Table.php &rsaquo;</a>
+        </nav>
 
     </div>
 

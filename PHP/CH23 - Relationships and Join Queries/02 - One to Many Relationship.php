@@ -47,6 +47,7 @@ $studentStatement = $pdo->prepare($studentSql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH23 - One to Many Relationship</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -126,6 +127,10 @@ $studentStatement = $pdo->prepare($studentSql);
                 one table to another table.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../CH22 - Complete CRUD System/02 - Product CRUD/01 - index.php">&lsaquo; Previous: 02 - Product CRUD System</a>
+            <a class="next" href="03 - INNER JOIN Display.php">Next: 03 - INNER JOIN Display.php &rsaquo;</a>
+        </nav>
 
     </div>
 

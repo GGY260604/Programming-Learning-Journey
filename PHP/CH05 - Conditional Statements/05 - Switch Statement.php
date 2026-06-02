@@ -85,13 +85,14 @@ $statusCases = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH05 - Switch Statement</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
     <div class="container">
         <div class="page-card">
 
-            <h1>Switch Statement</h1>
+            <h1>CH05 - Switch Statement</h1>
 
             <p class="subtitle">
                 A <code>switch</code> statement compares one value with many possible cases.
@@ -142,6 +143,11 @@ $statusCases = [
             <p class="footer-note">
                 <code>switch</code> is useful for status values, menu choices, user roles, and fixed categories.
             </p>
+            <nav class="lesson-nav" aria-label="Lesson navigation">
+                <a class="previous" href="04 - Nested If Statement.php">&lsaquo; Previous: 04 - Nested If Statement.php</a>
+                <a class="next" href="06 - Match Expression.php">Next: 06 - Match Expression.php &rsaquo;</a>
+            </nav>
+
 
         </div>
     </div>

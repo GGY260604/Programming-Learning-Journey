@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH14 - Validate File Size</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -138,6 +139,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 This example shows application-level validation inside your PHP code.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Validate File Type.php">&lsaquo; Previous: 02 - Validate File Type.php</a>
+            <a class="next" href="04 - Rename Uploaded File.php">Next: 04 - Rename Uploaded File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

@@ -58,6 +58,7 @@ if ($isSubmitted) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH25 - Validate Input</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -145,6 +146,10 @@ if ($isSubmitted) {
                 </tr>
             </table>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="02 - Prevent XSS with htmlspecialchars.php">&lsaquo; Previous: 02 - Prevent XSS with htmlspecialchars.php</a>
+            <a class="next" href="04 - Sanitize Input.php">Next: 04 - Sanitize Input.php &rsaquo;</a>
+        </nav>
 
     </div>
 

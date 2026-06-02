@@ -37,6 +37,7 @@ if ($isSubmitted) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH10 - FILES Preview</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -79,6 +80,11 @@ if ($isSubmitted) {
             <h2>Security Reminder</h2>
             <p>Never trust uploaded files directly. Real upload systems must check file size, extension, MIME type, and rename the file before saving it.</p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - SERVER.php">&lsaquo; Previous: 04 - SERVER.php</a>
+            <a class="next" href="06 - SESSION Preview.php">Next: 06 - SESSION Preview.php &rsaquo;</a>
+        </nav>
+
     </div>
 </body>
 </html>

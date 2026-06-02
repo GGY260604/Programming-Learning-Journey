@@ -77,6 +77,7 @@ if (file_exists($filePath)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH13 - Write Text File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -137,6 +138,11 @@ if (file_exists($filePath)) {
                 Without <code>FILE_APPEND</code>, the previous content will be replaced.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="01 - Read Text File.php">&lsaquo; Previous: 01 - Read Text File.php</a>
+            <a class="next" href="03 - Append Text File.php">Next: 03 - Append Text File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

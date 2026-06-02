@@ -86,6 +86,7 @@ $students = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH08 - Reusable Helper Function</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -149,6 +150,10 @@ function formatPrice($price) {
     return "RM " . number_format((float) $price, 2);
 }</pre>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="06 - Variable Scope.php">&lsaquo; Previous: 06 - Variable Scope.php</a>
+            <a class="next" href="../CH09 - Forms and User Input/01 - GET Form.php">Next: 01 - GET Form.php &rsaquo;</a>
+        </nav>
 
     </div>
 

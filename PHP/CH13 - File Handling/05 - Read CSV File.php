@@ -68,6 +68,7 @@ if (!file_exists($filePath)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH13 - Read CSV File</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -122,6 +123,11 @@ fclose($file);</pre>
                 Each row becomes an array.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="04 - Check File Exists.php">&lsaquo; Previous: 04 - Check File Exists.php</a>
+            <a class="next" href="06 - Write CSV File.php">Next: 06 - Write CSV File.php &rsaquo;</a>
+        </nav>
+
     </div>
 
 </body>

@@ -49,6 +49,7 @@ $students = $statement->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH23 - LEFT JOIN Display</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
@@ -110,6 +111,10 @@ LEFT JOIN ch23_courses AS c
                 to show records that do not have a relationship yet.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="03 - INNER JOIN Display.php">&lsaquo; Previous: 03 - INNER JOIN Display.php</a>
+            <a class="next" href="05 - COUNT with GROUP BY.php">Next: 05 - COUNT with GROUP BY.php &rsaquo;</a>
+        </nav>
 
     </div>
 

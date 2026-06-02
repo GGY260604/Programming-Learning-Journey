@@ -38,6 +38,7 @@ $products = $statement->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH22 - Product CRUD</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../global.css">
 </head>
 <body>
 
@@ -112,6 +113,10 @@ $products = $statement->fetchAll();
                 such as products, customers, orders, menu items, or users.
             </p>
         </div>
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <a class="previous" href="../01 - Student CRUD/01 - index.php">&lsaquo; Previous: 01 - Student CRUD System</a>
+            <a class="next" href="../../CH23 - Relationships and Join Queries/02 - One to Many Relationship.php">Next: 02 - One to Many Relationship.php &rsaquo;</a>
+        </nav>
 
     </div>
 
