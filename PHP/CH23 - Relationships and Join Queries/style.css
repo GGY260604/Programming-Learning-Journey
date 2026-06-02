@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.note {
+    background-color: #fff8d8;
+    border-color: #d6b800;
+}
+
+.success {
+    background-color: #eaffea;
+    border-color: green;
+}
+
+.error {
+    background-color: #ffeaea;
+    border-color: red;
+}
+
+.output {
+    background-color: #f7fbff;
+    border-color: #3b82f6;
+}
+
+code {
+    background-color: #eeeeee;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th,
+td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+.form-row {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea,
+button {
+    padding: 8px;
+    font-size: 15px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 420px;
+}
+
+button,
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #eeeeee;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    padding: 3px 9px;
+    font-size: 13px;
+}
