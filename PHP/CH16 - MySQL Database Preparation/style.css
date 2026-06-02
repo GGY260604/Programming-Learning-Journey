@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #fafafa;
+}
+
+.output {
+    border-color: #333;
+    background-color: #ffffff;
+}
+
+.success {
+    border-color: green;
+    background-color: #eaffea;
+}
+
+.warning {
+    border-color: #c28a00;
+    background-color: #fff7d6;
+}
+
+.error {
+    border-color: red;
+    background-color: #ffeaea;
+}
+
+.info {
+    border-color: #3366cc;
+    background-color: #eef4ff;
+}
+
+code {
+    background-color: #eeeeee;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #222;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th,
+td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+button {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.small-note {
+    color: #555;
+    font-size: 0.95em;
+}
+
+.file-list {
+    padding-left: 20px;
+}
+
+.file-list li {
+    margin-bottom: 8px;
+}
+
+.status-present {
+    font-weight: bold;
+    color: green;
+}
+
+.status-missing {
+    font-weight: bold;
+    color: red;
+}
