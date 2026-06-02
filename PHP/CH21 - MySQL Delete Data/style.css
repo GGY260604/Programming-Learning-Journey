@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.success {
+    border-color: #1f7a1f;
+    background-color: #eaffea;
+}
+
+.error {
+    border-color: #b00020;
+    background-color: #ffeaea;
+}
+
+.info {
+    border-color: #3366cc;
+    background-color: #eef4ff;
+}
+
+.warning {
+    border-color: #d18b00;
+    background-color: #fff8e6;
+}
+
+.output {
+    border-color: #555;
+    background-color: #fafafa;
+}
+
+.danger {
+    border-color: #b00020;
+    background-color: #fff1f1;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+input,
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #888;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    width: auto;
+    cursor: pointer;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.button-danger {
+    background-color: #b00020;
+}
+
+.button-danger:hover {
+    background-color: #7a0016;
+}
+
+.button-secondary {
+    background-color: #666;
+}
+
+.button-secondary:hover {
+    background-color: #444;
+}
+
+.inline-form {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.inline-form button {
+    margin-top: 0;
+}
+
+code {
+    background-color: #eeeeee;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th,
+td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+.empty-message {
+    color: #666;
+    font-style: italic;
+}
+
+.small-note {
+    color: #555;
+    font-size: 0.95rem;
+}
