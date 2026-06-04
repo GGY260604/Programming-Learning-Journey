@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Ternary Nullish and Optional Chaining.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn the ternary operator.
+    - Learn the nullish coalescing operator.
+    - Learn the optional chaining operator.
+
+    IMPORTANT:
+    - condition ? valueIfTrue : valueIfFalse chooses between two values.
+    - ?? provides a fallback only when the left side is null or undefined.
+    - ?. safely accesses a property that may not exist.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Ternary Nullish and Optional Chaining</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>09 - Ternary, Nullish, and Optional Chaining</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      These operators help you write shorter condition-related expressions.
+      They are useful, but they should still be used in readable situations.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <label for="score">Score</label>
+    <input id="score" type="number" value="75">
+
+    <label for="nickname">Nickname</label>
+    <input id="nickname" type="text" placeholder="Leave empty to test fallback">
+
+    <button onclick="showTernary()">Ternary Operator</button>
+    <button onclick="showNullish()">Nullish Coalescing</button>
+    <button onclick="showOptionalChaining()">Optional Chaining</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const scoreInput = document.getElementById("score");
+    const nicknameInput = document.getElementById("nickname");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showTernary() {
+      const score = Number(scoreInput.value);
+
+      /*
+        Ternary syntax:
+
+        condition ? valueIfTrue : valueIfFalse
+
+        It is often used when you want to choose one value based on a condition.
+      */
+      const result = score >= 50 ? "Pass" : "Fail";
+      const message = score >= 80 ? "Excellent" : "Keep improving";
+
+      print("Ternary operator:");
+      print("score = " + score);
+      print("result = " + result);
+      print("message = " + message);
+      print("");
+    }
+
+    function showNullish() {
+      /*
+        ?? gives a fallback only when the left side is null or undefined.
+
+        Empty string "" is not null and not undefined, so ?? will keep it.
+      */
+      const nickname = nicknameInput.value;
+      const savedNickname = nickname === "" ? null : nickname;
+      const displayName = savedNickname ?? "Guest";
+
+      /*
+        || is different.
+        It treats many falsy values as needing fallback, such as "", 0, and false.
+      */
+      const orDisplayName = nickname || "Guest";
+
+      print("Nullish coalescing:");
+      print("Raw nickname input = " + JSON.stringify(nickname));
+      print("savedNickname = " + savedNickname);
+      print("savedNickname ?? 'Guest' = " + displayName);
+      print("nickname || 'Guest' = " + orDisplayName);
+      print("");
+    }
+
+    function showOptionalChaining() {
+      const userWithAddress = {
+        name: "Galen",
+        address: {
+          city: "Johor Bahru"
+        }
+      };
+
+      const userWithoutAddress = {
+        name: "Alex"
+      };
+
+      /*
+        Optional chaining uses ?.
+
+        userWithoutAddress.address.city would cause an error because
+        address does not exist.
+
+        userWithoutAddress.address?.city safely returns undefined instead.
+      */
+      const cityA = userWithAddress.address?.city;
+      const cityB = userWithoutAddress.address?.city;
+      const safeCityB = userWithoutAddress.address?.city ?? "No city saved";
+
+      print("Optional chaining:");
+      print("userWithAddress.address?.city = " + cityA);
+      print("userWithoutAddress.address?.city = " + cityB);
+      print("Safe display city = " + safeCityB);
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

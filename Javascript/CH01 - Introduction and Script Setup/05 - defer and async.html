@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - defer and async.html
+    TOPIC: CH01 - Introduction and Script Setup
+
+    GOAL:
+    - Learn the difference between normal script, defer, and async.
+    - Understand why defer is commonly used for page scripts.
+    - Understand why async is commonly used for independent scripts.
+
+    IMPORTANT:
+    - defer downloads the external script while HTML is still being parsed,
+      but runs the script only after the HTML document has been parsed.
+
+    - async downloads the external script while HTML is still being parsed,
+      but runs the script as soon as it finishes downloading.
+
+    - defer and async only work with external JavaScript files.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - defer and async</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    defer script:
+    - Downloads without stopping HTML parsing.
+    - Runs after the HTML document is parsed.
+    - Keeps order if there are multiple defer scripts.
+  -->
+  <script defer src="05 - defer-demo.js"></script>
+
+  <!--
+    async script:
+    - Downloads without stopping HTML parsing.
+    - Runs as soon as it finishes downloading.
+    - Does not guarantee order with other async scripts.
+    - Should be used for independent scripts that do not depend on the page structure.
+  -->
+  <script async src="05 - async-demo.js"></script>
+</head>
+
+<body>
+  <h1>CH01 - Introduction and Script Setup</h1>
+  <h2>05 - defer and async</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>defer</code> and <code>async</code> are attributes used with
+      external JavaScript files.
+    </p>
+
+    <p>
+      For most normal page scripts that need to access HTML elements,
+      <code>defer</code> is usually easier to control.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Output</h3>
+
+    <p>
+      Refresh the page a few times and open the browser console.
+      The <code>async</code> script can run at a less predictable time.
+    </p>
+
+    <div id="output" class="output">HTML body has been parsed enough to show this output box.</div>
+
+    <button onclick="showSummary()">Show Summary</button>
+    <button onclick="clearOutput()">Clear</button>
+  </div>
+
+  <script>
+    /*
+      This normal inline script is placed at the end of the body.
+      It runs after the output box exists.
+    */
+    const output = document.getElementById("output");
+
+    output.textContent += "Inline script at end of body has run.\n";
+
+    function showSummary() {
+      output.textContent +=
+        "\nSummary:\n" +
+        "- Use normal script at the end of body for simple beginner examples.\n" +
+        "- Use defer for external scripts that need the HTML document.\n" +
+        "- Use async for independent scripts, such as analytics or ads.\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

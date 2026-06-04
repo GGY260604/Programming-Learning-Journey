@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Internal JavaScript.html
+    TOPIC: CH01 - Introduction and Script Setup
+
+    GOAL:
+    - Learn how to write JavaScript inside the same HTML file.
+    - Learn where the <script> element can be placed.
+    - Learn why scripts are commonly placed near the end of <body>.
+
+    IMPORTANT:
+    - Internal JavaScript is written inside a <script> element.
+    - It is useful for small examples and learning.
+    - For larger projects, external JavaScript files are usually better.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - Internal JavaScript</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH01 - Introduction and Script Setup</h1>
+  <h2>02 - Internal JavaScript</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Internal JavaScript means the JavaScript code is written directly inside
+      the HTML file using the <code>&lt;script&gt;</code> element.
+    </p>
+
+    <p>
+      In this file, the script is placed before the closing
+      <code>&lt;/body&gt;</code> tag, so the HTML elements already exist before
+      JavaScript tries to select them.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <p id="status">The script has not changed this text yet.</p>
+
+    <button onclick="showMessage()">Run Internal JavaScript</button>
+    <button onclick="increaseCounter()">Increase Counter</button>
+    <button onclick="resetPage()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    /*
+      This is internal JavaScript because it is written inside this HTML file.
+
+      The script is placed at the bottom of the body.
+      This is safe because the paragraph, buttons, and output box have already
+      been created by the browser before this script runs.
+    */
+
+    const statusText = document.getElementById("status");
+    const output = document.getElementById("output");
+
+    /*
+      A variable can store data that JavaScript needs to remember.
+      This counter starts from 0.
+    */
+    let counter = 0;
+
+    function showMessage() {
+      statusText.textContent = "Internal JavaScript is running successfully.";
+      output.textContent = "The function showMessage() was called.";
+    }
+
+    function increaseCounter() {
+      /*
+        counter++ means increase the current value by 1.
+        It is the shorter version of:
+        counter = counter + 1;
+      */
+      counter++;
+
+      output.textContent = "Counter value: " + counter;
+    }
+
+    function resetPage() {
+      counter = 0;
+      statusText.textContent = "The script has not changed this text yet.";
+      output.textContent = "Page demo has been reset.";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Reference Data Types.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn common reference data types.
+    - Understand that objects and arrays are stored by reference.
+    - Understand why const objects and arrays can still be changed internally.
+
+    IMPORTANT:
+    - Objects, arrays, and functions are reference values.
+    - Assigning a reference value to another variable copies the reference,
+      not the whole data structure.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Reference Data Types</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>04 - Reference Data Types</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Reference data types can store multiple values or behavior. Common
+      examples are <code>object</code>, <code>array</code>, and
+      <code>function</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showReferenceTypes()">Show Reference Types</button>
+    <button onclick="showReferenceCopy()">Show Reference Copy</button>
+    <button onclick="showConstObject()">Show const Object</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showReferenceTypes() {
+      /*
+        Object:
+        Stores data using property names.
+      */
+      const student = {
+        name: "Galen",
+        course: "Software Engineering"
+      };
+
+      /*
+        Array:
+        Stores ordered values using index numbers.
+      */
+      const fruits = ["Apple", "Orange", "Mango"];
+
+      /*
+        Function:
+        Stores reusable code.
+      */
+      function greet() {
+        return "Hello from a function.";
+      }
+
+      print("Reference data types:");
+      print("student.name = " + student.name + " | typeof = " + typeof student);
+      print("fruits[0] = " + fruits[0] + " | typeof = " + typeof fruits);
+      print("greet() = " + greet() + " | typeof = " + typeof greet);
+      print("Array.isArray(fruits) = " + Array.isArray(fruits));
+      print("");
+    }
+
+    function showReferenceCopy() {
+      /*
+        Reference values are copied by reference.
+
+        userB does not receive a fully separate object.
+        userB points to the same object as userA.
+      */
+      const userA = {
+        name: "Galen"
+      };
+
+      const userB = userA;
+
+      userA.name = "Alex";
+
+      print("Reference copy example:");
+      print("userA.name = " + userA.name);
+      print("userB.name = " + userB.name);
+      print("Both changed because userA and userB refer to the same object.");
+      print("");
+    }
+
+    function showConstObject() {
+      /*
+        const prevents reassignment of the variable name.
+        It does not freeze the inside of an object or array.
+      */
+      const cart = ["Burger"];
+
+      cart.push("Drink");
+
+      print("const array example:");
+      print("cart = " + cart.join(", "));
+      print("This is allowed because the array content changed, not the variable assignment.");
+      print("");
+
+      /*
+        This is not allowed because it reassigns the const variable:
+
+        cart = ["Pizza"];
+      */
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

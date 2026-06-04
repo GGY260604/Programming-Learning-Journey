@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - typeof null and undefined.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn how typeof works.
+    - Understand undefined.
+    - Understand null.
+    - Understand the special typeof null result.
+
+    IMPORTANT:
+    - undefined usually means no value has been assigned.
+    - null usually means intentionally empty.
+    - typeof null returns "object", which is a long-known JavaScript behavior.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - typeof null and undefined</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>05 - typeof, null, and undefined</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      The <code>typeof</code> operator returns the type of a value as a string.
+      However, <code>null</code> has a special result that beginners should know.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showTypeofExamples()">Show typeof Examples</button>
+    <button onclick="showNullUndefinedDifference()">Show null vs undefined</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showTypeofExamples() {
+      const text = "Hello";
+      const amount = 50;
+      const isPaid = false;
+      const items = ["Food", "Drink"];
+      const user = { name: "Galen" };
+      const emptyValue = null;
+      let notAssigned;
+
+      print("typeof examples:");
+      print("typeof text = " + typeof text);
+      print("typeof amount = " + typeof amount);
+      print("typeof isPaid = " + typeof isPaid);
+      print("typeof items = " + typeof items);
+      print("Array.isArray(items) = " + Array.isArray(items));
+      print("typeof user = " + typeof user);
+      print("typeof emptyValue = " + typeof emptyValue);
+      print("typeof notAssigned = " + typeof notAssigned);
+      print("");
+    }
+
+    function showNullUndefinedDifference() {
+      /*
+        undefined:
+        Usually appears when a variable exists but has no assigned value.
+      */
+      let selectedFood;
+
+      /*
+        null:
+        Usually assigned by the programmer to mean intentionally empty.
+      */
+      const selectedDrink = null;
+
+      print("undefined example:");
+      print("selectedFood = " + selectedFood);
+      print("Meaning: no value has been assigned yet.");
+      print("");
+
+      print("null example:");
+      print("selectedDrink = " + selectedDrink);
+      print("Meaning: intentionally empty for now.");
+      print("");
+
+      print("Checking values:");
+      print("selectedFood === undefined -> " + (selectedFood === undefined));
+      print("selectedDrink === null -> " + (selectedDrink === null));
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

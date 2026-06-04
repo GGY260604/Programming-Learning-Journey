@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Reading User Input.html
+    TOPIC: CH02 - Output Input and Console
+
+    GOAL:
+    - Learn how to read user input from an HTML input element.
+    - Learn the difference between input.value and displayed text.
+    - Learn how to clean simple text input using trim().
+    - Learn how to convert numeric input using Number().
+
+    IMPORTANT:
+    - input.value always gives the current value of the input element.
+    - Text input is read as a string.
+    - Number() can convert numeric text into a number.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Reading User Input</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH02 - Output Input and Console</h1>
+  <h2>04 - Reading User Input</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      JavaScript can read values typed by the user. For basic input elements,
+      the common property is <code>value</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <label for="username">Name</label>
+    <input id="username" type="text" placeholder="Example: Galen">
+
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="number" placeholder="Example: 3">
+
+    <label for="price">Price</label>
+    <input id="price" type="number" placeholder="Example: 12.50" step="0.01">
+
+    <br>
+
+    <button onclick="readName()">Read Name</button>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <button onclick="clearForm()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const username = document.getElementById("username");
+    const quantity = document.getElementById("quantity");
+    const price = document.getElementById("price");
+    const output = document.getElementById("output");
+
+    function readName() {
+      /*
+        username.value reads the current text inside the input box.
+
+        trim() removes spaces from the start and end.
+        Example:
+        "  Galen  " becomes "Galen".
+      */
+      const name = username.value.trim();
+
+      if (name === "") {
+        output.textContent = "Please enter your name first.";
+      } else {
+        output.textContent = "Hello, " + name + "! JavaScript read your input.";
+      }
+    }
+
+    function calculateTotal() {
+      /*
+        Input values are usually read as text.
+        Number() converts a value into a number.
+
+        Example:
+        "3" becomes 3.
+        "12.50" becomes 12.5.
+      */
+      const quantityValue = Number(quantity.value);
+      const priceValue = Number(price.value);
+
+      /*
+        Number.isNaN() checks whether the converted result is Not-a-Number.
+        This is useful when the input cannot be converted properly.
+      */
+      if (Number.isNaN(quantityValue) || Number.isNaN(priceValue)) {
+        output.textContent = "Please enter valid numbers.";
+        return;
+      }
+
+      if (quantity.value === "" || price.value === "") {
+        output.textContent = "Please fill in both quantity and price.";
+        return;
+      }
+
+      const total = quantityValue * priceValue;
+
+      /*
+        toFixed(2) formats the number using 2 decimal places.
+        This is useful for price display.
+      */
+      output.textContent =
+        "Quantity: " + quantityValue + "\n" +
+        "Price: RM " + priceValue.toFixed(2) + "\n" +
+        "Total: RM " + total.toFixed(2);
+    }
+
+    function clearForm() {
+      username.value = "";
+      quantity.value = "";
+      price.value = "";
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

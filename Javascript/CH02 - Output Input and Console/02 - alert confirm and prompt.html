@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - alert confirm and prompt.html
+    TOPIC: CH02 - Output Input and Console
+
+    GOAL:
+    - Learn simple browser popup methods.
+    - Use alert() to show a message.
+    - Use confirm() to ask for OK or Cancel.
+    - Use prompt() to ask the user to type a value.
+
+    IMPORTANT:
+    - These popup methods are simple but disruptive.
+    - They stop the page temporarily until the user responds.
+    - For real websites, custom HTML dialogs or form elements are usually better.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - alert confirm and prompt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH02 - Output Input and Console</h1>
+  <h2>02 - alert, confirm, and prompt</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      JavaScript has built-in browser popup functions:
+      <code>alert()</code>, <code>confirm()</code>, and <code>prompt()</code>.
+    </p>
+
+    <p class="small-note">
+      These are useful for learning, testing, and simple messages, but they are
+      not commonly used for modern website interface design.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showAlert()">Run alert()</button>
+    <button onclick="showConfirm()">Run confirm()</button>
+    <button onclick="showPrompt()">Run prompt()</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function showAlert() {
+      /*
+        alert() shows a message popup.
+        It does not return useful data.
+
+        The user only has one action: click OK.
+      */
+      alert("Hello! This message comes from alert().");
+
+      output.textContent = "alert() was displayed. The user clicked OK to continue.";
+    }
+
+    function showConfirm() {
+      /*
+        confirm() asks the user to choose OK or Cancel.
+
+        It returns a Boolean value:
+        - true means the user clicked OK.
+        - false means the user clicked Cancel.
+      */
+      const answer = confirm("Do you want to continue learning JavaScript?");
+
+      if (answer === true) {
+        output.textContent = "confirm() returned true. The user clicked OK.";
+      } else {
+        output.textContent = "confirm() returned false. The user clicked Cancel.";
+      }
+    }
+
+    function showPrompt() {
+      /*
+        prompt() asks the user to type something.
+
+        It returns:
+        - a string if the user clicks OK.
+        - null if the user clicks Cancel.
+
+        Important:
+        The value from prompt() is always text, even if the user types a number.
+      */
+      const name = prompt("What is your name?", "Galen");
+
+      if (name === null) {
+        output.textContent = "prompt() returned null because the user clicked Cancel.";
+      } else if (name.trim() === "") {
+        output.textContent = "The user clicked OK, but typed an empty value.";
+      } else {
+        output.textContent = "Hello, " + name + "! prompt() returned your typed text.";
+      }
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

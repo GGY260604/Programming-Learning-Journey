@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - External JavaScript.html
+    TOPIC: CH01 - Introduction and Script Setup
+
+    GOAL:
+    - Learn how to connect an external JavaScript file to HTML.
+    - Understand the purpose of the src attribute in <script>.
+    - Keep HTML structure and JavaScript behavior separated.
+
+    IMPORTANT:
+    - External JavaScript is linked using:
+      <script src="file-name.js"></script>
+
+    - The JavaScript code for this page is written in:
+      03 - app.js
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - External JavaScript</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH01 - Introduction and Script Setup</h1>
+  <h2>03 - External JavaScript</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      External JavaScript means the JavaScript code is stored in a separate
+      <code>.js</code> file.
+    </p>
+
+    <p>
+      This is better for organized projects because HTML, CSS, and JavaScript
+      can be separated into different files.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <p id="description">
+      Click the button to run JavaScript from the external file.
+    </p>
+
+    <button id="changeTextBtn">Change Text</button>
+    <button id="changeClassBtn">Change Class</button>
+    <button id="resetBtn">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <!--
+    This script links the external JavaScript file.
+
+    Because it is placed near the bottom of <body>, the browser has already
+    created the HTML elements above before the script tries to select them.
+  -->
+  <script src="03 - app.js"></script>
+</body>
+</html>

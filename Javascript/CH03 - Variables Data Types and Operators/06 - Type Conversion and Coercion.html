@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Type Conversion and Coercion.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn explicit type conversion.
+    - Learn implicit type coercion.
+    - Understand why strict comparison is safer.
+
+    IMPORTANT:
+    - Conversion means you intentionally change the type.
+    - Coercion means JavaScript automatically changes the type during an operation.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Type Conversion and Coercion</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>06 - Type Conversion and Coercion</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      JavaScript can convert values from one type to another. Sometimes you do
+      it intentionally. Sometimes JavaScript does it automatically.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="text" value="5">
+
+    <label for="price">Price</label>
+    <input id="price" type="text" value="12.50">
+
+    <button onclick="showExplicitConversion()">Explicit Conversion</button>
+    <button onclick="showImplicitCoercion()">Implicit Coercion</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const quantity = document.getElementById("quantity");
+    const price = document.getElementById("price");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showExplicitConversion() {
+      /*
+        Input values are strings by default.
+        Number() converts text into a number.
+      */
+      const quantityText = quantity.value;
+      const priceText = price.value;
+
+      const quantityNumber = Number(quantityText);
+      const priceNumber = Number(priceText);
+      const total = quantityNumber * priceNumber;
+
+      /*
+        String() converts a value into text.
+        Boolean() converts a value into true or false.
+      */
+      const totalText = String(total);
+      const hasQuantity = Boolean(quantityText);
+
+      print("Explicit conversion:");
+      print("quantityText type = " + typeof quantityText);
+      print("quantityNumber type = " + typeof quantityNumber);
+      print("total = " + total);
+      print("totalText type = " + typeof totalText);
+      print("hasQuantity = " + hasQuantity);
+      print("");
+    }
+
+    function showImplicitCoercion() {
+      /*
+        Coercion happens automatically.
+
+        With +:
+        If one side is a string, JavaScript often joins text together.
+      */
+      const resultA = "5" + 2;
+
+      /*
+        With -, *, /:
+        JavaScript often converts strings into numbers.
+      */
+      const resultB = "5" - 2;
+      const resultC = "5" * 2;
+      const resultD = "10" / 2;
+
+      print("Implicit coercion:");
+      print('"5" + 2 = ' + resultA + " | type = " + typeof resultA);
+      print('"5" - 2 = ' + resultB + " | type = " + typeof resultB);
+      print('"5" * 2 = ' + resultC + " | type = " + typeof resultC);
+      print('"10" / 2 = ' + resultD + " | type = " + typeof resultD);
+      print("Use explicit conversion when you want clearer code.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

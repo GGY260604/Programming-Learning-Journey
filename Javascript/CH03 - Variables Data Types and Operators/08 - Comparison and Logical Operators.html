@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Comparison and Logical Operators.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn comparison operators.
+    - Learn logical operators.
+    - Understand the difference between == and ===.
+
+    IMPORTANT:
+    - === checks value and type.
+    - == allows type coercion.
+    - && means AND, || means OR, ! means NOT.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Comparison and Logical Operators</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>08 - Comparison and Logical Operators</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Comparison operators produce boolean results. Logical operators combine
+      or reverse boolean conditions.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <label for="age">Age</label>
+    <input id="age" type="number" value="18">
+
+    <label for="member">Membership</label>
+    <select id="member">
+      <option value="yes">Member</option>
+      <option value="no">Not Member</option>
+    </select>
+
+    <button onclick="showComparisonOperators()">Comparison Operators</button>
+    <button onclick="checkDiscount()">Check Discount</button>
+    <button onclick="showStrictVsLoose()">== vs ===</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const ageInput = document.getElementById("age");
+    const memberSelect = document.getElementById("member");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showComparisonOperators() {
+      const a = 10;
+      const b = 5;
+
+      print("Comparison operators:");
+      print("a = " + a + ", b = " + b);
+      print("a > b -> " + (a > b));
+      print("a < b -> " + (a < b));
+      print("a >= b -> " + (a >= b));
+      print("a <= b -> " + (a <= b));
+      print("a === b -> " + (a === b));
+      print("a !== b -> " + (a !== b));
+      print("");
+    }
+
+    function checkDiscount() {
+      const age = Number(ageInput.value);
+      const isMember = memberSelect.value === "yes";
+
+      /*
+        && means AND.
+        Both sides must be true.
+      */
+      const studentMemberDiscount = age <= 25 && isMember;
+
+      /*
+        || means OR.
+        At least one side must be true.
+      */
+      const generalDiscount = age < 18 || age >= 60 || isMember;
+
+      /*
+        ! means NOT.
+        It reverses a boolean value.
+      */
+      const notMember = !isMember;
+
+      print("Logical operators:");
+      print("age = " + age);
+      print("isMember = " + isMember);
+      print("age <= 25 && isMember -> " + studentMemberDiscount);
+      print("age < 18 || age >= 60 || isMember -> " + generalDiscount);
+      print("!isMember -> " + notMember);
+      print("");
+    }
+
+    function showStrictVsLoose() {
+      /*
+        == compares after possible type coercion.
+        === compares without converting the type.
+
+        In most beginner and production code, prefer === and !==.
+      */
+      print("== vs ===:");
+      print('5 == "5" -> ' + (5 == "5"));
+      print('5 === "5" -> ' + (5 === "5"));
+      print('0 == false -> ' + (0 == false));
+      print('0 === false -> ' + (0 === false));
+      print("Prefer === because it checks both value and type.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

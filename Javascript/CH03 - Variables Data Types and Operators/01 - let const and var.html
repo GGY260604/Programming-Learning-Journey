@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - let const and var.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn how to declare variables using let, const, and var.
+    - Understand reassignment.
+    - Understand why let and const are preferred in modern JavaScript.
+
+    IMPORTANT:
+    - let allows reassignment.
+    - const does not allow reassignment.
+    - var is old and has different scope behavior.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - let const and var</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>01 - let, const, and var</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Variables are used to store values. JavaScript has three declaration
+      keywords: <code>let</code>, <code>const</code>, and <code>var</code>.
+    </p>
+
+    <p>
+      In modern JavaScript, use <code>const</code> first. Use <code>let</code>
+      when the value must change. Avoid <code>var</code> unless you are reading
+      older code.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showLetExample()">Run let Example</button>
+    <button onclick="showConstExample()">Run const Example</button>
+    <button onclick="showVarExample()">Run var Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showLetExample() {
+      /*
+        let creates a variable that can be reassigned.
+
+        Reassignment means:
+        - The variable name is the same.
+        - The value stored inside it is changed.
+      */
+      let score = 10;
+
+      print("let example:");
+      print("Original score: " + score);
+
+      score = 20;
+
+      print("Updated score: " + score);
+      print("Use let when the value needs to change.");
+      print("");
+    }
+
+    function showConstExample() {
+      /*
+        const creates a variable that cannot be reassigned.
+
+        This is allowed:
+        const username = "Galen";
+
+        This is not allowed:
+        username = "Alex";
+
+        The second line causes an error because const blocks reassignment.
+      */
+      const username = "Galen";
+
+      print("const example:");
+      print("Username: " + username);
+      print("Use const when the variable should keep the same assigned value.");
+      print("");
+    }
+
+    function showVarExample() {
+      /*
+        var is the old way to create variables.
+
+        It still works, but it does not behave the same as let and const.
+        One important difference is scope, which means where the variable
+        can be accessed.
+
+        Its scope is function-level, which can lead to bugs if not careful
+        because it does not respect block-level scope like let and const.
+        So, it can be accessed outside of the block it was declared in, which can cause
+        unintended consequences. For example, if you declare a var variable inside an 
+        if statement, it can still be accessed outside of that if statement, which can 
+        lead to confusion and bugs.
+      */
+      var oldMessage = "This variable was created using var.";
+
+      print("var example:");
+      print(oldMessage);
+      print("Modern JavaScript normally uses let and const instead.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

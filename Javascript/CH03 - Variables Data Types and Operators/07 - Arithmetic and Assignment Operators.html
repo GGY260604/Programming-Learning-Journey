@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Arithmetic and Assignment Operators.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn arithmetic operators.
+    - Learn assignment operators.
+    - Understand increment and decrement.
+
+    IMPORTANT:
+    - Arithmetic operators calculate values.
+    - Assignment operators update variables.
+    - ++ increases by 1 and -- decreases by 1.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Arithmetic and Assignment Operators</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>07 - Arithmetic and Assignment Operators</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Arithmetic operators are used for calculation. Assignment operators are
+      used to store or update values in variables.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showArithmeticOperators()">Arithmetic Operators</button>
+    <button onclick="showAssignmentOperators()">Assignment Operators</button>
+    <button onclick="showIncrementDecrement()">Increment and Decrement</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showArithmeticOperators() {
+      const a = 10;
+      const b = 3;
+
+      print("Arithmetic operators:");
+      print("a = " + a + ", b = " + b);
+      print("a + b = " + (a + b));
+      print("a - b = " + (a - b));
+      print("a * b = " + (a * b));
+      print("a / b = " + (a / b));
+      print("a % b = " + (a % b));
+      print("a ** b = " + (a ** b));
+      print("");
+
+      /*
+        % is the remainder operator.
+        10 % 3 gives 1 because 10 divided by 3 leaves remainder 1.
+
+        ** is the exponentiation operator.
+        10 ** 3 means 10 to the power of 3.
+      */
+    }
+
+    function showAssignmentOperators() {
+      let total = 100;
+
+      print("Assignment operators:");
+      print("Original total = " + total);
+
+      total += 20;
+      print("After total += 20 -> " + total);
+
+      total -= 10;
+      print("After total -= 10 -> " + total);
+
+      total *= 2;
+      print("After total *= 2 -> " + total);
+
+      total /= 5;
+      print("After total /= 5 -> " + total);
+
+      total %= 7;
+      print("After total %= 7 -> " + total);
+      print("");
+    }
+
+    function showIncrementDecrement() {
+      let counter = 5;
+
+      print("Increment and decrement:");
+      print("Original counter = " + counter);
+
+      print("After counter++ -> " + counter++);
+
+      print("After counter-- -> " + counter--);
+
+      print("After ++counter -> " + ++counter);
+
+      print("After --counter -> " + --counter);
+      print("");
+
+      /*
+        For simple counting, counter++ and ++counter both increase by 1.
+        The difference matters when the expression returns a value immediately.
+        That advanced behavior will be easier after learning more expressions.
+      */
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

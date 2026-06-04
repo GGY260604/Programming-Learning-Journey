@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Display Output in HTML.html
+    TOPIC: CH02 - Output Input and Console
+
+    GOAL:
+    - Learn different ways to display JavaScript output on the web page.
+    - Use textContent for plain text.
+    - Use innerHTML when HTML tags are intentionally needed.
+    - Use value to place output inside input elements.
+
+    IMPORTANT:
+    - textContent is safer for normal text.
+    - innerHTML reads the content as HTML code.
+    - value is mainly used with form elements like input and textarea.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - Display Output in HTML</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH02 - Output Input and Console</h1>
+  <h2>03 - Display Output in HTML</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      JavaScript can display output directly inside HTML elements. This is more
+      useful for real websites than <code>alert()</code> because the page does not stop.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="displayWithTextContent()">Use textContent</button>
+    <button onclick="displayWithInnerHTML()">Use innerHTML</button>
+    <button onclick="displayWithValue()">Use value</button>
+    <button onclick="clearAll()">Clear All</button>
+
+    <div class="demo-box">
+      <h3>Output using textContent</h3>
+      <p id="plainOutput">No plain text output yet.</p>
+    </div>
+
+    <div class="demo-box">
+      <h3>Output using innerHTML</h3>
+      <div id="htmlOutput">No HTML output yet.</div>
+    </div>
+
+    <div class="demo-box">
+      <h3>Output using value</h3>
+      <input id="inputOutput" type="text" placeholder="Output can appear here">
+    </div>
+  </div>
+
+  <script>
+    const plainOutput = document.getElementById("plainOutput");
+    const htmlOutput = document.getElementById("htmlOutput");
+    const inputOutput = document.getElementById("inputOutput");
+
+    function displayWithTextContent() {
+      /*
+        textContent displays text exactly as text.
+
+        If the text contains HTML tags, the browser will not treat them as tags.
+        It will show them as normal text.
+      */
+      plainOutput.textContent = "<strong>This is NOT bold because textContent treats it as text.</strong>";
+    }
+
+    function displayWithInnerHTML() {
+      /*
+        innerHTML displays content as HTML.
+
+        This means the browser will read tags such as:
+        - <strong>
+        - <em>
+        - <ul>
+        - <li>
+
+        Warning:
+        Do not put untrusted user input directly into innerHTML.
+      */
+      htmlOutput.innerHTML = "<strong>This is bold</strong><br><em>This is italic</em>";
+    }
+
+    function displayWithValue() {
+      /*
+        Form elements such as input and textarea use the value property.
+
+        For example:
+        - input.value changes the text inside an input box.
+        - textarea.value changes the text inside a textarea.
+      */
+      inputOutput.value = "This output was placed using the value property.";
+    }
+
+    function clearAll() {
+      plainOutput.textContent = "No plain text output yet.";
+      htmlOutput.textContent = "No HTML output yet.";
+      inputOutput.value = "";
+    }
+  </script>
+</body>
+</html>

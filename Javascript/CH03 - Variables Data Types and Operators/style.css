@@ -1,0 +1,100 @@
+/*
+  FILE: style.css
+  TOPIC: CH03 - Variables Data Types and Operators
+
+  This CSS file is only for Chapter 03 examples.
+  It keeps all demo pages readable and consistent.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.section {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.demo-box {
+  background-color: #fafafa;
+  border: 2px dashed #777;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.output {
+  background-color: #222;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-line;
+  min-height: 90px;
+  margin-top: 12px;
+}
+
+.result-card {
+  background-color: #eef6ff;
+  border: 2px solid #4c7faf;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.warning-card {
+  background-color: #fff7e6;
+  border: 2px solid #d19a00;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  margin: 4px 4px 4px 0;
+  width: 100%;
+  max-width: 360px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+code {
+  background-color: #eee;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.small-note {
+  color: #555;
+  font-size: 0.95rem;
+}

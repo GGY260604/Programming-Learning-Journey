@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Primitive Data Types.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn the common primitive data types in JavaScript.
+    - Understand that primitive values are simple values.
+    - Use typeof to inspect value types.
+
+    IMPORTANT:
+    - Primitive values are not objects.
+    - Common primitives: string, number, boolean, undefined, null, bigint, symbol.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Primitive Data Types</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>03 - Primitive Data Types</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A primitive data type stores a simple value directly. Examples include
+      text, numbers, true/false values, and empty values.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showPrimitiveTypes()">Show Primitive Types</button>
+    <button onclick="showPrimitiveCopy()">Show Primitive Copy</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showPrimitiveTypes() {
+      /*
+        string:
+        Used for text.
+      */
+      const name = "Galen";
+
+      /*
+        number:
+        Used for integers and decimal numbers.
+      */
+      const price = 12.5;
+
+      /*
+        boolean:
+        Used for true or false values.
+      */
+      const isStudent = true;
+
+      /*
+        undefined:
+        A variable declared but not assigned gets undefined.
+      */
+      let selectedItem;
+
+      /*
+        null:
+        Usually means intentionally empty.
+      */
+      const currentOrder = null;
+
+      /*
+        bigint:
+        Used for very large integers.
+        The n at the end creates a BigInt value.
+      */
+      const largeNumber = 9007199254740993n;
+
+      /*
+        symbol:
+        Used to create a unique identifier.
+      */
+      const uniqueId = Symbol("id");
+
+      print("Primitive data types:");
+      print("name = " + name + " | typeof = " + typeof name);
+      print("price = " + price + " | typeof = " + typeof price);
+      print("isStudent = " + isStudent + " | typeof = " + typeof isStudent);
+      print("selectedItem = " + selectedItem + " | typeof = " + typeof selectedItem);
+      print("currentOrder = " + currentOrder + " | typeof = " + typeof currentOrder);
+      print("largeNumber = " + largeNumber + " | typeof = " + typeof largeNumber);
+      print("uniqueId description = " + uniqueId.description + " | typeof = " + typeof uniqueId);
+      print("");
+    }
+
+    function showPrimitiveCopy() {
+      /*
+        Primitive values are copied by value.
+
+        This means changing copyA later does not change copyB.
+      */
+      let copyA = 10;
+      let copyB = copyA;
+
+      copyA = 99;
+
+      print("Primitive copy example:");
+      print("copyA = " + copyA);
+      print("copyB = " + copyB);
+      print("copyB keeps the old value because primitive values are copied directly.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

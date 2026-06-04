@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Script Loading Order.html
+    TOPIC: CH01 - Introduction and Script Setup
+
+    GOAL:
+    - Understand that HTML is read from top to bottom.
+    - Understand that normal scripts run immediately when the browser reaches them.
+    - Understand why script position matters.
+
+    IMPORTANT:
+    - If JavaScript tries to select an element before the element exists,
+      the result is usually null.
+    - Placing a normal script near the end of <body> helps avoid this problem.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH01 - Script Loading Order</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    /*
+      This script is inside <head>.
+      At this moment, the browser has not created the <body> content yet.
+
+      Therefore, trying to select #output now returns null.
+    */
+    const outputBeforeBody = document.getElementById("output");
+
+    console.log("Script in head runs first.");
+    console.log("Selecting #output in head gives:", outputBeforeBody);
+  </script>
+</head>
+
+<body>
+  <h1>CH01 - Introduction and Script Setup</h1>
+  <h2>04 - Script Loading Order</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      The browser reads HTML from top to bottom. A normal script runs immediately
+      when the browser reaches it.
+    </p>
+
+    <p>
+      Open the browser console to see the full loading order messages.
+    </p>
+  </div>
+
+  <script>
+    /*
+      This script is inside <body>, but it appears before the output box.
+      The output box still does not exist at this point.
+    */
+    const outputBeforeElement = document.getElementById("output");
+
+    console.log("Script before #output runs before #output exists.");
+    console.log("Selecting #output before the element gives:", outputBeforeElement);
+  </script>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div id="output" class="output"></div>
+
+    <button onclick="showLoadingResult()">Show Loading Result</button>
+    <button onclick="clearOutput()">Clear</button>
+  </div>
+
+  <script>
+    /*
+      This script is placed after the output box.
+      Now the output box already exists, so JavaScript can select it safely.
+    */
+    const outputAfterElement = document.getElementById("output");
+
+    console.log("Script after #output runs after #output exists.");
+    console.log("Selecting #output after the element gives:", outputAfterElement);
+
+    function showLoadingResult() {
+      outputAfterElement.textContent =
+        "1. Script in <head>: #output does not exist yet.\n" +
+        "2. Script before #output: #output still does not exist yet.\n" +
+        "3. Script after #output: #output exists and can be selected.\n\n" +
+        "Conclusion: for normal scripts, position matters.";
+    }
+
+    function clearOutput() {
+      outputAfterElement.textContent = "";
+    }
+  </script>
+</body>
+</html>

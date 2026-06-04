@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Variable Naming Rules.html
+    TOPIC: CH03 - Variables Data Types and Operators
+
+    GOAL:
+    - Learn valid and invalid variable names.
+    - Learn common JavaScript naming style.
+    - Understand case sensitivity.
+
+    IMPORTANT:
+    - Variable names can contain letters, numbers, underscore, and dollar sign.
+    - Variable names cannot start with a number.
+    - JavaScript variable names are case-sensitive.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH03 - Variable Naming Rules</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH03 - Variables Data Types and Operators</h1>
+  <h2>02 - Variable Naming Rules</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Good variable names make code easier to read. JavaScript commonly uses
+      <code>camelCase</code> for variable and function names.
+    </p>
+
+    <div class="warning-card">
+      <strong>Note:</strong> JavaScript is case-sensitive. <code>userName</code>
+      and <code>username</code> are two different variables.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showValidNames()">Show Valid Names</button>
+    <button onclick="showCaseSensitivity()">Show Case Sensitivity</button>
+    <button onclick="showNamingStyle()">Show Naming Style</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showValidNames() {
+      /*
+        These are valid variable names.
+
+        Rules:
+        - Can start with a letter.
+        - Can start with underscore _.
+        - Can start with dollar sign $.
+        - Can contain numbers after the first character.
+      */
+      const userName = "Galen";
+      const _privateMessage = "Starts with underscore.";
+      const $price = 19.9;
+      const student2 = "Second student";
+
+      print("Valid variable names:");
+      print("userName = " + userName);
+      print("_privateMessage = " + _privateMessage);
+      print("$price = " + $price);
+      print("student2 = " + student2);
+      print("");
+
+      /*
+        Invalid examples are written inside comments because they would break
+        the JavaScript file if we typed them as real code.
+
+        const 2student = "Wrong";    // Cannot start with a number
+        const user-name = "Wrong";   // Hyphen means subtraction
+        const let = "Wrong";         // let is a reserved keyword
+      */
+    }
+
+    function showCaseSensitivity() {
+      /*
+        These two variables look similar, but they are different because
+        JavaScript treats uppercase and lowercase letters differently.
+      */
+      const userName = "Galen";
+      const username = "Alex";
+
+      print("Case sensitivity:");
+      print("userName = " + userName);
+      print("username = " + username);
+      print("These are two different variables.");
+      print("");
+    }
+
+    function showNamingStyle() {
+      /*
+        Common naming style in JavaScript:
+        - camelCase for normal variables and functions.
+        - UPPER_CASE for constants that represent fixed configuration values.
+        - Meaningful names instead of short unclear names.
+      */
+      const firstName = "Galen";
+      const totalPrice = 58.5;
+      const MAX_LOGIN_ATTEMPTS = 3;
+
+      print("Common naming style:");
+      print("firstName = " + firstName);
+      print("totalPrice = " + totalPrice);
+      print("MAX_LOGIN_ATTEMPTS = " + MAX_LOGIN_ATTEMPTS);
+      print("Use names that describe the value clearly.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

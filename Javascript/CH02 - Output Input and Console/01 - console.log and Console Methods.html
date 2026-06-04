@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - console.log and Console Methods.html
+    TOPIC: CH02 - Output Input and Console
+
+    GOAL:
+    - Learn how to print messages in the browser console.
+    - Learn common console methods: log, info, warn, error, table, clear.
+    - Understand that console output is mainly for developers, not normal users.
+
+    IMPORTANT:
+    - The console is usually opened with F12 or Ctrl + Shift + J.
+    - console.log() does not display content on the web page.
+    - Use the console when you want to test, debug, or inspect values.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH02 - console.log and Console Methods</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH02 - Output Input and Console</h1>
+  <h2>01 - console.log and Console Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      The <code>console</code> is a developer tool. It is useful when you want to
+      check whether your JavaScript is running correctly.
+    </p>
+
+    <p>
+      Open your browser console first, then click the buttons below.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button onclick="showLog()">console.log()</button>
+    <button onclick="showInfo()">console.info()</button>
+    <button onclick="showWarning()">console.warn()</button>
+    <button onclick="showError()">console.error()</button>
+    <button onclick="showTable()">console.table()</button>
+    <button onclick="clearConsole()">console.clear()</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    /*
+      Select the output box from the page.
+
+      This page still displays a message on the web page so that you know
+      which button has been clicked. However, the real teaching point here
+      is the browser console.
+    */
+    const output = document.getElementById("output");
+
+    function showLog() {
+      /*
+        console.log() prints a normal message.
+        This is the most common console method.
+      */
+      console.log("This is a normal console.log message.");
+      console.log("You can print numbers too:", 100);
+      console.log("You can print calculation results:", 10 + 5);
+
+      output.textContent = "Check the console. console.log() printed normal messages.";
+    }
+
+    function showInfo() {
+      /*
+        console.info() prints an information message.
+        In many browsers, it looks similar to console.log().
+      */
+      console.info("This is an information message.");
+
+      output.textContent = "Check the console. console.info() printed an information message.";
+    }
+
+    function showWarning() {
+      /*
+        console.warn() prints a warning.
+        It is useful when something is not wrong yet, but needs attention.
+      */
+      console.warn("Warning: This is only a practice warning.");
+
+      output.textContent = "Check the console. console.warn() printed a warning message.";
+    }
+
+    function showError() {
+      /*
+        console.error() prints an error message.
+        It is useful when something fails or produces an invalid result.
+      */
+      console.error("Error: This is only a practice error message.");
+
+      output.textContent = "Check the console. console.error() printed an error message.";
+    }
+
+    function showTable() {
+      /*
+        console.table() displays array or object data in a table format.
+        It is useful when checking a list of records.
+      */
+      const students = [
+        { id: 1, name: "Galen", course: "JavaScript" },
+        { id: 2, name: "Cleo", course: "HTML" },
+        { id: 3, name: "Alex", course: "CSS" }
+      ];
+
+      console.table(students);
+
+      output.textContent = "Check the console. console.table() displayed records in table format.";
+    }
+
+    function clearConsole() {
+      /*
+        console.clear() clears the console screen.
+        It does not change the HTML page.
+      */
+      console.clear();
+
+      output.textContent = "The console was cleared using console.clear().";
+    }
+  </script>
+</body>
+</html>
