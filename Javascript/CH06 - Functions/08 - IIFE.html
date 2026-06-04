@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - IIFE.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn what an IIFE is.
+    - Learn how to run a function immediately after creating it.
+    - Understand how IIFE can protect variables from the global scope.
+
+    IMPORTANT:
+    - IIFE means Immediately Invoked Function Expression.
+    - Syntax: (function() { ... })();
+    - It was common before modules became common.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - IIFE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>08 - IIFE</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      IIFE means Immediately Invoked Function Expression. It is a function that
+      runs immediately after it is created.
+    </p>
+
+    <p>
+      Common syntax: <code>(function() { ... })();</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showPageSetupMessage()">Show Setup Result</button>
+    <button onclick="tryAccessPrivateVariable()">Try Access Private Variable</button>
+    <button onclick="runArrowIIFE()">Run Arrow IIFE</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    let setupMessage = "";
+
+    /*
+      This is an IIFE.
+
+      The function is wrapped inside parentheses.
+      The final () calls the function immediately.
+    */
+    (function() {
+      const privateMessage = "This variable exists only inside the IIFE.";
+      setupMessage = "The IIFE already ran when the page loaded.";
+
+      console.log(privateMessage);
+    })();
+
+    function showPageSetupMessage() {
+      output.textContent = "";
+      print(setupMessage);
+    }
+
+    function tryAccessPrivateVariable() {
+      output.textContent = "";
+
+      /*
+        privateMessage was declared inside the IIFE.
+        It cannot be accessed here.
+
+        We use typeof so the page will not crash.
+      */
+      print("typeof privateMessage: " + typeof privateMessage);
+      print("Meaning: privateMessage is not available outside the IIFE.");
+    }
+
+    function runArrowIIFE() {
+      output.textContent = "";
+
+      /*
+        IIFE can also use arrow function syntax.
+      */
+      (() => {
+        const message = "This arrow IIFE runs immediately after you click.";
+        print(message);
+      })();
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

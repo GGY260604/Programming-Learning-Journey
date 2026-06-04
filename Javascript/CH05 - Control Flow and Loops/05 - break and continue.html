@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - break and continue.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn how break stops a loop.
+    - Learn how continue skips the current loop round.
+    - Understand common use cases for break and continue.
+
+    IMPORTANT:
+    - break exits the loop immediately.
+    - continue skips the remaining code in the current iteration.
+    - Use them carefully so the loop logic stays readable.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - break and continue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>05 - break and continue</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>break</code> and <code>continue</code> are loop control keywords.
+      They change the normal flow inside a loop.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="stopInput">Stop at number</label>
+        <input type="number" id="stopInput" value="5" min="1" max="10">
+      </div>
+
+      <div>
+        <label for="skipInput">Skip number</label>
+        <input type="number" id="skipInput" value="3" min="1" max="10">
+      </div>
+    </div>
+
+    <button onclick="showBreak()">Show break</button>
+    <button onclick="showContinue()">Show continue</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showBreak() {
+      output.textContent = "";
+
+      const stopAt = Number(document.getElementById("stopInput").value);
+
+      print("break example:");
+
+      for (let i = 1; i <= 10; i++) {
+        if (i === stopAt) {
+          print("Reached " + stopAt + ". break stops the loop now.");
+          break;
+        }
+
+        print("Number: " + i);
+      }
+
+      print("Loop ended.");
+    }
+
+    function showContinue() {
+      output.textContent = "";
+
+      const skipNumber = Number(document.getElementById("skipInput").value);
+
+      print("continue example:");
+
+      for (let i = 1; i <= 10; i++) {
+        if (i === skipNumber) {
+          print("Skipping " + skipNumber + " because continue is used.");
+
+          /*
+            continue jumps to the next loop round.
+            The print statement below will not run for this value of i.
+          */
+          continue;
+        }
+
+        print("Number: " + i);
+      }
+
+      print("Loop ended.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

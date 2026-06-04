@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Arrow Function.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn arrow function syntax.
+    - Learn short return syntax.
+    - Understand when arrow functions are commonly used.
+
+    IMPORTANT:
+    - Arrow functions use =>.
+    - They are often used for short functions and callbacks.
+    - Arrow functions handle this differently from normal functions.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Arrow Function</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>03 - Arrow Function</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      An arrow function is a shorter way to write a function expression.
+    </p>
+
+    <p>
+      Common syntax: <code>const name = () =&gt; { ... };</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="numberInput">Number</label>
+        <input type="number" id="numberInput" value="6">
+      </div>
+    </div>
+
+    <button onclick="showSquare()">Square Number</button>
+    <button onclick="showGreeting()">Show Greeting</button>
+    <button onclick="showArrowForms()">Show Arrow Forms</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    const print = (message) => {
+      output.textContent += message + "\n";
+    };
+
+    /*
+      Arrow function with one parameter and short return.
+
+      Because the body has only one expression, we can omit:
+      - curly braces {}
+      - return keyword
+    */
+    const square = number => number * number;
+
+    /*
+      Arrow function with no parameter.
+      Empty parentheses are required when there is no parameter.
+    */
+    const getGreeting = () => "Hello from an arrow function.";
+
+    /*
+      Arrow function with more than one parameter.
+      Parentheses are required when there are two or more parameters.
+    */
+    const add = (a, b) => a + b;
+
+    function showSquare() {
+      output.textContent = "";
+
+      const number = Number(document.getElementById("numberInput").value);
+      print("Number: " + number);
+      print("Square: " + square(number));
+    }
+
+    function showGreeting() {
+      output.textContent = "";
+      print(getGreeting());
+    }
+
+    function showArrowForms() {
+      output.textContent = "";
+      print("One parameter: number => number * number");
+      print("No parameter: () => 'Hello'");
+      print("Multiple parameters: (a, b) => a + b");
+      print("Example add(5, 8): " + add(5, 8));
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Number Basics and Methods.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn JavaScript number basics.
+    - Learn common number methods.
+    - Understand why floating point precision needs attention.
+
+    IMPORTANT:
+    - JavaScript has one main Number type for normal numbers.
+    - Number methods are useful for formatting and checking numbers.
+    - Input values are strings until converted.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Number Basics and Methods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>04 - Number Basics and Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      JavaScript numbers are used for integers and decimals. You can format numbers with methods such as
+      <code>toFixed()</code>, <code>toPrecision()</code>, and <code>toString()</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="numberInput">Enter a number</label>
+        <input type="number" id="numberInput" value="1234.5678" step="0.0001">
+      </div>
+
+      <div>
+        <label for="decimalInput">Decimal places for toFixed()</label>
+        <input type="number" id="decimalInput" value="2" min="0" max="20">
+      </div>
+    </div>
+
+    <button onclick="showNumberMethods()">Run Number Methods</button>
+    <button onclick="showFloatingPointIssue()">Show Floating Point Issue</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function showNumberMethods() {
+      const numberValue = Number(document.getElementById("numberInput").value);
+      const decimalPlaces = Number(document.getElementById("decimalInput").value);
+
+      /*
+        Number.isFinite() checks whether a value is a real finite number.
+        It rejects Infinity, -Infinity, and NaN.
+      */
+      const isFiniteNumber = Number.isFinite(numberValue);
+
+      /*
+        Number.isInteger() checks whether a number has no decimal part.
+      */
+      const isInteger = Number.isInteger(numberValue);
+
+      /*
+        toFixed() returns a string with a fixed number of decimal places.
+        It is commonly used for money formatting.
+      */
+      const fixed = numberValue.toFixed(decimalPlaces);
+
+      /*
+        toPrecision() returns a string with the specified total number of significant digits.
+      */
+      const precise = numberValue.toPrecision(5);
+
+      /*
+        toString() converts a number into a string.
+        It can also convert the number into another base, such as binary or hexadecimal.
+      */
+      const normalString = numberValue.toString();
+      const binaryString = Math.trunc(numberValue).toString(2);
+      const hexString = Math.trunc(numberValue).toString(16);
+
+      output.textContent =
+        `Original number: ${numberValue}\n` +
+        `Number.isFinite(): ${isFiniteNumber}\n` +
+        `Number.isInteger(): ${isInteger}\n` +
+        `toFixed(${decimalPlaces}): ${fixed}\n` +
+        `toPrecision(5): ${precise}\n` +
+        `toString(): ${normalString}\n` +
+        `Integer part in binary: ${binaryString}\n` +
+        `Integer part in hexadecimal: ${hexString}`;
+    }
+
+    function showFloatingPointIssue() {
+      /*
+        Some decimal calculations are not exact in binary floating point.
+        This is common in many programming languages, not only JavaScript.
+      */
+      const result = 0.1 + 0.2;
+
+      output.textContent =
+        `0.1 + 0.2 = ${result}\n` +
+        `Expected by humans: 0.3\n` +
+        `Fixed display: ${result.toFixed(2)}\n\n` +
+        `Meaning: use rounding/formatting carefully when showing money or decimal results.`;
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

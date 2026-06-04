@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Array Destructuring and Spread.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how array destructuring extracts values into variables.
+    - Learn how default values work in destructuring.
+    - Learn how spread creates copies and combines arrays.
+
+    IMPORTANT:
+    - Destructuring follows array position.
+    - The rest syntax can collect remaining items.
+    - Spread syntax can copy or combine arrays without changing the original arrays.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 09 - Array Destructuring and Spread</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>09 - Array Destructuring and Spread</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Destructuring and spread are modern JavaScript features that make array code shorter and cleaner.
+    </p>
+
+    <p>
+      Destructuring reads values from an array.
+      Spread expands array values into another place.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showBasicDestructuring()">Basic Destructuring</button>
+    <button onclick="showSkipAndDefault()">Skip and Default</button>
+    <button onclick="showRestSyntax()">Rest Syntax</button>
+    <button onclick="showSpreadCopy()">Spread Copy</button>
+    <button onclick="showSpreadCombine()">Spread Combine</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showBasicDestructuring() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      /*
+        Destructuring assigns array items into variables by position.
+      */
+      const [firstFruit, secondFruit] = fruits;
+
+      print("Basic destructuring:");
+      print("firstFruit = " + firstFruit);
+      print("secondFruit = " + secondFruit);
+      print("");
+    }
+
+    function showSkipAndDefault() {
+      const fruits = ["Apple", "Banana"];
+
+      /*
+        The empty comma skips an item.
+        The default value is used when the position is undefined.
+      */
+      const [firstFruit, , thirdFruit = "Mango"] = fruits;
+
+      print("Skip and default value:");
+      print("firstFruit = " + firstFruit);
+      print("thirdFruit = " + thirdFruit);
+      print("");
+    }
+
+    function showRestSyntax() {
+      const fruits = ["Apple", "Banana", "Orange", "Mango"];
+
+      /*
+        The rest syntax collects the remaining items into a new array.
+      */
+      const [firstFruit, ...otherFruits] = fruits;
+
+      print("Rest syntax in destructuring:");
+      print("firstFruit = " + firstFruit);
+      print("otherFruits = " + JSON.stringify(otherFruits));
+      print("");
+    }
+
+    function showSpreadCopy() {
+      const original = ["Apple", "Banana", "Orange"];
+
+      /*
+        Spread syntax can create a shallow copy of an array.
+      */
+      const copy = [...original];
+      copy.push("Mango");
+
+      print("Spread copy:");
+      print("Original: " + JSON.stringify(original));
+      print("Copy after push: " + JSON.stringify(copy));
+      print("");
+    }
+
+    function showSpreadCombine() {
+      const fruits = ["Apple", "Banana"];
+      const drinks = ["Tea", "Coffee"];
+
+      /*
+        Spread syntax can combine arrays.
+      */
+      const menu = [...fruits, ...drinks, "Cake"];
+
+      print("Spread combine:");
+      print("Menu: " + JSON.stringify(menu));
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

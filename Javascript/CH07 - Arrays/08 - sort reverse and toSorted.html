@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - sort reverse and toSorted.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how sort() changes the order of array items.
+    - Learn why numeric sorting needs a compare function.
+    - Learn the difference between mutating and non-mutating sorting.
+
+    IMPORTANT:
+    - sort() changes the original array.
+    - reverse() changes the original array.
+    - toSorted() returns a new sorted array in modern browsers.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 08 - sort reverse and toSorted</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>08 - sort reverse and toSorted</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Sorting is very useful, but JavaScript sorting has an important detail:
+      by default, <code>sort()</code> sorts values as strings.
+    </p>
+
+    <p>
+      For numbers, you usually provide a compare function such as
+      <code>(a, b) =&gt; a - b</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showDefaultSort()">Default sort()</button>
+    <button onclick="showNumberSort()">Number sort()</button>
+    <button onclick="showObjectSort()">Object sort()</button>
+    <button onclick="showReverse()">reverse()</button>
+    <button onclick="showToSorted()">toSorted()</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showDefaultSort() {
+      const numbers = [1, 20, 3, 100];
+
+      /*
+        Default sort converts items to strings.
+        This is why 100 can appear before 20.
+      */
+      numbers.sort();
+
+      print("Default sort() example:");
+      print(JSON.stringify(numbers));
+      print("Meaning: default sort is not suitable for normal number sorting.");
+      print("");
+    }
+
+    function showNumberSort() {
+      const numbers = [1, 20, 3, 100];
+
+      /*
+        a - b sorts numbers from small to large.
+        b - a sorts numbers from large to small.
+      */
+      numbers.sort(function (a, b) {
+        return a - b;
+      });
+
+      print("Number sort() example:");
+      print(JSON.stringify(numbers));
+      print("");
+    }
+
+    function showObjectSort() {
+      const students = [
+        { name: "Galen", mark: 85 },
+        { name: "Cleo", mark: 72 },
+        { name: "Alex", mark: 90 }
+      ];
+
+      students.sort(function (a, b) {
+        return b.mark - a.mark;
+      });
+
+      print("Object sort() example:");
+      print("Sorted by mark from high to low:");
+      print(JSON.stringify(students, null, 2));
+      print("");
+    }
+
+    function showReverse() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      /*
+        reverse() changes the original array.
+      */
+      fruits.reverse();
+
+      print("reverse() example:");
+      print(JSON.stringify(fruits));
+      print("");
+    }
+
+    function showToSorted() {
+      const numbers = [3, 1, 10, 2];
+
+      print("toSorted() example:");
+
+      if (typeof numbers.toSorted === "function") {
+        /*
+          toSorted() returns a new sorted array.
+          The original array is not changed.
+        */
+        const sortedNumbers = numbers.toSorted(function (a, b) {
+          return a - b;
+        });
+
+        print("Original: " + JSON.stringify(numbers));
+        print("Sorted copy: " + JSON.stringify(sortedNumbers));
+      } else {
+        /*
+          Older browsers may not support toSorted().
+          [...numbers].sort() is a common alternative.
+        */
+        const sortedNumbers = [...numbers].sort(function (a, b) {
+          return a - b;
+        });
+
+        print("Your browser does not support toSorted().");
+        print("Alternative using [...numbers].sort(): " + JSON.stringify(sortedNumbers));
+      }
+
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

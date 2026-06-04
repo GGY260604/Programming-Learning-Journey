@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Math Object.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn common Math object properties and methods.
+    - Use Math.round(), Math.floor(), Math.ceil(), Math.trunc(), Math.random(), Math.max(), and Math.min().
+
+    IMPORTANT:
+    - Math is a built-in object.
+    - You do not create Math using new Math().
+    - Math.random() returns a decimal from 0 up to but not including 1.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Math Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>06 - Math Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The <code>Math</code> object provides mathematical constants and methods.
+      It is commonly used for rounding, random numbers, powers, square roots, and min/max values.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Math Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="numberInput">Number</label>
+        <input type="number" id="numberInput" value="7.8" step="0.1">
+      </div>
+
+      <div>
+        <label for="minInput">Random min</label>
+        <input type="number" id="minInput" value="1">
+      </div>
+
+      <div>
+        <label for="maxInput">Random max</label>
+        <input type="number" id="maxInput" value="10">
+      </div>
+    </div>
+
+    <button onclick="showMathMethods()">Show Math Methods</button>
+    <button onclick="generateRandomInteger()">Generate Random Integer</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function showMathMethods() {
+      const numberValue = Number(document.getElementById("numberInput").value);
+
+      /*
+        Math.round() rounds to the nearest integer.
+        Math.floor() always rounds down.
+        Math.ceil() always rounds up.
+        Math.trunc() removes the decimal part.
+      */
+      const rounded = Math.round(numberValue);
+      const floored = Math.floor(numberValue);
+      const ceiled = Math.ceil(numberValue);
+      const truncated = Math.trunc(numberValue);
+
+      /*
+        Math.pow(base, exponent) calculates power.
+        The ** operator can also do this.
+      */
+      const powerResult = Math.pow(numberValue, 2);
+      const squareRoot = Math.sqrt(numberValue);
+
+      output.textContent =
+        `Number: ${numberValue}\n` +
+        `Math.round(): ${rounded}\n` +
+        `Math.floor(): ${floored}\n` +
+        `Math.ceil(): ${ceiled}\n` +
+        `Math.trunc(): ${truncated}\n` +
+        `Math.pow(number, 2): ${powerResult}\n` +
+        `number ** 2: ${numberValue ** 2}\n` +
+        `Math.sqrt(): ${squareRoot}\n` +
+        `Math.PI: ${Math.PI}\n` +
+        `Math.max(3, 8, 2): ${Math.max(3, 8, 2)}\n` +
+        `Math.min(3, 8, 2): ${Math.min(3, 8, 2)}`;
+    }
+
+    function generateRandomInteger() {
+      const min = Number(document.getElementById("minInput").value);
+      const max = Number(document.getElementById("maxInput").value);
+
+      /*
+        Math.random() returns a decimal from 0 to less than 1.
+
+        Formula for random integer from min to max:
+        Math.floor(Math.random() * (max - min + 1)) + min
+      */
+      const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      output.textContent =
+        `Random range: ${min} to ${max}\n` +
+        `Generated integer: ${randomInteger}`;
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

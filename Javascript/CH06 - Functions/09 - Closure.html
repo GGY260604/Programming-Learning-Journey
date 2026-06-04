@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Closure.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn what a closure is.
+    - Learn how an inner function can remember variables from an outer function.
+    - Build a small counter using closure.
+
+    IMPORTANT:
+    - A closure happens when a function remembers variables from its outer scope.
+    - The remembered variables can stay alive after the outer function has finished.
+    - Closures are useful for data hiding and reusable function factories.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Closure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>09 - Closure</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A closure happens when an inner function remembers variables from its outer
+      function, even after the outer function has finished running.
+    </p>
+
+    <p>
+      This is useful when you want to create private data, such as a counter value.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="increaseCounter()">Increase Counter</button>
+    <button onclick="decreaseCounter()">Decrease Counter</button>
+    <button onclick="showSeparateCounter()">Show Separate Counter</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      createCounter is an outer function.
+      count belongs to createCounter, so it is not global.
+    */
+    function createCounter(startValue = 0) {
+      let count = startValue;
+
+      /*
+        The returned object contains methods.
+        These methods are inner functions.
+
+        They can still access count because of closure.
+      */
+      return {
+        increase: function() {
+          count++;
+          return count;
+        },
+
+        decrease: function() {
+          count--;
+          return count;
+        },
+
+        getValue: function() {
+          return count;
+        }
+      };
+    }
+
+    const mainCounter = createCounter(0);
+    const secondCounter = createCounter(100);
+
+    function increaseCounter() {
+      output.textContent = "";
+      print("Main counter after increase: " + mainCounter.increase());
+      print("The count variable is remembered by the inner function.");
+    }
+
+    function decreaseCounter() {
+      output.textContent = "";
+      print("Main counter after decrease: " + mainCounter.decrease());
+    }
+
+    function showSeparateCounter() {
+      output.textContent = "";
+
+      print("Second counter original/current value: " + secondCounter.getValue());
+      print("Second counter after increase: " + secondCounter.increase());
+      print("Main counter current value: " + mainCounter.getValue());
+      print("Meaning: each createCounter() call gets its own private count.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

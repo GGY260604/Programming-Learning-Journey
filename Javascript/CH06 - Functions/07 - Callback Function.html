@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Callback Function.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn what a callback function is.
+    - Learn how to pass a function into another function.
+    - Understand why callbacks are common in JavaScript.
+
+    IMPORTANT:
+    - A callback is a function passed as an argument.
+    - The receiving function can call the callback later.
+    - Event handlers are common callback examples.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Callback Function</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>07 - Callback Function</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A callback is a function passed into another function as an argument.
+      The outer function can decide when to run the callback.
+    </p>
+
+    <p>
+      Common examples include event listeners, array methods, and asynchronous code.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="nameInput">Name</label>
+        <input type="text" id="nameInput" value="Galen">
+      </div>
+    </div>
+
+    <button onclick="processWithUppercase()">Process with Uppercase Callback</button>
+    <button onclick="processWithGreeting()">Process with Greeting Callback</button>
+    <button id="eventButton">Callback from addEventListener</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+    const eventButton = document.getElementById("eventButton");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      processName receives two arguments:
+      - name: normal text value
+      - callback: a function value
+
+      Inside processName, callback(name) calls the function that was passed in.
+    */
+    function processName(name, callback) {
+      const result = callback(name);
+      print("Original name: " + name);
+      print("Processed result: " + result);
+      print("");
+    }
+
+    function makeUppercase(text) {
+      return text.toUpperCase();
+    }
+
+    function makeGreeting(text) {
+      return "Hello, " + text + "!";
+    }
+
+    function getName() {
+      return document.getElementById("nameInput").value;
+    }
+
+    function processWithUppercase() {
+      output.textContent = "";
+      processName(getName(), makeUppercase);
+    }
+
+    function processWithGreeting() {
+      output.textContent = "";
+      processName(getName(), makeGreeting);
+    }
+
+    /*
+      addEventListener also receives a callback function.
+      The callback runs later when the button is clicked.
+    */
+    eventButton.addEventListener("click", function() {
+      print("This message comes from an event callback.");
+    });
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

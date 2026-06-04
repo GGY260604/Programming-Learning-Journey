@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Date Formatting.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn common ways to format dates.
+    - Learn toLocaleDateString(), toLocaleTimeString(), and Intl.DateTimeFormat.
+    - Create a custom date format manually.
+
+    IMPORTANT:
+    - Date storage and date display are different ideas.
+    - Use formatting methods when showing dates to users.
+    - Intl.DateTimeFormat gives more control over locale-based formatting.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Date Formatting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>08 - Date Formatting</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A <code>Date</code> object can be displayed in many formats. For real applications,
+      formatting is important because different countries read dates differently.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Formatting Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="dateInput">Choose date and time</label>
+        <input type="datetime-local" id="dateInput" value="2026-06-04T09:30">
+      </div>
+
+      <div>
+        <label for="localeInput">Locale</label>
+        <select id="localeInput">
+          <option value="en-MY">en-MY</option>
+          <option value="en-US">en-US</option>
+          <option value="en-GB">en-GB</option>
+          <option value="zh-CN">zh-CN</option>
+          <option value="ja-JP">ja-JP</option>
+        </select>
+      </div>
+    </div>
+
+    <button onclick="formatDate()">Format Date</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function addLeadingZero(value) {
+      /*
+        padStart(2, "0") ensures the string has at least 2 characters.
+        Example: "4" becomes "04".
+      */
+      return String(value).padStart(2, "0");
+    }
+
+    function formatDate() {
+      const dateText = document.getElementById("dateInput").value;
+      const locale = document.getElementById("localeInput").value;
+      const dateValue = new Date(dateText);
+
+      /*
+        Built-in formatting methods.
+        The exact output depends on the selected locale and browser.
+      */
+      const dateOnly = dateValue.toLocaleDateString(locale);
+      const timeOnly = dateValue.toLocaleTimeString(locale);
+      const dateAndTime = dateValue.toLocaleString(locale);
+
+      /*
+        Intl.DateTimeFormat gives more formatting control.
+      */
+      const formatter = new Intl.DateTimeFormat(locale, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      const formattedWithIntl = formatter.format(dateValue);
+
+      /*
+        Manual custom format: YYYY-MM-DD HH:mm
+        Remember: getMonth() starts from 0, so add 1.
+      */
+      const year = dateValue.getFullYear();
+      const month = addLeadingZero(dateValue.getMonth() + 1);
+      const day = addLeadingZero(dateValue.getDate());
+      const hour = addLeadingZero(dateValue.getHours());
+      const minute = addLeadingZero(dateValue.getMinutes());
+
+      const customFormat = `${year}-${month}-${day} ${hour}:${minute}`;
+
+      output.textContent =
+        `Selected locale: ${locale}\n` +
+        `Original Date object: ${dateValue}\n\n` +
+        `toLocaleDateString(): ${dateOnly}\n` +
+        `toLocaleTimeString(): ${timeOnly}\n` +
+        `toLocaleString(): ${dateAndTime}\n\n` +
+        `Intl.DateTimeFormat(): ${formattedWithIntl}\n` +
+        `Custom format: ${customFormat}`;
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

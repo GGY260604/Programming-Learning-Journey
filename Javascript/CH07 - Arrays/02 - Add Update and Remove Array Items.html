@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Add Update and Remove Array Items.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how to update an array item using its index.
+    - Learn how to add an item by assigning to a new index.
+    - Learn why delete is not usually recommended for arrays.
+
+    IMPORTANT:
+    - Changing array[index] updates the item at that position.
+    - Assigning array[array.length] adds a new item at the end.
+    - delete leaves an empty slot and does not reduce length.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 02 - Add Update and Remove Array Items</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>02 - Add Update and Remove Array Items</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Arrays are changeable. You can update, add, or remove values after the array is created.
+    </p>
+
+    <p>
+      However, not every removal style is recommended.
+      For example, <code>delete array[index]</code> removes the value but leaves an empty slot.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="updateItem()">Update Item</button>
+    <button onclick="addItemByIndex()">Add Item by Index</button>
+    <button onclick="deleteItemExample()">delete Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function updateItem() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("Before update: " + JSON.stringify(fruits));
+
+      /*
+        This changes the item at index 1.
+        Index 1 is the second item.
+      */
+      fruits[1] = "Mango";
+
+      print("After update: " + JSON.stringify(fruits));
+      print("");
+    }
+
+    function addItemByIndex() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("Before add: " + JSON.stringify(fruits));
+
+      /*
+        fruits.length returns the next available index.
+        If length is 3, the current indexes are 0, 1, and 2.
+        So fruits[3] adds a new item to the end.
+      */
+      fruits[fruits.length] = "Watermelon";
+
+      print("After add: " + JSON.stringify(fruits));
+      print("");
+    }
+
+    function deleteItemExample() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("Before delete: " + JSON.stringify(fruits));
+      print("Before delete length: " + fruits.length);
+
+      /*
+        delete removes the value, but it does not shift other items.
+        It also does not reduce the array length.
+      */
+      delete fruits[1];
+
+      print("After delete: " + JSON.stringify(fruits));
+      print("After delete length: " + fruits.length);
+      print("fruits[1] = " + fruits[1]);
+      print("Better removal methods will be taught in the next files.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

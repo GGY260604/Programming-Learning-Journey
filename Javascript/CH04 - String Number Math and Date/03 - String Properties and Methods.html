@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - String Properties and Methods.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn common string properties and methods.
+    - Understand methods that search, extract, replace, split, trim, and change letter case.
+
+    IMPORTANT:
+    - string.length is a property, not a method.
+    - Methods use parentheses, for example trim().
+    - Most string methods return a new string and do not modify the original string.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - String Properties and Methods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>03 - String Properties and Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      String methods help you process text. For example, you can search text, extract part of text,
+      replace text, split text into an array, and remove extra spaces.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <label for="sentenceInput">Enter a sentence</label>
+    <textarea id="sentenceInput">  JavaScript is useful for web development. JavaScript can change HTML.  </textarea>
+
+    <div class="demo-grid">
+      <div>
+        <label for="searchInput">Search word</label>
+        <input type="text" id="searchInput" value="JavaScript">
+      </div>
+
+      <div>
+        <label for="replaceInput">Replace with</label>
+        <input type="text" id="replaceInput" value="JS">
+      </div>
+    </div>
+
+    <button onclick="showStringMethods()">Run String Methods</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function showStringMethods() {
+      const sentence = document.getElementById("sentenceInput").value;
+      const searchWord = document.getElementById("searchInput").value;
+      const replacement = document.getElementById("replaceInput").value;
+
+      /*
+        length is a property.
+        It tells how many characters are inside the string.
+      */
+      const lengthResult = sentence.length;
+
+      /*
+        trim() removes spaces from the beginning and end of the string.
+      */
+      const trimmed = sentence.trim();
+
+      /*
+        includes() checks whether the string contains another string.
+        It returns true or false.
+      */
+      const hasSearchWord = sentence.includes(searchWord);
+
+      /*
+        indexOf() returns the first position of the searched text.
+        If not found, it returns -1.
+      */
+      const firstIndex = sentence.indexOf(searchWord);
+
+      /*
+        slice(start, end) extracts part of the string.
+        The end position is not included.
+      */
+      const firstTenCharacters = trimmed.slice(0, 10);
+
+      /*
+        replace() replaces the first matching text only.
+        replaceAll() replaces all matching text.
+      */
+      const replaceFirst = sentence.replace(searchWord, replacement);
+      const replaceEvery = sentence.replaceAll(searchWord, replacement);
+
+      /*
+        split() breaks a string into an array.
+        Here, we split by spaces.
+      */
+      const words = trimmed.split(" ");
+
+      output.textContent =
+        `Original: [${sentence}]\n` +
+        `Length: ${lengthResult}\n` +
+        `Trimmed: [${trimmed}]\n` +
+        `Uppercase: ${trimmed.toUpperCase()}\n` +
+        `Lowercase: ${trimmed.toLowerCase()}\n` +
+        `Includes "${searchWord}": ${hasSearchWord}\n` +
+        `First index of "${searchWord}": ${firstIndex}\n` +
+        `First 10 characters after trim: ${firstTenCharacters}\n` +
+        `replace(): ${replaceFirst}\n` +
+        `replaceAll(): ${replaceEvery}\n` +
+        `split(" "): ${JSON.stringify(words)}`;
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

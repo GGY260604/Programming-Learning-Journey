@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Function Expression.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn how to store a function inside a variable.
+    - Learn the difference between a named function declaration and a function expression.
+    - Learn that function expressions are commonly used as values.
+
+    IMPORTANT:
+    - A function expression can be assigned to const or let.
+    - Function expressions are not called by the original function keyword.
+    - You call them using the variable name.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Function Expression</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>02 - Function Expression</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A function expression stores a function as a value inside a variable.
+    </p>
+
+    <p>
+      Common syntax: <code>const name = function() { ... };</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="priceInput">Price</label>
+        <input type="number" id="priceInput" value="25">
+      </div>
+
+      <div>
+        <label for="quantityInput">Quantity</label>
+        <input type="number" id="quantityInput" value="3">
+      </div>
+    </div>
+
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <button onclick="showFunctionType()">Show Function Type</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      This is a function expression.
+
+      The function is stored inside the const variable named getTotal.
+      To run this function, call getTotal().
+    */
+    const getTotal = function(price, quantity) {
+      return price * quantity;
+    };
+
+    function calculateTotal() {
+      output.textContent = "";
+
+      const price = Number(document.getElementById("priceInput").value);
+      const quantity = Number(document.getElementById("quantityInput").value);
+      const total = getTotal(price, quantity);
+
+      print("Price: " + price);
+      print("Quantity: " + quantity);
+      print("Total: RM " + total.toFixed(2));
+    }
+
+    function showFunctionType() {
+      output.textContent = "";
+
+      /*
+        A function is also a value in JavaScript.
+        typeof returns "function" for a function value.
+      */
+      print("typeof getTotal: " + typeof getTotal);
+      print("Meaning: getTotal stores a function value.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Array Creation and Access.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn different ways to create arrays.
+    - Learn how to access items using index numbers.
+    - Learn useful array properties such as length.
+
+    IMPORTANT:
+    - Array index starts from 0.
+    - The length property returns the number of slots in an array.
+    - Array.isArray() is safer than typeof for checking arrays.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 01 - Array Creation and Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>01 - Array Creation and Access</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      An array is used to store multiple values in one variable.
+      Each value is called an item or element.
+    </p>
+
+    <p>
+      Array index starts from <code>0</code>, so the first item is
+      <code>array[0]</code>, the second item is <code>array[1]</code>, and so on.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showArrayCreation()">Show Array Creation</button>
+    <button onclick="showArrayAccess()">Show Array Access</button>
+    <button onclick="showArrayCheck()">Check Array Type</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showArrayCreation() {
+      /*
+        The most common way to create an array is using square brackets [].
+      */
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      /*
+        An array can store different data types, but in real projects,
+        keeping the same kind of data is usually cleaner.
+      */
+      const mixedValues = ["Galen", 18, true, null];
+
+      /*
+        new Array() also works, but [] is usually preferred.
+      */
+      const numbers = new Array(10, 20, 30);
+
+      print("Array creation:");
+      print("fruits = " + JSON.stringify(fruits));
+      print("mixedValues = " + JSON.stringify(mixedValues));
+      print("numbers = " + JSON.stringify(numbers));
+      print("");
+    }
+
+    function showArrayAccess() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("Array access:");
+      print("fruits[0] = " + fruits[0]);
+      print("fruits[1] = " + fruits[1]);
+      print("fruits[2] = " + fruits[2]);
+
+      /*
+        length is a property, not a method.
+        Therefore, we write fruits.length, not fruits.length().
+      */
+      print("fruits.length = " + fruits.length);
+
+      /*
+        at() can read from the front or from the back.
+        -1 means the last item.
+      */
+      print("fruits.at(-1) = " + fruits.at(-1));
+      print("");
+    }
+
+    function showArrayCheck() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("Checking array type:");
+      print("typeof fruits = " + typeof fruits);
+      print("Array.isArray(fruits) = " + Array.isArray(fruits));
+      print("Meaning: arrays are objects, so typeof returns object.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - push pop shift unshift.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn four common methods for adding and removing array items.
+    - Understand which methods work at the beginning or end of an array.
+    - Understand what each method returns.
+
+    IMPORTANT:
+    - push() adds item to the end and returns the new length.
+    - pop() removes item from the end and returns the removed item.
+    - unshift() adds item to the beginning and returns the new length.
+    - shift() removes item from the beginning and returns the removed item.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 03 - push pop shift unshift</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>03 - push pop shift unshift</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      These four methods are commonly used to manage array items.
+    </p>
+
+    <ul>
+      <li><code>push()</code> adds to the end.</li>
+      <li><code>pop()</code> removes from the end.</li>
+      <li><code>unshift()</code> adds to the beginning.</li>
+      <li><code>shift()</code> removes from the beginning.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runPush()">push()</button>
+    <button onclick="runPop()">pop()</button>
+    <button onclick="runUnshift()">unshift()</button>
+    <button onclick="runShift()">shift()</button>
+    <button onclick="resetFruits()">Reset Array</button>
+
+    <div class="demo-box">
+      <strong>Current Array:</strong>
+      <span id="arrayView"></span>
+    </div>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const arrayView = document.getElementById("arrayView");
+
+    let fruits = ["Apple", "Banana", "Orange"];
+
+    function updateArrayView() {
+      arrayView.textContent = JSON.stringify(fruits);
+    }
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function runPush() {
+      /*
+        push() adds one or more items to the end.
+        It returns the new array length.
+      */
+      const newLength = fruits.push("Mango");
+
+      print("push('Mango') returned: " + newLength);
+      updateArrayView();
+    }
+
+    function runPop() {
+      /*
+        pop() removes the last item.
+        It returns the removed item.
+      */
+      const removedItem = fruits.pop();
+
+      print("pop() returned: " + removedItem);
+      updateArrayView();
+    }
+
+    function runUnshift() {
+      /*
+        unshift() adds one or more items to the beginning.
+        It returns the new array length.
+      */
+      const newLength = fruits.unshift("Grape");
+
+      print("unshift('Grape') returned: " + newLength);
+      updateArrayView();
+    }
+
+    function runShift() {
+      /*
+        shift() removes the first item.
+        It returns the removed item.
+      */
+      const removedItem = fruits.shift();
+
+      print("shift() returned: " + removedItem);
+      updateArrayView();
+    }
+
+    function resetFruits() {
+      fruits = ["Apple", "Banana", "Orange"];
+      outputBox.textContent = "";
+      updateArrayView();
+    }
+
+    updateArrayView();
+  </script>
+</body>
+</html>

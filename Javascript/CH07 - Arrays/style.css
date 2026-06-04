@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.section {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.demo-box {
+  background-color: #fafafa;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.output {
+  background-color: #222;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-line;
+  min-height: 90px;
+  margin-top: 12px;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+}
+
+input,
+select {
+  padding: 8px;
+  margin: 4px 4px 4px 0;
+}
+
+code {
+  background-color: #eeeeee;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.note {
+  background-color: #fff8d8;
+  border-left: 5px solid #d6a600;
+  padding: 10px;
+  margin-top: 12px;
+}

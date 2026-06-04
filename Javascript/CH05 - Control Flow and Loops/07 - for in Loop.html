@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - for in Loop.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn how for...in loops through object property names.
+    - Access object values using bracket notation.
+    - Understand why for...in is usually for objects, not arrays.
+
+    IMPORTANT:
+    - for...in gives you the key or property name.
+    - Use object[key] when the property name is stored in a variable.
+    - For arrays, for...of is usually better than for...in.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - for in Loop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>07 - for...in Loop</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>for...in</code> loops through the property names of an object.
+      It is useful when you want to inspect all keys in an object.
+    </p>
+
+    <p class="note">
+      For arrays, use <code>for...of</code> if you want values.
+      Use <code>for...in</code> mainly for object properties.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="loopObjectProperties()">Loop Object Properties</button>
+    <button onclick="compareForInAndForOf()">Compare with for...of</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function loopObjectProperties() {
+      output.textContent = "";
+
+      const student = {
+        name: "Galen",
+        course: "Software Engineering",
+        year: 1,
+        active: true
+      };
+
+      print("Object properties:");
+
+      /*
+        key receives the property name.
+        First key is "name", then "course", then "year", then "active".
+      */
+      for (const key in student) {
+        /*
+          Dot notation cannot be used here as student.key.
+          student.key means a property literally named "key".
+
+          Because key is a variable, we use bracket notation: student[key].
+        */
+        print(key + ": " + student[key]);
+      }
+    }
+
+    function compareForInAndForOf() {
+      output.textContent = "";
+
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("for...in with array gives indexes:");
+      for (const index in fruits) {
+        print(index);
+      }
+
+      print("");
+      print("for...of with array gives values:");
+      for (const fruit of fruits) {
+        print(fruit);
+      }
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - String Basics.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn how to create strings.
+    - Learn the difference between single quotes, double quotes, and backticks.
+    - Learn how to access string characters.
+
+    IMPORTANT:
+    - A string is text data.
+    - JavaScript string index starts from 0.
+    - Strings are immutable, meaning you cannot directly change one character inside the original string.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - String Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>01 - String Basics</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A string is used to store text such as a name, sentence, email, message, or code.
+    </p>
+
+    <p>
+      JavaScript strings can be written with <code>'single quotes'</code>,
+      <code>"double quotes"</code>, or <code>`backticks`</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="wordInput">Enter a word</label>
+        <input type="text" id="wordInput" value="JavaScript">
+      </div>
+
+      <div>
+        <label for="indexInput">Character index</label>
+        <input type="number" id="indexInput" value="0" min="0">
+      </div>
+    </div>
+
+    <button onclick="showStringBasics()">Show String Details</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showStringBasics() {
+      output.textContent = "";
+
+      /*
+        The value property reads the text entered by the user.
+        Because input values are always read as strings, word is a string.
+      */
+      const word = document.getElementById("wordInput").value;
+
+      /*
+        Number() converts the input value from string to number.
+        We use it here because string indexes must be numeric positions.
+      */
+      const index = Number(document.getElementById("indexInput").value);
+
+      /*
+        Three common ways to create strings.
+        All of them create string values.
+
+        Note: backticks allow for string interpolation and multi-line strings, which can be very useful.
+      */
+      const singleQuote = 'Created with single quotes';
+      const doubleQuote = "Created with double quotes";
+      const backtick = `Created with backticks`;
+
+      print("Your string: " + word);
+      print("Length: " + word.length);
+      print("First character: " + word[0]);
+      print("Character at index " + index + ": " + word[index]);
+      print("");
+
+      print(singleQuote);
+      print(doubleQuote);
+      print(backtick);
+      print("");
+
+      /*
+        Strings are immutable.
+        This line does not change the first character of word.
+      */
+      word[0] = "X";
+
+      print("After trying word[0] = 'X': " + word);
+      print("Meaning: string characters cannot be changed directly.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

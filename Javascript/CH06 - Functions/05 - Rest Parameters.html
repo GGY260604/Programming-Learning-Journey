@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Rest Parameters.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn how to accept many arguments using rest parameters.
+    - Learn that rest parameters collect arguments into an array.
+    - Learn the difference between normal parameters and rest parameters.
+
+    IMPORTANT:
+    - Rest parameter syntax uses three dots: ...name
+    - A rest parameter must be the last parameter.
+    - The collected value behaves like an array.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Rest Parameters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>05 - Rest Parameters</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Rest parameters allow a function to receive any number of arguments.
+      The arguments are collected into an array.
+    </p>
+
+    <p>
+      Syntax: <code>function example(...items) { ... }</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="numbersInput">Numbers separated by comma</label>
+        <input type="text" id="numbersInput" value="10, 20, 30, 40">
+      </div>
+    </div>
+
+    <button onclick="showSum()">Sum Numbers</button>
+    <button onclick="showOrderExample()">Show First Item and Others</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      ...numbers is a rest parameter.
+      It collects all passed arguments into an array named numbers.
+    */
+    function sumNumbers(...numbers) {
+      let total = 0;
+
+      for (const number of numbers) {
+        total += number;
+      }
+
+      return total;
+    }
+
+    /*
+      A normal parameter can appear before a rest parameter.
+      The rest parameter must be the final parameter.
+    */
+    function describeItems(firstItem, ...otherItems) {
+      print("First item: " + firstItem);
+      print("Other items: " + otherItems.join(", "));
+      print("Other items count: " + otherItems.length);
+    }
+
+    function getNumberArray() {
+      const rawText = document.getElementById("numbersInput").value;
+
+      /*
+        split(",") creates an array of text values.
+        map(Number) converts each text value into a number.
+      */
+      return rawText.split(",").map(Number);
+    }
+
+    function showSum() {
+      output.textContent = "";
+
+      const numbers = getNumberArray();
+
+      /*
+        The spread operator ... sends array items as separate arguments.
+        Example: sumNumbers(...[10, 20]) becomes sumNumbers(10, 20)
+      */
+      print("Numbers: " + numbers.join(", "));
+      print("Total: " + sumNumbers(...numbers));
+    }
+
+    function showOrderExample() {
+      output.textContent = "";
+      describeItems("Laptop", "Mouse", "Keyboard", "Monitor");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

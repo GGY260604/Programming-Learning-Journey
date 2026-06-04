@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Parameters Arguments and Default Values.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn the difference between parameters and arguments.
+    - Learn how to pass values into a function.
+    - Learn how default parameters work.
+
+    IMPORTANT:
+    - Parameters are variable names written in the function definition.
+    - Arguments are actual values passed when calling the function.
+    - Default values are used when an argument is missing.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Parameters Arguments and Default Values</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>04 - Parameters Arguments and Default Values</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Parameters allow a function to receive outside values.
+      Arguments are the actual values given to the function when you call it.
+    </p>
+
+    <p>
+      Default parameter syntax: <code>function greet(name = "Guest")</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="nameInput">Name</label>
+        <input type="text" id="nameInput" placeholder="Leave empty to use Guest">
+      </div>
+
+      <div>
+        <label for="courseInput">Course</label>
+        <input type="text" id="courseInput" value="JavaScript">
+      </div>
+    </div>
+
+    <button onclick="showGreeting()">Create Greeting</button>
+    <button onclick="showParameterMeaning()">Explain Parameter vs Argument</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      name and course are parameters.
+      They are placeholders that receive values.
+
+      If no value is provided for name, JavaScript uses "Guest".
+      If no value is provided for course, JavaScript uses "JavaScript".
+    */
+    function createGreeting(name = "Guest", course = "JavaScript") {
+      return "Hello " + name + ", welcome to " + course + ".";
+    }
+
+    function showGreeting() {
+      output.textContent = "";
+
+      const nameValue = document.getElementById("nameInput").value;
+      const courseValue = document.getElementById("courseInput").value;
+
+      /*
+        nameValue and courseValue are arguments.
+        They are the actual values sent into createGreeting().
+
+        The || operator below gives an empty string a fallback value of undefined,
+        so the function can use its default parameter.
+      */
+      const message = createGreeting(nameValue || undefined, courseValue || undefined);
+      print(message);
+    }
+
+    function showParameterMeaning() {
+      output.textContent = "";
+
+      print("Function definition: createGreeting(name, course)");
+      print("Parameters: name, course");
+      print("Function call: createGreeting('Galen', 'JavaScript')");
+      print("Arguments: 'Galen', 'JavaScript'");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

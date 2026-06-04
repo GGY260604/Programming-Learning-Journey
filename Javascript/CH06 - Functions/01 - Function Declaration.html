@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Function Declaration.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn how to create a function using function declaration syntax.
+    - Learn how to call a function by using its name followed by parentheses.
+    - Learn that a function declaration can be called before it is written in the code.
+
+    IMPORTANT:
+    - A function groups reusable code.
+    - Function declaration syntax starts with the function keyword.
+    - The function body is written inside curly braces.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Function Declaration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>01 - Function Declaration</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A function declaration creates a named function. You can reuse the same
+      block of code by calling the function name.
+    </p>
+
+    <p>
+      Basic syntax: <code>function functionName() { ... }</code>
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showWelcomeMessage()">Show Welcome Message</button>
+    <button onclick="showTodayTask()">Show Today Task</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    /*
+      This is a function declaration.
+
+      Parts:
+      - function: keyword used to create a function
+      - showWelcomeMessage: function name
+      - (): parentheses for parameters
+      - {}: function body
+    */
+    function showWelcomeMessage() {
+      print("Welcome to JavaScript functions.");
+      print("This message comes from showWelcomeMessage().");
+      print("");
+    }
+
+    /*
+      Another function declaration.
+      The function does not run automatically.
+      It only runs when it is called.
+    */
+    function showTodayTask() {
+      print("Today's task: learn how to group code inside a function.");
+      print("A function helps avoid writing the same code many times.");
+      print("");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

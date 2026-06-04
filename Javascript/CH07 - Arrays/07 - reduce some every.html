@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - reduce some every.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how reduce() combines array items into one result.
+    - Learn how some() checks whether at least one item passes a condition.
+    - Learn how every() checks whether all items pass a condition.
+
+    IMPORTANT:
+    - reduce() is useful for totals, summaries, and grouped results.
+    - some() returns true if at least one item matches.
+    - every() returns true only if all items match.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 07 - reduce some every</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>07 - reduce some every</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      These methods are useful when you want to summarize or test an array.
+    </p>
+
+    <p>
+      <code>reduce()</code> produces one final result.
+      <code>some()</code> and <code>every()</code> produce Boolean values.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showReduceTotal()">reduce() Total</button>
+    <button onclick="showReduceObject()">reduce() Object</button>
+    <button onclick="showSome()">some()</button>
+    <button onclick="showEvery()">every()</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showReduceTotal() {
+      const prices = [5, 8, 10];
+
+      /*
+        reduce() has an accumulator and current item.
+        The accumulator stores the result from previous steps.
+        0 is the initial value of total.
+      */
+      const total = prices.reduce(function (total, price) {
+        return total + price;
+      }, 0);
+
+      print("reduce() total example:");
+      print("Prices: " + JSON.stringify(prices));
+      print("Total: " + total);
+      print("");
+    }
+
+    function showReduceObject() {
+      const orders = [
+        { type: "Food", amount: 12 },
+        { type: "Drink", amount: 5 },
+        { type: "Food", amount: 8 }
+      ];
+
+      /*
+        reduce() can also create an object summary.
+      */
+      const summary = orders.reduce(function (result, order) {
+        if (result[order.type] === undefined) {
+          result[order.type] = 0;
+        }
+
+        result[order.type] += order.amount;
+        return result;
+      }, {});
+
+      print("reduce() object summary example:");
+      print(JSON.stringify(summary, null, 2));
+      print("");
+    }
+
+    function showSome() {
+      const marks = [66, 72, 91, 58];
+
+      const hasExcellentMark = marks.some(function (mark) {
+        return mark >= 90;
+      });
+
+      print("some() example:");
+      print("Marks: " + JSON.stringify(marks));
+      print("At least one mark >= 90? " + hasExcellentMark);
+      print("");
+    }
+
+    function showEvery() {
+      const marks = [66, 72, 91, 58];
+
+      const allPassed = marks.every(function (mark) {
+        return mark >= 50;
+      });
+
+      print("every() example:");
+      print("Marks: " + JSON.stringify(marks));
+      print("All marks >= 50? " + allPassed);
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

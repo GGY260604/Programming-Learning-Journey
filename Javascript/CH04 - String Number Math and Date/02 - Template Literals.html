@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Template Literals.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn template literals using backticks.
+    - Insert variables inside strings using ${}.
+    - Create multi-line strings without manually adding \n.
+
+    IMPORTANT:
+    - Template literals use backticks: ` `
+    - ${expression} can insert variables, calculations, or function results.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Template Literals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>02 - Template Literals</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Template literals make string building easier, especially when the string contains variables or multiple lines.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Receipt Generator</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="itemInput">Item name</label>
+        <input type="text" id="itemInput" value="Notebook">
+      </div>
+
+      <div>
+        <label for="priceInput">Price</label>
+        <input type="number" id="priceInput" value="4.50" step="0.01">
+      </div>
+
+      <div>
+        <label for="quantityInput">Quantity</label>
+        <input type="number" id="quantityInput" value="3" min="1">
+      </div>
+    </div>
+
+    <button onclick="generateReceipt()">Generate Receipt</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function generateReceipt() {
+      const item = document.getElementById("itemInput").value;
+      const price = Number(document.getElementById("priceInput").value);
+      const quantity = Number(document.getElementById("quantityInput").value);
+
+      /*
+        Normal string concatenation can become long and harder to read.
+      */
+      const normalString = "Item: " + item + ", Price: RM" + price + ", Quantity: " + quantity;
+
+      /*
+        Template literal uses backticks.
+        ${item} inserts the value of the item variable into the string.
+        ${price * quantity} inserts the result of an expression.
+      */
+      const templateString = `Item: ${item}, Price: RM${price}, Quantity: ${quantity}`;
+
+      /*
+        Template literals can also keep line breaks directly.
+        This is useful for messages, receipts, and formatted output.
+      */
+      const receipt = `Receipt
+--------------------
+Item: ${item}
+Price: RM${price.toFixed(2)}
+Quantity: ${quantity}
+Total: RM${(price * quantity).toFixed(2)}`;
+
+      output.textContent =
+        "Normal string concatenation:\n" +
+        normalString +
+        "\n\nTemplate literal:\n" +
+        templateString +
+        "\n\nMulti-line template literal:\n" +
+        receipt;
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

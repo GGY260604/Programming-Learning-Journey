@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Date Object.html
+    TOPIC: CH04 - String Number Math and Date
+
+    GOAL:
+    - Learn how to create Date objects.
+    - Learn common Date get methods.
+    - Understand that JavaScript months start from 0 when using the numeric constructor.
+
+    IMPORTANT:
+    - new Date() creates a Date object for the current date and time.
+    - getMonth() returns 0 for January and 11 for December.
+    - Date stores a point in time, but display depends on timezone and formatting.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH04 - Date Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH04 - String Number Math and Date</h1>
+  <h2>07 - Date Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The <code>Date</code> object is used to work with date and time in JavaScript.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Date Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="dateInput">Choose a date</label>
+        <input type="date" id="dateInput" value="2026-06-04">
+      </div>
+
+      <div>
+        <label for="timeInput">Choose a time</label>
+        <input type="time" id="timeInput" value="09:30">
+      </div>
+    </div>
+
+    <button onclick="showCurrentDate()">Show Current Date</button>
+    <button onclick="showSelectedDate()">Show Selected Date</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function describeDate(dateValue) {
+      /*
+        getFullYear() returns the year, such as 2026.
+        getMonth() returns 0 to 11, so add 1 when displaying to humans.
+        getDate() returns the day of the month.
+        getDay() returns the day of the week: 0 is Sunday, 6 is Saturday.
+      */
+      return (
+        `Date object: ${dateValue}\n` +
+        `Year: ${dateValue.getFullYear()}\n` +
+        `Month index from getMonth(): ${dateValue.getMonth()}\n` +
+        `Human month number: ${dateValue.getMonth() + 1}\n` +
+        `Day of month: ${dateValue.getDate()}\n` +
+        `Day of week index: ${dateValue.getDay()}\n` +
+        `Hours: ${dateValue.getHours()}\n` +
+        `Minutes: ${dateValue.getMinutes()}\n` +
+        `Seconds: ${dateValue.getSeconds()}\n` +
+        `Timestamp in milliseconds: ${dateValue.getTime()}`
+      );
+    }
+
+    function showCurrentDate() {
+      /*
+        new Date() without arguments creates a Date object for the current date and time.
+      */
+      const now = new Date();
+      output.textContent = describeDate(now);
+    }
+
+    function showSelectedDate() {
+      const dateText = document.getElementById("dateInput").value;
+      const timeText = document.getElementById("timeInput").value;
+
+      /*
+        Combining date and time input values creates a string like:
+        2026-06-04T09:30
+      */
+      const selectedDate = new Date(`${dateText}T${timeText}`);
+
+      output.textContent = describeDate(selectedDate);
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

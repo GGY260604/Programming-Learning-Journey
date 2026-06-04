@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - switch.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn how to use switch for multiple fixed choices.
+    - Learn case, break, and default.
+    - Understand when switch is clearer than many else-if conditions.
+
+    IMPORTANT:
+    - switch compares the selected value with each case.
+    - break stops JavaScript from continuing into the next case.
+    - default runs when no case matches.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - switch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>02 - switch</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A <code>switch</code> statement is useful when one value needs to be compared
+      against many fixed possibilities.
+    </p>
+
+    <p>
+      For example, a menu choice, day name, user role, or command can be handled
+      clearly using <code>switch</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="roleSelect">Select a user role</label>
+        <select id="roleSelect">
+          <option value="admin">admin</option>
+          <option value="cashier">cashier</option>
+          <option value="customer">customer</option>
+          <option value="guest">guest</option>
+        </select>
+      </div>
+    </div>
+
+    <button onclick="checkPermission()">Check Permission</button>
+    <button onclick="showBreakExample()">Show break Explanation</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function checkPermission() {
+      output.textContent = "";
+
+      const role = document.getElementById("roleSelect").value;
+      let permission = "";
+
+      /*
+        switch checks the value of role.
+        Each case is compared using strict comparison behavior.
+      */
+      switch (role) {
+        case "admin":
+          permission = "Can manage users, products, and reports.";
+          break;
+
+        case "cashier":
+          permission = "Can view orders and process payments.";
+          break;
+
+        case "customer":
+          permission = "Can browse menu and place orders.";
+          break;
+
+        default:
+          permission = "No special permission.";
+      }
+
+      print("Selected role: " + role);
+      print("Permission: " + permission);
+    }
+
+    function showBreakExample() {
+      output.textContent = "";
+
+      print("The break keyword is important inside switch.");
+      print("Without break, JavaScript may continue running the next case.");
+      print("This behavior is called fall-through.");
+      print("Fall-through can be useful sometimes, but beginners should use break unless they intentionally want it.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

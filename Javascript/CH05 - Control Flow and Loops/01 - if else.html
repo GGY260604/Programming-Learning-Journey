@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - if else.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn how to run different code based on a condition.
+    - Learn if, else if, and else.
+    - Learn how comparison operators are commonly used inside conditions.
+
+    IMPORTANT:
+    - if runs when the condition is true.
+    - else if checks another condition when the previous condition is false.
+    - else runs when all previous conditions are false.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - if else</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>01 - if, else if, and else</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Control flow means controlling which part of the program should run.
+      The most common control flow statement is <code>if</code>.
+    </p>
+
+    <p>
+      Use <code>if</code> when you want JavaScript to make a decision.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="markInput">Enter a mark</label>
+        <input type="number" id="markInput" value="75" min="0" max="100">
+      </div>
+    </div>
+
+    <button onclick="checkGrade()">Check Grade</button>
+    <button onclick="checkPassFail()">Check Pass or Fail</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function getMark() {
+      /*
+        Input values are read as strings by default.
+        Number() converts the value into a number so comparison works properly.
+      */
+      return Number(document.getElementById("markInput").value);
+    }
+
+    function checkGrade() {
+      output.textContent = "";
+
+      const mark = getMark();
+      let grade = "";
+
+      /*
+        The conditions are checked from top to bottom.
+        Once one condition is true, the rest of the else-if chain is skipped.
+      */
+      if (mark >= 80) {
+        grade = "A";
+      } else if (mark >= 70) {
+        grade = "B";
+      } else if (mark >= 60) {
+        grade = "C";
+      } else if (mark >= 50) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+
+      print("Mark: " + mark);
+      print("Grade: " + grade);
+      print("Meaning: only one branch from this if-else chain runs.");
+    }
+
+    function checkPassFail() {
+      output.textContent = "";
+
+      const mark = getMark();
+
+      /*
+        This is a simple if-else decision.
+        There are only two possible paths: pass or fail.
+      */
+      if (mark >= 50) {
+        print("Result: Pass");
+      } else {
+        print("Result: Fail");
+      }
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

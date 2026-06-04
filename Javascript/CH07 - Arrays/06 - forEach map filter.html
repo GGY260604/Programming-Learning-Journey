@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - forEach map filter.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how forEach() is used to run code for every item.
+    - Learn how map() creates a new transformed array.
+    - Learn how filter() creates a new array with matching items only.
+
+    IMPORTANT:
+    - forEach() is for doing an action and does not create a new array.
+    - map() transforms every item and returns a new array.
+    - filter() keeps only items that pass a condition.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 06 - forEach map filter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>06 - forEach map filter</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      These methods are very common in modern JavaScript.
+      They all use callback functions.
+    </p>
+
+    <p>
+      The main difference is the purpose:
+      <code>forEach()</code> performs an action,
+      <code>map()</code> transforms data, and
+      <code>filter()</code> selects data.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showForEach()">forEach()</button>
+    <button onclick="showMap()">map()</button>
+    <button onclick="showFilter()">filter()</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showForEach() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("forEach() example:");
+
+      /*
+        forEach() runs the callback once for each item.
+        It is useful when you want to display, print, or perform an action.
+      */
+      fruits.forEach(function (fruit, index) {
+        print(index + ": " + fruit);
+      });
+
+      print("");
+    }
+
+    function showMap() {
+      const prices = [5, 8, 10];
+
+      /*
+        map() creates a new array.
+        Each item in the new array comes from the returned value.
+      */
+      const pricesWithTax = prices.map(function (price) {
+        return price * 1.06;
+      });
+
+      print("map() example:");
+      print("Original prices: " + JSON.stringify(prices));
+      print("Prices with 6% tax: " + JSON.stringify(pricesWithTax));
+      print("");
+    }
+
+    function showFilter() {
+      const students = [
+        { name: "Galen", mark: 85 },
+        { name: "Cleo", mark: 72 },
+        { name: "Alex", mark: 90 }
+      ];
+
+      /*
+        filter() returns a new array.
+        Only items that return true are kept.
+      */
+      const highScorers = students.filter(function (student) {
+        return student.mark >= 80;
+      });
+
+      print("filter() example:");
+      print("Students with mark >= 80:");
+      print(JSON.stringify(highScorers, null, 2));
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

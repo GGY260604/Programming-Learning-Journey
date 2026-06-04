@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - for Loop.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn the standard for loop syntax.
+    - Learn initialization, condition, and update expression.
+    - Use a for loop to repeat code a known number of times.
+
+    IMPORTANT:
+    - A for loop is commonly used when the number of repetitions is known.
+    - The counter usually starts from 0 or 1.
+    - The condition decides when the loop should stop.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - for Loop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>03 - for Loop</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A <code>for</code> loop repeats a block of code while a condition is true.
+    </p>
+
+    <p>
+      The common syntax is
+      <code>for (initialization; condition; update) { ... }</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="startInput">Start number</label>
+        <input type="number" id="startInput" value="1">
+      </div>
+
+      <div>
+        <label for="endInput">End number</label>
+        <input type="number" id="endInput" value="5">
+      </div>
+    </div>
+
+    <button onclick="countUp()">Count Up</button>
+    <button onclick="createMultiplicationTable()">Create Multiplication Table</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function countUp() {
+      output.textContent = "";
+
+      const start = Number(document.getElementById("startInput").value);
+      const end = Number(document.getElementById("endInput").value);
+
+      /*
+        i is the loop counter.
+
+        let i = start       -> initialization
+        i <= end            -> condition
+        i++                 -> update after each loop
+      */
+      for (let i = start; i <= end; i++) {
+        print("Current number: " + i);
+      }
+
+      print("");
+      print("The loop stops when the condition becomes false.");
+    }
+
+    function createMultiplicationTable() {
+      output.textContent = "";
+
+      const start = Number(document.getElementById("startInput").value);
+      const end = Number(document.getElementById("endInput").value);
+
+      print("Multiplication by 2:");
+
+      /*
+        A for loop can also be used to repeat a calculation.
+      */
+      for (let i = start; i <= end; i++) {
+        print("2 x " + i + " = " + (2 * i));
+      }
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

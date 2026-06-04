@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - indexOf includes find and findIndex.html
+    TOPIC: CH07 - Arrays
+
+    GOAL:
+    - Learn how to search for simple values in an array.
+    - Learn how to search for objects using a condition.
+    - Understand the difference between indexOf(), includes(), find(), and findIndex().
+
+    IMPORTANT:
+    - indexOf() returns the index or -1.
+    - includes() returns true or false.
+    - find() returns the first matching item.
+    - findIndex() returns the index of the first matching item or -1.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH07 - 05 - indexOf includes find and findIndex</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH07 - Arrays</h1>
+  <h2>05 - indexOf includes find and findIndex</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      JavaScript has different search methods for arrays.
+      Some are better for simple values, while others are better for objects.
+    </p>
+
+    <p>
+      For an array of objects, <code>find()</code> and <code>findIndex()</code>
+      are usually more useful because you can write a condition.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showIndexOf()">indexOf()</button>
+    <button onclick="showIncludes()">includes()</button>
+    <button onclick="showFind()">find()</button>
+    <button onclick="showFindIndex()">findIndex()</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showIndexOf() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("indexOf() example:");
+      print("fruits.indexOf('Banana') = " + fruits.indexOf("Banana"));
+      print("fruits.indexOf('Mango') = " + fruits.indexOf("Mango"));
+      print("Meaning: -1 means the item was not found.");
+      print("");
+    }
+
+    function showIncludes() {
+      const fruits = ["Apple", "Banana", "Orange"];
+
+      print("includes() example:");
+      print("fruits.includes('Apple') = " + fruits.includes("Apple"));
+      print("fruits.includes('Mango') = " + fruits.includes("Mango"));
+      print("Meaning: includes() is useful when you only need true or false.");
+      print("");
+    }
+
+    function showFind() {
+      const students = [
+        { id: 1, name: "Galen", mark: 85 },
+        { id: 2, name: "Cleo", mark: 72 },
+        { id: 3, name: "Alex", mark: 90 }
+      ];
+
+      /*
+        find() receives a callback function.
+        The first item that matches the condition will be returned.
+      */
+      const result = students.find(function (student) {
+        return student.mark >= 90;
+      });
+
+      print("find() example:");
+      print("First student with mark >= 90:");
+      print(JSON.stringify(result));
+      print("");
+    }
+
+    function showFindIndex() {
+      const students = [
+        { id: 1, name: "Galen", mark: 85 },
+        { id: 2, name: "Cleo", mark: 72 },
+        { id: 3, name: "Alex", mark: 90 }
+      ];
+
+      const resultIndex = students.findIndex(function (student) {
+        return student.name === "Cleo";
+      });
+
+      print("findIndex() example:");
+      print("Index of student named Cleo: " + resultIndex);
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

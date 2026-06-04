@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - for of Loop.html
+    TOPIC: CH05 - Control Flow and Loops
+
+    GOAL:
+    - Learn how for...of loops through iterable values.
+    - Use for...of with arrays and strings.
+    - Understand when for...of is simpler than a normal for loop.
+
+    IMPORTANT:
+    - for...of gives you the value directly.
+    - It works with iterable data such as arrays and strings.
+    - It is commonly used when you do not need the index.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH05 - for of Loop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH05 - Control Flow and Loops</h1>
+  <h2>06 - for...of Loop</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>for...of</code> is used to loop through values from iterable data.
+      It is very useful for arrays and strings.
+    </p>
+
+    <p class="note">
+      Use <code>for...of</code> when you want the item value directly.
+      Use a normal <code>for</code> loop when you need full control over the index.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="itemsInput">Items separated by comma</label>
+        <input type="text" id="itemsInput" value="Apple, Banana, Orange">
+      </div>
+
+      <div>
+        <label for="wordInput">Word</label>
+        <input type="text" id="wordInput" value="JavaScript">
+      </div>
+    </div>
+
+    <button onclick="loopArrayValues()">Loop Array Values</button>
+    <button onclick="loopStringCharacters()">Loop String Characters</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function loopArrayValues() {
+      output.textContent = "";
+
+      const text = document.getElementById("itemsInput").value;
+
+      /*
+        split(",") converts the input string into an array.
+        map() and trim() clean extra spaces around each item.
+      */
+      const items = text.split(",").map(function (item) {
+        return item.trim();
+      });
+
+      print("Array values:");
+
+      /*
+        for...of gives the value directly.
+        Here, item is Apple, then Banana, then Orange.
+
+        const is used here because we do not need to change the value of item.
+        use let if you need to update the value inside the loop.
+      */
+      for (const item of items) {
+        print("Item: " + item);
+      }
+    }
+
+    function loopStringCharacters() {
+      output.textContent = "";
+
+      const word = document.getElementById("wordInput").value;
+
+      print("Characters in the string:");
+
+      /*
+        A string is also iterable.
+        for...of can read each character one by one.
+      */
+      for (const character of word) {
+        print(character);
+      }
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

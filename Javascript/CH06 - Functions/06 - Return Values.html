@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Return Values.html
+    TOPIC: CH06 - Functions
+
+    GOAL:
+    - Learn how a function sends a result back using return.
+    - Learn that code after return inside the same function does not run.
+    - Learn the difference between printing a result and returning a result.
+
+    IMPORTANT:
+    - return sends a value back to the caller.
+    - A function stops immediately after return.
+    - A function without return gives undefined by default.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH06 - Return Values</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH06 - Functions</h1>
+  <h2>06 - Return Values</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A function can calculate or create a value, then send that value back using
+      <code>return</code>.
+    </p>
+
+    <p>
+      Returning is different from displaying. Returning gives the result back to
+      the code that called the function.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-grid">
+      <div>
+        <label for="subtotalInput">Subtotal</label>
+        <input type="number" id="subtotalInput" value="100">
+      </div>
+
+      <div>
+        <label for="discountInput">Discount %</label>
+        <input type="number" id="discountInput" value="10">
+      </div>
+    </div>
+
+    <button onclick="calculateFinalPrice()">Calculate Final Price</button>
+    <button onclick="showUndefinedReturn()">Show Missing Return</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function getDiscountAmount(subtotal, discountPercent) {
+      return subtotal * discountPercent / 100;
+
+      /*
+        This line will never run because return stops the function.
+        print("This will not run.");
+      */
+    }
+
+    function getFinalPrice(subtotal, discountPercent) {
+      const discountAmount = getDiscountAmount(subtotal, discountPercent);
+      return subtotal - discountAmount;
+    }
+
+    function displayOnly() {
+      print("This function displays text but does not return a value.");
+    }
+
+    function calculateFinalPrice() {
+      output.textContent = "";
+
+      const subtotal = Number(document.getElementById("subtotalInput").value);
+      const discountPercent = Number(document.getElementById("discountInput").value);
+      const discountAmount = getDiscountAmount(subtotal, discountPercent);
+      const finalPrice = getFinalPrice(subtotal, discountPercent);
+
+      print("Subtotal: RM " + subtotal.toFixed(2));
+      print("Discount amount: RM " + discountAmount.toFixed(2));
+      print("Final price: RM " + finalPrice.toFixed(2));
+    }
+
+    function showUndefinedReturn() {
+      output.textContent = "";
+
+      const result = displayOnly();
+
+      print("Returned value: " + result);
+      print("Meaning: a function without return gives undefined.");
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>
