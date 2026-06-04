@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Object Literal.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn how to create an object using object literal syntax.
+    - Understand that an object stores data as property name and value pairs.
+    - Learn how object values can be different data types.
+
+    IMPORTANT:
+    - Object literal uses curly braces {}.
+    - Each property has a key and a value.
+    - A key and value are separated by a colon :.
+    - Multiple properties are separated by commas.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 01 - Object Literal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>01 - Object Literal</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      An object is used to group related data together.
+      For example, a student can have a name, age, course, and active status.
+    </p>
+
+    <p>
+      Object literal syntax is the most common way to create a simple object.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showStudentObject()">Show Student Object</button>
+    <button onclick="showNestedObject()">Show Nested Object</button>
+    <button onclick="showArrayInsideObject()">Show Array Inside Object</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showStudentObject() {
+      /*
+        Object literal syntax:
+        const objectName = {
+          propertyName: value,
+          propertyName: value
+        };
+
+        The property name is also called a key.
+      */
+      const student = {
+        name: "Galen",
+        age: 18,
+        course: "Software Engineering",
+        isActive: true
+      };
+
+      print("Student object:");
+      print(JSON.stringify(student, null, 2));
+      print("");
+    }
+
+    function showNestedObject() {
+      /*
+        An object can contain another object.
+        This is called a nested object.
+      */
+      const student = {
+        name: "Galen",
+        contact: {
+          email: "galen@example.com",
+          phone: "012-3456789"
+        }
+      };
+
+      print("Nested object:");
+      print("Name: " + student.name);
+      print("Email: " + student.contact.email);
+      print("Phone: " + student.contact.phone);
+      print("");
+    }
+
+    function showArrayInsideObject() {
+      /*
+        An object can also contain an array.
+        This is useful when one property has many values.
+      */
+      const student = {
+        name: "Galen",
+        skills: ["HTML", "CSS", "JavaScript"]
+      };
+
+      print("Array inside object:");
+      print("Name: " + student.name);
+      print("Skills: " + student.skills.join(", "));
+      print("First skill: " + student.skills[0]);
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

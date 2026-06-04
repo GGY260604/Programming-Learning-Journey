@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - NodeList vs HTMLCollection.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Understand the difference between NodeList and HTMLCollection.
+    - Learn which DOM selection methods return each type.
+    - Observe live collection behavior and static list behavior.
+
+    IMPORTANT:
+    - getElementsByClassName() returns a live HTMLCollection.
+    - querySelectorAll() returns a static NodeList.
+    - A live collection updates automatically when the DOM changes.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 04 - NodeList vs HTMLCollection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>04 - NodeList vs HTMLCollection</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Both <code>NodeList</code> and <code>HTMLCollection</code> can store multiple DOM elements.
+      The important difference is that some collections are live and some are static.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Fruit List</h3>
+
+    <ul id="fruitList">
+      <li class="fruit">Apple</li>
+      <li class="fruit">Orange</li>
+      <li class="fruit">Mango</li>
+    </ul>
+
+    <button onclick="captureCollections()">Capture Collections</button>
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="compareLengths()">Compare Lengths</button>
+    <button onclick="loopNodeList()">Loop NodeList</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const fruitList = document.getElementById("fruitList");
+
+    let liveCollection = null;
+    let staticNodeList = null;
+    let nextFruitNumber = 1;
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function captureCollections() {
+      /*
+        This collection is live.
+        When new .fruit elements are added, its length updates automatically.
+      */
+      liveCollection = document.getElementsByClassName("fruit");
+
+      /*
+        This NodeList is static.
+        It remembers the matching elements at the time it was created.
+      */
+      staticNodeList = document.querySelectorAll(".fruit");
+
+      print("Collections captured.");
+      print("HTMLCollection length: " + liveCollection.length);
+      print("NodeList length: " + staticNodeList.length);
+      print("");
+    }
+
+    function addFruit() {
+      const newFruit = document.createElement("li");
+      newFruit.className = "fruit";
+      newFruit.textContent = "New Fruit " + nextFruitNumber;
+
+      fruitList.appendChild(newFruit);
+      nextFruitNumber++;
+
+      print("A new fruit was added to the DOM.");
+      print("");
+    }
+
+    function compareLengths() {
+      if (liveCollection === null || staticNodeList === null) {
+        print("Click 'Capture Collections' first.");
+        print("");
+        return;
+      }
+
+      print("After DOM changes:");
+      print("Live HTMLCollection length: " + liveCollection.length);
+      print("Static NodeList length: " + staticNodeList.length);
+      print("Meaning: the live collection updated, but the old NodeList did not.");
+      print("");
+    }
+
+    function loopNodeList() {
+      const fruits = document.querySelectorAll(".fruit");
+
+      print("Current fruits using NodeList.forEach():");
+
+      fruits.forEach(function (fruit, index) {
+        print((index + 1) + ". " + fruit.textContent);
+      });
+
+      print("");
+    }
+
+    function resetDemo() {
+      fruitList.innerHTML = "<li class='fruit'>Apple</li><li class='fruit'>Orange</li><li class='fruit'>Mango</li>";
+      liveCollection = null;
+      staticNodeList = null;
+      nextFruitNumber = 1;
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

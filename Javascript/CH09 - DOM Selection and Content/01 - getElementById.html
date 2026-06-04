@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - getElementById.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn how to select one element using document.getElementById().
+    - Understand that an id should be unique in one HTML page.
+    - Use the selected element to read and change page content.
+
+    IMPORTANT:
+    - getElementById("name") searches by the id value only.
+    - Do not write # before the id name.
+    - If no matching element exists, the result is null.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 01 - getElementById</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>01 - getElementById</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The DOM lets JavaScript access HTML elements as objects.
+      <code>document.getElementById()</code> selects one element by its id.
+    </p>
+
+    <p>
+      Since an id should be unique, this method returns one element, not a list.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3 id="mainTitle">Original Title</h3>
+    <p id="description">This paragraph will be selected and changed by JavaScript.</p>
+
+    <button onclick="changeTitle()">Change Title</button>
+    <button onclick="changeDescription()">Change Description</button>
+    <button onclick="checkMissingElement()">Check Missing Element</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function changeTitle() {
+      /*
+        The id in HTML is:
+        <h3 id="mainTitle">Original Title</h3>
+
+        To select it, write only "mainTitle".
+        Do not write "#mainTitle" with getElementById().
+      */
+      const titleElement = document.getElementById("mainTitle");
+
+      titleElement.textContent = "Title changed using getElementById()";
+
+      print("Selected element id: " + titleElement.id);
+      print("New title text: " + titleElement.textContent);
+      print("");
+    }
+
+    function changeDescription() {
+      const paragraph = document.getElementById("description");
+
+      paragraph.textContent = "JavaScript selected this paragraph and replaced its text.";
+
+      print("Paragraph content changed successfully.");
+      print("");
+    }
+
+    function checkMissingElement() {
+      /*
+        If the id does not exist, getElementById() returns null.
+        null means there is no element object to use.
+      */
+      const missingElement = document.getElementById("notExist");
+
+      if (missingElement === null) {
+        print("No element found. The result is null.");
+      } else {
+        print("Element found.");
+      }
+
+      print("");
+    }
+
+    function resetDemo() {
+      document.getElementById("mainTitle").textContent = "Original Title";
+      document.getElementById("description").textContent = "This paragraph will be selected and changed by JavaScript.";
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Object Properties and Methods.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn dot notation and bracket notation.
+    - Learn how to add, update, and delete object properties.
+    - Learn how to store functions inside objects as methods.
+
+    IMPORTANT:
+    - object.property is called dot notation.
+    - object["property"] is called bracket notation.
+    - A function stored inside an object is called a method.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 02 - Object Properties and Methods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>02 - Object Properties and Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Object properties can be read, added, updated, and deleted.
+      Objects can also store functions. These functions are called methods.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="readProperties()">Read Properties</button>
+    <button onclick="changeProperties()">Add Update Delete</button>
+    <button onclick="useMethods()">Use Methods</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function readProperties() {
+      const product = {
+        name: "Keyboard",
+        price: 89.9,
+        "stock status": "Available"
+      };
+
+      print("Reading object properties:");
+
+      /*
+        Dot notation is simple and common.
+        It works when the property name is a normal identifier.
+      */
+      print("product.name = " + product.name);
+      print("product.price = " + product.price);
+
+      /*
+        Bracket notation is useful when:
+        - The property name contains spaces.
+        - The property name is stored in a variable.
+      */
+      print("product[\"stock status\"] = " + product["stock status"]);
+
+      const selectedProperty = "price";
+      print("product[selectedProperty] = " + product[selectedProperty]);
+      print("");
+    }
+
+    function changeProperties() {
+      const product = {
+        name: "Keyboard",
+        price: 89.9
+      };
+
+      print("Original product:");
+      print(JSON.stringify(product));
+
+      /* Add a new property. */
+      product.category = "Computer Accessory";
+
+      /* Update an existing property. */
+      product.price = 79.9;
+
+      /* Delete a property from the object. */
+      delete product.category;
+
+      print("After add, update, and delete:");
+      print(JSON.stringify(product));
+      print("");
+    }
+
+    function useMethods() {
+      const calculator = {
+        add: function (a, b) {
+          return a + b;
+        },
+
+        multiply(a, b) {
+          return a * b;
+        }
+      };
+
+      print("Object methods:");
+      print("calculator.add(5, 3) = " + calculator.add(5, 3));
+      print("calculator.multiply(5, 3) = " + calculator.multiply(5, 3));
+      print("Meaning: both are valid ways to write object methods.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - getAttribute setAttribute and dataset.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn how to read attributes using getAttribute().
+    - Learn how to change attributes using setAttribute().
+    - Learn how to use data-* attributes through the dataset property.
+
+    IMPORTANT:
+    - getAttribute("name") reads an attribute from an element.
+    - setAttribute("name", "value") changes or creates an attribute.
+    - data-user becomes element.dataset.user in JavaScript.
+    - data-user-level becomes element.dataset.userLevel in JavaScript.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 07 - getAttribute setAttribute and dataset</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>07 - getAttribute, setAttribute, and dataset</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Attributes are extra information written inside an HTML opening tag.
+      JavaScript can read and change them.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Attribute Demo</h3>
+
+    <a id="profileLink" href="https://example.com/profile" target="_blank" rel="noopener">
+      Open Profile
+    </a>
+
+    <div
+      id="studentCard"
+      class="card"
+      data-user="Galen"
+      data-role="Student"
+      data-user-level="Beginner">
+      Student Card
+    </div>
+
+    <button onclick="readLinkAttributes()">Read Link Attributes</button>
+    <button onclick="changeLinkAttributes()">Change Link Attributes</button>
+    <button onclick="readDataset()">Read dataset</button>
+    <button onclick="changeDataset()">Change dataset</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const profileLink = document.getElementById("profileLink");
+    const studentCard = document.getElementById("studentCard");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function readLinkAttributes() {
+      /*
+        getAttribute() reads the value exactly from the HTML attribute.
+      */
+      const hrefValue = profileLink.getAttribute("href");
+      const targetValue = profileLink.getAttribute("target");
+
+      print("Link href attribute: " + hrefValue);
+      print("Link target attribute: " + targetValue);
+      print("");
+    }
+
+    function changeLinkAttributes() {
+      /*
+        setAttribute() can change an existing attribute.
+      */
+      profileLink.setAttribute("href", "https://developer.mozilla.org/");
+      profileLink.setAttribute("title", "Go to MDN Web Docs");
+
+      profileLink.textContent = "Open MDN Web Docs";
+
+      print("The link href and title attributes were changed.");
+      print("New href: " + profileLink.getAttribute("href"));
+      print("New title: " + profileLink.getAttribute("title"));
+      print("");
+    }
+
+    function readDataset() {
+      /*
+        HTML:
+        data-user="Galen"
+        data-role="Student"
+        data-user-level="Beginner"
+
+        JavaScript:
+        dataset.user
+        dataset.role
+        dataset.userLevel
+      */
+      print("dataset.user: " + studentCard.dataset.user);
+      print("dataset.role: " + studentCard.dataset.role);
+      print("dataset.userLevel: " + studentCard.dataset.userLevel);
+      print("");
+    }
+
+    function changeDataset() {
+      /*
+        dataset can also update data-* attributes.
+      */
+      studentCard.dataset.user = "Cleo";
+      studentCard.dataset.role = "Assistant";
+      studentCard.dataset.userLevel = "Intermediate";
+
+      studentCard.textContent = "Updated Student Card";
+      studentCard.classList.add("highlight");
+
+      print("Dataset values were changed.");
+      print("data-user is now: " + studentCard.getAttribute("data-user"));
+      print("data-user-level is now: " + studentCard.getAttribute("data-user-level"));
+      print("");
+    }
+
+    function resetDemo() {
+      profileLink.setAttribute("href", "https://example.com/profile");
+      profileLink.setAttribute("target", "_blank");
+      profileLink.setAttribute("rel", "noopener");
+      profileLink.removeAttribute("title");
+      profileLink.textContent = "Open Profile";
+
+      studentCard.dataset.user = "Galen";
+      studentCard.dataset.role = "Student";
+      studentCard.dataset.userLevel = "Beginner";
+      studentCard.textContent = "Student Card";
+      studentCard.classList.remove("highlight");
+
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

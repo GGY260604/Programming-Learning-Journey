@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - querySelector and querySelectorAll.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn how to select elements using CSS selector syntax.
+    - Understand the difference between querySelector() and querySelectorAll().
+    - Use id, class, tag, descendant, and attribute selectors.
+
+    IMPORTANT:
+    - querySelector() returns the first matching element.
+    - querySelectorAll() returns all matching elements in a NodeList.
+    - CSS selector symbols are used here: # for id, . for class.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 03 - querySelector and querySelectorAll</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>03 - querySelector and querySelectorAll</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>querySelector()</code> and <code>querySelectorAll()</code>
+      use CSS selector syntax. This makes them flexible.
+    </p>
+  </div>
+
+  <div class="section" id="demoArea">
+    <h3>Demo Area</h3>
+
+    <p class="message">First message paragraph.</p>
+    <p class="message important">Second important message paragraph.</p>
+    <p class="message">Third message paragraph.</p>
+
+    <input type="text" name="username" value="Galen">
+    <input type="text" name="course" value="JavaScript">
+
+    <button onclick="selectFirstMessage()">Select First .message</button>
+    <button onclick="selectAllMessages()">Select All .message</button>
+    <button onclick="selectInsideDemoArea()">Select Inside #demoArea</button>
+    <button onclick="selectByAttribute()">Select by Attribute</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.querySelector("#output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function selectFirstMessage() {
+      /*
+        .message is a CSS class selector.
+        querySelector() only returns the first matching element.
+      */
+      const firstMessage = document.querySelector(".message");
+
+      firstMessage.classList.add("highlight");
+
+      print("querySelector('.message') selected:");
+      print(firstMessage.textContent);
+      print("");
+    }
+
+    function selectAllMessages() {
+      /*
+        querySelectorAll() returns a NodeList containing all matches.
+      */
+      const messages = document.querySelectorAll(".message");
+
+      print("Number of .message elements: " + messages.length);
+
+      messages.forEach(function (message, index) {
+        message.classList.add("highlight");
+        print((index + 1) + ". " + message.textContent);
+      });
+
+      print("");
+    }
+
+    function selectInsideDemoArea() {
+      /*
+        This is a descendant selector.
+        It means: select .important inside #demoArea.
+      */
+      const importantMessage = document.querySelector("#demoArea .important");
+
+      importantMessage.classList.add("selected");
+
+      print("Selected important message inside demo area:");
+      print(importantMessage.textContent);
+      print("");
+    }
+
+    function selectByAttribute() {
+      /*
+        This uses an attribute selector.
+        It means: select an input with name="course".
+      */
+      const courseInput = document.querySelector('input[name="course"]');
+
+      print("Input selected by attribute:");
+      print("Value: " + courseInput.value);
+      print("");
+    }
+
+    function resetDemo() {
+      const highlightedElements = document.querySelectorAll(".highlight, .selected");
+
+      highlightedElements.forEach(function (element) {
+        element.classList.remove("highlight");
+        element.classList.remove("selected");
+      });
+
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - getElementsByClassName and TagName.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn how to select many elements by class name.
+    - Learn how to select many elements by tag name.
+    - Understand that both methods return an HTMLCollection.
+
+    IMPORTANT:
+    - getElementsByClassName("card") uses the class name only.
+    - getElementsByTagName("li") uses the tag name only.
+    - The returned collection is array-like, but it is not a real array.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 02 - getElementsByClassName and TagName</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>02 - getElementsByClassName and getElementsByTagName</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      These two methods are useful when you want to select multiple elements.
+      They return an <code>HTMLCollection</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Student Cards</h3>
+
+    <div class="student-card card">Galen - Software Engineering</div>
+    <div class="student-card card">Cleo - Data Science</div>
+    <div class="student-card card">Alex - Network Security</div>
+
+    <h3>Skill List</h3>
+    <ul id="skillList">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+
+    <button onclick="selectByClassName()">Select by Class Name</button>
+    <button onclick="selectByTagName()">Select by Tag Name</button>
+    <button onclick="highlightCards()">Highlight Cards</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function selectByClassName() {
+      /*
+        This selects all elements that have class="student-card".
+        Do not write ".student-card" here.
+      */
+      const cards = document.getElementsByClassName("student-card");
+
+      print("Number of student cards: " + cards.length);
+
+      /*
+        HTMLCollection uses indexes like an array.
+        The first item is at index 0.
+      */
+      print("First card text: " + cards[0].textContent);
+      print("");
+    }
+
+    function selectByTagName() {
+      /*
+        This selects all <li> elements in the page.
+      */
+      const listItems = document.getElementsByTagName("li");
+
+      print("Number of <li> elements: " + listItems.length);
+
+      for (let i = 0; i < listItems.length; i++) {
+        print("Item " + (i + 1) + ": " + listItems[i].textContent);
+      }
+
+      print("");
+    }
+
+    function highlightCards() {
+      const cards = document.getElementsByClassName("student-card");
+
+      /*
+        Because HTMLCollection does not have forEach() directly,
+        a normal for loop is safe to use.
+      */
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.add("highlight");
+      }
+
+      print("All student cards were highlighted.");
+      print("");
+    }
+
+    function resetDemo() {
+      const cards = document.getElementsByClassName("student-card");
+
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("highlight");
+      }
+
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

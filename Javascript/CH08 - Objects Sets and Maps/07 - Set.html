@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Set.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn what a Set is.
+    - Learn add(), has(), delete(), and clear().
+    - Learn how to remove duplicate values using Set.
+    - Learn how to loop through a Set.
+
+    IMPORTANT:
+    - Set stores unique values only.
+    - Set does not use index numbers like an array.
+    - Set is useful when duplicate values should not exist.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 07 - Set</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>07 - Set</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A <code>Set</code> is a collection that stores unique values.
+      If you add the same value again, it will not be duplicated.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showSetBasics()">Set Basics</button>
+    <button onclick="showSetMethods()">Set Methods</button>
+    <button onclick="removeDuplicates()">Remove Duplicates</button>
+    <button onclick="loopSet()">Loop Set</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showSetBasics() {
+      const fruits = new Set();
+
+      fruits.add("Apple");
+      fruits.add("Banana");
+      fruits.add("Apple");
+
+      print("Set basics:");
+      print("Values: " + JSON.stringify([...fruits]));
+      print("Size: " + fruits.size);
+      print("Meaning: Apple appears only once because Set keeps unique values.");
+      print("");
+    }
+
+    function showSetMethods() {
+      const fruits = new Set(["Apple", "Banana", "Orange"]);
+
+      print("Set methods:");
+      print("fruits.has(\"Banana\") = " + fruits.has("Banana"));
+
+      fruits.delete("Banana");
+      print("After delete Banana: " + JSON.stringify([...fruits]));
+
+      fruits.clear();
+      print("After clear: size = " + fruits.size);
+      print("");
+    }
+
+    function removeDuplicates() {
+      const numbers = [1, 2, 2, 3, 4, 4, 5];
+
+      /*
+        new Set(numbers) removes duplicate values.
+        [...set] converts the Set back into an array.
+      */
+      const uniqueNumbers = [...new Set(numbers)];
+
+      print("Remove duplicates:");
+      print("Original: " + JSON.stringify(numbers));
+      print("Unique: " + JSON.stringify(uniqueNumbers));
+      print("");
+    }
+
+    function loopSet() {
+      const skills = new Set(["HTML", "CSS", "JavaScript"]);
+
+      print("Looping a Set:");
+
+      for (const skill of skills) {
+        print("Skill: " + skill);
+      }
+
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Map.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn what a Map is.
+    - Learn set(), get(), has(), delete(), and clear().
+    - Learn how Map differs from a normal object.
+    - Learn how to loop through a Map.
+
+    IMPORTANT:
+    - Map stores key-value pairs.
+    - Map keys can be any value, including objects.
+    - Map has a size property.
+    - Map is useful when you need a collection of key-value data with flexible key types.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 08 - Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>08 - Map</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A <code>Map</code> stores key-value pairs like an object, but it has special methods
+      and allows keys to be any data type.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showMapBasics()">Map Basics</button>
+    <button onclick="showMapMethods()">Map Methods</button>
+    <button onclick="showObjectKey()">Object as Key</button>
+    <button onclick="loopMap()">Loop Map</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showMapBasics() {
+      const studentScores = new Map();
+
+      /*
+        set(key, value) adds or updates a key-value pair.
+      */
+      studentScores.set("Galen", 88);
+      studentScores.set("Cleo", 92);
+      studentScores.set("Alex", 75);
+
+      print("Map basics:");
+      print("Galen score: " + studentScores.get("Galen"));
+      print("Map size: " + studentScores.size);
+      print("");
+    }
+
+    function showMapMethods() {
+      const prices = new Map([
+        ["Keyboard", 89.9],
+        ["Mouse", 49.9],
+        ["Monitor", 599.9]
+      ]);
+
+      print("Map methods:");
+      print("prices.has(\"Mouse\") = " + prices.has("Mouse"));
+
+      prices.delete("Mouse");
+      print("After delete Mouse, has Mouse = " + prices.has("Mouse"));
+
+      prices.clear();
+      print("After clear, size = " + prices.size);
+      print("");
+    }
+
+    function showObjectKey() {
+      const user1 = {
+        id: 1,
+        name: "Galen"
+      };
+
+      const loginCount = new Map();
+
+      /*
+        A Map key can be an object.
+        This is one important difference compared with normal object keys.
+      */
+      loginCount.set(user1, 5);
+
+      print("Object as Map key:");
+      print("loginCount.get(user1) = " + loginCount.get(user1));
+      print("Meaning: the whole user1 object is used as the key.");
+      print("");
+    }
+
+    function loopMap() {
+      const menu = new Map([
+        ["Burger", 8.5],
+        ["Fries", 4.0],
+        ["Drink", 3.0]
+      ]);
+
+      print("Looping a Map:");
+
+      for (const [item, price] of menu) {
+        print(item + " => RM " + price.toFixed(2));
+      }
+
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

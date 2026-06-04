@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - value Property.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn how to read input values using the value property.
+    - Learn how to set input values using JavaScript.
+    - Understand that form controls usually use value instead of textContent.
+
+    IMPORTANT:
+    - For <input>, <textarea>, and <select>, use .value.
+    - .textContent is for normal elements like <p>, <div>, and <span>.
+    - Input values are usually strings, even when the input type is number.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 06 - value Property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>06 - value Property</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Form elements store user-entered data in the <code>value</code> property.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Form Control Demo</h3>
+
+    <label>
+      Name:
+      <input type="text" id="nameInput" value="Galen">
+    </label>
+
+    <label>
+      Age:
+      <input type="number" id="ageInput" value="18">
+    </label>
+
+    <label>
+      Course:
+      <select id="courseSelect">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript" selected>JavaScript</option>
+      </select>
+    </label>
+
+    <label>
+      Message:
+      <textarea id="messageInput">I am learning DOM.</textarea>
+    </label>
+
+    <button onclick="readValues()">Read Values</button>
+    <button onclick="setValues()">Set Values</button>
+    <button onclick="clearValues()">Clear Values</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function readValues() {
+      const nameInput = document.getElementById("nameInput");
+      const ageInput = document.getElementById("ageInput");
+      const courseSelect = document.getElementById("courseSelect");
+      const messageInput = document.getElementById("messageInput");
+
+      /*
+        .value reads the current value from the form control.
+      */
+      print("Name: " + nameInput.value);
+      print("Age value: " + ageInput.value);
+      print("Age value type: " + typeof ageInput.value);
+      print("Course: " + courseSelect.value);
+      print("Message: " + messageInput.value);
+      print("");
+
+      /*
+        If you need a number, convert the input value manually.
+      */
+      const ageNumber = Number(ageInput.value);
+      print("Age after Number(): " + ageNumber);
+      print("Converted age type: " + typeof ageNumber);
+      print("");
+    }
+
+    function setValues() {
+      document.getElementById("nameInput").value = "Cleo";
+      document.getElementById("ageInput").value = "20";
+      document.getElementById("courseSelect").value = "CSS";
+      document.getElementById("messageInput").value = "JavaScript changed the form values.";
+
+      print("Values were set using JavaScript.");
+      print("");
+    }
+
+    function clearValues() {
+      document.getElementById("nameInput").value = "";
+      document.getElementById("ageInput").value = "";
+      document.getElementById("courseSelect").value = "HTML";
+      document.getElementById("messageInput").value = "";
+
+      print("Values were cleared or reset.");
+      print("");
+    }
+
+    function resetDemo() {
+      document.getElementById("nameInput").value = "Galen";
+      document.getElementById("ageInput").value = "18";
+      document.getElementById("courseSelect").value = "JavaScript";
+      document.getElementById("messageInput").value = "I am learning DOM.";
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

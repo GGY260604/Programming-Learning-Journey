@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Object Copying.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Understand reference copying.
+    - Learn shallow copy using spread syntax.
+    - Learn Object.assign().
+    - Understand the difference between shallow copy and deep copy.
+
+    IMPORTANT:
+    - Objects are reference values.
+    - Assigning one object variable to another does not create a new object.
+    - Spread syntax and Object.assign() create shallow copies.
+    - structuredClone() can create a deep copy for supported values.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 06 - Object Copying</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>06 - Object Copying</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Objects are reference values. This means two variables can point to the same object.
+      To create a separate object, you need to copy it properly.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showReferenceCopy()">Reference Copy</button>
+    <button onclick="showShallowCopy()">Shallow Copy</button>
+    <button onclick="showObjectAssign()">Object.assign</button>
+    <button onclick="showDeepCopy()">Deep Copy</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showReferenceCopy() {
+      const original = {
+        name: "Keyboard",
+        price: 89.9
+      };
+
+      /*
+        This does not copy the object.
+        copied and original refer to the same object in memory.
+      */
+      const copied = original;
+      copied.price = 79.9;
+
+      print("Reference copy:");
+      print("original.price = " + original.price);
+      print("copied.price = " + copied.price);
+      print("Meaning: changing copied also changed original.");
+      print("");
+    }
+
+    function showShallowCopy() {
+      const original = {
+        name: "Keyboard",
+        price: 89.9
+      };
+
+      /*
+        Spread creates a new object with copied properties.
+      */
+      const copied = {
+        ...original
+      };
+
+      copied.price = 79.9;
+
+      print("Shallow copy with spread:");
+      print("original.price = " + original.price);
+      print("copied.price = " + copied.price);
+      print("Meaning: the top-level object is copied.");
+      print("");
+    }
+
+    function showObjectAssign() {
+      const original = {
+        name: "Mouse",
+        price: 49.9
+      };
+
+      /*
+        Object.assign(target, source) copies properties from source into target.
+      */
+      const copied = Object.assign({}, original);
+      copied.name = "Gaming Mouse";
+
+      print("Object.assign copy:");
+      print("original.name = " + original.name);
+      print("copied.name = " + copied.name);
+      print("");
+    }
+
+    function showDeepCopy() {
+      const original = {
+        name: "Laptop",
+        specification: {
+          ram: "16GB",
+          storage: "512GB"
+        }
+      };
+
+      /*
+        structuredClone() creates a deep copy for many common data types.
+        That means nested objects are also copied.
+      */
+      const copied = structuredClone(original);
+      copied.specification.ram = "32GB";
+
+      print("Deep copy with structuredClone:");
+      print("original.specification.ram = " + original.specification.ram);
+      print("copied.specification.ram = " + copied.specification.ram);
+      print("Meaning: nested object changes do not affect the original object.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Object.keys values and entries.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn Object.keys().
+    - Learn Object.values().
+    - Learn Object.entries().
+    - Learn how to loop through object data.
+
+    IMPORTANT:
+    - Object.keys(object) returns an array of property names.
+    - Object.values(object) returns an array of property values.
+    - Object.entries(object) returns an array of [key, value] pairs.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 05 - Object.keys values and entries</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>05 - Object.keys values and entries</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Objects are not arrays, but you can convert their keys, values, or entries
+      into arrays when you need to loop or transform object data.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showKeys()">Object.keys</button>
+    <button onclick="showValues()">Object.values</button>
+    <button onclick="showEntries()">Object.entries</button>
+    <button onclick="loopEntries()">Loop Entries</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    const order = {
+      orderId: "ORD001",
+      customer: "Galen",
+      total: 25.5,
+      paid: false
+    };
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showKeys() {
+      const keys = Object.keys(order);
+
+      print("Object.keys(order):");
+      print(JSON.stringify(keys));
+      print("Meaning: this returns property names as an array.");
+      print("");
+    }
+
+    function showValues() {
+      const values = Object.values(order);
+
+      print("Object.values(order):");
+      print(JSON.stringify(values));
+      print("Meaning: this returns property values as an array.");
+      print("");
+    }
+
+    function showEntries() {
+      const entries = Object.entries(order);
+
+      print("Object.entries(order):");
+      print(JSON.stringify(entries));
+      print("Meaning: each item is a [key, value] pair.");
+      print("");
+    }
+
+    function loopEntries() {
+      print("Looping Object.entries(order):");
+
+      for (const [key, value] of Object.entries(order)) {
+        /*
+          [key, value] uses array destructuring.
+          Each entry has two items: the property name and the property value.
+        */
+        print(key + " => " + value);
+      }
+
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

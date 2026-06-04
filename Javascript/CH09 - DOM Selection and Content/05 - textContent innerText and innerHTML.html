@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - textContent innerText and innerHTML.html
+    TOPIC: CH09 - DOM Selection and Content
+
+    GOAL:
+    - Learn the difference between textContent, innerText, and innerHTML.
+    - Understand which property treats content as text.
+    - Understand which property can interpret HTML tags.
+
+    IMPORTANT:
+    - textContent reads or writes plain text.
+    - innerText reads visible rendered text.
+    - innerHTML reads or writes HTML markup.
+    - Avoid putting untrusted user input into innerHTML.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH09 - 05 - textContent innerText and innerHTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH09 - DOM Selection and Content</h1>
+  <h2>05 - textContent, innerText, and innerHTML</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      These three properties can read or change element content, but they behave differently.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Target Box</h3>
+
+    <div id="targetBox" class="demo-box">
+      Hello <strong>JavaScript</strong>
+      <span style="display: none;">Hidden Text</span>
+    </div>
+
+    <button onclick="readContent()">Read Content</button>
+    <button onclick="writeTextContent()">Write with textContent</button>
+    <button onclick="writeInnerHTML()">Write with innerHTML</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div class="note">
+      <strong>Safety note:</strong>
+      Use <code>textContent</code> for normal user text. Use <code>innerHTML</code> only when you intentionally want to insert HTML markup.
+    </div>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const targetBox = document.getElementById("targetBox");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function readContent() {
+      /*
+        textContent reads all text inside the element,
+        including text inside hidden elements.
+      */
+      print("textContent:");
+      print(targetBox.textContent.trim());
+      print("");
+
+      /*
+        innerText is based on rendered visible text.
+        It is affected by CSS display and layout.
+      */
+      print("innerText:");
+      print(targetBox.innerText.trim());
+      print("");
+
+      /*
+        innerHTML reads the HTML markup inside the element.
+      */
+      print("innerHTML:");
+      print(targetBox.innerHTML.trim());
+      print("");
+    }
+
+    function writeTextContent() {
+      /*
+        Tags written with textContent are treated as normal text.
+        The browser will display <strong> instead of creating bold text.
+      */
+      targetBox.textContent = "This is <strong>not bold</strong> because textContent treats it as text.";
+
+      print("Updated using textContent.");
+      print("");
+    }
+
+    function writeInnerHTML() {
+      /*
+        Tags written with innerHTML are interpreted as HTML.
+        Here, <strong> creates bold text.
+      */
+      targetBox.innerHTML = "This is <strong>bold</strong> because innerHTML reads HTML markup.";
+
+      print("Updated using innerHTML.");
+      print("");
+    }
+
+    function resetDemo() {
+      targetBox.innerHTML = "Hello <strong>JavaScript</strong> <span style='display: none;'>Hidden Text</span>";
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

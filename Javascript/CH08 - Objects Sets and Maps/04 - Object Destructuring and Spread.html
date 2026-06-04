@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Object Destructuring and Spread.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn object destructuring.
+    - Learn renaming during destructuring.
+    - Learn default values during destructuring.
+    - Learn object spread syntax.
+
+    IMPORTANT:
+    - Destructuring extracts properties from an object into variables.
+    - Spread copies properties from one object into another object.
+    - If two objects have the same property, the later property overwrites the earlier one.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 04 - Object Destructuring and Spread</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>04 - Object Destructuring and Spread</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Object destructuring is a shorter way to take properties out of an object.
+      Object spread is a shorter way to copy or combine object properties.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showBasicDestructuring()">Basic Destructuring</button>
+    <button onclick="showRenameAndDefault()">Rename and Default</button>
+    <button onclick="showObjectSpread()">Object Spread</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showBasicDestructuring() {
+      const student = {
+        name: "Galen",
+        course: "Software Engineering",
+        year: 1
+      };
+
+      /*
+        These variables must match the property names.
+        name gets student.name.
+        course gets student.course.
+      */
+      const { name, course } = student;
+
+      print("Basic object destructuring:");
+      print("name = " + name);
+      print("course = " + course);
+      print("");
+    }
+
+    function showRenameAndDefault() {
+      const product = {
+        name: "Mouse",
+        price: 49.9
+      };
+
+      /*
+        Rename:
+        name: productName means take product.name and store it as productName.
+
+        Default value:
+        stock = 0 means use 0 if product.stock does not exist.
+      */
+      const { name: productName, price, stock = 0 } = product;
+
+      print("Rename and default value:");
+      print("productName = " + productName);
+      print("price = " + price);
+      print("stock = " + stock);
+      print("");
+    }
+
+    function showObjectSpread() {
+      const baseUser = {
+        username: "galen123",
+        role: "student"
+      };
+
+      const extraInfo = {
+        email: "galen@example.com",
+        role: "admin"
+      };
+
+      /*
+        Spread copies properties into a new object.
+        Because extraInfo comes later, its role overwrites baseUser.role.
+      */
+      const finalUser = {
+        ...baseUser,
+        ...extraInfo,
+        isActive: true
+      };
+
+      print("Object spread:");
+      print(JSON.stringify(finalUser, null, 2));
+      print("Meaning: later properties overwrite earlier properties with the same name.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - this Keyword in Object.html
+    TOPIC: CH08 - Objects Sets and Maps
+
+    GOAL:
+    - Learn how this works inside an object method.
+    - Understand why normal function methods and arrow function methods behave differently.
+    - Learn when to avoid arrow functions as object methods.
+
+    IMPORTANT:
+    - In a normal object method, this usually refers to the object that calls the method.
+    - Arrow functions do not create their own this.
+    - For object methods that need object properties, normal method syntax is usually better.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH08 - 03 - this Keyword in Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH08 - Objects Sets and Maps</h1>
+  <h2>03 - this Keyword in Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The keyword <code>this</code> depends on how a function is called.
+      Inside a normal object method, <code>this</code> usually refers to the object before the dot.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showNormalMethodThis()">Normal Method this</button>
+    <button onclick="showArrowMethodThis()">Arrow Method this</button>
+    <button onclick="showNestedFunctionFix()">Nested Function Fix</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showNormalMethodThis() {
+      const user = {
+        username: "Galen",
+        role: "Student",
+
+        describe() {
+          /*
+            this.username means:
+            - Read the username property from this object.
+          */
+          return this.username + " is a " + this.role + ".";
+        }
+      };
+
+      print("Normal object method:");
+      print(user.describe());
+      print("Meaning: this refers to user because user.describe() calls the method.");
+      print("");
+    }
+
+    function showArrowMethodThis() {
+      const user = {
+        username: "Galen",
+
+        /*
+          Arrow functions do not create their own this.
+          Therefore, this.username does not refer to the user object here.
+
+          so the correct way to use an arrow function as a method is when 
+          you do not need to access this from the object.
+        */
+        describe: () => {
+          return "Username from arrow method: " + this.username;
+        }
+      };
+
+      print("Arrow function as object method:");
+      print(user.describe());
+      print("Meaning: avoid arrow function when the method needs this from the object.");
+      print("");
+    }
+
+    function showNestedFunctionFix() {
+      const counter = {
+        value: 0,
+
+        increase() {
+          /*
+            Arrow function is useful here because it keeps this from increase().
+            In this case, this still refers to counter.
+          */
+          const addOne = () => {
+            this.value++;
+          };
+
+          addOne();
+          addOne();
+
+          return this.value;
+        }
+      };
+
+      print("Nested arrow function:");
+      print("counter.increase() = " + counter.increase());
+      print("Meaning: arrow functions are useful inside methods when you want to keep the outer this.");
+      print("");
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>
