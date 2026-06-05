@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - sessionStorage.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn how to save temporary data using sessionStorage.
+    - Compare sessionStorage with localStorage.
+
+    IMPORTANT:
+    - sessionStorage stores key-value pairs.
+    - Data stays when the page refreshes.
+    - Data is cleared when the browser tab is closed.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - sessionStorage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>03 - sessionStorage</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>sessionStorage</code> works like <code>localStorage</code>, but the data is only kept for the current browser tab session.
+    </p>
+
+    <div class="success">
+      Use sessionStorage when the data only needs to exist while the user is using the current tab.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <label for="theme">Temporary Theme</label>
+    <select id="theme">
+      <option value="Light">Light</option>
+      <option value="Dark">Dark</option>
+      <option value="Blue">Blue</option>
+    </select>
+
+    <button onclick="saveTheme()">Save to sessionStorage</button>
+    <button onclick="readTheme()">Read from sessionStorage</button>
+    <button onclick="removeTheme()">Remove Theme</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const themeSelect = document.getElementById("theme");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function saveTheme() {
+      const selectedTheme = themeSelect.value;
+
+      /*
+        sessionStorage.setItem() saves data for the current tab session only.
+        The data remains after refresh, but not after closing the tab.
+      */
+      sessionStorage.setItem("temporaryTheme", selectedTheme);
+
+      print("Saved temporary theme: " + selectedTheme);
+      print("Refresh the page and read it again. Then close the tab and reopen it to compare.");
+      print("");
+    }
+
+    function readTheme() {
+      const savedTheme = sessionStorage.getItem("temporaryTheme");
+
+      if (savedTheme === null) {
+        print("No temporary theme found in sessionStorage.");
+      } else {
+        print("Temporary theme from sessionStorage: " + savedTheme);
+      }
+
+      print("");
+    }
+
+    function removeTheme() {
+      sessionStorage.removeItem("temporaryTheme");
+      print("Removed temporary theme from sessionStorage.");
+      print("");
+    }
+  </script>
+</body>
+</html>

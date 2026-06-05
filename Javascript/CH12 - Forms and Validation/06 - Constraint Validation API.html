@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Constraint Validation API.html
+    TOPIC: CH12 - Forms and Validation
+
+    GOAL:
+    - Learn how JavaScript can inspect built-in validation states.
+    - Use checkValidity(), reportValidity(), validity, and validationMessage.
+    - Understand common ValidityState properties.
+
+    IMPORTANT:
+    - element.checkValidity() returns true or false.
+    - element.reportValidity() shows the browser validation message.
+    - element.validity contains detailed validation states.
+    - element.validationMessage contains the current validation message.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH12 - Constraint Validation API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH12 - Forms and Validation</h1>
+  <h2>06 - Constraint Validation API</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The Constraint Validation API lets JavaScript check the same validation
+      rules that the browser uses for form controls.
+    </p>
+    <p>
+      This means JavaScript can inspect whether a field is missing, too short,
+      too long, wrong format, below minimum, or above maximum.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="validationForm" class="form-grid" novalidate>
+      <div class="form-row">
+        <label for="username">Username</label>
+        <input type="text" id="username" required minlength="4" maxlength="10" value="Gal">
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" required value="wrong-email">
+      </div>
+
+      <div class="form-row">
+        <label for="score">Score</label>
+        <input type="number" id="score" required min="0" max="100" value="120">
+      </div>
+
+      <div class="demo-area">
+        <button type="button" onclick="checkFieldsManually()">Check Fields Manually</button>
+        <button type="button" onclick="showBrowserMessage()">Show Browser Message</button>
+        <button type="button" onclick="clearOutput()">Clear Output</button>
+      </div>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function describeValidity(input) {
+      /*
+        input.validity is a ValidityState object.
+        It contains many boolean properties explaining why the value is invalid.
+      */
+      const validity = input.validity;
+
+      print("Field: " + input.id);
+      print("Value: " + input.value);
+      print("checkValidity(): " + input.checkValidity());
+      print("validationMessage: " + input.validationMessage);
+
+      print("validity.valueMissing: " + validity.valueMissing);
+      print("validity.tooShort: " + validity.tooShort);
+      print("validity.tooLong: " + validity.tooLong);
+      print("validity.typeMismatch: " + validity.typeMismatch);
+      print("validity.rangeUnderflow: " + validity.rangeUnderflow);
+      print("validity.rangeOverflow: " + validity.rangeOverflow);
+      print("validity.valid: " + validity.valid);
+      print("");
+    }
+
+    function checkFieldsManually() {
+      output.textContent = "";
+
+      const username = document.getElementById("username");
+      const email = document.getElementById("email");
+      const score = document.getElementById("score");
+
+      describeValidity(username);
+      describeValidity(email);
+      describeValidity(score);
+    }
+
+    function showBrowserMessage() {
+      const form = document.getElementById("validationForm");
+
+      /*
+        reportValidity() checks the form and shows the browser's validation UI.
+        The form has novalidate, but reportValidity() can still trigger checking.
+      */
+      form.reportValidity();
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

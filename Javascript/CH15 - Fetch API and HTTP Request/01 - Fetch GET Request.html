@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Fetch GET Request.html
+    TOPIC: CH15 - Fetch API and HTTP Request
+
+    GOAL:
+    - Learn the basic fetch() syntax.
+    - Send a GET request to receive data from a server.
+    - Understand that fetch() returns a Promise.
+
+    IMPORTANT:
+    - GET is normally used to read data.
+    - fetch(url) sends a GET request by default.
+    - The browser must allow the request through CORS.
+    - This demo needs internet connection because it requests online sample data.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH15 - Fetch GET Request</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH15 - Fetch API and HTTP Request</h1>
+  <h2>01 - Fetch GET Request</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>fetch()</code> is used to make HTTP requests from JavaScript.
+      A basic <code>fetch(url)</code> request uses the <code>GET</code> method by default.
+    </p>
+
+    <div class="note">
+      The request is asynchronous. That means JavaScript can continue running while
+      the browser is waiting for the server response.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="getPost()">Fetch One Post</button>
+    <button onclick="getUser()">Fetch One User</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function getPost() {
+      print("Sending GET request for one post...");
+
+      /*
+        fetch() returns a Promise.
+
+        The first then() receives the Response object.
+        The second then() receives the real JSON data after response.json().
+      */
+      fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then(function (response) {
+          print("Response received.");
+          print("Status code: " + response.status);
+
+          /*
+            response.json() also returns a Promise.
+            It converts the response body from JSON text into a JavaScript object.
+          */
+          return response.json();
+        })
+        .then(function (post) {
+          print("Post ID: " + post.id);
+          print("Title: " + post.title);
+          print("Body: " + post.body);
+          print("");
+        })
+        .catch(function (error) {
+          print("Request failed: " + error.message);
+          print("");
+        });
+
+      print("This line runs before the server response is fully processed.");
+    }
+
+    function getUser() {
+      print("Sending GET request for one user...");
+
+      fetch("https://jsonplaceholder.typicode.com/users/1")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (user) {
+          print("Name: " + user.name);
+          print("Email: " + user.email);
+          print("City: " + user.address.city);
+          print("");
+        })
+        .catch(function (error) {
+          print("Request failed: " + error.message);
+          print("");
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - call apply and bind.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn how call, apply, and bind control the value of this.
+    - Compare their syntax and behavior.
+    - Understand that bind returns a new function.
+
+    IMPORTANT:
+    - call() runs a function immediately with arguments separated by commas.
+    - apply() runs a function immediately with arguments inside an array.
+    - bind() does not run immediately; it returns a new function.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - call apply and bind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>call apply and bind</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        <code>call</code>, <code>apply</code>, and <code>bind</code> are used to choose what
+        <code>this</code> should refer to when a function runs.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <button onclick="runCallExample()">Run call()</button>
+      <button onclick="runApplyExample()">Run apply()</button>
+      <button onclick="runBindExample()">Run bind()</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function introduce(prefix, punctuation) {
+      /*
+        This function does not belong to any object directly.
+        call, apply, and bind can decide what this means when it runs.
+      */
+      return prefix + " " + this.name + " studies " + this.subject + punctuation;
+    }
+
+    const studentA = {
+      name: "Galen",
+      subject: "JavaScript"
+    };
+
+    const studentB = {
+      name: "Cleo",
+      subject: "CSS"
+    };
+
+    function runCallExample() {
+      print("call() example:");
+
+      /*
+        call() runs the function immediately.
+        The first argument is the value of this.
+        The rest of the arguments are normal function arguments.
+      */
+      const message = introduce.call(studentA, "Hello,", ".");
+      print(message);
+      print("");
+    }
+
+    function runApplyExample() {
+      print("apply() example:");
+
+      /*
+        apply() is similar to call().
+        The difference is that function arguments are passed as an array.
+      */
+      const message = introduce.apply(studentB, ["Hi,", "!"]);
+      print(message);
+      print("");
+    }
+
+    function runBindExample() {
+      print("bind() example:");
+
+      /*
+        bind() does not run the function immediately.
+        It returns a new function with this fixed.
+      */
+      const introduceGalen = introduce.bind(studentA);
+
+      print("Function created using bind().");
+      print(introduceGalen("Welcome,", "."));
+      print("");
+    }
+
+  </script>
+</body>
+</html>

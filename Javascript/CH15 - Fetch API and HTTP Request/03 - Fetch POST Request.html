@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Fetch POST Request.html
+    TOPIC: CH15 - Fetch API and HTTP Request
+
+    GOAL:
+    - Learn how to send data using fetch().
+    - Use the POST method.
+    - Send a JavaScript object as JSON data.
+
+    IMPORTANT:
+    - POST is normally used to create or submit data.
+    - The request body is the data sent to the server.
+    - JSON.stringify() converts a JavaScript object into JSON text.
+    - This sample API returns a fake success response. It does not really save the post permanently.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH15 - Fetch POST Request</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH15 - Fetch API and HTTP Request</h1>
+  <h2>03 - Fetch POST Request</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A <code>POST</code> request is used when you want to send data to a server.
+      In <code>fetch()</code>, the request method and body are written inside an options object.
+    </p>
+
+    <div class="note">
+      For JSON data, you usually send <code>Content-Type: application/json</code>
+      and use <code>JSON.stringify()</code> for the request body.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Create a Fake Post</h3>
+
+    <div class="form-row">
+      <label for="titleInput">Title</label><br>
+      <input type="text" id="titleInput" value="My JavaScript Note">
+    </div>
+
+    <div class="form-row">
+      <label for="bodyInput">Body</label><br>
+      <textarea id="bodyInput">Fetch can send data to a server.</textarea>
+    </div>
+
+    <button onclick="createPost()">Send POST Request</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const titleInput = document.getElementById("titleInput");
+    const bodyInput = document.getElementById("bodyInput");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function createPost() {
+      const newPost = {
+        title: titleInput.value,
+        body: bodyInput.value,
+        userId: 1
+      };
+
+      print("Sending this JavaScript object:");
+      print(JSON.stringify(newPost, null, 2));
+      print("Wait for server response...");
+
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        /*
+          The method property changes the request type.
+          Without this, fetch() uses GET by default.
+        */
+        method: "POST",
+
+        /*
+          Headers give extra information about the request.
+          Here, we tell the server that the body is JSON.
+        */
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        /*
+          The body must be text, not a normal JavaScript object.
+          JSON.stringify() converts the object into JSON text.
+        */
+        body: JSON.stringify(newPost)
+      })
+        .then(function (response) {
+          print("Status code: " + response.status);
+          return response.json();
+        })
+        .then(function (createdPost) {
+          print("Server returned:");
+          print(JSON.stringify(createdPost, null, 2));
+          print("");
+        })
+        .catch(function (error) {
+          print("POST request failed: " + error.message);
+          print("");
+        });
+    }
+  </script>
+</body>
+</html>

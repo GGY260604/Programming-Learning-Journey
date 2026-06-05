@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - try catch finally.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn how to prevent a runtime error from stopping the whole script.
+    - Learn the purpose of try, catch, and finally.
+    - Understand when error handling should be used.
+
+    IMPORTANT:
+    - try contains code that may fail.
+    - catch receives the error object if something fails.
+    - finally runs whether there is an error or not.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - try catch finally</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>try catch finally</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        <code>try...catch...finally</code> is used when a part of your code may fail.
+        Instead of letting the whole script stop, you can catch the error and respond safely.
+      </p>
+
+      <div class="note">
+        Use error handling for risky operations such as JSON parsing, network requests,
+        user input processing, and code that depends on external data.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <button onclick="runValidExample()">Run Valid JSON</button>
+      <button onclick="runInvalidExample()">Run Invalid JSON</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function runValidExample() {
+      print("Valid JSON example:");
+
+      /*
+        JSON.parse() converts a JSON string into a JavaScript value.
+        If the JSON text is valid, the code inside try continues normally.
+      */
+      try {
+        const text = '{"name":"Galen","role":"Student"}';
+        const user = JSON.parse(text);
+
+        print("Name: " + user.name);
+        print("Role: " + user.role);
+      } catch (error) {
+        /*
+          This block will not run here because the JSON text is valid.
+        */
+        print("Error message: " + error.message);
+      } finally {
+        /*
+          finally always runs.
+          It is useful for cleanup actions.
+        */
+        print("finally block: JSON parsing attempt finished.");
+        print("");
+      }
+    }
+
+    function runInvalidExample() {
+      print("Invalid JSON example:");
+
+      try {
+        const text = '{"name":"Galen", "role": }';
+        const user = JSON.parse(text);
+
+        print("Name: " + user.name);
+      } catch (error) {
+        /*
+          The error parameter stores information about what went wrong.
+          error.message gives a readable explanation.
+        */
+        print("The JSON could not be parsed.");
+        print("Error name: " + error.name);
+        print("Error message: " + error.message);
+      } finally {
+        print("finally block: JSON parsing attempt finished.");
+        print("");
+      }
+    }
+
+  </script>
+</body>
+</html>

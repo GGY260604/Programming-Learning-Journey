@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Loading and Error State.html
+    TOPIC: CH15 - Fetch API and HTTP Request
+
+    GOAL:
+    - Show loading state before data arrives.
+    - Handle successful response.
+    - Handle HTTP error and network error.
+
+    IMPORTANT:
+    - fetch() rejects only for network-level errors.
+    - A 404 response does not automatically go to catch().
+    - Use response.ok to check whether the HTTP status is successful.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH15 - Loading and Error State</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH15 - Fetch API and HTTP Request</h1>
+  <h2>05 - Loading and Error State</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A good web page should show the user what is happening while data is loading.
+      It should also display a helpful message when something goes wrong.
+    </p>
+
+    <div class="note">
+      <code>response.ok</code> is true when the status code is in the successful
+      200 to 299 range.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="loadValidPost()">Load Valid Post</button>
+    <button onclick="loadMissingPost()">Load Missing Post</button>
+    <button onclick="loadBrokenNetworkExample()">Broken Network Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <p id="statusMessage" class="small-text">Status: idle</p>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+    const statusMessage = document.getElementById("statusMessage");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+      statusMessage.textContent = "Status: idle";
+    }
+
+    function setLoading() {
+      statusMessage.textContent = "Status: loading...";
+    }
+
+    function setSuccess() {
+      statusMessage.textContent = "Status: success";
+    }
+
+    function setError() {
+      statusMessage.textContent = "Status: error";
+    }
+
+    function loadPost(url) {
+      setLoading();
+      print("Request URL: " + url);
+
+      fetch(url)
+        .then(function (response) {
+          /*
+            fetch() does not treat 404 as a rejected Promise.
+            Therefore, we manually check response.ok.
+          */
+          if (response.ok === false) {
+            throw new Error("HTTP error. Status code: " + response.status);
+          }
+
+          return response.json();
+        })
+        .then(function (post) {
+          setSuccess();
+          print("Title: " + post.title);
+          print("Body: " + post.body);
+          print("");
+        })
+        .catch(function (error) {
+          setError();
+          print("Error message: " + error.message);
+          print("");
+        });
+    }
+
+    function loadValidPost() {
+      loadPost("https://jsonplaceholder.typicode.com/posts/1");
+    }
+
+    function loadMissingPost() {
+      /*
+        This URL is valid, but the item does not exist.
+        The server should return a 404 response.
+      */
+      loadPost("https://jsonplaceholder.typicode.com/posts/999999");
+    }
+
+    function loadBrokenNetworkExample() {
+      /*
+        This domain is intentionally invalid.
+        This should cause a network-level error.
+      */
+      loadPost("https://invalid.example-for-learning-only/posts/1");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Input Change and Submit Events.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn input, change, and submit events.
+    - Understand when each form-related event runs.
+    - Read form field values when the form is submitted.
+
+    IMPORTANT:
+    - input runs immediately when the value changes while typing.
+    - change usually runs when the value is committed, such as after leaving an input or choosing an option.
+    - submit runs when a form is submitted.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Input Change and Submit Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>07 - Input Change and Submit Events</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Form elements have their own common events. These events are useful for
+      live preview, validation, and processing form data.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="profileForm">
+      <div class="demo-area">
+        <input id="username" name="username" type="text" placeholder="Username">
+
+        <select id="role" name="role">
+          <option value="student">Student</option>
+          <option value="developer">Developer</option>
+          <option value="designer">Designer</option>
+        </select>
+
+        <button type="submit">Submit Form</button>
+        <button id="clearButton" type="button">Clear</button>
+      </div>
+    </form>
+
+    <h3>Live Preview</h3>
+    <div id="preview" class="card">Username preview will appear here.</div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const profileForm = document.getElementById("profileForm");
+    const username = document.getElementById("username");
+    const role = document.getElementById("role");
+    const preview = document.getElementById("preview");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    username.addEventListener("input", function () {
+      /*
+        input runs immediately as the user types.
+        It is good for live preview.
+      */
+      preview.textContent = "Username preview: " + username.value;
+    });
+
+    username.addEventListener("change", function () {
+      /*
+        For a text input, change usually runs after the user changes the value
+        and then leaves the input field.
+      */
+      print("change event from username: " + username.value);
+    });
+
+    role.addEventListener("change", function () {
+      /*
+        For a select menu, change runs when the selected option changes.
+      */
+      print("change event from role: " + role.value);
+    });
+
+    profileForm.addEventListener("submit", function (event) {
+      /*
+        This prevents the browser from refreshing or navigating away.
+        preventDefault will be explained more in the next file.
+      */
+      event.preventDefault();
+
+      print("submit event:");
+      print("Username: " + username.value);
+      print("Role: " + role.value);
+      print("---");
+    });
+
+    clearButton.addEventListener("click", function () {
+      username.value = "";
+      role.value = "student";
+      preview.textContent = "Username preview will appear here.";
+      outputBox.textContent = "";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - throw and Error Object.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn how to manually create an error using throw.
+    - Learn how to use the Error object.
+    - Understand the difference between system errors and your own validation errors.
+
+    IMPORTANT:
+    - throw stops the current flow and sends an error to catch.
+    - new Error(message) creates a standard error object.
+    - Use throw when a value is invalid and the function should not continue.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - throw and Error Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>throw and Error Object</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        JavaScript can throw errors automatically, but you can also throw your own errors
+        when your program receives invalid data.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <label for="ageInput">Age:</label>
+      <input id="ageInput" type="number" value="18">
+      <button onclick="validateAge()">Validate Age</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function checkAge(age) {
+      /*
+        Number.isNaN(age) checks whether the value is the special NaN value.
+        NaN means "Not a Number".
+      */
+      if (Number.isNaN(age)) {
+        throw new Error("Age must be a number.");
+      }
+
+      if (age < 0) {
+        throw new Error("Age cannot be negative.");
+      }
+
+      if (age < 13) {
+        throw new Error("This demo expects age 13 or above.");
+      }
+
+      return "Age accepted: " + age;
+    }
+
+    function validateAge() {
+      const ageInput = document.getElementById("ageInput");
+      const age = Number(ageInput.value);
+
+      print("Checking age...");
+
+      try {
+        const result = checkAge(age);
+        print(result);
+      } catch (error) {
+        /*
+          A thrown error can be handled here.
+          This prevents the page from breaking.
+        */
+        print("Validation failed.");
+        print("Error name: " + error.name);
+        print("Error message: " + error.message);
+      }
+
+      print("");
+    }
+
+  </script>
+</body>
+</html>

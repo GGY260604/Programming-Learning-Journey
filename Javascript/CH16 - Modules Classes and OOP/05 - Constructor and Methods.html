@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Constructor and Methods.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn constructor.
+    - Learn instance methods.
+    - Learn how methods use object data through this.
+
+    IMPORTANT:
+    - constructor sets up initial object data.
+    - instance methods belong to objects created from the class.
+    - this refers to the current object.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Constructor and Methods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>05 - Constructor and Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A constructor is used to receive initial values. A method is a function
+      inside a class.
+    </p>
+  </div>
+
+  <div class="section">
+    <label>Name:</label>
+    <input type="text" id="nameInput" value="Chicken Burger">
+
+    <label>Price:</label>
+    <input type="number" id="priceInput" value="12.50" step="0.01">
+
+    <button onclick="createItem()">Create Menu Item</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+    const nameInput = document.getElementById("nameInput");
+    const priceInput = document.getElementById("priceInput");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    class MenuItem {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+
+      /*
+        This is an instance method.
+
+        It can use this.name and this.price because it belongs to a
+        MenuItem object.
+      */
+      getDetails() {
+        return this.name + " costs RM " + this.price.toFixed(2);
+      }
+
+      applyDiscount(percent) {
+        const discountAmount = this.price * (percent / 100);
+        const newPrice = this.price - discountAmount;
+
+        return newPrice;
+      }
+    }
+
+    function createItem() {
+      clearOutput();
+
+      const name = nameInput.value;
+      const price = Number(priceInput.value);
+
+      const item = new MenuItem(name, price);
+
+      print("Original item:");
+      print(item.getDetails());
+      print("");
+      print("After 10% discount:");
+      print("RM " + item.applyDiscount(10).toFixed(2));
+    }
+  </script>
+</body>
+</html>

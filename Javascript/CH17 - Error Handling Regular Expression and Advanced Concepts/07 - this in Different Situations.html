@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - this in Different Situations.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn that this depends on how a function is called.
+    - Compare object method, normal function, arrow function, and event handler behavior.
+    - Understand why this can be confusing in JavaScript.
+
+    IMPORTANT:
+    - In an object method, this usually refers to the object.
+    - In an arrow function, this is taken from the surrounding scope.
+    - In an event listener normal function, this usually refers to the element handling the event.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - this in Different Situations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>this in Different Situations</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        The value of <code>this</code> is not decided only by where the function is written.
+        It is mainly decided by how the function is called.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <button onclick="showObjectThis()">Object Method this</button>
+      <button onclick="showArrowThis()">Arrow Function this</button>
+      <button id="eventButton">Event Handler this</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    const student = {
+      name: "Galen",
+      course: "JavaScript",
+
+      showInfo: function () {
+        /*
+          Because showInfo is called as student.showInfo(),
+          this refers to the student object.
+        */
+        return this.name + " is learning " + this.course + ".";
+      }
+    };
+
+    function showObjectThis() {
+      print("Object method example:");
+      print(student.showInfo());
+      print("");
+    }
+
+    function showArrowThis() {
+      print("Arrow function example:");
+
+      const user = {
+        name: "Galen",
+
+        normalMethod: function () {
+          return this.name;
+        },
+
+        arrowMethod: () => {
+          /*
+            Arrow functions do not create their own this.
+            Therefore, arrow functions are usually not suitable as object methods
+            when you need this to refer to the object.
+          */
+          return this.name;
+        }
+      };
+
+      print("normalMethod result: " + user.normalMethod());
+      print("arrowMethod result: " + user.arrowMethod());
+      print("Notice: arrowMethod does not get user.name through this.");
+      print("");
+    }
+
+    const eventButton = document.getElementById("eventButton");
+
+    eventButton.addEventListener("click", function () {
+      /*
+        In a normal event listener function,
+        this refers to the element that received the listener.
+      */
+      print("Event handler example:");
+      print("this.textContent: " + this.textContent);
+      print("");
+    });
+
+  </script>
+</body>
+</html>

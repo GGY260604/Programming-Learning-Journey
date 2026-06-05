@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - append prepend before and after.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn different ways to insert elements into the page.
+    - Learn append(), prepend(), before(), and after().
+    - Understand where each method places the new element.
+
+    IMPORTANT:
+    - append() inserts inside an element at the end.
+    - prepend() inserts inside an element at the beginning.
+    - before() inserts outside an element before it.
+    - after() inserts outside an element after it.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - append prepend before after</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>04 - append, prepend, before, and after</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        JavaScript can insert new content in different positions using DOM insertion methods.
+      </p>
+
+      <div class="note">
+        <code>append()</code> and <code>prepend()</code> insert inside the selected element.
+        <code>before()</code> and <code>after()</code> insert outside the selected element.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <button onclick="insertWithAppend()">append()</button>
+      <button onclick="insertWithPrepend()">prepend()</button>
+      <button onclick="insertWithBefore()">before()</button>
+      <button onclick="insertWithAfter()">after()</button>
+      <button onclick="resetDemo()">Reset</button>
+
+      <div id="container" class="demo-box">
+        <p id="anchor" class="target-box">Anchor element</p>
+      </div>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+    const anchor = document.getElementById("anchor");
+    const output = document.getElementById("output");
+
+    let itemNumber = 1;
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function createItem(label) {
+      /*
+        This helper function creates a new paragraph each time.
+        Each inserted item receives a number so the order is easier to see.
+      */
+      const item = document.createElement("p");
+      item.className = "card";
+      item.textContent = itemNumber + ". " + label;
+
+      itemNumber++;
+
+      return item;
+    }
+
+    function insertWithAppend() {
+      const item = createItem("Inserted using append(). It goes inside container at the end.");
+
+      /*
+        append() inserts the item as the last child inside container.
+      */
+      container.append(item);
+
+      print("append(): inserted inside container at the end.");
+    }
+
+    function insertWithPrepend() {
+      const item = createItem("Inserted using prepend(). It goes inside container at the beginning.");
+
+      /*
+        prepend() inserts the item as the first child inside container.
+      */
+      container.prepend(item);
+
+      print("prepend(): inserted inside container at the beginning.");
+    }
+
+    function insertWithBefore() {
+      const item = createItem("Inserted using before(). It goes before the anchor element.");
+
+      /*
+        before() inserts the item before the selected element.
+        The item becomes a sibling of the anchor element.
+      */
+      anchor.before(item);
+
+      print("before(): inserted before the anchor element.");
+    }
+
+    function insertWithAfter() {
+      const item = createItem("Inserted using after(). It goes after the anchor element.");
+
+      /*
+        after() inserts the item after the selected element.
+        The item becomes a sibling of the anchor element.
+      */
+      anchor.after(item);
+
+      print("after(): inserted after the anchor element.");
+    }
+
+    function resetDemo() {
+      container.innerHTML = '<p id="anchor" class="target-box">Anchor element</p>';
+
+      /*
+        Because innerHTML recreated the anchor element,
+        the old anchor variable still points to the removed element.
+
+        For a full reset in a larger program, select the new element again.
+        This simple demo reloads the page to keep the lesson easier.
+      */
+      location.reload();
+    }
+  </script>
+</body>
+</html>

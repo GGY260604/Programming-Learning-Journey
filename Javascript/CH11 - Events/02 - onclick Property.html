@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - onclick Property.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn how to attach a click event using the onclick property.
+    - Understand the difference between assigning and calling a function.
+    - Understand the limitation of onclick property assignment.
+
+    IMPORTANT:
+    - button.onclick = functionName assigns the function.
+    - button.onclick = functionName() calls the function immediately and stores its return value.
+    - One onclick property can only hold one handler at a time.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - onclick Property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>02 - onclick Property</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Instead of writing <code>onclick</code> inside HTML, JavaScript can select
+      an element first and then assign a function to its <code>onclick</code> property.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-area">
+      <button id="mainButton">Click Me</button>
+      <button id="replaceButton">Replace onclick Handler</button>
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const mainButton = document.getElementById("mainButton");
+    const replaceButton = document.getElementById("replaceButton");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function firstClickHandler() {
+      print("First onclick handler is running.");
+    }
+
+    function secondClickHandler() {
+      print("Second onclick handler is running.");
+    }
+
+    /*
+      Correct way:
+      Assign the function name without parentheses.
+
+      This means:
+      - Do not run the function now.
+      - Run it later when the button is clicked.
+    */
+    mainButton.onclick = firstClickHandler;
+
+    /*
+      Wrong idea:
+      mainButton.onclick = firstClickHandler();
+
+      This would call firstClickHandler immediately.
+      Then the return value of the function would be assigned to onclick.
+    */
+
+    replaceButton.onclick = function () {
+      /*
+        The onclick property stores only one event handler.
+        Assigning another function replaces the previous one.
+      */
+      mainButton.onclick = secondClickHandler;
+      print("The main button onclick handler has been replaced.");
+    };
+
+    clearButton.onclick = function () {
+      outputBox.textContent = "";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - template Element.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to use the HTML template element.
+    - Learn why template content is not displayed immediately.
+    - Learn how to clone template content and insert it into the page.
+
+    IMPORTANT:
+    - The content inside <template> does not render directly on the page.
+    - JavaScript can clone the template content when it needs to create repeated UI.
+    - Templates are useful for cards, list items, product rows, and repeated components.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - template Element</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>07 - template Element</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        The <code>&lt;template&gt;</code> element stores HTML structure that should not appear immediately.
+      </p>
+
+      <p>
+        JavaScript can clone the template content and fill it with data.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <input type="text" id="productName" placeholder="Product name">
+      <input type="number" id="productPrice" placeholder="Price" min="0" step="0.01">
+      <select id="productStatus">
+        <option value="Available">Available</option>
+        <option value="Low Stock">Low Stock</option>
+        <option value="Sold Out">Sold Out</option>
+      </select>
+
+      <button onclick="addProduct()">Add Product</button>
+      <button onclick="loadSampleProducts()">Load Samples</button>
+      <button onclick="clearProducts()">Clear</button>
+
+      <div id="productArea" class="demo-box">
+        <p>Product cards will appear here.</p>
+      </div>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+
+    <!--
+      The template content is not displayed when the page loads.
+      It works like a reusable blueprint.
+    -->
+    <template id="productTemplate">
+      <div class="card product-card">
+        <h3 class="product-name"></h3>
+        <p>Price: RM <span class="product-price"></span></p>
+        <p>Status: <span class="product-status badge"></span></p>
+      </div>
+    </template>
+  </div>
+
+  <script>
+    const productNameInput = document.getElementById("productName");
+    const productPriceInput = document.getElementById("productPrice");
+    const productStatusSelect = document.getElementById("productStatus");
+    const productArea = document.getElementById("productArea");
+    const productTemplate = document.getElementById("productTemplate");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function createProductCard(name, price, status) {
+      /*
+        productTemplate.content stores the HTML inside <template>.
+
+        cloneNode(true) is used because we want to copy the full card structure,
+        including its child elements.
+      */
+      const clone = productTemplate.content.cloneNode(true);
+
+      /*
+        The clone is a DocumentFragment.
+        We can search inside it before inserting it into the page.
+      */
+      const card = clone.querySelector(".product-card");
+      const nameElement = clone.querySelector(".product-name");
+      const priceElement = clone.querySelector(".product-price");
+      const statusElement = clone.querySelector(".product-status");
+
+      nameElement.textContent = name;
+      priceElement.textContent = Number(price).toFixed(2);
+      statusElement.textContent = status;
+
+      if (status === "Available") {
+        card.classList.add("success");
+      } else if (status === "Low Stock") {
+        card.classList.add("warning");
+      } else {
+        card.classList.add("error");
+      }
+
+      return clone;
+    }
+
+    function addProduct() {
+      const name = productNameInput.value.trim();
+      const price = productPriceInput.value;
+      const status = productStatusSelect.value;
+
+      if (name === "" || price === "") {
+        print("Please enter product name and price.");
+        return;
+      }
+
+      const productCard = createProductCard(name, price, status);
+
+      productArea.append(productCard);
+      print("Added product using template: " + name);
+
+      productNameInput.value = "";
+      productPriceInput.value = "";
+      productNameInput.focus();
+    }
+
+    function loadSampleProducts() {
+      const products = [
+        { name: "Notebook", price: 5.5, status: "Available" },
+        { name: "Pen Set", price: 3.2, status: "Low Stock" },
+        { name: "Calculator", price: 28.9, status: "Sold Out" }
+      ];
+
+      for (const product of products) {
+        const productCard = createProductCard(product.name, product.price, product.status);
+        productArea.append(productCard);
+      }
+
+      print("Loaded sample products using the same template.");
+    }
+
+    function clearProducts() {
+      productArea.innerHTML = "<p>Product cards will appear here.</p>";
+      output.textContent = "";
+      print("Product area cleared.");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - remove and replaceWith.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to remove an element from the page.
+    - Learn how to replace one element with another element.
+    - Understand that removing an element changes the live DOM.
+
+    IMPORTANT:
+    - element.remove() removes the selected element.
+    - element.replaceWith(newElement) replaces the selected element with another element.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - remove and replaceWith</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>05 - remove and replaceWith</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        JavaScript can remove existing elements or replace them with new elements.
+      </p>
+
+      <p>
+        This is useful for list management, notifications, dynamic cards, and UI updates.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <input type="text" id="taskInput" placeholder="Enter a task">
+      <button onclick="addTask()">Add Task</button>
+      <button onclick="resetTasks()">Reset Tasks</button>
+
+      <ul id="taskList" class="list-area">
+        <li>Read JavaScript notes</li>
+        <li>Practise DOM methods</li>
+        <li>Build a mini project</li>
+      </ul>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+
+      if (taskText === "") {
+        print("Please enter a task first.");
+        return;
+      }
+
+      const item = document.createElement("li");
+      const text = document.createElement("span");
+      const doneButton = document.createElement("button");
+      const removeButton = document.createElement("button");
+
+      text.textContent = taskText;
+      doneButton.textContent = "Replace with Done";
+      removeButton.textContent = "Remove";
+
+      /*
+        remove() example:
+        This button removes the whole list item from the page.
+      */
+      removeButton.onclick = function () {
+        item.remove();
+        print("Removed task: " + taskText);
+      };
+
+      /*
+        replaceWith() example:
+        This button replaces the old list item with a new completed message.
+      */
+      doneButton.onclick = function () {
+        const doneItem = document.createElement("li");
+        doneItem.classList.add("success");
+        doneItem.textContent = "Done: " + taskText;
+
+        item.replaceWith(doneItem);
+        print("Replaced task with completed item: " + taskText);
+      };
+
+      item.append(text, " ", doneButton, removeButton);
+      taskList.append(item);
+
+      print("Added task: " + taskText);
+
+      taskInput.value = "";
+      taskInput.focus();
+    }
+
+    function resetTasks() {
+      taskList.innerHTML = "";
+
+      const defaultTasks = [
+        "Read JavaScript notes",
+        "Practise DOM methods",
+        "Build a mini project"
+      ];
+
+      for (const task of defaultTasks) {
+        const item = document.createElement("li");
+        item.textContent = task;
+        taskList.append(item);
+      }
+
+      output.textContent = "";
+      print("Task list reset.");
+    }
+  </script>
+</body>
+</html>

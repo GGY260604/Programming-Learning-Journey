@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Regular Expression Basics.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn what a regular expression is.
+    - Learn literal regex syntax and RegExp constructor syntax.
+    - Understand patterns, flags, anchors, and character classes.
+
+    IMPORTANT:
+    - A regular expression is a pattern used to search or validate text.
+    - /pattern/ is regex literal syntax.
+    - new RegExp("pattern") is constructor syntax.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - Regular Expression Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>Regular Expression Basics</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        A regular expression, often called regex, is a pattern for matching text.
+        It is useful for checking emails, finding words, replacing text, and splitting strings.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <label for="textInput">Text:</label>
+      <input id="textInput" type="text" value="student@example.com">
+      <button onclick="checkEmailPattern()">Check Email-Like Pattern</button>
+      <button onclick="checkWordPattern()">Check Word Pattern</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function checkEmailPattern() {
+      const text = document.getElementById("textInput").value;
+
+      /*
+        This regex checks a simple email-like format.
+
+        ^ means start of string.
+        \S+ means one or more non-space characters.
+        @ means the @ symbol.
+        \. means a literal dot.
+        $ means end of string.
+
+        This is a simple learning pattern, not a perfect email validator.
+      */
+      const emailPattern = /^\S+@\S+\.\S+$/;
+
+      print("Text: " + text);
+      print("Pattern: /^\\S+@\\S+\\.\\S+$/");
+      print("Matched? " + emailPattern.test(text));
+      print("");
+    }
+
+    function checkWordPattern() {
+      const text = document.getElementById("textInput").value;
+
+      /*
+        The i flag means case-insensitive.
+        So /student/i matches student, Student, STUDENT, and so on.
+      */
+      const wordPattern = /student/i;
+
+      print("Text: " + text);
+      print("Pattern: /student/i");
+      print("Contains the word student? " + wordPattern.test(text));
+      print("");
+    }
+
+  </script>
+</body>
+</html>

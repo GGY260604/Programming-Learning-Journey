@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - async and await.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn async functions.
+    - Learn await.
+    - Handle async errors using try...catch.
+
+    IMPORTANT:
+    - An async function always returns a Promise.
+    - await can be used inside async functions.
+    - await waits for a Promise to settle before continuing inside that async function.
+    - await does not freeze the whole browser page.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - async and await</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>07 - async and await</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>async</code> and <code>await</code> make Promise-based code easier to read.
+      The code looks more step-by-step, but it is still asynchronous.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runAsyncSuccess()">Run async/await Success</button>
+    <button onclick="runAsyncError()">Run async/await Error</button>
+    <button onclick="showAsyncReturnValue()">Show async Return Value</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function wait(milliseconds, value, shouldFail) {
+      /*
+        resolve() and reject() are functions that control the state of the Promise.
+        The word cannot be changed, but the parameter names can be anything you like.
+        For example, you can write:
+        return new Promise(function (res, rej) {
+          setTimeout(function () {
+            if (shouldFail) {
+              rej("Something went wrong while waiting.");
+            } else {
+              res(value);
+            }
+          }, milliseconds);
+        });
+        the order of parameters is important, but the names are not. so the first
+        parameter is the function to call when the Promise should be resolved successfully, 
+        and the second parameter is the function to call when the Promise should be rejected 
+        with an error.
+      */
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          if (shouldFail) {
+            reject("Something went wrong while waiting.");
+          } else {
+            resolve(value);
+          }
+        }, milliseconds);
+      });
+    }
+
+    async function runAsyncSuccess() {
+      print("Start async function.");
+
+      /*
+        await waits for the promise result before continuing
+        to the next line inside this async function.
+      */
+      const firstResult = await wait(1000, "First result loaded", false);
+      print(firstResult);
+
+      const secondResult = await wait(1000, "Second result loaded", false);
+      print(secondResult);
+
+      print("Async function completed.");
+      print("");
+    }
+
+    async function runAsyncError() {
+      print("Start async error demo.");
+
+      try {
+        const result = await wait(1000, "This will not be used", true);
+        print(result);
+      } catch (error) {
+        print("try...catch handled the async error:");
+        print(error);
+      }
+
+      print("");
+    }
+
+    async function getUsername() {
+      return "Galen";
+    }
+
+    function showAsyncReturnValue() {
+      const result = getUsername();
+
+      /*
+        Because getUsername() is async, it returns a Promise,
+        not the direct string value.
+      */
+      print("Return value of async function:");
+      print(result);
+
+      result.then(function (username) {
+        print("Value inside the Promise: " + username);
+        print("");
+      });
+    }
+  </script>
+</body>
+</html>

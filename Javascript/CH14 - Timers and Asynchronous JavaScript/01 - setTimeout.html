@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - setTimeout.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn setTimeout().
+    - Run code after a delay.
+    - Understand that setTimeout() does not pause the whole program.
+
+    IMPORTANT:
+    - setTimeout(callback, delay) runs the callback once after the delay.
+    - The delay is written in milliseconds.
+    - 1000 milliseconds = 1 second.
+    - setTimeout() returns a timer ID that can be cancelled later.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - setTimeout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>01 - setTimeout</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>setTimeout()</code> is used to run a function once after a delay.
+      It is useful for messages, loading simulation, delayed actions, and simple timing behavior.
+    </p>
+
+    <div class="note">
+      JavaScript continues running the next lines while waiting for the timeout.
+      This is why timer code is usually called asynchronous code.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runBasicTimeout()">Run Basic Timeout</button>
+    <button onclick="runTimeoutWithArguments()">Run Timeout With Arguments</button>
+    <button onclick="showExecutionOrder()">Show Execution Order</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function runBasicTimeout() {
+      print("Button clicked.");
+      print("A message will appear after 2 seconds...");
+
+      /*
+        setTimeout() receives two main arguments:
+        1. A callback function to run later.
+        2. A delay in milliseconds.
+
+        This callback runs once after about 2000 milliseconds.
+      */
+      setTimeout(function () {
+        print("This message came from setTimeout() after 2 seconds.");
+        print("");
+      }, 2000);
+    }
+
+    function runTimeoutWithArguments() {
+      /*
+        setTimeout() can also pass extra values to the callback function.
+
+        Syntax:
+        setTimeout(callback, delay, argument1, argument2, ...)
+      */
+      setTimeout(function (name, score) {
+        print("Student name: " + name);
+        print("Score: " + score);
+        print("These values were passed into the timeout callback.");
+        print("");
+      }, 1000, "Galen", 88);
+
+      print("Timeout with arguments has been scheduled.");
+    }
+
+    function showExecutionOrder() {
+      print("1. Before setTimeout()");
+
+      setTimeout(function () {
+        print("3. Inside setTimeout() callback");
+        print("");
+      }, 0);
+
+      /*
+        Even when the delay is 0, the callback still waits until
+        the current synchronous code finishes first.
+      */
+      print("2. After setTimeout()");
+    }
+  </script>
+</body>
+</html>

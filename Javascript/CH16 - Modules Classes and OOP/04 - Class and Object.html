@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Class and Object.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn what a class is.
+    - Learn how to create objects from a class.
+    - Understand that a class is a blueprint.
+
+    IMPORTANT:
+    - class defines the structure and behavior.
+    - new creates an object from the class.
+    - The created object is also called an instance.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Class and Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>04 - Class and Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A class is a blueprint. An object is a real item created from that
+      blueprint.
+    </p>
+
+    <p>
+      In this example, <code>Student</code> is the class. The objects are
+      students created using <code>new Student()</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <button onclick="createStudents()">Create Student Objects</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    /*
+      class Student means:
+      - Create a blueprint named Student.
+      - Objects created from this class can have student-related data.
+    */
+    class Student {
+      /*
+        The constructor runs automatically when new Student(...) is used.
+      */
+      constructor(name, course) {
+        this.name = name;
+        this.course = course;
+      }
+    }
+
+    function createStudents() {
+      clearOutput();
+
+      /*
+        new Student(...) creates an object from the Student class.
+      */
+      const studentOne = new Student("Galen", "Software Engineering");
+      const studentTwo = new Student("Cleo", "Data Science");
+
+      print("studentOne name: " + studentOne.name);
+      print("studentOne course: " + studentOne.course);
+      print("");
+      print("studentTwo name: " + studentTwo.name);
+      print("studentTwo course: " + studentTwo.course);
+      print("");
+      print("Both objects were created from the same Student class.");
+    }
+  </script>
+</body>
+</html>

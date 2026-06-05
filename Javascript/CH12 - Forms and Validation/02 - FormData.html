@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - FormData.html
+    TOPIC: CH12 - Forms and Validation
+
+    GOAL:
+    - Learn how to collect form values using the FormData object.
+    - Understand why the name attribute is important.
+    - Learn how to loop through submitted form data.
+
+    IMPORTANT:
+    - FormData reads controls that have a name attribute.
+    - formData.get("name") gets one value by name.
+    - formData.entries() lets you loop through all collected values.
+    - Multiple controls with the same name can be read using getAll().
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH12 - FormData</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH12 - Forms and Validation</h1>
+  <h2>02 - FormData</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>FormData</code> is useful when you want to collect all form values
+      without selecting every input manually.
+    </p>
+    <p>
+      It depends on the <code>name</code> attribute, not the <code>id</code> attribute.
+      The <code>id</code> is useful for JavaScript selection and labels, while
+      <code>name</code> is used as the submitted field name.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="orderForm" class="form-grid">
+      <div class="form-row">
+        <label for="customerName">Customer name</label>
+        <input type="text" id="customerName" name="customerName" value="Galen">
+      </div>
+
+      <div class="form-row">
+        <label for="food">Food</label>
+        <select id="food" name="food">
+          <option value="burger">Burger</option>
+          <option value="pizza">Pizza</option>
+          <option value="rice">Rice</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <span>Extra toppings</span>
+        <div class="option-row">
+          <label><input type="checkbox" name="topping" value="cheese" checked> Cheese</label>
+          <label><input type="checkbox" name="topping" value="egg"> Egg</label>
+          <label><input type="checkbox" name="topping" value="mushroom"> Mushroom</label>
+        </div>
+      </div>
+
+      <div class="demo-area">
+        <button type="submit">Read with FormData</button>
+        <button type="button" onclick="clearOutput()">Clear Output</button>
+      </div>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const orderForm = document.getElementById("orderForm");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    orderForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      output.textContent = "";
+
+      /*
+        Create a FormData object from the form.
+        It automatically reads named controls inside the form.
+      */
+      const formData = new FormData(orderForm);
+
+      /*
+        get() returns the first value for a field name.
+      */
+      const customerName = formData.get("customerName");
+      const food = formData.get("food");
+
+      /*
+        getAll() is useful when many controls share the same name.
+        Checkbox groups commonly use the same name.
+      */
+      const toppings = formData.getAll("topping");
+
+      print("Using formData.get():");
+      print("Customer name: " + customerName);
+      print("Food: " + food);
+      print("Toppings: " + toppings.join(", "));
+      print("");
+
+      print("Looping through formData.entries():");
+
+      for (const [name, value] of formData.entries()) {
+        print(name + " = " + value);
+      }
+    });
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

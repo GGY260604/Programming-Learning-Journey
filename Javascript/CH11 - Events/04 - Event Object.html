@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Event Object.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn what the event object is.
+    - Read common event object properties.
+    - Understand target and currentTarget.
+
+    IMPORTANT:
+    - The browser automatically passes an event object to the event handler.
+    - event.target is the element that actually triggered the event.
+    - event.currentTarget is the element that the handler is attached to.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Event Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>04 - Event Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      When an event happens, the browser creates an event object.
+      This object contains details about what happened.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div id="card" class="card">
+      <p>Click the text or the button inside this card.</p>
+      <button id="insideButton">Button Inside Card</button>
+    </div>
+
+    <div class="demo-area">
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    card.addEventListener("click", function (event) {
+      /*
+        The parameter name does not have to be "event".
+        Many developers use "event" or simply "e".
+
+        This event object is automatically provided by the browser.
+      */
+
+      print("Event type: " + event.type);
+      print("Target tag: " + event.target.tagName);
+      print("Current target tag: " + event.currentTarget.tagName);
+      print("Mouse X position: " + event.clientX);
+      print("Mouse Y position: " + event.clientY);
+      print("Time stamp: " + Math.round(event.timeStamp) + " ms");
+      print("---");
+
+      /*
+        event.target:
+        The exact element that was clicked.
+
+        event.currentTarget:
+        The element that owns this event listener.
+
+        If you click the button inside the card:
+        - target is BUTTON
+        - currentTarget is DIV
+      */
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+    });
+  </script>
+</body>
+</html>

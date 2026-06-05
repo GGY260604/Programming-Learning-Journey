@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - addEventListener.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn the modern way to attach events.
+    - Understand how addEventListener can attach multiple handlers.
+    - Learn how to remove an event listener.
+
+    IMPORTANT:
+    - addEventListener("click", functionName) attaches an event handler.
+    - removeEventListener needs the same function reference to remove it.
+    - addEventListener is preferred for most modern JavaScript projects.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - addEventListener</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>03 - addEventListener</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>addEventListener()</code> is the most flexible way to listen for events.
+      Unlike the <code>onclick</code> property, it can attach more than one handler
+      to the same event.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-area">
+      <button id="mainButton">Click Me</button>
+      <button id="removeSecondHandler">Remove Second Handler</button>
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const mainButton = document.getElementById("mainButton");
+    const removeSecondHandler = document.getElementById("removeSecondHandler");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function firstHandler() {
+      print("First handler: button clicked.");
+    }
+
+    function secondHandler() {
+      print("Second handler: this can run together with the first handler.");
+    }
+
+    /*
+      addEventListener syntax:
+
+      element.addEventListener(eventName, handlerFunction);
+
+      The event name is written without "on".
+      Use "click", not "onclick".
+    */
+    mainButton.addEventListener("click", firstHandler);
+    mainButton.addEventListener("click", secondHandler);
+
+    removeSecondHandler.addEventListener("click", function () {
+      /*
+        removeEventListener must receive the same function reference
+        that was used in addEventListener.
+
+        This works because secondHandler is a named function.
+      */
+      mainButton.removeEventListener("click", secondHandler);
+      print("Second handler removed. Click the main button again.");
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+    });
+  </script>
+</body>
+</html>

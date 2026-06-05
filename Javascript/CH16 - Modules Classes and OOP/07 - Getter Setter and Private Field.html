@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Getter Setter and Private Field.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn getter.
+    - Learn setter.
+    - Learn private class field.
+
+    IMPORTANT:
+    - A getter reads a calculated or protected value like a property.
+    - A setter controls how a value is changed.
+    - A private field starts with # and cannot be accessed directly outside the class.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Getter Setter and Private Field</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>07 - Getter Setter and Private Field</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Getter and setter allow object data to be read and changed in a controlled
+      way. A private field protects data from direct outside access.
+    </p>
+  </div>
+
+  <div class="section">
+    <label>New balance:</label>
+    <input type="number" id="balanceInput" value="150" step="10">
+
+    <button onclick="runAccountExample()">Set Balance</button>
+    <button onclick="tryInvalidValue()">Try Invalid Value</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+    const balanceInput = document.getElementById("balanceInput");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    class BankAccount {
+      /*
+        #balance is a private field.
+
+        This means code outside the class cannot access account.#balance.
+
+        Public field syntax is just writing the name without #, but we will not use that in this course.
+      */
+      #balance;
+
+      constructor(owner, balance) {
+        this.owner = owner;
+        this.#balance = balance;
+      }
+
+      /*
+        Getter:
+        Allows the value to be read like a property.
+
+        Example:
+        account.balance
+      */
+      get balance() {
+        return this.#balance;
+      }
+
+      /*
+        Setter:
+        Allows the value to be changed like a property, but with validation.
+
+        Example:
+        account.balance = 200;
+      */
+      set balance(newBalance) {
+        if (newBalance < 0) {
+          throw new Error("Balance cannot be negative.");
+        }
+
+        this.#balance = newBalance;
+      }
+
+      getSummary() {
+        return this.owner + " has RM " + this.#balance.toFixed(2);
+      }
+    }
+
+    const account = new BankAccount("Galen", 100);
+
+    function runAccountExample() {
+      clearOutput();
+
+      try {
+        const newBalance = Number(balanceInput.value);
+
+        account.balance = newBalance;
+
+        print("Balance updated successfully.");
+        print(account.getSummary());
+        print("");
+        print("Getter result: RM " + account.balance.toFixed(2));
+      } catch (error) {
+        print("Error: " + error.message);
+      }
+    }
+
+    function tryInvalidValue() {
+      clearOutput();
+
+      try {
+        account.balance = -50;
+        print("This line will not run if the setter throws an error.");
+      } catch (error) {
+        print("Invalid update blocked.");
+        print("Error: " + error.message);
+      }
+    }
+  </script>
+</body>
+</html>

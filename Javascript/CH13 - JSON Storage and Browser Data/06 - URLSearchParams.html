@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - URLSearchParams.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn how query strings store small data in a URL.
+    - Learn URLSearchParams.
+    - Learn get(), has(), set(), append(), delete(), and toString().
+
+    IMPORTANT:
+    - Query strings appear after the ? symbol in a URL.
+    - Example: page.html?keyword=javascript&page=2
+    - URLSearchParams helps read and build query string data.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - URLSearchParams</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>06 - URLSearchParams</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>URLSearchParams</code> is used to work with query string data.
+      Query strings are often used for search keywords, filters, page numbers, and simple state in the URL.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <label for="keyword">Keyword</label>
+    <input type="text" id="keyword" placeholder="Example: javascript">
+
+    <label for="category">Category</label>
+    <select id="category">
+      <option value="basic">Basic</option>
+      <option value="dom">DOM</option>
+      <option value="async">Async</option>
+    </select>
+
+    <button onclick="buildQueryString()">Build Query String</button>
+    <button onclick="readSampleQueryString()">Read Sample Query String</button>
+    <button onclick="modifyQueryString()">Modify Query String</button>
+    <button onclick="readCurrentPageQuery()">Read Current Page Query</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const keywordInput = document.getElementById("keyword");
+    const categorySelect = document.getElementById("category");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function buildQueryString() {
+      const keyword = keywordInput.value.trim();
+      const category = categorySelect.value;
+
+      /*
+        Create an empty URLSearchParams object.
+        Then add query string values using set().
+      */
+      const params = new URLSearchParams();
+
+      params.set("keyword", keyword);
+      params.set("category", category);
+      params.set("page", "1");
+
+      /*
+        toString() converts the parameters into query string text.
+        Spaces and special characters are encoded safely.
+      */
+      const queryString = params.toString();
+
+      print("Generated query string:");
+      print("?" + queryString);
+      print("");
+    }
+
+    function readSampleQueryString() {
+      const sample = "?keyword=javascript&category=dom&page=2";
+
+      /*
+        URLSearchParams can read query strings with or without the ? symbol.
+      */
+      const params = new URLSearchParams(sample);
+
+      print("Sample query string:");
+      print(sample);
+      print("");
+
+      print("Read values using get():");
+      print("keyword = " + params.get("keyword"));
+      print("category = " + params.get("category"));
+      print("page = " + params.get("page"));
+      print("");
+
+      print("Check whether a key exists using has():");
+      print("has keyword? " + params.has("keyword"));
+      print("has sort? " + params.has("sort"));
+      print("");
+    }
+
+    function modifyQueryString() {
+      const params = new URLSearchParams("keyword=javascript&page=1");
+
+      /*
+        set() creates the key if it does not exist.
+        If the key already exists, set() replaces its value.
+      */
+      params.set("page", "2");
+      params.set("category", "basic");
+
+      /*
+        append() adds another value with the same key.
+        This is useful for multi-select filters.
+      */
+      params.append("tag", "beginner");
+      params.append("tag", "practice");
+
+      /*
+        delete() removes a key and its value.
+      */
+      params.delete("keyword");
+
+      print("Modified query string:");
+      print("?" + params.toString());
+      print("");
+
+      print("Read all tag values using getAll():");
+      print(params.getAll("tag").join(", "));
+      print("");
+    }
+
+    function readCurrentPageQuery() {
+      /*
+        window.location.search contains the query string of the current page.
+        Example:
+        If the page URL is file.html?name=Galen, then location.search is ?name=Galen.
+      */
+      const currentQuery = window.location.search;
+      const params = new URLSearchParams(currentQuery);
+
+      print("Current page query string:");
+      print(currentQuery === "" ? "No query string in the current URL." : currentQuery);
+      print("");
+
+      if (params.has("keyword")) {
+        print("keyword from current URL: " + params.get("keyword"));
+      } else {
+        print("Try adding ?keyword=javascript to the end of this file URL and reload the page.");
+      }
+
+      print("");
+    }
+  </script>
+</body>
+</html>

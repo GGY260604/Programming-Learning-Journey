@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - AbortController.html
+    TOPIC: CH15 - Fetch API and HTTP Request
+
+    GOAL:
+    - Learn how to cancel a fetch request.
+    - Use AbortController with fetch().
+    - Understand why request cancellation is useful.
+
+    IMPORTANT:
+    - AbortController creates a controller object.
+    - controller.signal is passed into fetch().
+    - controller.abort() cancels the request.
+    - This is useful for search boxes, page navigation, and cancel buttons.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH15 - AbortController</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH15 - Fetch API and HTTP Request</h1>
+  <h2>06 - AbortController</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Sometimes a request is no longer needed. For example, the user may click
+      a cancel button or type a new search keyword before the old request finishes.
+    </p>
+
+    <div class="note">
+      <code>AbortController</code> lets JavaScript cancel a fetch request before
+      it finishes.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="startRequest()">Start Slow Request</button>
+    <button onclick="cancelRequest()">Cancel Request</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    /*
+      This variable stores the current controller.
+      It is declared outside the function so another function can cancel it.
+    */
+    let currentController = null;
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function startRequest() {
+      /*
+        If another request already exists, cancel it first.
+        This prevents old requests from updating the page later.
+      */
+      if (currentController !== null) {
+        currentController.abort();
+      }
+
+      currentController = new AbortController();
+
+      print("Starting request...");
+      print("This demo uses a delayed test endpoint.");
+
+      setTimeout(() => {
+        fetch("https://httpbin.org/delay/5", {
+          /*
+            The signal connects this fetch request to the controller.
+            Later, controller.abort() can cancel this exact request.
+          */
+          signal: currentController.signal
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          print("Request finished successfully.");
+          print("URL returned by server: " + data.url);
+          print("");
+
+          currentController = null;
+        })
+        .catch(function (error) {
+          /*
+            When a fetch request is cancelled, the error name is usually AbortError.
+          */
+          if (error.name === "AbortError") {
+            print("Request was cancelled by AbortController.");
+          } else {
+            print("Request failed: " + error.message);
+          }
+
+          print("");
+          currentController = null;
+        });
+      }, 1000); // Simulate a delay before starting the request
+    }
+
+    function cancelRequest() {
+      if (currentController === null) {
+        print("There is no active request to cancel.");
+        print("");
+        return;
+      }
+
+      currentController.abort();
+      print("Cancel command sent.");
+    }
+  </script>
+</body>
+</html>

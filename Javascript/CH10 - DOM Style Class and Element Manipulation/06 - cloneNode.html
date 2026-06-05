@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - cloneNode.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to duplicate an existing element using cloneNode().
+    - Understand shallow clone and deep clone.
+    - Understand why duplicate IDs can become a problem.
+
+    IMPORTANT:
+    - cloneNode(false) clones only the selected element itself.
+    - cloneNode(true) clones the element and its child content.
+    - If the original element has an id, the cloned element receives the same id unless you change it.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - cloneNode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>06 - cloneNode</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        <code>cloneNode()</code> creates a copy of an existing element.
+      </p>
+
+      <div class="note">
+        Be careful when cloning elements that have an <code>id</code>.
+        IDs should be unique in a page, so change or remove the id on the clone.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <div id="sourceCard" class="student-card">
+        <h3>Original Card</h3>
+        <p>This card has child elements.</p>
+        <span class="badge">Source</span>
+      </div>
+
+      <button onclick="shallowClone()">cloneNode(false)</button>
+      <button onclick="deepClone()">cloneNode(true)</button>
+      <button onclick="clearClones()">Clear Clones</button>
+
+      <div id="cloneArea" class="demo-box">
+        <p>Clones will appear here.</p>
+      </div>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const sourceCard = document.getElementById("sourceCard");
+    const cloneArea = document.getElementById("cloneArea");
+    const output = document.getElementById("output");
+
+    let cloneNumber = 1;
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function shallowClone() {
+      /*
+        cloneNode(false) creates a shallow clone.
+
+        It copies:
+        - the element itself
+        - its attributes
+
+        It does not copy:
+        - child elements
+        - text inside child elements
+      */
+      const clone = sourceCard.cloneNode(false);
+
+      /*
+        The original sourceCard has id="sourceCard".
+        A clone should not keep the same id because id values should be unique.
+      */
+      clone.removeAttribute("id");
+
+      clone.textContent = "Shallow clone " + cloneNumber + ": child content was not copied.";
+      clone.classList.add("warning");
+
+      cloneArea.append(clone);
+
+      print("Created shallow clone " + cloneNumber + ".");
+      cloneNumber++;
+    }
+
+    function deepClone() {
+      /*
+        cloneNode(true) creates a deep clone.
+
+        It copies:
+        - the element itself
+        - its attributes
+        - its child elements
+        - text inside its child elements
+      */
+      const clone = sourceCard.cloneNode(true);
+
+      clone.removeAttribute("id");
+      clone.classList.add("success");
+
+      /*
+        Because this is a deep clone, the h3 element exists inside the clone.
+        We can select it and change its text.
+      */
+      const title = clone.querySelector("h3");
+      title.textContent = "Deep Clone " + cloneNumber;
+
+      cloneArea.append(clone);
+
+      print("Created deep clone " + cloneNumber + ".");
+      cloneNumber++;
+    }
+
+    function clearClones() {
+      cloneArea.innerHTML = "<p>Clones will appear here.</p>";
+      output.textContent = "";
+      cloneNumber = 1;
+      print("Clone area cleared.");
+    }
+  </script>
+</body>
+</html>

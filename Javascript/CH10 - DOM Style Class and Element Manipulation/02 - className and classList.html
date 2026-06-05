@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - className and classList.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to read and change an element's class.
+    - Learn className.
+    - Learn classList.add(), classList.remove(), classList.toggle(), and classList.contains().
+
+    IMPORTANT:
+    - className replaces the whole class attribute.
+    - classList safely adds, removes, checks, or toggles individual classes.
+    - classList is usually better when you only want to change one class.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - className and classList</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>02 - className and classList</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        CSS classes are usually better than changing many style properties one by one.
+      </p>
+
+      <p>
+        JavaScript can control classes using <code>className</code> and <code>classList</code>.
+      </p>
+
+      <div class="note">
+        <code>className</code> overwrites the whole class string.
+        <code>classList</code> works with individual class names.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <div id="messageBox" class="target-box">
+        This message box can receive different classes.
+      </div>
+
+      <button onclick="showClassName()">Read className</button>
+      <button onclick="replaceClassName()">Replace using className</button>
+      <button onclick="addSuccessClass()">Add success</button>
+      <button onclick="removeSuccessClass()">Remove success</button>
+      <button onclick="toggleLargeText()">Toggle large-text</button>
+      <button onclick="checkWarningClass()">Check warning</button>
+      <button onclick="resetClasses()">Reset</button>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const messageBox = document.getElementById("messageBox");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function showClassName() {
+      /*
+        className returns the full class attribute as one string.
+      */
+      print("Current className: " + messageBox.className);
+    }
+
+    function replaceClassName() {
+      /*
+        className replaces all existing classes.
+
+        Before:
+        class="target-box"
+
+        After:
+        class="target-box warning rounded"
+
+        Be careful: if you forget target-box, the original box design is removed.
+      */
+      messageBox.className = "target-box warning rounded";
+
+      print("className replaced the whole class list.");
+      print("New className: " + messageBox.className);
+    }
+
+    function addSuccessClass() {
+      /*
+        classList.add() adds one or more classes without removing other classes.
+      */
+      messageBox.classList.add("success");
+
+      print("Added success using classList.add().");
+      print("New className: " + messageBox.className);
+    }
+
+    function removeSuccessClass() {
+      /*
+        classList.remove() removes a class if it exists.
+        It does not cause an error if the class does not exist.
+      */
+      messageBox.classList.remove("success");
+
+      print("Removed success using classList.remove().");
+      print("New className: " + messageBox.className);
+    }
+
+    function toggleLargeText() {
+      /*
+        classList.toggle() works like an on/off switch.
+
+        If the class exists, it removes it.
+        If the class does not exist, it adds it.
+      */
+      messageBox.classList.toggle("large-text");
+
+      print("Toggled large-text using classList.toggle().");
+      print("New className: " + messageBox.className);
+    }
+
+    function checkWarningClass() {
+      /*
+        classList.contains() returns true or false.
+      */
+      const hasWarning = messageBox.classList.contains("warning");
+
+      print("Does the box have warning class? " + hasWarning);
+    }
+
+    function resetClasses() {
+      messageBox.className = "target-box";
+      output.textContent = "";
+      print("Classes reset to target-box only.");
+    }
+  </script>
+</body>
+</html>

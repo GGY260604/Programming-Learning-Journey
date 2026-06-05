@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - setInterval.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn setInterval().
+    - Run code repeatedly after a fixed interval.
+    - Understand why intervals should be stopped when they are no longer needed.
+
+    IMPORTANT:
+    - setInterval(callback, interval) repeats the callback.
+    - The interval is written in milliseconds.
+    - setInterval() returns an interval ID.
+    - clearInterval(id) stops the repeating action.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - setInterval</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>02 - setInterval</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>setInterval()</code> is used when the same task needs to happen again and again,
+      such as updating a clock, checking status, or running a countdown.
+    </p>
+
+    <div class="note">
+      Be careful: if you start many intervals and never stop them, your page may keep running unnecessary code.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="startClock()">Start Clock</button>
+    <button onclick="stopClock()">Stop Clock</button>
+    <button onclick="startCounter()">Start Counter</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="clock" class="timer-display">--:--:--</div>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const clockBox = document.getElementById("clock");
+    const outputBox = document.getElementById("output");
+
+    let clockIntervalId = null;
+    let counterIntervalId = null;
+    let counter = 0;
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function startClock() {
+      /*
+        Prevent creating many clock intervals.
+        If clockIntervalId is not null, the clock is already running.
+      */
+      if (clockIntervalId !== null) {
+        print("The clock is already running.");
+        return;
+      }
+
+      print("Clock started. It updates every 1 second.");
+
+      clockIntervalId = setInterval(function () {
+        const now = new Date();
+        clockBox.textContent = now.toLocaleTimeString();
+      }, 1000);
+    }
+
+    function stopClock() {
+      if (clockIntervalId === null) {
+        print("The clock is not running.");
+        return;
+      }
+
+      clearInterval(clockIntervalId);
+      clockIntervalId = null;
+      print("Clock stopped.");
+    }
+
+    function startCounter() {
+      if (counterIntervalId !== null) {
+        print("The counter is already running.");
+        return;
+      }
+
+      print("Counter started. It increases every 1 second.");
+
+      counterIntervalId = setInterval(function () {
+        counter++;
+        print("Counter: " + counter);
+
+        if (counter === 5) {
+          clearInterval(counterIntervalId);
+          counterIntervalId = null;
+          print("Counter stopped automatically at 5.");
+          print("");
+        }
+      }, 1000);
+    }
+
+    function resetDemo() {
+      clearInterval(clockIntervalId);
+      clearInterval(counterIntervalId);
+
+      clockIntervalId = null;
+      counterIntervalId = null;
+      counter = 0;
+
+      clockBox.textContent = "--:--:--";
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

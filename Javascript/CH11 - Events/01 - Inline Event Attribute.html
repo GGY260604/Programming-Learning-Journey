@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Inline Event Attribute.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn the simplest way to attach an event directly in HTML.
+    - Understand how inline event attributes call JavaScript functions.
+    - Understand why inline events are useful for learning but not ideal for large projects.
+
+    IMPORTANT:
+    - onclick="functionName()" runs JavaScript when the element is clicked.
+    - You can pass normal values, this, or event from an inline event attribute.
+    - Inline events mix HTML and JavaScript together, so later files will show better approaches.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Inline Event Attribute</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>01 - Inline Event Attribute</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      An event is something that happens in the browser, such as a click,
+      key press, form submit, or mouse movement.
+    </p>
+    <p>
+      The inline event attribute approach writes the event directly inside
+      the HTML element, for example <code>onclick="showMessage()"</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-area">
+      <button onclick="showMessage()">Run Function</button>
+      <button onclick="showCustomMessage('Hello from inline event!')">Pass Text</button>
+      <button onclick="showButtonText(this)">Pass this</button>
+      <button onclick="showEventType(event)">Pass event</button>
+      <button onclick="clearOutput()">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    /*
+      This file uses inline event attributes in the HTML above.
+
+      Example:
+      <button onclick="showMessage()">Run Function</button>
+
+      When the button is clicked, the browser calls showMessage().
+    */
+
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function showMessage() {
+      print("The button was clicked.");
+    }
+
+    function showCustomMessage(message) {
+      /*
+        Inline event attributes can pass values into a function.
+        The value 'Hello from inline event!' comes from the HTML button.
+      */
+      print(message);
+    }
+
+    function showButtonText(buttonElement) {
+      /*
+        In an inline event attribute, this refers to the element
+        that owns the event attribute.
+
+        Here, this is the clicked button.
+      */
+      print("Button text: " + buttonElement.textContent);
+    }
+
+    function showEventType(eventObject) {
+      /*
+        The event object stores information about the event.
+        For a click event, event.type is usually "click".
+      */
+      print("Event type: " + eventObject.type);
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+  </script>
+</body>
+</html>

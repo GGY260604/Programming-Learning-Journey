@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Callback.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn what a callback function is.
+    - Use callbacks in normal functions.
+    - Use callbacks in asynchronous timer-based actions.
+
+    IMPORTANT:
+    - A callback is a function passed into another function as an argument.
+    - The receiving function can call the callback later.
+    - Event listeners, array methods, timers, and many older APIs use callbacks.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - Callback</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>04 - Callback</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A callback function is not special syntax. It is simply a function that is passed
+      as a value and called by another function.
+    </p>
+
+    <div class="note">
+      You already used callbacks in earlier chapters when using
+      <code>forEach()</code>, <code>map()</code>, <code>filter()</code>, and <code>addEventListener()</code>.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runCalculationCallback()">Run Calculation Callback</button>
+    <button onclick="runAsyncCallback()">Run Async Callback</button>
+    <button onclick="runNamedCallback()">Run Named Callback</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function calculate(a, b, operation) {
+      /*
+        operation is expected to be a function.
+        This function decides what calculation should be performed.
+      */
+      return operation(a, b);
+    }
+
+    function runCalculationCallback() {
+      const total = calculate(10, 5, function (x, y) {
+        return x + y;
+      });
+
+      const product = calculate(10, 5, function (x, y) {
+        return x * y;
+      });
+
+      print("Callback used for calculation:");
+      print("10 + 5 = " + total);
+      print("10 * 5 = " + product);
+      print("");
+    }
+
+    function fakeDownload(callback) {
+      print("Downloading data...");
+
+      /*
+        The callback runs later, after the timeout finishes.
+        This simulates an asynchronous task.
+      */
+      setTimeout(function () {
+        const data = "Student data loaded";
+        callback(data);
+      }, 1500);
+    }
+
+    function runAsyncCallback() {
+      fakeDownload(function (result) {
+        print("Callback received result:");
+        print(result);
+        print("");
+      });
+
+      print("This line runs before the download callback finishes.");
+    }
+
+    function showMessage(message) {
+      print("Named callback says: " + message);
+      print("");
+    }
+
+    function runNamedCallback() {
+      /*
+        A callback can be an anonymous function or a named function.
+        Here, showMessage is passed without parentheses.
+      */
+      fakeDownload(showMessage);
+    }
+  </script>
+</body>
+</html>

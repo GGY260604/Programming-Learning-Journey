@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - test exec match replace and split.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn common methods used with regular expressions.
+    - Compare RegExp methods and String methods.
+    - Practice test, exec, match, replace, and split.
+
+    IMPORTANT:
+    - test() returns true or false.
+    - exec() returns detailed match information.
+    - match(), replace(), and split() are string methods that can use regex.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - test exec match replace and split</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>test exec match replace and split</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        Regex can be used through both <code>RegExp</code> methods and <code>String</code> methods.
+        Different methods are useful for different tasks.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <label for="sentenceInput">Sentence:</label>
+      <input id="sentenceInput" type="text" size="55" value="JS 101, CSS 202, HTML 303">
+      <button onclick="runRegexMethods()">Run Regex Methods</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function runRegexMethods() {
+      const sentence = document.getElementById("sentenceInput").value;
+
+      /*
+        \d+ means one or more digits.
+        The g flag means global search, so it can find more than one match.
+      */
+      const numberPattern = /\d+/g;
+
+      print("Original sentence:");
+      print(sentence);
+      print("");
+
+      /*
+        test() checks whether at least one match exists.
+      */
+      print("test(): " + /\d+/.test(sentence));
+
+      /*
+        exec() returns information about the first match.
+        Because this uses a fresh regex without g, it always starts from the beginning.
+      */
+      const firstMatch = /\d+/.exec(sentence);
+      print("exec() first match: " + firstMatch[0]);
+      print("exec() match index: " + firstMatch.index);
+
+      /*
+        match() returns the matched values.
+        With the g flag, it returns all matched values.
+      */
+      const allNumbers = sentence.match(numberPattern);
+      print("match() all numbers: " + allNumbers.join(", "));
+
+      /*
+        replace() returns a new string after replacement.
+        It does not modify the original string.
+      */
+      const hiddenNumbers = sentence.replace(/\d+/g, "###");
+      print("replace(): " + hiddenNumbers);
+
+      /*
+        split() can use regex as the separator.
+        This example splits by comma and optional spaces.
+      */
+      const parts = sentence.split(/,\s*/);
+      print("split(): " + parts.join(" | "));
+      print("");
+    }
+
+  </script>
+</body>
+</html>

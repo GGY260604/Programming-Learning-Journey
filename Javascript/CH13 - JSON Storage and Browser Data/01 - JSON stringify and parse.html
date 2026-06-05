@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - JSON stringify and parse.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn JSON.stringify().
+    - Learn JSON.parse().
+    - Understand why JSON is useful when storing or transferring data.
+
+    IMPORTANT:
+    - JSON means JavaScript Object Notation.
+    - JSON is a text format.
+    - localStorage and sessionStorage can only store strings.
+    - Therefore, arrays and objects are usually converted to JSON strings first.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - JSON stringify and parse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>01 - JSON stringify and parse</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>JSON.stringify()</code> converts a JavaScript value into a JSON string.
+      <code>JSON.parse()</code> converts a JSON string back into a JavaScript value.
+    </p>
+
+    <div class="note">
+      JSON is commonly used when sending data to a server or saving data in browser storage.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="showStringify()">Run JSON.stringify()</button>
+    <button onclick="showParse()">Run JSON.parse()</button>
+    <button onclick="showInvalidJson()">Try Invalid JSON</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function showStringify() {
+      /*
+        This is a normal JavaScript object.
+        It can contain string, number, boolean, array, object, and null values.
+      */
+      const student = {
+        name: "Galen",
+        course: "Software Engineering",
+        year: 1,
+        active: true,
+        skills: ["HTML", "CSS", "JavaScript"]
+      };
+
+      /*
+        JSON.stringify(student) converts the object into a string.
+        After conversion, the result is no longer an object.
+        It is text.
+      */
+      const jsonText = JSON.stringify(student);
+
+      print("Original JavaScript object:");
+      print(student.name + " studies " + student.course);
+      print("");
+
+      print("After JSON.stringify():");
+      print(jsonText);
+      print("Type after stringify: " + typeof jsonText);
+      print("");
+    }
+
+    function showParse() {
+      /*
+        This is JSON text.
+        JSON text must follow strict rules:
+        - Object keys must use double quotes.
+        - String values must use double quotes.
+        - No comments are allowed inside JSON text.
+      */
+      const jsonText = '{"name":"Galen","score":88,"passed":true}';
+
+      /*
+        JSON.parse(jsonText) converts the JSON string into a JavaScript object.
+      */
+      const result = JSON.parse(jsonText);
+
+      print("Original JSON text:");
+      print(jsonText);
+      print("Type before parse: " + typeof jsonText);
+      print("");
+
+      print("After JSON.parse():");
+      print("Name: " + result.name);
+      print("Score: " + result.score);
+      print("Passed: " + result.passed);
+      print("Type after parse: " + typeof result);
+      print("");
+    }
+
+    function showInvalidJson() {
+      /*
+        This JSON is invalid because the key name does not use double quotes.
+        JavaScript object syntax allows { name: "Galen" }, but JSON does not.
+      */
+      const invalidJson = '{name:"Galen"}';
+
+      try {
+        const result = JSON.parse(invalidJson);
+        print(result.name);
+      } catch (error) {
+        print("Invalid JSON causes an error:");
+        print(error.message);
+        print("");
+      }
+    }
+  </script>
+</body>
+</html>

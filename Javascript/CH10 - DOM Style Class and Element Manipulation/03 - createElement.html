@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - createElement.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to create new HTML elements using JavaScript.
+    - Learn how to set text, attributes, and classes on a new element.
+    - Understand that createElement() creates an element but does not show it immediately.
+
+    IMPORTANT:
+    - document.createElement("tagName") creates a new element.
+    - The new element only appears on the page after it is inserted into the DOM.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - createElement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>03 - createElement</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        <code>document.createElement()</code> creates a new HTML element in memory.
+      </p>
+
+      <p>
+        The element will not appear until you insert it into an existing element.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <input type="text" id="studentName" placeholder="Enter student name">
+      <input type="number" id="studentLevel" placeholder="Level" min="1" max="5">
+
+      <button onclick="createStudentCard()">Create Student Card</button>
+      <button onclick="clearCards()">Clear Cards</button>
+
+      <div id="cardArea" class="demo-box">
+        <p>New cards will appear here.</p>
+      </div>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const studentNameInput = document.getElementById("studentName");
+    const studentLevelInput = document.getElementById("studentLevel");
+    const cardArea = document.getElementById("cardArea");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function createStudentCard() {
+      const name = studentNameInput.value.trim();
+      const level = studentLevelInput.value;
+
+      if (name === "" || level === "") {
+        print("Please enter both name and level.");
+        return;
+      }
+
+      /*
+        Step 1:
+        Create a new div element.
+
+        At this point, the element exists in JavaScript memory,
+        but it is not visible on the page yet.
+      */
+      const card = document.createElement("div");
+
+      /*
+        Step 2:
+        Add a CSS class to the new element.
+      */
+      card.classList.add("student-card");
+
+      /*
+        Step 3:
+        Add custom data using dataset.
+
+        This creates:
+        data-level="..."
+      */
+      card.dataset.level = level;
+
+      /*
+        Step 4:
+        Create child elements for the card.
+      */
+      const title = document.createElement("h3");
+      title.textContent = name;
+
+      const info = document.createElement("p");
+      info.textContent = "Level: " + level;
+
+      const badge = document.createElement("span");
+      badge.classList.add("badge");
+      badge.textContent = "Created by JS";
+
+      /*
+        Step 5:
+        Put the child elements inside the card.
+      */
+      card.appendChild(title);
+      card.appendChild(info);
+      card.appendChild(badge);
+
+      /*
+        Step 6:
+        Insert the card into the page.
+
+        Without this line, the created element will not be displayed.
+      */
+      cardArea.appendChild(card);
+
+      print("Created one student card for " + name + ".");
+
+      studentNameInput.value = "";
+      studentLevelInput.value = "";
+      studentNameInput.focus();
+    }
+
+    function clearCards() {
+      /*
+        innerHTML is used here only to reset the demo area quickly.
+        For user-submitted text, prefer textContent to avoid unsafe HTML injection.
+      */
+      cardArea.innerHTML = "<p>New cards will appear here.</p>";
+      output.textContent = "";
+      print("Card area cleared.");
+    }
+  </script>
+</body>
+</html>

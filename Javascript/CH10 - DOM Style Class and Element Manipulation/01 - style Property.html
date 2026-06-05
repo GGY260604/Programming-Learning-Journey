@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - style Property.html
+    TOPIC: CH10 - DOM Style Class and Element Manipulation
+
+    GOAL:
+    - Learn how to change CSS directly using JavaScript.
+    - Learn the style property.
+    - Learn the difference between CSS property names and JavaScript style property names.
+
+    IMPORTANT:
+    - element.style changes inline CSS.
+    - CSS uses kebab-case, such as background-color.
+    - JavaScript style uses camelCase, such as backgroundColor.
+    - For many style changes, classList is usually cleaner than many style assignments.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH10 - style Property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>CH10 - DOM Style Class and Element Manipulation</h1>
+      <h2>01 - style Property</h2>
+    </div>
+
+    <div class="section">
+      <h3>Concept</h3>
+
+      <p>
+        The <code>style</code> property lets JavaScript change the inline CSS of an element.
+      </p>
+
+      <p>
+        Example: <code>box.style.backgroundColor = "lightyellow";</code>
+      </p>
+
+      <div class="note">
+        Use <code>style</code> when you only need to change a few styles directly.
+        Use <code>classList</code> when you want to apply a reusable CSS design.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+
+      <div id="box" class="target-box">
+        This box will be styled using JavaScript.
+      </div>
+
+      <button onclick="changeBackground()">Change Background</button>
+      <button onclick="changeTextStyle()">Change Text Style</button>
+      <button onclick="changeSize()">Change Size</button>
+      <button onclick="resetBox()">Reset</button>
+
+      <h3>Output</h3>
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      Select the target box and output area.
+
+      The selected elements are stored in constants because we do not need
+      to reassign these variable names later.
+    */
+    const box = document.getElementById("box");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function changeBackground() {
+      /*
+        CSS property name:
+        background-color
+
+        JavaScript style property name:
+        backgroundColor
+
+        In JavaScript, property names that contain a dash are usually
+        written using camelCase.
+      */
+      box.style.backgroundColor = "#fff2b3";
+      box.style.borderColor = "#b8860b";
+
+      print("Changed backgroundColor and borderColor using element.style.");
+    }
+
+    function changeTextStyle() {
+      /*
+        These styles are added as inline styles.
+        You can inspect the element in the browser DevTools to see them.
+      */
+      box.style.color = "#222";
+      box.style.fontWeight = "bold";
+      box.style.textTransform = "uppercase";
+
+      print("Changed color, fontWeight, and textTransform.");
+    }
+
+    function changeSize() {
+      /*
+        Some CSS values need units.
+        For example: 24px, 2rem, 50%, 10vh.
+
+        If you write box.style.fontSize = 24, it is not a valid CSS value.
+        Use "24px" instead.
+      */
+      box.style.padding = "28px";
+      box.style.fontSize = "24px";
+      box.style.width = "80%";
+
+      print("Changed padding, fontSize, and width. Values with units are strings.");
+    }
+
+    function resetBox() {
+      /*
+        Setting style.cssText to an empty string removes all inline styles
+        that were added through element.style.
+
+        The original class styles from style.css still remain.
+      */
+      box.style.cssText = "";
+      output.textContent = "";
+      print("Inline styles were cleared. Class styles still remain.");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Higher Order Function.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn what a higher-order function is.
+    - Understand functions as values.
+    - Practice passing a function as an argument and returning a function.
+
+    IMPORTANT:
+    - A higher-order function receives another function or returns another function.
+    - Many array methods such as forEach, map, filter, and reduce use this idea.
+    - This concept is important for callbacks and functional-style JavaScript.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - Higher Order Function</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>Higher Order Function</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        In JavaScript, functions are values. This means a function can be stored in a variable,
+        passed into another function, or returned from another function.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <button onclick="runFunctionAsArgument()">Function as Argument</button>
+      <button onclick="runFunctionAsReturnValue()">Function as Return Value</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function calculate(a, b, operation) {
+      /*
+        This is a higher-order function because it receives another function
+        through the operation parameter.
+      */
+      return operation(a, b);
+    }
+
+    function add(a, b) {
+      return a + b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function runFunctionAsArgument() {
+      print("Function as argument example:");
+
+      const sum = calculate(5, 3, add);
+      const product = calculate(5, 3, multiply);
+
+      print("calculate(5, 3, add): " + sum);
+      print("calculate(5, 3, multiply): " + product);
+      print("");
+    }
+
+    function createMultiplier(number) {
+      /*
+        This function returns another function.
+        The returned function remembers the number parameter.
+      */
+      return function (value) {
+        return value * number;
+      };
+    }
+
+    function runFunctionAsReturnValue() {
+      print("Function as return value example:");
+
+      const double = createMultiplier(2);
+      const triple = createMultiplier(3);
+
+      print("double(10): " + double(10));
+      print("triple(10): " + triple(10));
+      print("This also connects to the closure concept from CH06.");
+      print("");
+    }
+
+  </script>
+</body>
+</html>

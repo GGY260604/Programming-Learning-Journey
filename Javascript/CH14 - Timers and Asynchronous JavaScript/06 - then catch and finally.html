@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - then catch and finally.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn .then().
+    - Learn .catch().
+    - Learn .finally().
+    - Chain promise steps together.
+
+    IMPORTANT:
+    - .then() handles fulfilled promises.
+    - .catch() handles rejected promises.
+    - .finally() runs after success or failure.
+    - Returning a value inside .then() passes that value to the next .then().
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - then catch and finally</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>06 - then catch and finally</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Promise methods allow you to handle asynchronous results in a structured way.
+      You can chain steps so that the output of one step becomes the input of the next step.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runThenChain()">Run then Chain</button>
+    <button onclick="runCatchExample()">Run catch Example</button>
+    <button onclick="runFinallyExample()">Run finally Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function getScore(shouldFail) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          if (shouldFail) {
+            reject("Score service failed.");
+          } else {
+            resolve(80);
+          }
+        }, 1000);
+      });
+    }
+
+    function runThenChain() {
+      print("Getting score...");
+
+      getScore(false)
+        .then(function (score) {
+          print("Original score: " + score);
+
+          /*
+            The returned value becomes the parameter of the next .then().
+          */
+          return score + 5;
+        })
+        .then(function (updatedScore) {
+          print("Updated score after bonus: " + updatedScore);
+          return updatedScore >= 50;
+        })
+        .then(function (passed) {
+          print("Passed: " + passed);
+          print("");
+        });
+    }
+
+    function runCatchExample() {
+      print("Trying to get score from a failing service...");
+
+      getScore(true)
+        .then(function (score) {
+          print("Score: " + score);
+        })
+        .catch(function (error) {
+          print("catch handled the error:");
+          print(error);
+          print("");
+        });
+    }
+
+    function runFinallyExample() {
+      print("Starting request...");
+
+      getScore(false)
+        .then(function (score) {
+          print("Score loaded: " + score);
+        })
+        .catch(function (error) {
+          print("Error: " + error);
+        })
+        .finally(function () {
+          /*
+            finally is useful for cleanup work.
+            For example: hide loading message, enable button, or close connection.
+          */
+          print("finally ran: cleanup completed.");
+          print("");
+        });
+    }
+  </script>
+</body>
+</html>

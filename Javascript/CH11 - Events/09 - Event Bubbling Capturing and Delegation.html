@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Event Bubbling Capturing and Delegation.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn event bubbling and capturing.
+    - Learn stopPropagation.
+    - Learn event delegation.
+
+    IMPORTANT:
+    - Bubbling phase: event moves from the clicked element up to its parents.
+    - Capturing phase: event moves from parent down to the target before bubbling.
+    - Event delegation means attaching one listener to a parent to handle child events.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Event Bubbling Capturing and Delegation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>09 - Event Bubbling, Capturing, and Delegation</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      When an element inside another element is clicked, the event can travel
+      through multiple elements. This is called event propagation.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Bubbling and Capturing Demo</h3>
+
+    <div id="parentBox" class="parent-box">
+      Parent Box
+      <div id="childBox" class="child-box">
+        Child Box
+        <button id="innerButton">Click Inner Button</button>
+      </div>
+    </div>
+
+    <div class="demo-area">
+      <label>
+        <input id="stopBubble" type="checkbox">
+        Stop bubbling at button
+      </label>
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Delegation Demo</h3>
+    <p>Click a list item. The event listener is attached to the parent list, not each item.</p>
+
+    <ul id="todoList" class="todo-list">
+      <li data-id="1">Learn JavaScript events</li>
+      <li data-id="2">Practice DOM manipulation</li>
+      <li data-id="3">Build a mini project</li>
+    </ul>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const parentBox = document.getElementById("parentBox");
+    const childBox = document.getElementById("childBox");
+    const innerButton = document.getElementById("innerButton");
+    const stopBubble = document.getElementById("stopBubble");
+    const todoList = document.getElementById("todoList");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    /*
+      Capturing example:
+      The third argument true means this listener runs during the capturing phase.
+
+      Capturing happens before the event reaches the target.
+    */
+    parentBox.addEventListener("click", function () {
+      print("Capturing: parent listener ran before target.");
+    }, true);
+
+    /*
+      Bubbling examples:
+      By default, addEventListener uses the bubbling phase.
+    */
+    parentBox.addEventListener("click", function () {
+      print("Bubbling: parent box received the click.");
+    });
+
+    childBox.addEventListener("click", function () {
+      print("Bubbling: child box received the click.");
+    });
+
+    innerButton.addEventListener("click", function (event) {
+      print("Target: inner button was clicked.");
+
+      if (stopBubble.checked) {
+        /*
+          stopPropagation stops the event from continuing to parent elements.
+          It does not cancel the default browser action.
+        */
+        event.stopPropagation();
+        print("Propagation stopped at the button.");
+      }
+
+      print("---");
+    });
+
+    todoList.addEventListener("click", function (event) {
+      /*
+        Event delegation:
+        Instead of adding a click listener to every <li>, we add one listener
+        to the parent <ul>.
+
+        Then we check whether the clicked target is an <li>.
+      */
+      if (event.target.tagName === "LI") {
+        print("Delegation: clicked item id " + event.target.dataset.id);
+        print("Text: " + event.target.textContent);
+        print("---");
+      }
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+    });
+  </script>
+</body>
+</html>

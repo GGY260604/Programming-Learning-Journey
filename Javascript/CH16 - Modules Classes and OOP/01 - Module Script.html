@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Module Script.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn how to load JavaScript as a module.
+    - Learn why module files can use import and export.
+    - Learn that module code has its own scope.
+
+    IMPORTANT:
+    - A normal script uses <script src="file.js"></script>.
+    - A module script uses <script type="module" src="file.js"></script>.
+    - Module imports should usually be opened through a local server.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Module Script</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>01 - Module Script</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      JavaScript modules allow one JavaScript file to reuse values from another
+      JavaScript file.
+    </p>
+
+    <p>
+      This page loads <code>01 - main.js</code> as a module. Then
+      <code>01 - main.js</code> imports functions from <code>01 - math.js</code>.
+    </p>
+
+    <div class="note">
+      If the result does not appear, open this folder using a local server.
+      Module imports may not work correctly when the file is opened directly
+      using <code>file://</code>.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Output from Module</h3>
+    <div id="output" class="output">Loading module...</div>
+  </div>
+
+  <!--
+    type="module" tells the browser:
+    - Treat this JavaScript file as a module.
+    - Allow import and export syntax.
+    - Run the script after the HTML document is parsed.
+  -->
+  <script type="module" src="./01 - main.js"></script>
+</body>
+</html>

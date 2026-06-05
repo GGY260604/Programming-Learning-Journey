@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Headers.html
+    TOPIC: CH15 - Fetch API and HTTP Request
+
+    GOAL:
+    - Learn what HTTP headers are.
+    - Add custom request headers in fetch().
+    - Read response headers from the Response object.
+
+    IMPORTANT:
+    - Headers are extra information sent with requests and responses.
+    - Common request headers include Content-Type and Authorization.
+    - Some response headers cannot be read by JavaScript because of browser security rules.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH15 - Headers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH15 - Fetch API and HTTP Request</h1>
+  <h2>04 - Headers</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      HTTP headers contain metadata about the request or response.
+      For example, <code>Content-Type</code> tells the server or browser what kind
+      of data is being sent.
+    </p>
+
+    <div class="note">
+      Real login APIs often use <code>Authorization</code> headers, but this demo
+      does not use a real token because the note should be safe and simple to run.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="sendRequestWithHeaders()">Send Request With Headers</button>
+    <button onclick="readResponseHeaders()">Read Response Headers</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function sendRequestWithHeaders() {
+      print("Sending request with headers...");
+
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        headers: {
+          /*
+            Accept tells the server what response format the client wants.
+            This does not force every server to return that exact format,
+            but it is a common way to communicate preference.
+          */
+          "Accept": "application/json",
+
+          /*
+            This is only a demo custom header.
+            Some servers may ignore custom headers.
+          */
+          "X-Learning-Topic": "Fetch Headers"
+        }
+      })
+        .then(function (response) {
+          print("Status: " + response.status);
+          return response.json();
+        })
+        .then(function (data) {
+          print("Received post title:");
+          print(data.title);
+          print("");
+        })
+        .catch(function (error) {
+          print("Error: " + error.message);
+          print("");
+        });
+    }
+
+    function readResponseHeaders() {
+      print("Reading response headers...");
+
+      fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then(function (response) {
+          /*
+            response.headers is a Headers object.
+            The get() method reads a header value by name.
+          */
+          const contentType = response.headers.get("content-type");
+
+          print("Status: " + response.status);
+          print("Content-Type header: " + contentType);
+          print("Response OK: " + response.ok);
+          print("");
+        })
+        .catch(function (error) {
+          print("Error: " + error.message);
+          print("");
+        });
+    }
+  </script>
+</body>
+</html>

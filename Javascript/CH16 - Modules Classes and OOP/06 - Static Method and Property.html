@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Static Method and Property.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn static method.
+    - Learn static property.
+    - Understand that static members belong to the class, not each object.
+
+    IMPORTANT:
+    - Use ClassName.staticMethod() to call a static method.
+    - Use ClassName.staticProperty to access a static property.
+    - Static methods are useful for helper behavior related to the class.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Static Method and Property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>06 - Static Method and Property</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Static members belong to the class itself. They are not called from an
+      individual object.
+    </p>
+  </div>
+
+  <div class="section">
+    <button onclick="runStaticExample()">Run Static Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    class OrderCalculator {
+      /*
+        A static property belongs to the class itself.
+
+        It is accessed using:
+        OrderCalculator.serviceTaxRate
+      */
+      static serviceTaxRate = 0.06;
+
+      /*
+        A static method belongs to the class itself.
+
+        It is called using:
+        OrderCalculator.calculateTax(...)
+      */
+      static calculateTax(amount) {
+        return amount * OrderCalculator.serviceTaxRate;
+      }
+
+      static calculateGrandTotal(amount) {
+        return amount + OrderCalculator.calculateTax(amount);
+      }
+    }
+
+    function runStaticExample() {
+      clearOutput();
+
+      const subtotal = 100;
+      const tax = OrderCalculator.calculateTax(subtotal);
+      const grandTotal = OrderCalculator.calculateGrandTotal(subtotal);
+
+      print("Subtotal: RM " + subtotal.toFixed(2));
+      print("Service tax rate: " + (OrderCalculator.serviceTaxRate * 100) + "%");
+      print("Tax: RM " + tax.toFixed(2));
+      print("Grand total: RM " + grandTotal.toFixed(2));
+      print("");
+      print("No OrderCalculator object was created.");
+      print("The static method was called directly from the class.");
+    }
+  </script>
+</body>
+</html>

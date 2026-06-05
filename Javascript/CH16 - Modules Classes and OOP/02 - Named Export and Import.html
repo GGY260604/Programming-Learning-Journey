@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Named Export and Import.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn named export.
+    - Learn named import.
+    - Learn how one module can export many values.
+
+    IMPORTANT:
+    - Named exports must be imported using their exported names.
+    - The import name is placed inside curly braces.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Named Export and Import</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>02 - Named Export and Import</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A file can export many named values. Another file can choose which named
+      values it wants to import.
+    </p>
+
+    <p>
+      In this example, <code>02 - helper.js</code> exports a course name,
+      a formatting function, and a total calculation function.
+    </p>
+
+    <div class="note">
+      Run this page using a local server because it uses module imports.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Output</h3>
+    <div id="output" class="output">Loading named exports...</div>
+  </div>
+
+  <script type="module" src="./02 - main.js"></script>
+</body>
+</html>

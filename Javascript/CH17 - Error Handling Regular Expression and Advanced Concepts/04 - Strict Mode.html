@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Strict Mode.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn what strict mode is.
+    - Learn how strict mode catches unsafe JavaScript behavior.
+    - Understand why modern code often behaves like strict mode automatically in modules/classes.
+
+    IMPORTANT:
+    - "use strict" enables stricter JavaScript rules.
+    - Strict mode prevents accidental global variables.
+    - Strict mode makes some silent mistakes become visible errors.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - Strict Mode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>Strict Mode</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        Strict mode makes JavaScript less forgiving. This is useful because mistakes
+        are easier to detect during development.
+      </p>
+
+      <div class="warning">
+        In strict mode, assigning a value to an undeclared variable causes an error.
+        Without strict mode, it may accidentally create a global variable.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <button onclick="runStrictExample()">Run Strict Mode Example</button>
+      <button onclick="runNormalExample()">Run Normal Safe Example</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    function runStrictExample() {
+      print("Strict mode example:");
+
+      function strictFunction() {
+        "use strict";
+
+        /*
+          This line tries to assign a value to a variable that was not declared.
+          In strict mode, this is an error.
+        */
+        accidentalGlobal = "This should not be allowed.";
+      }
+
+      try {
+        strictFunction();
+        print("No error occurred.");
+      } catch (error) {
+        print("Strict mode caught the mistake.");
+        print("Error message: " + error.message);
+      }
+
+      print("");
+    }
+
+    function runNormalExample() {
+      print("Normal safe example:");
+
+      /*
+        This is the correct way: declare the variable first.
+      */
+      let safeVariable = "This variable was declared using let.";
+
+      print(safeVariable);
+      print("No accidental global variable is created.");
+      print("");
+    }
+
+  </script>
+</body>
+</html>

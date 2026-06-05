@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Checkbox Radio and Select.html
+    TOPIC: CH12 - Forms and Validation
+
+    GOAL:
+    - Learn how to read checkbox, radio button, and select values.
+    - Understand checked, selected, value, selectedIndex, and selectedOptions.
+    - Learn how same-name radio buttons work as one group.
+
+    IMPORTANT:
+    - checkbox.checked returns true or false.
+    - radio.checked tells whether one radio button is selected.
+    - document.querySelector('input[name="x"]:checked') can find the selected radio.
+    - select.value returns the selected option value.
+    - select.multiple allows multiple selected options.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH12 - Checkbox Radio and Select</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH12 - Forms and Validation</h1>
+  <h2>04 - Checkbox, Radio, and Select</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Checkbox, radio button, and select controls are used when users choose
+      from options. They are read differently from normal text inputs.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="choiceForm" class="form-grid">
+      <div class="form-row">
+        <span>Checkbox group: hobbies</span>
+        <div class="option-row">
+          <label><input type="checkbox" name="hobby" value="coding" checked> Coding</label>
+          <label><input type="checkbox" name="hobby" value="gaming"> Gaming</label>
+          <label><input type="checkbox" name="hobby" value="reading" checked> Reading</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <span>Radio group: study mode</span>
+        <div class="option-row">
+          <label><input type="radio" name="mode" value="online" checked> Online</label>
+          <label><input type="radio" name="mode" value="physical"> Physical</label>
+          <label><input type="radio" name="mode" value="hybrid"> Hybrid</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="singleSelect">Single select</label>
+        <select id="singleSelect">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="multiSelect">Multiple select</label>
+        <select id="multiSelect" multiple size="4">
+          <option value="html" selected>HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript" selected>JavaScript</option>
+          <option value="php">PHP</option>
+        </select>
+        <p class="small-note">Hold Ctrl on Windows or Command on Mac to choose multiple options.</p>
+      </div>
+
+      <div class="demo-area">
+        <button type="submit">Read Choices</button>
+        <button type="button" onclick="clearOutput()">Clear Output</button>
+      </div>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const choiceForm = document.getElementById("choiceForm");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    choiceForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      output.textContent = "";
+
+      /*
+        Checkboxes allow multiple choices.
+        querySelectorAll() selects all checked checkboxes with name="hobby".
+      */
+      const checkedHobbies = document.querySelectorAll('input[name="hobby"]:checked');
+      const hobbies = [];
+
+      checkedHobbies.forEach(function (checkbox) {
+        hobbies.push(checkbox.value);
+      });
+
+      /*
+        Radio buttons with the same name belong to one group.
+        Usually only one can be checked in the group.
+      */
+      const selectedMode = document.querySelector('input[name="mode"]:checked');
+
+      /*
+        Single select can be read using .value.
+        selectedIndex returns the numeric index of the selected option.
+      */
+      const singleSelect = document.getElementById("singleSelect");
+
+      /*
+        Multiple select can have more than one selected option.
+        selectedOptions is an HTMLCollection, so Array.from() is useful.
+      */
+      const multiSelect = document.getElementById("multiSelect");
+      const selectedSkills = Array.from(multiSelect.selectedOptions).map(function (option) {
+        return option.value;
+      });
+
+      print("Selected hobbies: " + hobbies.join(", "));
+      print("Selected study mode: " + selectedMode.value);
+      print("Single select value: " + singleSelect.value);
+      print("Single select index: " + singleSelect.selectedIndex);
+      print("Multiple selected skills: " + selectedSkills.join(", "));
+    });
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

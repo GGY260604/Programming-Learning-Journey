@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Promise all race any and allSettled.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn Promise.all().
+    - Learn Promise.race().
+    - Learn Promise.any().
+    - Learn Promise.allSettled().
+
+    IMPORTANT:
+    - Promise.all() waits for all promises to fulfill, but rejects if one fails.
+    - Promise.race() settles as soon as the first promise settles.
+    - Promise.any() fulfills as soon as the first promise fulfills.
+    - Promise.allSettled() waits for all promises and reports every result.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - Promise all race any and allSettled</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>08 - Promise all race any and allSettled</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Promise combination methods are useful when you need to manage multiple asynchronous tasks together.
+    </p>
+
+    <div class="card-row">
+      <div class="card"><strong>all</strong><br>Need everything to succeed.</div>
+      <div class="card"><strong>race</strong><br>Need the first settled result.</div>
+      <div class="card"><strong>any</strong><br>Need the first successful result.</div>
+      <div class="card"><strong>allSettled</strong><br>Need every final status.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runPromiseAll()">Run Promise.all()</button>
+    <button onclick="runPromiseRace()">Run Promise.race()</button>
+    <button onclick="runPromiseAny()">Run Promise.any()</button>
+    <button onclick="runPromiseAllSettled()">Run Promise.allSettled()</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function successTask(name, delay) {
+      return new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve(name + " succeeded after " + delay + "ms");
+        }, delay);
+      });
+    }
+
+    function failureTask(name, delay) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          reject(name + " failed after " + delay + "ms");
+        }, delay);
+      });
+    }
+
+    async function runPromiseAll() {
+      print("Promise.all() started...");
+
+      try {
+        // Promise.all() waits for all promises to fulfill, but rejects if one fails.
+        const results = await Promise.all([
+          successTask("Task A", 1000),
+          successTask("Task B", 1500),
+          successTask("Task C", 500)
+        ]);
+
+        print("Promise.all() results:");
+        results.forEach(function (result) {
+          print(result);
+        });
+      } catch (error) {
+        print("Promise.all() rejected: " + error);
+      }
+
+      print("");
+    }
+
+    async function runPromiseRace() {
+      print("Promise.race() started...");
+
+      try {
+        const result = await Promise.race([
+          successTask("Fast task", 600),
+          successTask("Slow task", 2000),
+          failureTask("Failed task", 1200)
+        ]);
+
+        print("Promise.race() first settled result:");
+        print(result);
+      } catch (error) {
+        print("Promise.race() first settled error:");
+        print(error);
+      }
+
+      print("");
+    }
+
+    async function runPromiseAny() {
+      print("Promise.any() started...");
+
+      try {
+        const result = await Promise.any([
+          failureTask("Task A", 500),
+          successTask("Task B", 1200),
+          successTask("Task C", 2000)
+        ]);
+
+        print("Promise.any() first fulfilled result:");
+        print(result);
+      } catch (error) {
+        print("Promise.any() failed because all promises rejected.");
+        print(error.message);
+      }
+
+      print("");
+    }
+
+    async function runPromiseAllSettled() {
+      print("Promise.allSettled() started...");
+
+      const results = await Promise.allSettled([
+        successTask("Task A", 500),
+        failureTask("Task B", 1000),
+        successTask("Task C", 1500)
+      ]);
+
+      print("Promise.allSettled() results:");
+
+      results.forEach(function (result, index) {
+        print("Task " + (index + 1) + " status: " + result.status);
+
+        if (result.status === "fulfilled") {
+          print("Value: " + result.value);
+        } else {
+          print("Reason: " + result.reason);
+        }
+      });
+
+      print("");
+    }
+  </script>
+</body>
+</html>

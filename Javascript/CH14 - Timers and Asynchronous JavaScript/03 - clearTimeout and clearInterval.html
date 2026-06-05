@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - clearTimeout and clearInterval.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn clearTimeout().
+    - Learn clearInterval().
+    - Understand how timer IDs are used to cancel scheduled work.
+
+    IMPORTANT:
+    - setTimeout() returns a timeout ID.
+    - setInterval() returns an interval ID.
+    - clearTimeout(timeoutId) cancels a timeout that has not run yet.
+    - clearInterval(intervalId) stops a repeating interval.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - clearTimeout and clearInterval</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>03 - clearTimeout and clearInterval</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Timer functions return an ID. That ID is important because it allows you to stop
+      the timer before it finishes or before it repeats again.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="scheduleMessage()">Schedule Message</button>
+    <button onclick="cancelMessage()">Cancel Message</button>
+    <button onclick="startIntervalMessage()">Start Interval</button>
+    <button onclick="stopIntervalMessage()">Stop Interval</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    let timeoutId = null;
+    let intervalId = null;
+    let intervalCount = 0;
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function scheduleMessage() {
+      if (timeoutId !== null) {
+        print("A timeout is already scheduled.");
+        return;
+      }
+
+      print("Message scheduled. It will appear after 4 seconds unless cancelled.");
+
+      timeoutId = setTimeout(function () {
+        print("Scheduled message: Hello after 4 seconds.");
+        print("");
+
+        /*
+          After the timeout runs, we set timeoutId back to null
+          because there is no active timeout anymore.
+        */
+        timeoutId = null;
+      }, 4000);
+    }
+
+    function cancelMessage() {
+      if (timeoutId === null) {
+        print("There is no scheduled timeout to cancel.");
+        return;
+      }
+
+      clearTimeout(timeoutId);
+      timeoutId = null;
+      print("The scheduled timeout was cancelled.");
+      print("");
+    }
+
+    function startIntervalMessage() {
+      if (intervalId !== null) {
+        print("The interval is already running.");
+        return;
+      }
+
+      intervalCount = 0;
+      print("Interval started. It prints every 1 second.");
+
+      intervalId = setInterval(function () {
+        intervalCount++;
+        print("Interval message " + intervalCount);
+      }, 1000);
+    }
+
+    function stopIntervalMessage() {
+      if (intervalId === null) {
+        print("There is no interval to stop.");
+        return;
+      }
+
+      clearInterval(intervalId);
+      intervalId = null;
+      print("The interval was stopped.");
+      print("");
+    }
+  </script>
+</body>
+</html>

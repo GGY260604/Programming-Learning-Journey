@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Remove and Clear Storage.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn localStorage.removeItem().
+    - Learn localStorage.clear().
+    - Understand the difference between removing one item and clearing all items.
+
+    IMPORTANT:
+    - removeItem(key) removes one item only.
+    - clear() removes all localStorage items for the current website origin.
+    - Be careful with clear() because it can delete unrelated saved data from the same website.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - Remove and Clear Storage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>05 - Remove and Clear Storage</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Browser storage items can be removed one by one or cleared completely.
+    </p>
+
+    <div class="danger">
+      <code>clear()</code> removes every item in the storage area for the current website origin. Use it carefully.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="createSampleData()">Create Sample Data</button>
+    <button onclick="showAllLocalStorage()">Show All localStorage</button>
+    <button onclick="removeOneItem()">Remove Only username</button>
+    <button onclick="clearAllLocalStorage()">Clear All localStorage</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function createSampleData() {
+      /*
+        Create several sample localStorage items.
+        These are simple examples for demonstrating remove and clear.
+      */
+      localStorage.setItem("username", "Galen");
+      localStorage.setItem("theme", "Dark");
+      localStorage.setItem("language", "English");
+
+      print("Sample data created:");
+      print("username, theme, language");
+      print("");
+    }
+
+    function showAllLocalStorage() {
+      print("Current localStorage items:");
+
+      if (localStorage.length === 0) {
+        print("localStorage is empty.");
+        print("");
+        return;
+      }
+
+      /*
+        localStorage.length gives the number of stored items.
+        localStorage.key(index) returns the key name at that index.
+      */
+      for (let index = 0; index < localStorage.length; index++) {
+        const key = localStorage.key(index);
+        const value = localStorage.getItem(key);
+
+        print(key + " = " + value);
+      }
+
+      print("");
+    }
+
+    function removeOneItem() {
+      /*
+        removeItem() removes only the item with the matching key.
+      */
+      localStorage.removeItem("username");
+
+      print("Removed only the username item.");
+      print("Other localStorage items still remain.");
+      print("");
+    }
+
+    function clearAllLocalStorage() {
+      /*
+        clear() removes all localStorage items for this website origin.
+      */
+      localStorage.clear();
+
+      print("All localStorage items have been cleared.");
+      print("");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Custom Error.html
+    TOPIC: CH17 - Error Handling Regular Expression and Advanced Concepts
+
+    GOAL:
+    - Learn how to create a custom error class.
+    - Learn why custom errors are useful in larger programs.
+    - Learn how instanceof can identify a specific error type.
+
+    IMPORTANT:
+    - A custom error usually extends the built-in Error class.
+    - The name property can make the error easier to recognize.
+    - instanceof checks whether an object was created from a specific class.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH17 - Custom Error</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CH17 - Error Handling Regular Expression and Advanced Concepts</h1>
+    <h2>Custom Error</h2>
+  </header>
+
+  <main>
+    <div class="section">
+      <h3>Concept</h3>
+      <p>
+        In bigger programs, not every error has the same meaning.
+        A custom error class lets you separate validation errors, network errors,
+        permission errors, and other error types.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Interactive Demo</h3>
+      <label for="usernameInput">Username:</label>
+      <input id="usernameInput" type="text" value="ga">
+      <button onclick="registerUser()">Register</button>
+      <button onclick="clearOutput()">Clear</button>
+      <div id="output" class="output"></div>
+    </div>
+  </main>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+
+    /*
+      This is a custom error class.
+      It inherits from the built-in Error class using extends.
+    */
+    class ValidationError extends Error {
+      constructor(message, fieldName) {
+        super(message);
+
+        /*
+          The name property helps identify the error type in output/logs.
+        */
+        this.name = "ValidationError";
+        this.fieldName = fieldName;
+      }
+    }
+
+    function validateUsername(username) {
+      if (username.trim() === "") {
+        throw new ValidationError("Username cannot be empty.", "username");
+      }
+
+      if (username.length < 3) {
+        throw new ValidationError("Username must have at least 3 characters.", "username");
+      }
+
+      return username.trim();
+    }
+
+    function registerUser() {
+      const usernameInput = document.getElementById("usernameInput");
+      const username = usernameInput.value;
+
+      print("Registering user...");
+
+      try {
+        const validUsername = validateUsername(username);
+        print("Registration success for: " + validUsername);
+      } catch (error) {
+        if (error instanceof ValidationError) {
+          print("Validation problem found.");
+          print("Field: " + error.fieldName);
+          print("Message: " + error.message);
+        } else {
+          print("Unknown error: " + error.message);
+        }
+      }
+
+      print("");
+    }
+
+  </script>
+</body>
+</html>

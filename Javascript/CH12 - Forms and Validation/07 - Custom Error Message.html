@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Custom Error Message.html
+    TOPIC: CH12 - Forms and Validation
+
+    GOAL:
+    - Learn how to create custom validation messages.
+    - Use setCustomValidity() to control whether an input is valid.
+    - Clear custom messages when the value becomes valid again.
+
+    IMPORTANT:
+    - input.setCustomValidity("message") makes the input invalid.
+    - input.setCustomValidity("") clears the custom error.
+    - Always clear the custom error when the rule passes.
+    - Custom validation should usually run during input and submit events.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH12 - Custom Error Message</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH12 - Forms and Validation</h1>
+  <h2>07 - Custom Error Message</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Built-in validation is useful, but sometimes your rule is more specific
+      than normal HTML attributes can express. In that case, use
+      <code>setCustomValidity()</code>.
+    </p>
+    <p>
+      This demo checks whether the confirmation password matches the first
+      password field.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="passwordForm" class="form-grid">
+      <div class="form-row">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="6" value="abc123">
+      </div>
+
+      <div class="form-row">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" required minlength="6" value="abc12">
+        <div id="message" class="error-message"></div>
+      </div>
+
+      <div class="demo-area">
+        <button type="submit">Create Account</button>
+        <button type="button" onclick="clearOutput()">Clear Output</button>
+      </div>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const passwordForm = document.getElementById("passwordForm");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const message = document.getElementById("message");
+    const output = document.getElementById("output");
+
+    function print(messageText) {
+      output.textContent += messageText + "\n";
+    }
+
+    function validatePasswordMatch() {
+      /*
+        If the values do not match, setCustomValidity() stores a custom error.
+        Once a custom error exists, the input is considered invalid.
+      */
+      if (confirmPassword.value !== password.value) {
+        confirmPassword.setCustomValidity("The confirmation password does not match.");
+        message.textContent = "The confirmation password does not match.";
+        message.className = "error-message";
+      } else {
+        /*
+          An empty string means there is no custom error.
+          Forgetting this line is a common bug.
+        */
+        confirmPassword.setCustomValidity("");
+        message.textContent = "Passwords match.";
+        message.className = "success-message";
+      }
+    }
+
+    /*
+      input event runs whenever the user changes the value.
+      This gives instant feedback while typing.
+    */
+    password.addEventListener("input", validatePasswordMatch);
+    confirmPassword.addEventListener("input", validatePasswordMatch);
+
+    passwordForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      validatePasswordMatch();
+
+      /*
+        reportValidity() shows built-in and custom validation messages.
+      */
+      if (!passwordForm.reportValidity()) {
+        output.textContent = "";
+        print("The form is invalid. Please check the password fields.");
+        return;
+      }
+
+      output.textContent = "";
+      print("The form is valid.");
+      print("In a real application, the account creation request can continue.");
+    });
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    /*
+      Run once at the beginning because the example already has default values.
+    */
+    validatePasswordMatch();
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Reading Form Values.html
+    TOPIC: CH12 - Forms and Validation
+
+    GOAL:
+    - Learn how to read values from form controls using JavaScript.
+    - Understand the difference between the form element and the input elements.
+    - Learn that most text-like inputs use the value property.
+
+    IMPORTANT:
+    - input.value reads the current value typed by the user.
+    - textarea.value reads the current text in the textarea.
+    - select.value reads the value of the selected option.
+    - event.preventDefault() stops the form from refreshing the page.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH12 - Reading Form Values</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH12 - Forms and Validation</h1>
+  <h2>01 - Reading Form Values</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      A form normally sends data to a server. In JavaScript, we can also read
+      the current form values before sending anything.
+    </p>
+    <p>
+      The common property for text input, email input, password input,
+      number input, textarea, and select is <code>value</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="profileForm" class="form-grid">
+      <div class="form-row">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" value="Galen">
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" value="galen@example.com">
+      </div>
+
+      <div class="form-row">
+        <label for="course">Course</label>
+        <select id="course">
+          <option value="software-engineering">Software Engineering</option>
+          <option value="data-science">Data Science</option>
+          <option value="networking">Networking</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message">I am learning JavaScript forms.</textarea>
+      </div>
+
+      <div class="demo-area">
+        <button type="submit">Read Form Values</button>
+        <button type="button" onclick="clearOutput()">Clear Output</button>
+      </div>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    /*
+      Select the form and the output box.
+
+      A form can listen for the submit event.
+      The submit event happens when:
+      - The user clicks a submit button.
+      - The user presses Enter in some form fields.
+    */
+    const profileForm = document.getElementById("profileForm");
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    profileForm.addEventListener("submit", function (event) {
+      /*
+        By default, submitting a form refreshes the page or sends data away.
+        preventDefault() stops that default behavior so we can see the result.
+      */
+      event.preventDefault();
+
+      /*
+        Read each form control using its value property.
+      */
+      const fullName = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const course = document.getElementById("course").value;
+      const message = document.getElementById("message").value;
+
+      output.textContent = "";
+      print("Form values read using .value:");
+      print("Full name: " + fullName);
+      print("Email: " + email);
+      print("Course value: " + course);
+      print("Message: " + message);
+    });
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+  </script>
+</body>
+</html>

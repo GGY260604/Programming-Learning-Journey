@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Store Array and Object.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn why arrays and objects need JSON.stringify() before storage.
+    - Learn how to restore arrays and objects using JSON.parse().
+
+    IMPORTANT:
+    - Browser storage stores strings only.
+    - If you store an array directly, JavaScript converts it to a simple string.
+    - To preserve the full structure, use JSON.stringify().
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - Store Array and Object</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>04 - Store Array and Object</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Arrays and objects should be converted into JSON strings before storing them in <code>localStorage</code> or <code>sessionStorage</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <label for="taskInput">Task</label>
+    <input type="text" id="taskInput" placeholder="Example: Learn JavaScript storage">
+
+    <button onclick="addTask()">Add Task and Save</button>
+    <button onclick="loadTasks()">Load Tasks</button>
+    <button onclick="showStoredText()">Show Raw Stored Text</button>
+    <button onclick="clearTasks()">Clear Tasks</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function getTasksFromStorage() {
+      /*
+        Step 1:
+        Read the saved JSON string from localStorage.
+      */
+      const savedText = localStorage.getItem("tasks");
+
+      /*
+        Step 2:
+        If nothing is saved yet, return an empty array.
+      */
+      if (savedText === null) {
+        return [];
+      }
+
+      /*
+        Step 3:
+        Convert the JSON string back into a JavaScript array.
+      */
+      return JSON.parse(savedText);
+    }
+
+    function saveTasksToStorage(tasks) {
+      /*
+        Convert the array into a JSON string before saving.
+      */
+      const jsonText = JSON.stringify(tasks);
+      localStorage.setItem("tasks", jsonText);
+    }
+
+    function addTask() {
+      const taskName = taskInput.value.trim();
+
+      if (taskName === "") {
+        print("Please enter a task first.");
+        return;
+      }
+
+      const tasks = getTasksFromStorage();
+
+      /*
+        Each task is stored as an object.
+        This makes it easier to add more properties later.
+      */
+      const newTask = {
+        id: Date.now(),
+        name: taskName,
+        completed: false
+      };
+
+      tasks.push(newTask);
+      saveTasksToStorage(tasks);
+
+      taskInput.value = "";
+
+      print("Task added and saved:");
+      print(newTask.name);
+      print("");
+    }
+
+    function loadTasks() {
+      const tasks = getTasksFromStorage();
+
+      if (tasks.length === 0) {
+        print("No tasks saved yet.");
+        print("");
+        return;
+      }
+
+      print("Saved tasks:");
+
+      tasks.forEach(function (task, index) {
+        print((index + 1) + ". " + task.name + " | completed: " + task.completed);
+      });
+
+      print("");
+    }
+
+    function showStoredText() {
+      const savedText = localStorage.getItem("tasks");
+
+      print("Raw text stored in localStorage:");
+      print(savedText === null ? "Nothing saved yet." : savedText);
+      print("");
+    }
+
+    function clearTasks() {
+      localStorage.removeItem("tasks");
+      print("All saved tasks have been removed.");
+      print("");
+    }
+  </script>
+</body>
+</html>

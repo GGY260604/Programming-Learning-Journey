@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - localStorage.html
+    TOPIC: CH13 - JSON Storage and Browser Data
+
+    GOAL:
+    - Learn how to save data using localStorage.
+    - Learn how to read data from localStorage.
+    - Understand that localStorage keeps data even after the browser is closed.
+
+    IMPORTANT:
+    - localStorage stores key-value pairs.
+    - Both key and value are stored as strings.
+    - localStorage data has no automatic expiry time.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH13 - localStorage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH13 - JSON Storage and Browser Data</h1>
+  <h2>02 - localStorage</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>localStorage</code> allows the browser to save small pieces of data.
+      The saved data remains available even after the page is refreshed or the browser is closed.
+    </p>
+
+    <div class="note">
+      Because localStorage belongs to the browser and website origin, different websites cannot read each other's localStorage data.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Enter a username">
+
+    <button onclick="saveUsername()">Save to localStorage</button>
+    <button onclick="readUsername()">Read from localStorage</button>
+    <button onclick="removeUsername()">Remove Username</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const usernameInput = document.getElementById("username");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function saveUsername() {
+      const username = usernameInput.value.trim();
+
+      if (username === "") {
+        print("Please enter a username first.");
+        return;
+      }
+
+      /*
+        localStorage.setItem(key, value)
+
+        key:
+        - The name used to identify the saved data.
+
+        value:
+        - The data to save.
+        - It will be stored as a string.
+      */
+      localStorage.setItem("username", username);
+
+      print("Saved username to localStorage: " + username);
+      print("Refresh the page, then click Read from localStorage to see that it is still saved.");
+      print("");
+    }
+
+    function readUsername() {
+      /*
+        localStorage.getItem(key) reads the value saved under that key.
+        If the key does not exist, it returns null.
+      */
+      const savedUsername = localStorage.getItem("username");
+
+      if (savedUsername === null) {
+        print("No username found in localStorage.");
+      } else {
+        print("Username from localStorage: " + savedUsername);
+      }
+
+      print("");
+    }
+
+    function removeUsername() {
+      /*
+        localStorage.removeItem(key) removes one specific saved item.
+      */
+      localStorage.removeItem("username");
+      print("Removed username from localStorage.");
+      print("");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Inheritance and Overriding.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn inheritance using extends.
+    - Learn super in child class constructor.
+    - Learn method overriding.
+
+    IMPORTANT:
+    - Inheritance allows a child class to reuse a parent class.
+    - extends creates an inheritance relationship.
+    - super(...) calls the parent class constructor.
+    - A child method can replace a parent method. This is called overriding.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Inheritance and Overriding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>08 - Inheritance and Overriding</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Inheritance is useful when one class is a more specific version of another
+      class.
+    </p>
+
+    <p>
+      In this example, <code>Food</code> and <code>Drink</code> inherit from
+      <code>MenuItem</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <button onclick="runInheritanceExample()">Run Inheritance Example</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    class MenuItem {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+
+      getDetails() {
+        return this.name + " - RM " + this.price.toFixed(2);
+      }
+    }
+
+    /*
+      Food extends MenuItem means:
+      - Food is a child class.
+      - MenuItem is the parent class.
+      - Food can reuse the data and methods from MenuItem.
+    */
+    class Food extends MenuItem {
+      constructor(name, price, spicyLevel) {
+        /*
+          super(name, price) calls the parent constructor.
+        */
+        super(name, price);
+        this.spicyLevel = spicyLevel;
+      }
+
+      /*
+        This method overrides getDetails() from MenuItem.
+      */
+      getDetails() {
+        return super.getDetails() + " | Spicy level: " + this.spicyLevel;
+      }
+    }
+
+    class Drink extends MenuItem {
+      constructor(name, price, sugarLevel) {
+        super(name, price);
+        this.sugarLevel = sugarLevel;
+      }
+
+      getDetails() {
+        return super.getDetails() + " | Sugar level: " + this.sugarLevel;
+      }
+    }
+
+    function runInheritanceExample() {
+      clearOutput();
+
+      const food = new Food("Nasi Lemak", 8.5, "Medium");
+      const drink = new Drink("Iced Milo", 4.5, "Less sugar");
+
+      print("Food object:");
+      print(food.getDetails());
+      print("");
+      print("Drink object:");
+      print(drink.getDetails());
+      print("");
+      print("Both Food and Drink reuse MenuItem, then add their own details.");
+    }
+  </script>
+</body>
+</html>

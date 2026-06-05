@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - preventDefault.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn how to stop the browser's default action.
+    - Use preventDefault with form submit and link click.
+    - Understand that preventDefault does not stop event bubbling.
+
+    IMPORTANT:
+    - event.preventDefault() stops the default browser behavior.
+    - For a form, the default behavior is submitting and refreshing/navigating.
+    - For a link, the default behavior is opening the href location.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - preventDefault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>08 - preventDefault</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Some events have a default browser action. JavaScript can stop that default
+      action by calling <code>event.preventDefault()</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <form id="loginForm">
+      <div class="demo-area">
+        <input id="email" type="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button type="submit">Submit Without Refresh</button>
+      </div>
+    </form>
+
+    <p>
+      <a id="safeLink" href="https://example.com">This link will be stopped by JavaScript</a>
+    </p>
+
+    <div class="demo-area">
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const safeLink = document.getElementById("safeLink");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    loginForm.addEventListener("submit", function (event) {
+      /*
+        Without preventDefault(), the form may refresh the page or submit data
+        to the server.
+
+        In front-end validation, preventDefault is often used so JavaScript
+        can check the data first.
+      */
+      event.preventDefault();
+
+      print("Form submit default action stopped.");
+      print("Email: " + email.value);
+      print("Password length: " + password.value.length);
+      print("---");
+    });
+
+    safeLink.addEventListener("click", function (event) {
+      /*
+        This stops the browser from opening the link destination.
+      */
+      event.preventDefault();
+
+      print("Link click default action stopped.");
+      print("The href is: " + safeLink.getAttribute("href"));
+      print("---");
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+      email.value = "";
+      password.value = "";
+    });
+  </script>
+</body>
+</html>

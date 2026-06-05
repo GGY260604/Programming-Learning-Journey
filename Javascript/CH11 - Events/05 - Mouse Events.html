@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Mouse Events.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn common mouse events.
+    - Read mouse position from the event object.
+    - Understand the difference between click, dblclick, mouseenter, mouseleave, and mousemove.
+
+    IMPORTANT:
+    - click runs after a normal mouse click.
+    - dblclick runs after a double click.
+    - mouseenter runs when the pointer enters an element.
+    - mouseleave runs when the pointer leaves an element.
+    - mousemove runs repeatedly while the pointer moves inside an element.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Mouse Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>05 - Mouse Events</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Mouse events are triggered by mouse or touchpad actions, such as clicking,
+      double-clicking, entering an element, leaving an element, or moving over it.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div id="mouseBox" class="box">
+      Move or click here
+    </div>
+
+    <div class="demo-area">
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const mouseBox = document.getElementById("mouseBox");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    mouseBox.addEventListener("click", function () {
+      print("click: The box was clicked once.");
+    });
+
+    mouseBox.addEventListener("dblclick", function () {
+      print("dblclick: The box was double-clicked.");
+    });
+
+    mouseBox.addEventListener("mouseenter", function () {
+      mouseBox.classList.add("highlight");
+      print("mouseenter: The pointer entered the box.");
+    });
+
+    mouseBox.addEventListener("mouseleave", function () {
+      mouseBox.classList.remove("highlight");
+      print("mouseleave: The pointer left the box.");
+    });
+
+    mouseBox.addEventListener("mousemove", function (event) {
+      /*
+        mousemove fires many times while the mouse moves.
+        To avoid too much output, this demo shows the position inside the box itself.
+
+        clientX and clientY are the mouse position inside the browser viewport.
+      */
+      mouseBox.textContent = "X: " + event.clientX + "\nY: " + event.clientY;
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+      mouseBox.textContent = "Move or click here";
+      mouseBox.classList.remove("highlight");
+    });
+  </script>
+</body>
+</html>

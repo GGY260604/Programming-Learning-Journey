@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Default Export.html
+    TOPIC: CH16 - Modules Classes and OOP
+
+    GOAL:
+    - Learn default export.
+    - Learn default import.
+    - Understand the difference between named export and default export.
+
+    IMPORTANT:
+    - A module file can have many named exports.
+    - A module file usually has only one default export.
+    - A default import does not need curly braces.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH16 - Default Export</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH16 - Modules Classes and OOP</h1>
+  <h2>03 - Default Export</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A default export is useful when a file mainly provides one primary value,
+      function, or class.
+    </p>
+
+    <p>
+      This example imports the default function from <code>03 - user.js</code>
+      and uses it to generate user card text.
+    </p>
+
+    <div class="note">
+      Run this page using a local server because it uses module imports.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Output</h3>
+    <div id="output" class="output">Loading default export...</div>
+  </div>
+
+  <script type="module" src="./03 - main.js"></script>
+</body>
+</html>

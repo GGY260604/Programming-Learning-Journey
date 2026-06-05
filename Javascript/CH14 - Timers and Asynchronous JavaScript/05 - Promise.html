@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Promise.html
+    TOPIC: CH14 - Timers and Asynchronous JavaScript
+
+    GOAL:
+    - Learn Promise basics.
+    - Understand resolve and reject.
+    - Understand pending, fulfilled, and rejected states.
+
+    IMPORTANT:
+    - A Promise represents a result that may be available later.
+    - resolve(value) means the asynchronous task succeeded.
+    - reject(error) means the asynchronous task failed.
+    - The Promise executor runs immediately when the Promise is created.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH14 - Promise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>CH14 - Timers and Asynchronous JavaScript</h1>
+  <h2>05 - Promise</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A <code>Promise</code> is useful when an operation does not finish immediately,
+      such as loading data, waiting for a timer, or requesting information from a server.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button onclick="runSuccessPromise()">Run Successful Promise</button>
+    <button onclick="runFailedPromise()">Run Failed Promise</button>
+    <button onclick="showExecutorTiming()">Show Executor Timing</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      outputBox.textContent = "";
+    }
+
+    function createSuccessPromise() {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve("Data loaded successfully.");
+        }, 1500);
+      });
+    }
+
+    function createFailedPromise() {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          reject("Unable to load data.");
+        }, 1500);
+      });
+    }
+
+    function runSuccessPromise() {
+      print("Creating a successful promise...");
+
+      const promise = createSuccessPromise();
+
+      promise.then(function (result) {
+        print("Promise fulfilled:");
+        print(result);
+        print("");
+      });
+    }
+
+    function runFailedPromise() {
+      print("Creating a failed promise...");
+
+      const promise = createFailedPromise();
+
+      promise.catch(function (error) {
+        print("Promise rejected:");
+        print(error);
+        print("");
+      });
+    }
+
+    function showExecutorTiming() {
+      print("Before creating promise");
+
+      const promise = new Promise(function (resolve) {
+        /*
+          The executor function runs immediately.
+          This line appears before the .then() result.
+        */
+        print("Inside Promise executor");
+
+        setTimeout(function () {
+          resolve("Promise result after 1 second");
+        }, 1000);
+      });
+
+      promise.then(function (result) {
+        print(result);
+        print("");
+      });
+
+      print("After creating promise");
+    }
+  </script>
+</body>
+</html>

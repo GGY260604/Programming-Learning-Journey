@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Keyboard Events.html
+    TOPIC: CH11 - Events
+
+    GOAL:
+    - Learn keydown, keyup, key, and code.
+    - Detect special keys such as Enter and Escape.
+    - Understand where keyboard events should be attached.
+
+    IMPORTANT:
+    - keydown runs when a key is pressed down.
+    - keyup runs when a key is released.
+    - event.key gives the meaning of the key.
+    - event.code gives the physical keyboard key.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH11 - Keyboard Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH11 - Events</h1>
+  <h2>06 - Keyboard Events</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      Keyboard events can be attached to an input field or to the whole document.
+      In this file, the events are attached to an input field so the behavior is easy to test.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <div class="demo-area">
+      <input id="keyboardInput" type="text" placeholder="Type here, press Enter or Escape">
+      <button id="clearButton">Clear</button>
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const keyboardInput = document.getElementById("keyboardInput");
+    const clearButton = document.getElementById("clearButton");
+    const outputBox = document.getElementById("output");
+
+    function print(message) {
+      outputBox.textContent += message + "\n";
+    }
+
+    keyboardInput.addEventListener("keydown", function (event) {
+      /*
+        keydown fires when the key goes down.
+        It can repeat if the user holds the key.
+      */
+      print("keydown -> key: " + event.key + ", code: " + event.code);
+
+      if (event.key === "Enter") {
+        print("You pressed Enter. Current input value: " + keyboardInput.value);
+      }
+
+      if (event.key === "Escape") {
+        keyboardInput.value = "";
+        print("You pressed Escape. The input was cleared.");
+      }
+    });
+
+    keyboardInput.addEventListener("keyup", function (event) {
+      /*
+        keyup fires when the key is released.
+      */
+      print("keyup -> key released: " + event.key);
+      print("---");
+    });
+
+    clearButton.addEventListener("click", function () {
+      outputBox.textContent = "";
+      keyboardInput.value = "";
+      keyboardInput.focus();
+    });
+  </script>
+</body>
+</html>
