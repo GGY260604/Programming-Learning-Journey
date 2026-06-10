@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 13 - Form Handling.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn common jQuery form handling patterns.
+    - Read text, checkbox, radio, select, and textarea values.
+    - Practise .val(), :checked, .serialize(), and basic validation.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 13 - Form Handling</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>13 - Form Handling</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery is often used to read form values, validate input, and prepare data before sending it to a server.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Form</h3>
+
+    <form id="student-form" class="demo-box">
+      <label>Name:</label>
+      <input type="text" name="studentName" id="student-name" placeholder="Enter name">
+
+      <label>Course:</label>
+      <select name="course" id="course-select">
+        <option value="">Choose course</option>
+        <option value="javascript">JavaScript</option>
+        <option value="php">PHP</option>
+        <option value="database">Database</option>
+      </select>
+
+      <label>
+        <input type="radio" name="level" value="beginner" checked>
+        Beginner
+      </label>
+
+      <label>
+        <input type="radio" name="level" value="advanced">
+        Advanced
+      </label>
+
+      <label>
+        <input type="checkbox" name="skill" value="html">
+        HTML
+      </label>
+
+      <label>
+        <input type="checkbox" name="skill" value="css">
+        CSS
+      </label>
+
+      <label>
+        <input type="checkbox" name="skill" value="javascript">
+        JavaScript
+      </label>
+
+      <textarea name="note" id="note-textarea" placeholder="Write a note"></textarea>
+
+      <button type="submit">Submit</button>
+      <button type="button" id="fill-button">Fill Sample Data</button>
+      <button type="button" id="clear-button">Clear Form</button>
+    </form>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $form = $("#student-form");
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $form.on("submit", function (event) {
+        event.preventDefault();
+        $output.text("");
+
+        const name = $("#student-name").val().trim();
+        const course = $("#course-select").val();
+        const level = $("input[name='level']:checked").val();
+
+        const skills = $("input[name='skill']:checked").map(function () {
+          return $(this).val();
+        }).get();
+
+        const note = $("#note-textarea").val();
+
+        if (name === "") {
+          print("Name is required.");
+          $("#student-name").addClass("warning-card").focus();
+          return;
+        }
+
+        if (course === "") {
+          print("Please choose a course.");
+          $("#course-select").addClass("warning-card").focus();
+          return;
+        }
+
+        $("input, select").removeClass("warning-card");
+
+        print("Name: " + name);
+        print("Course: " + course);
+        print("Level: " + level);
+        print("Skills: " + skills.join(", "));
+        print("Note: " + note);
+        print("");
+        print("Serialized form data:");
+        print($form.serialize());
+      });
+
+      $("#fill-button").on("click", function () {
+        $("#student-name").val("Galen");
+        $("#course-select").val("javascript");
+        $("input[name='level'][value='advanced']").prop("checked", true);
+        $("input[name='skill'][value='html']").prop("checked", true);
+        $("input[name='skill'][value='javascript']").prop("checked", true);
+        $("#note-textarea").val("Learning jQuery form handling.");
+      });
+
+      $("#clear-button").on("click", function () {
+        $form[0].reset();
+        $("input, select").removeClass("warning-card");
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

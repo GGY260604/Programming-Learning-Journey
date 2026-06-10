@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Attribute Selectors.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how to select elements based on attribute existence and attribute values.
+    - Practise selectors like [name], [name=value], [name^=value], [name$=value], and [name*=value].
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 03 - Attribute Selectors</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>03 - Attribute Selectors</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Attribute selectors are useful when you want to select elements by attributes such as
+      <code>type</code>, <code>href</code>, <code>data-role</code>, <code>name</code>, or <code>title</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Elements</h3>
+
+    <div class="example-grid">
+      <a href="https://example.com" title="external link" data-role="nav primary">Example HTTPS Link</a>
+      <a href="mailto:test@example.com" title="email link" data-role="nav secondary">Email Link</a>
+      <button type="button" data-action="save" data-role="button primary">Save Button</button>
+      <button type="button" data-action="delete" data-role="button danger">Delete Button</button>
+      <input type="text" name="username" placeholder="username field">
+      <input type="email" name="userEmail" placeholder="email field">
+      <input type="number" name="age" min="1" max="99" value="20">
+      <div lang="en-US" data-role="card info">English US Card</div>
+      <div lang="en-GB" data-role="card info">English GB Card</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Try Attribute Selectors</h3>
+
+    <button data-selector="[href]">[href]</button>
+    <button data-selector="[type='text']">[type='text']</button>
+    <button data-selector="[data-action!='save']">[data-action!='save']</button>
+    <button data-selector="[href^='https']">[href^='https']</button>
+    <button data-selector="[href$='.com']">[href$='.com']</button>
+    <button data-selector="[name*='user']">[name*='user']</button>
+    <button data-selector="[data-role~='primary']">[data-role~='primary']</button>
+    <button data-selector="[lang|='en']">[lang|='en']</button>
+    <button data-selector="input[type][name]">input[type][name]</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function clearSelection() {
+        $(".highlight").removeClass("highlight");
+      }
+
+      $("button[data-selector]").on("click", function () {
+        clearSelection();
+        $output.text("");
+
+        const selector = $(this).data("selector");
+        const $items = $(selector);
+
+        $items.addClass("highlight");
+
+        $output.text(
+          "Selector: " + selector + "\n" +
+          "Matched elements: " + $items.length
+        );
+      });
+
+      $("#clear-button").on("click", function () {
+        clearSelection();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

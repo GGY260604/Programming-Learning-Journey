@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 15 - Utility Methods.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn useful jQuery utility methods.
+    - Practise $.each(), $.map(), $.grep(), $.extend(), $.inArray(), $.merge(), $.param(), $.isPlainObject(), $.isEmptyObject(), and $.parseHTML().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 15 - Utility Methods</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>15 - Utility Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery has utility methods under <code>$</code> or <code>jQuery</code>.
+      These are not called on selected DOM elements. They are called directly from the jQuery object.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Try Utilities</h3>
+
+    <button id="each-button">$.each</button>
+    <button id="map-button">$.map</button>
+    <button id="grep-button">$.grep</button>
+    <button id="extend-button">$.extend</button>
+    <button id="array-button">$.inArray and $.merge</button>
+    <button id="param-button">$.param</button>
+    <button id="object-check-button">Object Checks</button>
+    <button id="parse-html-button">$.parseHTML</button>
+    <button id="clear-button">Clear</button>
+
+    <div id="html-target" class="demo-box">Parsed HTML will appear here.</div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $("#each-button").on("click", function () {
+        $output.text("");
+
+        const students = ["Ali", "Galen", "Siti"];
+
+        /* $.each(collection, callback) loops through arrays or objects. */
+        $.each(students, function (index, value) {
+          print(index + ": " + value);
+        });
+      });
+
+      $("#map-button").on("click", function () {
+        $output.text("");
+
+        const numbers = [1, 2, 3];
+
+        /* $.map(array, callback) creates a new transformed array. */
+        const doubled = $.map(numbers, function (value) {
+          return value * 2;
+        });
+
+        print("Doubled: " + doubled.join(", "));
+      });
+
+      $("#grep-button").on("click", function () {
+        $output.text("");
+
+        const scores = [45, 70, 88, 32, 91];
+
+        /* $.grep(array, callback) filters an array. */
+        const passed = $.grep(scores, function (score) {
+          return score >= 50;
+        });
+
+        print("Passed scores: " + passed.join(", "));
+      });
+
+      $("#extend-button").on("click", function () {
+        $output.text("");
+
+        const defaultOptions = {
+          theme: "light",
+          pageSize: 10
+        };
+
+        const userOptions = {
+          pageSize: 20
+        };
+
+        /* $.extend(target, object1, object2) merges objects into target. */
+        const finalOptions = $.extend({}, defaultOptions, userOptions);
+
+        print(JSON.stringify(finalOptions, null, 2));
+      });
+
+      $("#array-button").on("click", function () {
+        $output.text("");
+
+        const languages = ["HTML", "CSS", "JavaScript"];
+        const moreLanguages = ["PHP", "SQL"];
+
+        print("Index of JavaScript: " + $.inArray("JavaScript", languages));
+        print("Merged: " + $.merge(languages, moreLanguages).join(", "));
+      });
+
+      $("#param-button").on("click", function () {
+        $output.text("");
+
+        const queryObject = {
+          keyword: "javascript note",
+          page: 2,
+          sort: "name"
+        };
+
+        /* $.param(object) converts an object into a query string. */
+        print($.param(queryObject));
+      });
+
+      $("#object-check-button").on("click", function () {
+        $output.text("");
+
+        print("$.isPlainObject({}): " + $.isPlainObject({}));
+        print("$.isPlainObject([]): " + $.isPlainObject([]));
+        print("$.isEmptyObject({}): " + $.isEmptyObject({}));
+        print("$.isEmptyObject({ name: 'Galen' }): " + $.isEmptyObject({ name: "Galen" }));
+      });
+
+      $("#parse-html-button").on("click", function () {
+        $output.text("");
+
+        /* $.parseHTML(htmlString) converts an HTML string into DOM nodes. */
+        const nodes = $.parseHTML("<p><strong>Parsed</strong> with $.parseHTML().</p>");
+
+        $("#html-target").empty().append(nodes);
+        print("HTML string parsed and inserted.");
+      });
+
+      $("#clear-button").on("click", function () {
+        $output.text("");
+        $("#html-target").text("Parsed HTML will appear here.");
+      });
+    });
+  </script>
+</body>
+</html>

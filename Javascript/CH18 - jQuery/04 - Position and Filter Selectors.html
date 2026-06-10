@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - Position and Filter Selectors.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn jQuery filter selectors for position, content, and structure.
+    - Understand examples such as :first, :last, :eq(), :contains(), :has(), :not(), :empty, and :parent.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 04 - Position and Filter Selectors</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>04 - Position and Filter Selectors</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery has extra selector filters that can select elements by position, content,
+      or condition. Some of these selectors are jQuery-specific.
+    </p>
+
+    <p class="small-note">
+      For large pages, it is often better to select a group first and then use methods such as
+      <code>.eq()</code>, <code>.filter()</code>, or <code>.first()</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo List</h3>
+
+    <ul id="task-list">
+      <li>Buy books</li>
+      <li class="urgent">Submit assignment</li>
+      <li>Read JavaScript</li>
+      <li><strong>Important:</strong> Review jQuery</li>
+      <li></li>
+      <li>Prepare project demo</li>
+    </ul>
+
+    <h1 class="title-demo">Header 1</h1>
+    <h2 class="title-demo">Header 2</h2>
+    <p>Paragraph with text.</p>
+    <p></p>
+  </div>
+
+  <div class="section">
+    <h3>Try Filter Selectors</h3>
+
+    <button data-selector="#task-list li:first">:first</button>
+    <button data-selector="#task-list li:last">:last</button>
+    <button data-selector="#task-list li:even">:even</button>
+    <button data-selector="#task-list li:odd">:odd</button>
+    <button data-selector="#task-list li:eq(2)">:eq(2)</button>
+    <button data-selector="#task-list li:gt(2)">:gt(2)</button>
+    <button data-selector="#task-list li:lt(3)">:lt(3)</button>
+    <button data-selector="#task-list li:not(.urgent)">:not(.urgent)</button>
+    <button data-selector="#task-list li:contains('JavaScript')">:contains('JavaScript')</button>
+    <button data-selector="#task-list li:has(strong)">:has(strong)</button>
+    <button data-selector=":header">:header</button>
+    <button data-selector="p:empty, li:empty">:empty</button>
+    <button data-selector="p:parent, li:parent">:parent</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function clearSelection() {
+        $(".highlight").removeClass("highlight");
+      }
+
+      $("button[data-selector]").on("click", function () {
+        clearSelection();
+        $output.text("");
+
+        const selector = $(this).data("selector");
+        const $matched = $(selector);
+
+        $matched.addClass("highlight");
+
+        $output.text(
+          "Selector: " + selector + "\n" +
+          "Matched elements: " + $matched.length
+        );
+      });
+
+      $("#clear-button").on("click", function () {
+        clearSelection();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

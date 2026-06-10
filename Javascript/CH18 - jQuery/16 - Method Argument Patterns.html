@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 16 - Method Argument Patterns.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Review the common values and argument patterns passed into jQuery selectors and methods.
+    - Learn getter/setter, object setter, callback setter, event handler, AJAX options, and chaining patterns.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 16 - Method Argument Patterns</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>16 - Method Argument Patterns</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery methods often follow repeated argument patterns. Once you understand the pattern,
+      many methods become easier to learn.
+    </p>
+  </div>
+
+  <div class="section table-wrap">
+    <h3>Common jQuery Argument Patterns</h3>
+
+    <table>
+      <tr>
+        <th>Pattern</th>
+        <th>Example</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>Selector string</td>
+        <td><code>$(".card")</code></td>
+        <td>Select elements that match the CSS/jQuery selector.</td>
+      </tr>
+      <tr>
+        <td>Getter</td>
+        <td><code>$("#name").val()</code></td>
+        <td>No value is passed, so the method reads a value.</td>
+      </tr>
+      <tr>
+        <td>Setter</td>
+        <td><code>$("#name").val("Galen")</code></td>
+        <td>A value is passed, so the method changes a value.</td>
+      </tr>
+      <tr>
+        <td>Object setter</td>
+        <td><code>$("#box").css({ width: "200px" })</code></td>
+        <td>An object is passed to set multiple values at once.</td>
+      </tr>
+      <tr>
+        <td>Callback setter</td>
+        <td><code>.text(function (index, oldText) { ... })</code></td>
+        <td>A function computes the new value for each matched element.</td>
+      </tr>
+      <tr>
+        <td>Event handler</td>
+        <td><code>.on("click", function (event) { ... })</code></td>
+        <td>A function runs when the event happens.</td>
+      </tr>
+      <tr>
+        <td>Delegated event</td>
+        <td><code>.on("click", "li", function () { ... })</code></td>
+        <td>The parent listens for events from matching child elements.</td>
+      </tr>
+      <tr>
+        <td>AJAX options object</td>
+        <td><code>$.ajax({ url, method, data })</code></td>
+        <td>An object configures the request.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <ul id="lesson-list">
+      <li>selector</li>
+      <li>getter</li>
+      <li>setter</li>
+    </ul>
+
+    <input id="pattern-input" type="text" value="jQuery">
+    <div id="pattern-box" class="demo-box">Pattern Box</div>
+
+    <button id="getter-button">Getter Pattern</button>
+    <button id="setter-button">Setter Pattern</button>
+    <button id="object-setter-button">Object Setter Pattern</button>
+    <button id="callback-setter-button">Callback Setter Pattern</button>
+    <button id="chain-button">Chaining Pattern</button>
+    <button id="reset-button">Reset</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $("#getter-button").on("click", function () {
+        $output.text("");
+
+        /* Getter pattern: no value is passed. */
+        const inputValue = $("#pattern-input").val();
+        const boxText = $("#pattern-box").text();
+
+        print("Input value: " + inputValue);
+        print("Box text: " + boxText);
+      });
+
+      $("#setter-button").on("click", function () {
+        /* Setter pattern: a value is passed. */
+        $("#pattern-input").val("Updated by .val(value)");
+        $("#pattern-box").text("Updated by .text(value)");
+      });
+
+      $("#object-setter-button").on("click", function () {
+        /* Object setter pattern: one object sets many values. */
+        $("#pattern-box").css({
+          backgroundColor: "#fff3b0",
+          borderRadius: "20px",
+          fontWeight: "bold"
+        });
+      });
+
+      $("#callback-setter-button").on("click", function () {
+        /*
+          Callback setter pattern:
+          The function receives index and old value,
+          then returns the new value.
+        */
+        $("#lesson-list li").text(function (index, oldText) {
+          return (index + 1) + ". " + oldText.toUpperCase();
+        });
+      });
+
+      $("#chain-button").on("click", function () {
+        /*
+          Chaining pattern:
+          Most jQuery methods return the selected jQuery object,
+          so another method can be called immediately.
+        */
+        $("#pattern-box")
+          .addClass("highlight")
+          .text("Chained methods were applied.")
+          .fadeOut(300)
+          .fadeIn(300);
+      });
+
+      $("#reset-button").on("click", function () {
+        $("#lesson-list").html("<li>selector</li><li>getter</li><li>setter</li>");
+        $("#pattern-input").val("jQuery");
+        $("#pattern-box").attr("class", "demo-box")
+          .removeAttr("style")
+          .text("Pattern Box")
+          .show();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

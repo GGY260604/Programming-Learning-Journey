@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 10 - Filtering Chaining and Iteration.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how to filter selected elements and chain jQuery methods.
+    - Practise .first(), .last(), .eq(), .slice(), .filter(), .not(), .has(), .is(), .each(), .map(), .end(), and chaining.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 10 - Filtering Chaining and Iteration</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>10 - Filtering Chaining and Iteration</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery methods usually return a jQuery object, so you can chain methods.
+      Filtering methods reduce a selected group into a smaller group.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Cards</h3>
+
+    <div id="cards" class="example-grid">
+      <div class="card student" data-score="88"><strong>Ali</strong><span class="badge">A</span></div>
+      <div class="card student active" data-score="75"><strong>Galen</strong><span class="badge">B</span></div>
+      <div class="card student" data-score="92"><strong>Siti</strong><span class="badge">A</span></div>
+      <div class="card teacher" data-score="0"><strong>Teacher</strong></div>
+      <div class="card student active" data-score="68"><strong>John</strong><span class="badge">C</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Try Filtering</h3>
+
+    <button data-action="first">first</button>
+    <button data-action="last">last</button>
+    <button data-action="eq">eq(2)</button>
+    <button data-action="slice">slice(1, 4)</button>
+    <button data-action="filter">filter(.active)</button>
+    <button data-action="not">not(.active)</button>
+    <button data-action="has">has(.badge)</button>
+    <button data-action="is">is(.active)</button>
+    <button data-action="each">each</button>
+    <button data-action="map">map</button>
+    <button data-action="chain">chain and end</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function clearSelection() {
+        $(".highlight").removeClass("highlight");
+        $output.text("");
+      }
+
+      function showResult(label, $result) {
+        $result.addClass("highlight");
+        $output.text(label + " matched elements: " + $result.length);
+      }
+
+      $("button[data-action]").on("click", function () {
+        clearSelection();
+
+        const action = $(this).data("action");
+        const $allCards = $("#cards .card");
+
+        if (action === "first") {
+          showResult(".first()", $allCards.first());
+        } else if (action === "last") {
+          showResult(".last()", $allCards.last());
+        } else if (action === "eq") {
+          showResult(".eq(2)", $allCards.eq(2));
+        } else if (action === "slice") {
+          showResult(".slice(1, 4)", $allCards.slice(1, 4));
+        } else if (action === "filter") {
+          showResult(".filter('.active')", $allCards.filter(".active"));
+        } else if (action === "not") {
+          showResult(".not('.active')", $allCards.not(".active"));
+        } else if (action === "has") {
+          showResult(".has('.badge')", $allCards.has(".badge"));
+        } else if (action === "is") {
+          const answer = $allCards.first().is(".active");
+          $output.text("Is the first card active? " + answer);
+        } else if (action === "each") {
+          /*
+            .each(function (index, element) { ... }) loops through matched elements.
+            this refers to the current DOM element.
+          */
+          $allCards.each(function (index) {
+            $(this).append(" <span class='badge'>#" + index + "</span>");
+          });
+          $output.text("Added index badges using .each().");
+        } else if (action === "map") {
+          /*
+            .map() returns a jQuery object-like result.
+            .get() converts it into a normal JavaScript array.
+          */
+          const names = $allCards.map(function () {
+            return $(this).find("strong").text();
+          }).get();
+
+          $output.text("Names from .map(): " + names.join(", "));
+        } else if (action === "chain") {
+          /*
+            .end() returns to the previous selection in the chain.
+          */
+          $allCards
+            .filter(".active")
+            .addClass("highlight")
+            .end()
+            .last()
+            .addClass("warning-card");
+
+          $output.text("Active cards highlighted. Then .end() returned to all cards and marked the last card.");
+        }
+      });
+
+      $("#clear-button").on("click", function () {
+        $("#cards .card").removeClass("highlight warning-card");
+        $("#cards .card .badge").filter(function () {
+          return $(this).text().startsWith("#");
+        }).remove();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

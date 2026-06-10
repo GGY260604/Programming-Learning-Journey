@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - DOM Traversing Methods.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how to move from selected elements to related elements.
+    - Practise .parent(), .parents(), .children(), .find(), .siblings(), .next(), .prev(), and .closest().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 09 - DOM Traversing Methods</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>09 - DOM Traversing Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      DOM traversal means moving from one selected element to related elements,
+      such as its parent, children, siblings, or nearest matching ancestor.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Structure</h3>
+
+    <div id="dashboard" class="demo-box">
+      <section class="panel" data-panel="students">
+        <h3>Students Panel</h3>
+        <ul class="list">
+          <li>Ali</li>
+          <li id="current-student" class="target">Galen</li>
+          <li>Siti</li>
+        </ul>
+      </section>
+
+      <section class="panel" data-panel="courses">
+        <h3>Courses Panel</h3>
+        <ul class="list">
+          <li>JavaScript</li>
+          <li>PHP</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Try Traversing</h3>
+
+    <button data-action="parent">parent</button>
+    <button data-action="parents">parents</button>
+    <button data-action="children">children</button>
+    <button data-action="find">find</button>
+    <button data-action="siblings">siblings</button>
+    <button data-action="next">next</button>
+    <button data-action="prev">prev</button>
+    <button data-action="closest">closest</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+      const $current = $("#current-student");
+
+      function clearSelection() {
+        $(".highlight").removeClass("highlight");
+        $output.text("");
+      }
+
+      function showResult(name, $result) {
+        $result.addClass("highlight");
+        $output.text(name + " matched elements: " + $result.length);
+      }
+
+      $("button[data-action]").on("click", function () {
+        clearSelection();
+
+        const action = $(this).data("action");
+        let $result;
+
+        if (action === "parent") {
+          /* .parent() gets the direct parent. */
+          $result = $current.parent();
+        } else if (action === "parents") {
+          /* .parents(selector) gets all matching ancestors. */
+          $result = $current.parents("section, div");
+        } else if (action === "children") {
+          /* .children(selector) gets direct child elements only. */
+          $result = $(".panel:first").children();
+        } else if (action === "find") {
+          /* .find(selector) searches inside the selected element. */
+          $result = $("#dashboard").find("li");
+        } else if (action === "siblings") {
+          $result = $current.siblings();
+        } else if (action === "next") {
+          $result = $current.next();
+        } else if (action === "prev") {
+          $result = $current.prev();
+        } else if (action === "closest") {
+          /* .closest(selector) gets the nearest ancestor that matches the selector. */
+          $result = $current.closest("section");
+        }
+
+        showResult("." + action + "()", $result);
+      });
+
+      $("#clear-button").on("click", clearSelection);
+    });
+  </script>
+</body>
+</html>

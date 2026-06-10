@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 14 - Ajax GET POST and JSON.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn jQuery AJAX request patterns.
+    - Practise $.ajax(), $.getJSON(), GET, POST, request data, headers, done(), fail(), and always().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 14 - Ajax GET POST and JSON</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>14 - Ajax GET POST and JSON</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      AJAX allows the page to request data from a server without reloading the page.
+      In jQuery, AJAX methods return a jqXHR object that supports methods such as
+      <code>.done()</code>, <code>.fail()</code>, and <code>.always()</code>.
+    </p>
+
+    <p class="small-note">
+      This file uses a public demo API. It needs internet access to show the response.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Try AJAX</h3>
+
+    <button id="get-button">GET Post 1</button>
+    <button id="get-json-button">getJSON Users</button>
+    <button id="post-button">POST New Post</button>
+    <button id="ajax-options-button">$.ajax with Options</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+      const API = "https://jsonplaceholder.typicode.com";
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      function showObject(object) {
+        print(JSON.stringify(object, null, 2));
+      }
+
+      $("#get-button").on("click", function () {
+        $output.text("Loading...\n");
+
+        /*
+          $.ajax(options) is the most configurable jQuery AJAX method.
+          Common options:
+          - url: request URL
+          - method: GET, POST, PUT, PATCH, DELETE
+          - dataType: expected response type, such as "json"
+        */
+        $.ajax({
+          url: API + "/posts/1",
+          method: "GET",
+          dataType: "json"
+        }).done(function (data) {
+          $output.text("");
+          showObject(data);
+        }).fail(function () {
+          $output.text("GET request failed.");
+        }).always(function () {
+          print("Request finished.");
+        });
+      });
+
+      $("#get-json-button").on("click", function () {
+        $output.text("Loading users...\n");
+
+        /* $.getJSON(url, successCallback) is a shortcut for JSON GET requests. */
+        $.getJSON(API + "/users", function (users) {
+          $output.text("");
+
+          $.each(users.slice(0, 3), function (index, user) {
+            print((index + 1) + ". " + user.name + " - " + user.email);
+          });
+        }).fail(function () {
+          $output.text("getJSON request failed.");
+        });
+      });
+
+      $("#post-button").on("click", function () {
+        $output.text("Sending POST request...\n");
+
+        $.ajax({
+          url: API + "/posts",
+          method: "POST",
+          dataType: "json",
+          contentType: "application/json; charset=UTF-8",
+          data: JSON.stringify({
+            title: "Learning jQuery AJAX",
+            body: "This data was sent using $.ajax().",
+            userId: 1
+          })
+        }).done(function (data) {
+          $output.text("");
+          showObject(data);
+        }).fail(function () {
+          $output.text("POST request failed.");
+        });
+      });
+
+      $("#ajax-options-button").on("click", function () {
+        $output.text("Loading with headers and data...\n");
+
+        $.ajax({
+          url: API + "/comments",
+          method: "GET",
+          dataType: "json",
+          data: {
+            postId: 1
+          },
+          headers: {
+            "X-Demo-Header": "jQuery lesson"
+          },
+          timeout: 8000
+        }).done(function (comments) {
+          $output.text("");
+          print("Comments for postId=1: " + comments.length);
+          print("First comment email: " + comments[0].email);
+        }).fail(function (jqXHR, textStatus) {
+          $output.text("Request failed: " + textStatus);
+        });
+      });
+
+      $("#clear-button").on("click", function () {
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

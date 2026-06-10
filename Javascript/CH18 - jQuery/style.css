@@ -1,0 +1,163 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.section {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.demo-box {
+  border: 2px solid #777;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #fafafa;
+}
+
+.output {
+  background-color: #222;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-line;
+  min-height: 90px;
+  overflow-x: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 4px 6px 4px 0;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  margin: 4px 6px 4px 0;
+  border: 1px solid #999;
+  border-radius: 6px;
+}
+
+textarea {
+  min-width: 280px;
+  min-height: 70px;
+}
+
+code {
+  background-color: #eee;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #222;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+}
+
+.target,
+.selected-demo {
+  border: 2px dashed #777;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+}
+
+.highlight {
+  background-color: #fff3b0;
+  outline: 3px solid #333;
+}
+
+.active-card {
+  background-color: #dff7df;
+  border-color: #146314;
+}
+
+.warning-card {
+  background-color: #ffe0e0;
+  border-color: #9a2020;
+}
+
+.small-note {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #777;
+  border-radius: 999px;
+  margin: 2px;
+  background-color: #f8f8f8;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #999;
+  padding: 8px;
+  vertical-align: top;
+}
+
+th {
+  background-color: #eee;
+}
+
+.motion-box {
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #333;
+  background-color: #e8e8ff;
+  position: relative;
+}

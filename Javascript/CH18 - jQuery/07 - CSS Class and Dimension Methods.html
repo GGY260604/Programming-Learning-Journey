@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - CSS Class and Dimension Methods.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how to change CSS, classes, and element dimensions using jQuery.
+    - Practise .css(), .addClass(), .removeClass(), .toggleClass(), .hasClass(), .width(), .height(), .innerWidth(), and .outerWidth().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 07 - CSS Class and Dimension Methods</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>07 - CSS Class and Dimension Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery can change inline CSS styles, add or remove classes, and read or change element dimensions.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Box</h3>
+
+    <div id="box" class="demo-box" style="width: 220px; height: 90px; padding: 15px; border-width: 5px;">
+      jQuery style demo box.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Try Methods</h3>
+
+    <button id="get-css-button">Get CSS</button>
+    <button id="set-one-css-button">Set One CSS Property</button>
+    <button id="set-many-css-button">Set Many CSS Properties</button>
+    <button id="add-class-button">addClass</button>
+    <button id="remove-class-button">removeClass</button>
+    <button id="toggle-class-button">toggleClass</button>
+    <button id="has-class-button">hasClass</button>
+    <button id="dimension-button">Get Dimensions</button>
+    <button id="set-size-button">Set Width and Height</button>
+    <button id="reset-button">Reset</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $box = $("#box");
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      function clearOutput() {
+        $output.text("");
+      }
+
+      $("#get-css-button").on("click", function () {
+        clearOutput();
+
+        /*
+          .css(name) gets the computed CSS value.
+        */
+        print("background-color: " + $box.css("background-color"));
+        print("width: " + $box.css("width"));
+      });
+
+      $("#set-one-css-button").on("click", function () {
+        /*
+          .css(name, value) sets one CSS property.
+        */
+        $box.css("border-radius", "25px");
+      });
+
+      $("#set-many-css-button").on("click", function () {
+        /*
+          .css(object) sets multiple CSS properties.
+        */
+        $box.css({
+          backgroundColor: "#fff3b0",
+          color: "#111",
+          fontWeight: "bold"
+        });
+      });
+
+      $("#add-class-button").on("click", function () {
+        $box.addClass("active-card");
+      });
+
+      $("#remove-class-button").on("click", function () {
+        $box.removeClass("active-card warning-card");
+      });
+
+      $("#toggle-class-button").on("click", function () {
+        $box.toggleClass("warning-card");
+      });
+
+      $("#has-class-button").on("click", function () {
+        clearOutput();
+        print("Has active-card? " + $box.hasClass("active-card"));
+        print("Has warning-card? " + $box.hasClass("warning-card"));
+      });
+
+      $("#dimension-button").on("click", function () {
+        clearOutput();
+        print(".width(): " + $box.width());
+        print(".height(): " + $box.height());
+        print(".innerWidth(): width + padding = " + $box.innerWidth());
+        print(".outerWidth(): width + padding + border = " + $box.outerWidth());
+        print(".outerWidth(true): also includes margin = " + $box.outerWidth(true));
+      });
+
+      $("#set-size-button").on("click", function () {
+        $box.width(300);
+        $box.height(120);
+      });
+
+      $("#reset-button").on("click", function () {
+        $box.attr("class", "demo-box")
+            .attr("style", "width: 220px; height: 90px; padding: 15px; border-width: 5px;");
+
+        clearOutput();
+      });
+    });
+  </script>
+</body>
+</html>

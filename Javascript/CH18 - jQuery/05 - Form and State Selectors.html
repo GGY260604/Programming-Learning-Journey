@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Form and State Selectors.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn jQuery form selectors and state selectors.
+    - Select inputs by type and state, such as :input, :text, :checkbox, :checked, :selected, :enabled, and :disabled.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 05 - Form and State Selectors</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>05 - Form and State Selectors</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery provides convenient selectors for form controls and form states.
+      They are useful when reading or validating a form.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Form</h3>
+
+    <form id="profile-form">
+      <input type="text" name="username" value="Galen">
+      <input type="password" name="password" value="secret">
+      <input type="email" name="email" value="galen@example.com">
+      <input type="number" name="age" value="20">
+      <input type="checkbox" name="skill" value="html" checked> HTML
+      <input type="checkbox" name="skill" value="js"> JavaScript
+      <input type="radio" name="level" value="beginner" checked> Beginner
+      <input type="radio" name="level" value="advanced"> Advanced
+      <select name="course">
+        <option value="web" selected>Web</option>
+        <option value="database">Database</option>
+      </select>
+      <button type="submit">Submit Button</button>
+      <button type="button">Normal Button</button>
+      <input type="file" name="avatar">
+      <input type="text" name="locked" value="disabled field" disabled>
+    </form>
+  </div>
+
+  <div class="section">
+    <h3>Try Form Selectors</h3>
+
+    <button data-selector=":input">:input</button>
+    <button data-selector=":text">:text</button>
+    <button data-selector=":password">:password</button>
+    <button data-selector=":checkbox">:checkbox</button>
+    <button data-selector=":radio">:radio</button>
+    <button data-selector=":checked">:checked</button>
+    <button data-selector=":selected">:selected</button>
+    <button data-selector=":enabled">:enabled</button>
+    <button data-selector=":disabled">:disabled</button>
+    <button data-selector=":submit">:submit</button>
+    <button data-selector=":button">:button</button>
+    <button data-selector=":file">:file</button>
+    <button id="clear-button" type="button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      $("#profile-form").on("submit", function (event) {
+        event.preventDefault();
+      });
+
+      function clearSelection() {
+        $(".highlight").removeClass("highlight");
+      }
+
+      $("button[data-selector]").on("click", function () {
+        clearSelection();
+        $output.text("");
+
+        const selector = $(this).data("selector");
+        const $matched = $("#profile-form").find(selector);
+
+        $matched.addClass("highlight");
+
+        $output.text(
+          "Selector inside #profile-form: " + selector + "\n" +
+          "Matched controls: " + $matched.length
+        );
+      });
+
+      $("#clear-button").on("click", function () {
+        clearSelection();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

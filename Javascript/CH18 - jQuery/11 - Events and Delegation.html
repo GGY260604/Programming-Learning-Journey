@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 11 - Events and Delegation.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn modern jQuery event handling.
+    - Practise .on(), .off(), .one(), .trigger(), event object, preventDefault(), stopPropagation(), and event delegation.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 11 - Events and Delegation</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>11 - Events and Delegation</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      The recommended jQuery event method is <code>.on()</code>.
+      It can attach direct events and delegated events.
+    </p>
+
+    <pre>$("#button").on("click", function (event) { ... });
+$("#list").on("click", "li", function (event) { ... });</pre>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <button id="direct-button">Direct Click Button</button>
+    <button id="one-button">One-time Button</button>
+    <button id="trigger-button">Trigger Direct Button</button>
+    <button id="off-button">Turn Off Direct Button</button>
+
+    <form id="demo-form" class="demo-box">
+      <input id="typing-input" type="text" placeholder="Type here">
+      <button type="submit">Submit Form</button>
+    </form>
+
+    <div id="outer-box" class="demo-box">
+      Outer box
+      <button id="inner-button">Inner button</button>
+    </div>
+
+    <ul id="dynamic-list">
+      <li>Existing Item 1</li>
+      <li>Existing Item 2</li>
+    </ul>
+
+    <button id="add-item-button">Add Dynamic Item</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+      let count = 3;
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      function directClickHandler(event) {
+        print("Direct button clicked. Event type: " + event.type);
+      }
+
+      /* .on(eventName, handler) attaches an event. */
+      $("#direct-button").on("click", directClickHandler);
+
+      /* .one(eventName, handler) runs only once. */
+      $("#one-button").one("click", function () {
+        print("This message appears only once.");
+      });
+
+      /* .trigger(eventName) manually triggers an event. */
+      $("#trigger-button").on("click", function () {
+        $("#direct-button").trigger("click");
+      });
+
+      /* .off(eventName, handler) removes an event handler. */
+      $("#off-button").on("click", function () {
+        $("#direct-button").off("click", directClickHandler);
+        print("Direct button click handler removed.");
+      });
+
+      $("#typing-input").on("input", function () {
+        print("Input value: " + $(this).val());
+      });
+
+      $("#demo-form").on("submit", function (event) {
+        /* preventDefault() stops normal form submission. */
+        event.preventDefault();
+        print("Form submit stopped with event.preventDefault().");
+      });
+
+      $("#outer-box").on("click", function () {
+        print("Outer box clicked.");
+      });
+
+      $("#inner-button").on("click", function (event) {
+        /* stopPropagation() stops the event from bubbling to parent elements. */
+        event.stopPropagation();
+        print("Inner button clicked. Bubbling stopped.");
+      });
+
+      /*
+        Event delegation:
+        The click event is attached to #dynamic-list,
+        but it listens for clicks on li elements inside it.
+        This works for both existing and future li elements.
+      */
+      $("#dynamic-list").on("click", "li", function () {
+        $(this).toggleClass("highlight");
+        print("Delegated click on: " + $(this).text());
+      });
+
+      $("#add-item-button").on("click", function () {
+        $("#dynamic-list").append("<li>Dynamic Item " + count + "</li>");
+        count++;
+      });
+    });
+  </script>
+</body>
+</html>

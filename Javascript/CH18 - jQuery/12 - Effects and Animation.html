@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 12 - Effects and Animation.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn jQuery visual effects and custom animation.
+    - Practise .hide(), .show(), .toggle(), .fadeIn(), .fadeOut(), .fadeToggle(), .fadeTo(), .slideUp(), .slideDown(), .slideToggle(), .animate(), and .stop().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 12 - Effects and Animation</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>12 - Effects and Animation</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery effects change the visibility or style of elements over time.
+      Most effect methods can receive duration and callback values.
+    </p>
+
+    <pre>$("#box").fadeOut(400, function () {
+  console.log("Finished");
+});</pre>
+  </div>
+
+  <div class="section">
+    <h3>Demo Box</h3>
+
+    <div id="effect-box" class="motion-box">Box</div>
+  </div>
+
+  <div class="section">
+    <h3>Try Effects</h3>
+
+    <button id="hide-button">hide</button>
+    <button id="show-button">show</button>
+    <button id="toggle-button">toggle</button>
+    <button id="fade-out-button">fadeOut</button>
+    <button id="fade-in-button">fadeIn</button>
+    <button id="fade-toggle-button">fadeToggle</button>
+    <button id="fade-to-button">fadeTo 0.3</button>
+    <button id="slide-up-button">slideUp</button>
+    <button id="slide-down-button">slideDown</button>
+    <button id="slide-toggle-button">slideToggle</button>
+    <button id="animate-button">animate</button>
+    <button id="stop-button">stop</button>
+    <button id="reset-button">Reset</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $box = $("#effect-box");
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $("#hide-button").on("click", function () {
+        $box.hide(400, function () {
+          print("hide finished.");
+        });
+      });
+
+      $("#show-button").on("click", function () {
+        $box.show(400, function () {
+          print("show finished.");
+        });
+      });
+
+      $("#toggle-button").on("click", function () {
+        $box.toggle(400);
+      });
+
+      $("#fade-out-button").on("click", function () {
+        $box.fadeOut(500);
+      });
+
+      $("#fade-in-button").on("click", function () {
+        $box.fadeIn(500);
+      });
+
+      $("#fade-toggle-button").on("click", function () {
+        $box.fadeToggle(500);
+      });
+
+      $("#fade-to-button").on("click", function () {
+        $box.fadeTo(500, 0.3);
+      });
+
+      $("#slide-up-button").on("click", function () {
+        $box.slideUp(500);
+      });
+
+      $("#slide-down-button").on("click", function () {
+        $box.slideDown(500);
+      });
+
+      $("#slide-toggle-button").on("click", function () {
+        $box.slideToggle(500);
+      });
+
+      $("#animate-button").on("click", function () {
+        /*
+          .animate(properties, duration, callback)
+          properties must usually be numeric CSS properties.
+        */
+        $box.animate({
+          left: "+=80px",
+          width: "120px",
+          opacity: 0.6
+        }, 700, function () {
+          print("custom animation finished.");
+        });
+      });
+
+      $("#stop-button").on("click", function () {
+        /* .stop() stops the current animation. */
+        $box.stop();
+        print("Current animation stopped.");
+      });
+
+      $("#reset-button").on("click", function () {
+        $box.stop(true, true).removeAttr("style");
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

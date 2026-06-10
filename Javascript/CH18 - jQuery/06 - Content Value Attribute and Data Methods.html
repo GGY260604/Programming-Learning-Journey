@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - Content Value Attribute and Data Methods.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn methods for reading and changing content, form values, attributes, properties, and jQuery data.
+    - Practise .text(), .html(), .val(), .attr(), .prop(), .data(), and .removeAttr().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 06 - Content Value Attribute and Data Methods</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>06 - Content Value Attribute and Data Methods</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Many jQuery methods work as both getters and setters.
+      Calling the method without a value usually gets data.
+      Calling the method with a value usually sets data.
+    </p>
+
+    <pre>$("#title").text();              // get text
+$("#title").text("New Title");  // set text</pre>
+  </div>
+
+  <div class="section">
+    <h3>Demo Area</h3>
+
+    <h3 id="title-text">Original Title</h3>
+    <div id="html-box" class="demo-box">Original <strong>HTML</strong> box.</div>
+    <input id="name-input" type="text" value="Galen">
+    <input id="agree-input" type="checkbox">
+    <a id="demo-link" href="https://example.com" title="Original title">Example Link</a>
+    <div id="data-box" class="demo-box" data-user-id="101">Data box with data-user-id="101".</div>
+  </div>
+
+  <div class="section">
+    <h3>Try Methods</h3>
+
+    <button id="get-values-button">Get Current Values</button>
+    <button id="set-text-button">Set .text()</button>
+    <button id="set-html-button">Set .html()</button>
+    <button id="set-val-button">Set .val()</button>
+    <button id="set-attr-button">Set .attr()</button>
+    <button id="set-prop-button">Set .prop()</button>
+    <button id="set-data-button">Set .data()</button>
+    <button id="remove-attr-button">Remove title Attribute</button>
+    <button id="reset-button">Reset</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      function resetOutput() {
+        $output.text("");
+      }
+
+      $("#get-values-button").on("click", function () {
+        resetOutput();
+
+        print(".text(): " + $("#title-text").text());
+        print(".html(): " + $("#html-box").html());
+        print(".val(): " + $("#name-input").val());
+        print(".attr('href'): " + $("#demo-link").attr("href"));
+        print(".prop('checked'): " + $("#agree-input").prop("checked"));
+        print(".data('userId'): " + $("#data-box").data("userId"));
+      });
+
+      $("#set-text-button").on("click", function () {
+        /*
+          .text(value) treats the value as plain text.
+          HTML tags will not become real elements.
+        */
+        $("#title-text").text("Title changed with .text().");
+      });
+
+      $("#set-html-button").on("click", function () {
+        /*
+          .html(value) treats the value as HTML.
+          Use it only with trusted content.
+        */
+        $("#html-box").html("Changed with <strong>.html()</strong> method.");
+      });
+
+      $("#set-val-button").on("click", function () {
+        /*
+          .val(value) sets the value of form controls.
+        */
+        $("#name-input").val("Updated Name");
+      });
+
+      $("#set-attr-button").on("click", function () {
+        /*
+          .attr(name, value) sets one attribute.
+          .attr(object) sets multiple attributes.
+        */
+        $("#demo-link").attr({
+          href: "https://jquery.com",
+          title: "Changed title attribute"
+        });
+      });
+
+      $("#set-prop-button").on("click", function () {
+        /*
+          .prop(name, value) changes DOM properties.
+          For checked, selected, and disabled, .prop() is usually better than .attr().
+        */
+        $("#agree-input").prop("checked", true);
+      });
+
+      $("#set-data-button").on("click", function () {
+        /*
+          .data(name, value) stores jQuery-managed data on the element.
+          It can store numbers, strings, arrays, or objects.
+        */
+        $("#data-box").data("status", {
+          active: true,
+          role: "student"
+        });
+
+        print("Data object stored. Click 'Get Current Values' to inspect data-user-id.");
+      });
+
+      $("#remove-attr-button").on("click", function () {
+        $("#demo-link").removeAttr("title");
+        print("title attribute removed from the link.");
+      });
+
+      $("#reset-button").on("click", function () {
+        $("#title-text").text("Original Title");
+        $("#html-box").html("Original <strong>HTML</strong> box.");
+        $("#name-input").val("Galen");
+        $("#agree-input").prop("checked", false);
+        $("#demo-link").attr({
+          href: "https://example.com",
+          title: "Original title"
+        });
+        $("#data-box").removeData("status");
+        resetOutput();
+      });
+    });
+  </script>
+</body>
+</html>

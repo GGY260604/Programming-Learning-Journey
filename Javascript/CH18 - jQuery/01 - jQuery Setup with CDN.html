@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - jQuery Setup with CDN.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how to load jQuery with a CDN.
+    - Learn the basic $() function and the document ready pattern.
+    - Understand that jQuery code should run after the page is ready.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 01 - jQuery Setup with CDN</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>01 - jQuery Setup with CDN</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery is a JavaScript library. It gives a shorter syntax for selecting elements,
+      changing HTML/CSS, handling events, creating animations, and making AJAX requests.
+    </p>
+
+    <p>
+      This chapter uses the CDN script below in every file:
+    </p>
+
+    <pre>&lt;script src="https://code.jquery.com/jquery-4.0.0.min.js"&gt;&lt;/script&gt;</pre>
+
+    <p>
+      In jQuery, <code>$</code> is a shortcut for <code>jQuery</code>.
+      For example, <code>$("p")</code> means select all paragraph elements.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Interactive Demo</h3>
+
+    <button id="check-version-button">Check jQuery Version</button>
+    <button id="change-message-button">Change Message with jQuery</button>
+    <button id="reset-button">Reset</button>
+
+    <div id="message" class="demo-box">
+      This message can be changed by jQuery.
+    </div>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    /*
+      This code uses the document ready pattern.
+
+      $(function () { ... }) means:
+      - Wait until the HTML document is ready.
+      - Then run the jQuery code inside the function.
+
+      This is a shorter version of:
+      $(document).ready(function () { ... });
+    */
+    $(function () {
+      const $output = $("#output");
+      const $message = $("#message");
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $("#check-version-button").on("click", function () {
+        print("jQuery loaded successfully.");
+        print("jQuery version: " + $.fn.jquery);
+        print("$ and jQuery both point to the same library: " + ($ === jQuery));
+        print("");
+      });
+
+      $("#change-message-button").on("click", function () {
+        /*
+          .text(value) sets the text content of the selected element.
+        */
+        $message.text("The message was changed using $('#message').text(...).")
+                .addClass("highlight");
+
+        print("Message changed with jQuery.");
+      });
+
+      $("#reset-button").on("click", function () {
+        $message.text("This message can be changed by jQuery.")
+                .removeClass("highlight");
+
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>

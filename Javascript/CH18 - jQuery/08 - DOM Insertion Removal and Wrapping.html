@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - DOM Insertion Removal and Wrapping.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn how jQuery creates, inserts, removes, replaces, empties, detaches, and wraps elements.
+    - Practise .append(), .prepend(), .before(), .after(), .remove(), .empty(), .detach(), .replaceWith(), .wrap(), .unwrap(), and .wrapInner().
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 08 - DOM Insertion Removal and Wrapping</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>08 - DOM Insertion Removal and Wrapping</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery DOM manipulation methods can receive HTML strings, text, existing elements,
+      jQuery objects, or callback functions depending on the method.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo List</h3>
+
+    <div id="container" class="demo-box">
+      <p id="before-target">Text before the list.</p>
+      <ul id="item-list">
+        <li>Original Item 1</li>
+        <li>Original Item 2</li>
+      </ul>
+      <p id="after-target">Text after the list.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Try DOM Methods</h3>
+
+    <button id="append-button">append</button>
+    <button id="prepend-button">prepend</button>
+    <button id="before-button">before</button>
+    <button id="after-button">after</button>
+    <button id="empty-button">empty</button>
+    <button id="remove-button">remove last item</button>
+    <button id="detach-button">detach first item</button>
+    <button id="replace-button">replaceWith</button>
+    <button id="wrap-button">wrap list</button>
+    <button id="wrap-inner-button">wrapInner container</button>
+    <button id="unwrap-button">unwrap list</button>
+    <button id="reset-button">Reset</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+      let counter = 3;
+      let $detachedItem = null;
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      function rebuildDemo() {
+        $("#container").html(
+          '<p id="before-target">Text before the list.</p>' +
+          '<ul id="item-list">' +
+            '<li>Original Item 1</li>' +
+            '<li>Original Item 2</li>' +
+          '</ul>' +
+          '<p id="after-target">Text after the list.</p>'
+        );
+
+        counter = 3;
+        $detachedItem = null;
+        $output.text("");
+      }
+
+      $("#append-button").on("click", function () {
+        /* .append(content) inserts content at the end of the selected element. */
+        $("#item-list").append("<li>Appended Item " + counter + "</li>");
+        counter++;
+      });
+
+      $("#prepend-button").on("click", function () {
+        /* .prepend(content) inserts content at the beginning of the selected element. */
+        $("#item-list").prepend("<li>Prepended Item</li>");
+      });
+
+      $("#before-button").on("click", function () {
+        /* .before(content) inserts content before the selected element. */
+        $("#item-list").before("<p class='badge'>Inserted before ul</p>");
+      });
+
+      $("#after-button").on("click", function () {
+        /* .after(content) inserts content after the selected element. */
+        $("#item-list").after("<p class='badge'>Inserted after ul</p>");
+      });
+
+      $("#empty-button").on("click", function () {
+        /* .empty() removes all child nodes but keeps the selected element. */
+        $("#item-list").empty();
+        print("The ul still exists, but its li elements were removed.");
+      });
+
+      $("#remove-button").on("click", function () {
+        /* .remove() removes the element and its jQuery data/events. */
+        $("#item-list li:last").remove();
+      });
+
+      $("#detach-button").on("click", function () {
+        /* .detach() removes the element but keeps jQuery data/events for later reuse. */
+        if ($detachedItem === null) {
+          $detachedItem = $("#item-list li:first").detach();
+          print("First item detached and stored in a variable.");
+        } else {
+          $("#item-list").append($detachedItem);
+          $detachedItem = null;
+          print("Detached item inserted back.");
+        }
+      });
+
+      $("#replace-button").on("click", function () {
+        $("#after-target").replaceWith("<p id='after-target'>This paragraph replaced the old one.</p>");
+      });
+
+      $("#wrap-button").on("click", function () {
+        $("#item-list").wrap("<div class='highlight'></div>");
+      });
+
+      $("#wrap-inner-button").on("click", function () {
+        $("#container").wrapInner("<div class='active-card'></div>");
+      });
+
+      $("#unwrap-button").on("click", function () {
+        $("#item-list").parent(".highlight").children("#item-list").unwrap();
+      });
+
+      $("#reset-button").on("click", rebuildDemo);
+    });
+  </script>
+</body>
+</html>

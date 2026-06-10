@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - Basic Selectors.html
+    TOPIC: CH18 - jQuery
+
+    GOAL:
+    - Learn common jQuery selectors.
+    - Select elements by id, class, tag, group, descendant, child, and sibling relationship.
+    - Understand that most jQuery selectors follow CSS selector syntax.
+
+    CDN USED:
+    This lesson loads jQuery from the official jQuery CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CH18 - 02 - Basic Selectors</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH18 - jQuery</h1>
+  <h2>02 - Basic Selectors</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      jQuery selectors are passed into <code>$()</code> as a string.
+      Example: <code>$(".card")</code> selects all elements with class <code>card</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo Elements</h3>
+
+    <div id="main-box" class="demo-box target">
+      <h3>Main Box</h3>
+      <p class="intro">Paragraph with class intro.</p>
+      <p>Normal paragraph inside main box.</p>
+      <ul id="fruit-list">
+        <li class="fruit item">Apple</li>
+        <li class="fruit item special">Banana</li>
+        <li class="fruit item">Cherry</li>
+      </ul>
+    </div>
+
+    <p class="outside-text">Paragraph outside the main box.</p>
+    <p class="outside-text special">Special paragraph outside the main box.</p>
+  </div>
+
+  <div class="section">
+    <h3>Try Selectors</h3>
+
+    <button data-selector="*">Universal: *</button>
+    <button data-selector="p">Element: p</button>
+    <button data-selector="#main-box">ID: #main-box</button>
+    <button data-selector=".special">Class: .special</button>
+    <button data-selector="p, li">Group: p, li</button>
+    <button data-selector="#main-box p">Descendant: #main-box p</button>
+    <button data-selector="#fruit-list > li">Child: #fruit-list &gt; li</button>
+    <button data-selector="h3 + p">Adjacent sibling: h3 + p</button>
+    <button data-selector="h3 ~ p">General sibling: h3 ~ p</button>
+    <button id="clear-button">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <script>
+    $(function () {
+      const $output = $("#output");
+
+      function resetSelection() {
+        $(".highlight").removeClass("highlight");
+      }
+
+      function print(message) {
+        $output.append(message + "\n");
+      }
+
+      $("button[data-selector]").on("click", function () {
+        resetSelection();
+        $output.text("");
+
+        /*
+          .data("selector") reads the value from data-selector="...".
+          The selector text is then passed into $().
+        */
+        const selector = $(this).data("selector");
+        const $matchedElements = $(selector);
+
+        $matchedElements.addClass("highlight");
+
+        print("Selector used: " + selector);
+        print("Matched elements: " + $matchedElements.length);
+      });
+
+      $("#clear-button").on("click", function () {
+        resetSelection();
+        $output.text("");
+      });
+    });
+  </script>
+</body>
+</html>
