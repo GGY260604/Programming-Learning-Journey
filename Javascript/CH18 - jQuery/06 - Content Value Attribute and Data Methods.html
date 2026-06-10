@@ -86,8 +86,9 @@ $("#title").text("New Title");  // set text</pre>
         print(".html(): " + $("#html-box").html());
         print(".val(): " + $("#name-input").val());
         print(".attr('href'): " + $("#demo-link").attr("href"));
-        print(".prop('checked'): " + $("#agree-input").prop("checked"));
+        print(".prop('checked'): " + $("#agree-input").prop("checked")); //prop stands for property, not attribute
         print(".data('userId'): " + $("#data-box").data("userId"));
+        print(".data(): " + JSON.stringify($("#data-box").data(), null, 2));
       });
 
       $("#set-text-button").on("click", function () {

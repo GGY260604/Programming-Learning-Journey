@@ -140,6 +140,7 @@
       });
 
       $("#reset-button").on("click", function () {
+        // .stop(true, true) stops the animation and jumps to the end state.
         $box.stop(true, true).removeAttr("style");
         $output.text("");
       });
