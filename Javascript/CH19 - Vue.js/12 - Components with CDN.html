@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 12 - Components with CDN.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Create a Vue component using app.component().
+    - Use components inside templates.
+    - Understand template, data, and methods inside a component.
+
+    IMPORTANT:
+    - With CDN, components can be written as JavaScript objects.
+    - Component names should be written in kebab-case in HTML templates.
+    - Each component instance should return its own data object.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>12 - Components with CDN</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>12 - Components with CDN</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A component is a reusable piece of UI with its own template, data, and methods.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Component Demo</h3>
+
+    <user-card></user-card>
+    <user-card></user-card>
+    <counter-card></counter-card>
+    <counter-card></counter-card>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({});
+
+    /*
+      Register a global component.
+      The first argument is the component name.
+      The second argument is the component options object.
+    */
+    app.component("user-card", {
+      template: `
+        <div class="card">
+          <h3>{{ name }}</h3>
+          <p>{{ role }}</p>
+        </div>
+      `,
+      data() {
+        return {
+          name: "Galen",
+          role: "Vue Learner"
+        };
+      }
+    });
+
+    app.component("counter-card", {
+      template: `
+        <div class="card">
+          <h3>Counter Component</h3>
+          <p>Count: {{ count }}</p>
+          <button @click="count++">Increase</button>
+        </div>
+      `,
+      data() {
+        return {
+          count: 0
+        };
+      }
+    });
+
+    app.mount("#app");
+
+    /*
+      Component template values:
+      - template: HTML string controlled by Vue.
+      - data(): returns component state.
+      - methods: functions used by the component.
+      - computed: derived values.
+      - props: values received from parent.
+      - emits: events sent to parent.
+    */
+  </script>
+</body>
+</html>

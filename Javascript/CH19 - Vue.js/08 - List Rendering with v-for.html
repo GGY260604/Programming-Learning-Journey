@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - List Rendering with v-for.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use v-for to render arrays.
+    - Use v-for to render objects.
+    - Use :key correctly.
+    - Add and remove list items.
+
+    IMPORTANT:
+    - Use :key when rendering lists.
+    - The key should be unique and stable.
+    - v-for can receive item, index, value, key, and object.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>08 - List Rendering with v-for</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>08 - List Rendering with v-for</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>v-for</code> repeats HTML based on an array or object.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Array Rendering</h3>
+
+    <label>
+      New skill:
+      <input v-model.trim="newSkill" @keyup.enter="addSkill">
+    </label>
+    <button @click="addSkill">Add Skill</button>
+
+    <ul>
+      <li v-for="(skill, index) in skills" :key="skill.id">
+        {{ index + 1 }}. {{ skill.name }}
+        <button @click="removeSkill(skill.id)">Remove</button>
+      </li>
+    </ul>
+
+    <h3>Object Rendering</h3>
+
+    <ul>
+      <li v-for="(value, key) in profile" :key="key">
+        {{ key }}: {{ value }}
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          newSkill: "",
+          nextId: 4,
+          skills: [
+            { id: 1, name: "HTML" },
+            { id: 2, name: "CSS" },
+            { id: 3, name: "JavaScript" }
+          ],
+          profile: {
+            name: "Galen",
+            course: "Software Engineering",
+            topic: "Vue.js"
+          }
+        };
+      },
+      methods: {
+        addSkill() {
+          if (this.newSkill === "") {
+            return;
+          }
+
+          this.skills.push({
+            id: this.nextId,
+            name: this.newSkill
+          });
+
+          this.nextId++;
+          this.newSkill = "";
+        },
+        removeSkill(id) {
+          this.skills = this.skills.filter(function (skill) {
+            return skill.id !== id;
+          });
+        }
+      }
+    }).mount("#app");
+
+    /*
+      Array syntax:
+      v-for="item in items"
+      v-for="(item, index) in items"
+
+      Object syntax:
+      v-for="value in object"
+      v-for="(value, key) in object"
+      v-for="(value, key, index) in object"
+
+      Key syntax:
+      :key="item.id"
+
+      The key helps Vue track each item correctly when the list changes.
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.section {
+  background-color: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.output {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-line;
+  min-height: 60px;
+}
+
+.demo-box {
+  border: 2px dashed #777777;
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 12px;
+  background-color: #fafafa;
+}
+
+.card {
+  border: 1px solid #999999;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  margin: 4px 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+}
+
+code {
+  background-color: #eeeeee;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.highlight {
+  border-color: #333333;
+  background-color: #fff7d6;
+}
+
+.active {
+  background-color: #e7f8ee;
+  border-color: #2d6a4f;
+}
+
+.warning {
+  background-color: #fff2cc;
+  border-color: #997300;
+}
+
+.error {
+  background-color: #ffe1e1;
+  border-color: #990000;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+[v-cloak] {
+  display: none;
+}

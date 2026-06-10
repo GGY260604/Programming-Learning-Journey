@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - v-bind Dynamic Attributes.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use v-bind to bind HTML attributes.
+    - Use the shorthand colon syntax.
+    - Pass strings, numbers, booleans, objects, and arrays to bindings.
+
+    IMPORTANT:
+    - v-bind connects an HTML attribute to JavaScript data.
+    - The shorthand for v-bind:href is :href.
+    - Boolean attributes such as disabled can be controlled by true or false.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>04 - v-bind Dynamic Attributes</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>04 - v-bind Dynamic Attributes</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>v-bind</code> is used when an HTML attribute should come from Vue data.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Dynamic Attributes</h3>
+
+    <p>
+      <a v-bind:href="websiteUrl" v-bind:title="websiteTitle" target="_blank">
+        Visit Vue Website using v-bind
+      </a>
+    </p>
+
+    <p>
+      <a :href="guideUrl" :title="guideTitle" target="_blank">
+        Visit Vue Guide using shorthand
+      </a>
+    </p>
+
+    <button :disabled="isDisabled">Disabled Button</button>
+    <button @click="isDisabled = !isDisabled">Toggle Disabled</button>
+
+    <div class="demo-box">
+      <img :src="imageUrl" :alt="imageAlt" :width="imageWidth">
+      <p>ID binding: <span :id="dynamicId">This span has a dynamic id.</span></p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          websiteUrl: "https://vuejs.org/",
+          websiteTitle: "Vue official website",
+          guideUrl: "https://vuejs.org/guide/introduction.html",
+          guideTitle: "Vue official guide",
+          isDisabled: true,
+          imageUrl: "https://dummyimage.com/160x80/eeeeee/333333&text=Vue+CDN",
+          imageAlt: "Demo image loaded from URL",
+          imageWidth: 160,
+          dynamicId: "vue-dynamic-span"
+        };
+      }
+    }).mount("#app");
+
+    /*
+      Full syntax:
+      v-bind:href="websiteUrl"
+
+      Shorthand syntax:
+      :href="websiteUrl"
+
+      Common values to pass:
+      - string: :href="url"
+      - number: :width="imageWidth"
+      - boolean: :disabled="isDisabled"
+      - object: :class="{ active: isActive }"
+      - array: :class="[mainClass, secondClass]"
+    */
+  </script>
+</body>
+</html>

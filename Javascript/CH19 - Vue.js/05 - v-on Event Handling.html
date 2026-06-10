@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - v-on Event Handling.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use v-on to listen to events.
+    - Use the @ shorthand.
+    - Pass values and the original event object to methods.
+    - Use event modifiers.
+
+    IMPORTANT:
+    - v-on:click and @click mean the same thing.
+    - Methods can receive custom values.
+    - Use $event when you also need the original browser event.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>05 - v-on Event Handling</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>05 - v-on Event Handling</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>v-on</code> listens to browser events such as click, input, submit, mouseover, and keyup.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Event Handling</h3>
+
+    <p>Count: <strong>{{ count }}</strong></p>
+
+    <button v-on:click="increase">Increase using v-on</button>
+    <button @click="decrease">Decrease using @</button>
+    <button @click="addAmount(5)">Add 5</button>
+    <button @click="showEvent('Button clicked', $event)">Pass Message and Event</button>
+
+    <div class="demo-box" @mouseover="status = 'Mouse is inside the box'" @mouseleave="status = 'Mouse left the box'">
+      Hover this box.
+      <p>Status: {{ status }}</p>
+    </div>
+
+    <form class="demo-box" @submit.prevent="submitForm">
+      <label>
+        Name:
+        <input v-model="name" placeholder="Enter name">
+      </label>
+      <button type="submit">Submit Without Reload</button>
+    </form>
+
+    <h3>Log</h3>
+    <div class="output">{{ log }}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          count: 0,
+          status: "Move your mouse into the box.",
+          name: "",
+          log: ""
+        };
+      },
+      methods: {
+        increase() {
+          this.count++;
+        },
+        decrease() {
+          this.count--;
+        },
+        addAmount(amount) {
+          this.count += amount;
+        },
+        showEvent(message, event) {
+          this.log += message + " from <" + event.target.tagName.toLowerCase() + ">\n";
+        },
+        submitForm() {
+          this.log += "Submitted name: " + this.name + "\n";
+        }
+      }
+    }).mount("#app");
+
+    /*
+      Full syntax:
+      v-on:click="increase"
+
+      Shorthand:
+      @click="increase"
+
+      Passing a custom value:
+      @click="addAmount(5)"
+
+      Passing the original event:
+      @click="showEvent('message', $event)"
+
+      Common modifiers:
+      @submit.prevent="submitForm"  -> event.preventDefault()
+      @click.stop="method"          -> event.stopPropagation()
+      @click.once="method"          -> run once only
+      @keyup.enter="method"         -> run only when Enter is pressed
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - Conditional Rendering.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use v-if, v-else-if, and v-else.
+    - Use v-show.
+    - Understand the difference between removing and hiding elements.
+
+    IMPORTANT:
+    - v-if adds or removes the element from the DOM.
+    - v-show keeps the element but changes display CSS.
+    - Use v-if for conditional creation and v-show for frequent visibility toggles.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>07 - Conditional Rendering</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>07 - Conditional Rendering</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Vue can render different HTML based on conditions.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>v-if / v-else-if / v-else</h3>
+
+    <label>
+      Score:
+      <input type="number" v-model.number="score">
+    </label>
+
+    <p v-if="score >= 80" class="card active">Excellent result.</p>
+    <p v-else-if="score >= 50" class="card warning">Passed, but can improve.</p>
+    <p v-else class="card error">Need more practice.</p>
+
+    <h3>v-show</h3>
+
+    <button @click="isVisible = !isVisible">Toggle Help Box</button>
+
+    <div v-show="isVisible" class="demo-box">
+      This box is controlled by v-show. It is hidden using CSS display.
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          score: 75,
+          isVisible: true
+        };
+      }
+    }).mount("#app");
+
+    /*
+      v-if="condition"
+      - Renders the element only if condition is true.
+
+      v-else-if="anotherCondition"
+      - Checks another condition after v-if is false.
+
+      v-else
+      - Renders when all previous conditions are false.
+
+      v-show="condition"
+      - Always keeps the element in the DOM.
+      - Only changes CSS display.
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - v-model Form Binding.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use v-model for two-way binding.
+    - Bind text, textarea, checkbox, radio, select, and number input.
+    - Use common v-model modifiers.
+
+    IMPORTANT:
+    - v-model updates Vue data when the form value changes.
+    - v-model also updates the form when Vue data changes.
+    - Common modifiers include .trim, .number, and .lazy.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>06 - v-model Form Binding</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>06 - v-model Form Binding</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>v-model</code> creates two-way binding between form input and Vue data.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Form Binding</h3>
+
+    <label>
+      Username using v-model.trim:
+      <input v-model.trim="username" placeholder="Type username">
+    </label>
+
+    <label>
+      Age using v-model.number:
+      <input type="number" v-model.number="age">
+    </label>
+
+    <label>
+      Message:
+      <textarea v-model.lazy="message" rows="3"></textarea>
+    </label>
+
+    <label>
+      <input type="checkbox" v-model="isMember">
+      Is member
+    </label>
+
+    <p>Selected hobbies:</p>
+    <label><input type="checkbox" value="Coding" v-model="hobbies"> Coding</label>
+    <label><input type="checkbox" value="Design" v-model="hobbies"> Design</label>
+    <label><input type="checkbox" value="Gaming" v-model="hobbies"> Gaming</label>
+
+    <p>Selected level:</p>
+    <label><input type="radio" value="Beginner" v-model="level"> Beginner</label>
+    <label><input type="radio" value="Intermediate" v-model="level"> Intermediate</label>
+    <label><input type="radio" value="Advanced" v-model="level"> Advanced</label>
+
+    <label>
+      Framework:
+      <select v-model="framework">
+        <option disabled value="">Please select one</option>
+        <option>Vue</option>
+        <option>React</option>
+        <option>Angular</option>
+      </select>
+    </label>
+
+    <pre class="output">
+Username: {{ username }}
+Age: {{ age }} | Type: {{ typeof age }}
+Message: {{ message }}
+Is member: {{ isMember }}
+Hobbies: {{ hobbies.join(", ") }}
+Level: {{ level }}
+Framework: {{ framework }}
+    </pre>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          username: "",
+          age: 18,
+          message: "",
+          isMember: false,
+          hobbies: [],
+          level: "Beginner",
+          framework: ""
+        };
+      }
+    }).mount("#app");
+
+    /*
+      Common v-model usage:
+
+      Text input:
+      v-model="username"
+
+      Number input:
+      v-model.number="age"
+
+      Trim whitespace:
+      v-model.trim="username"
+
+      Update after change event instead of input event:
+      v-model.lazy="message"
+
+      Checkbox with boolean:
+      v-model="isMember"
+
+      Checkbox group with array:
+      v-model="hobbies"
+
+      Radio group:
+      v-model="level"
+
+      Select menu:
+      v-model="framework"
+    */
+  </script>
+</body>
+</html>

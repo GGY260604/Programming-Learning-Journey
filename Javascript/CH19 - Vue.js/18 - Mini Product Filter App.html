@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 18 - Mini Product Filter App.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Combine Vue CDN concepts in one mini app.
+    - Use v-model, computed, v-for, v-if, class binding, and methods.
+    - Build a simple searchable product list.
+
+    IMPORTANT:
+    - This file is a small integration exercise.
+    - It uses Vue data as the source of truth.
+    - The filtered list is calculated using computed.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>18 - Mini Product Filter App</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>18 - Mini Product Filter App</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      This mini app combines several Vue basics into one useful example.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Product Filter App</h3>
+
+    <label>
+      Search:
+      <input v-model.trim="keyword" placeholder="Search product name">
+    </label>
+
+    <label>
+      Category:
+      <select v-model="selectedCategory">
+        <option value="All">All</option>
+        <option v-for="category in categories" :key="category" :value="category">
+          {{ category }}
+        </option>
+      </select>
+    </label>
+
+    <p>Total shown: {{ filteredProducts.length }}</p>
+
+    <div v-if="filteredProducts.length > 0" class="grid">
+      <div
+        v-for="product in filteredProducts"
+        :key="product.id"
+        class="card"
+        :class="{ active: product.inStock, error: !product.inStock }"
+      >
+        <h3>{{ product.name }}</h3>
+        <p>Category: {{ product.category }}</p>
+        <p>Price: RM {{ product.price }}</p>
+        <p>Status: {{ product.inStock ? "In Stock" : "Out of Stock" }}</p>
+        <button @click="toggleStock(product.id)">Toggle Stock</button>
+      </div>
+    </div>
+
+    <p v-else class="card warning">No matching product found.</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          keyword: "",
+          selectedCategory: "All",
+          products: [
+            { id: 1, name: "Keyboard", category: "Accessory", price: 89, inStock: true },
+            { id: 2, name: "Mouse", category: "Accessory", price: 45, inStock: true },
+            { id: 3, name: "Monitor", category: "Display", price: 499, inStock: false },
+            { id: 4, name: "Laptop", category: "Computer", price: 2999, inStock: true },
+            { id: 5, name: "Speaker", category: "Audio", price: 129, inStock: false }
+          ]
+        };
+      },
+      computed: {
+        categories() {
+          const categorySet = new Set(this.products.map(function (product) {
+            return product.category;
+          }));
+
+          return Array.from(categorySet);
+        },
+        filteredProducts() {
+          const lowerKeyword = this.keyword.toLowerCase();
+
+          return this.products.filter((product) => {
+            const matchesKeyword = product.name.toLowerCase().includes(lowerKeyword);
+            const matchesCategory = this.selectedCategory === "All" || product.category === this.selectedCategory;
+
+            return matchesKeyword && matchesCategory;
+          });
+        }
+      },
+      methods: {
+        toggleStock(id) {
+          const product = this.products.find(function (item) {
+            return item.id === id;
+          });
+
+          if (product) {
+            product.inStock = !product.inStock;
+          }
+        }
+      }
+    }).mount("#app");
+
+    /*
+      Concepts used in this mini app:
+
+      v-model.trim="keyword"
+      - Search input updates Vue data.
+
+      computed filteredProducts()
+      - Calculates visible products from keyword and category.
+
+      v-for="product in filteredProducts"
+      - Renders each product card.
+
+      :key="product.id"
+      - Gives each rendered item a stable identity.
+
+      :class="{ active: product.inStock, error: !product.inStock }"
+      - Applies different styles based on stock status.
+
+      @click="toggleStock(product.id)"
+      - Calls a method and passes a product id.
+    */
+  </script>
+</body>
+</html>

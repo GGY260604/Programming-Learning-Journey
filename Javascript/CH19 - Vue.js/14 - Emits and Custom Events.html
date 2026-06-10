@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 14 - Emits and Custom Events.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Send data from child to parent using emits.
+    - Listen to custom component events.
+    - Pass event payload values.
+
+    IMPORTANT:
+    - Props pass data downward.
+    - Emits send events upward.
+    - Use this.$emit(eventName, payload) in Options API components.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>14 - Emits and Custom Events</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>14 - Emits and Custom Events</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A child component can communicate with its parent by emitting a custom event.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Parent Area</h3>
+
+    <p>Total likes: <strong>{{ totalLikes }}</strong></p>
+    <p>Last message: <strong>{{ lastMessage }}</strong></p>
+
+    <like-button label="Vue" @liked="handleLiked"></like-button>
+    <like-button label="JavaScript" @liked="handleLiked"></like-button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+          totalLikes: 0,
+          lastMessage: "No event yet"
+        };
+      },
+      methods: {
+        handleLiked(payload) {
+          this.totalLikes += payload.amount;
+          this.lastMessage = payload.label + " button was liked.";
+        }
+      }
+    });
+
+    app.component("like-button", {
+      props: {
+        label: String
+      },
+      emits: ["liked"],
+      template: `
+        <button @click="sendLike">
+          Like {{ label }}
+        </button>
+      `,
+      methods: {
+        sendLike() {
+          this.$emit("liked", {
+            label: this.label,
+            amount: 1
+          });
+        }
+      }
+    });
+
+    app.mount("#app");
+
+    /*
+      Child sends event:
+      this.$emit("liked", payload)
+
+      Parent listens:
+      @liked="handleLiked"
+
+      Payload can be:
+      - string
+      - number
+      - boolean
+      - array
+      - object
+    */
+  </script>
+</body>
+</html>

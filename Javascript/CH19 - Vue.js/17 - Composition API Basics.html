@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 17 - Composition API Basics.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use setup() with the Vue CDN global build.
+    - Use ref, reactive, computed, watch, and onMounted.
+    - Return values from setup() to the template.
+
+    IMPORTANT:
+    - Composition API groups related logic together.
+    - ref() stores a single reactive value.
+    - reactive() stores a reactive object.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>17 - Composition API Basics</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>17 - Composition API Basics</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Vue 3 supports Composition API. It is commonly used in modern Vue applications.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Composition API Demo</h3>
+
+    <p>Count: <strong>{{ count }}</strong></p>
+    <p>Double Count: <strong>{{ doubleCount }}</strong></p>
+
+    <button @click="increase">Increase</button>
+
+    <label>
+      Student name:
+      <input v-model="student.name">
+    </label>
+
+    <p>Student: {{ student.name }} - {{ student.course }}</p>
+
+    <h3>Log</h3>
+    <div class="output">{{ log }}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, reactive, computed, watch, onMounted } = Vue;
+
+    createApp({
+      setup() {
+        /*
+          ref() creates a reactive value.
+          In JavaScript, access or update it using .value.
+          In the template, Vue automatically unwraps it.
+        */
+        const count = ref(0);
+        const log = ref("");
+
+        /*
+          reactive() creates a reactive object.
+        */
+        const student = reactive({
+          name: "Galen",
+          course: "Vue.js"
+        });
+
+        const doubleCount = computed(function () {
+          return count.value * 2;
+        });
+
+        function increase() {
+          count.value++;
+        }
+
+        watch(count, function (newValue, oldValue) {
+          log.value += "Count changed from " + oldValue + " to " + newValue + "\n";
+        });
+
+        onMounted(function () {
+          log.value += "onMounted(): Composition API app is ready.\n";
+        });
+
+        /*
+          Everything returned here can be used in the template.
+        */
+        return {
+          count,
+          log,
+          student,
+          doubleCount,
+          increase
+        };
+      }
+    }).mount("#app");
+
+    /*
+      Common Composition API values from Vue:
+
+      ref(value)
+      reactive(object)
+      computed(function)
+      watch(source, callback)
+      onMounted(callback)
+
+      In CDN global build:
+      const { ref, reactive, computed } = Vue;
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 13 - Props.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Pass data from parent to child component using props.
+    - Use static and dynamic props.
+    - Define prop types and default values.
+
+    IMPORTANT:
+    - Props are one-way data from parent to child.
+    - Use v-bind or : when passing dynamic props.
+    - A child component should not directly modify props.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>13 - Props</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>13 - Props</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Props allow a parent component or app to pass values into a child component.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Static and Dynamic Props</h3>
+
+    <student-card name="Alice" course="HTML" :year="1"></student-card>
+    <student-card name="Bob" course="CSS" :year="2"></student-card>
+
+    <label>
+      Dynamic name:
+      <input v-model="dynamicName">
+    </label>
+
+    <student-card :name="dynamicName" :course="selectedCourse" :year="3"></student-card>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+          dynamicName: "Galen",
+          selectedCourse: "Vue.js"
+        };
+      }
+    });
+
+    app.component("student-card", {
+      props: {
+        name: {
+          type: String,
+          required: true
+        },
+        course: {
+          type: String,
+          default: "Unknown Course"
+        },
+        year: {
+          type: Number,
+          default: 1
+        }
+      },
+      template: `
+        <div class="card">
+          <h3>{{ name }}</h3>
+          <p>Course: {{ course }}</p>
+          <p>Year: {{ year }}</p>
+        </div>
+      `
+    });
+
+    app.mount("#app");
+
+    /*
+      Static prop:
+      name="Alice"
+
+      Dynamic prop:
+      :name="dynamicName"
+
+      Number prop:
+      :year="3"
+
+      Without colon, the value is passed as text.
+      With colon, the value is treated as JavaScript expression.
+    */
+  </script>
+</body>
+</html>

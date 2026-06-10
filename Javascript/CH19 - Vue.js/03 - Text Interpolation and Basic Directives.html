@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - Text Interpolation and Basic Directives.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use {{ }} text interpolation.
+    - Use v-text, v-html, v-once, v-pre, and v-cloak.
+    - Understand when HTML is rendered as text or real HTML.
+
+    IMPORTANT:
+    - {{ }} displays reactive values as text.
+    - v-html renders HTML and should only be used with trusted content.
+    - v-cloak can hide uncompiled templates before Vue loads.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>03 - Text Interpolation and Basic Directives</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>03 - Text Interpolation and Basic Directives</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Vue uses template syntax to connect JavaScript data with HTML.
+      The most common syntax is text interpolation using <code>{{ }}</code>.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Text Interpolation</h3>
+
+    <p>Normal interpolation: <strong>{{ message }}</strong></p>
+    <p>Expression inside interpolation: <strong>{{ firstName + " " + lastName }}</strong></p>
+    <p>Calculation inside interpolation: <strong>{{ price * quantity }}</strong></p>
+
+    <div class="demo-box">
+      <h3>Basic Directives</h3>
+
+      <p v-text="message"></p>
+
+      <p>
+        v-html output:
+        <span v-html="trustedHtml"></span>
+      </p>
+
+      <p v-once>
+        v-once value: {{ message }}
+      </p>
+
+      <p v-pre>
+        v-pre keeps this unchanged: {{ message }}
+      </p>
+
+      <button @click="message = 'The value changed!'">Change Message</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          message: "Hello from Vue template syntax",
+          firstName: "Galen",
+          lastName: "Gui",
+          price: 12,
+          quantity: 3,
+          trustedHtml: "<strong>This text is rendered by v-html.</strong>"
+        };
+      }
+    }).mount("#app");
+
+    /*
+      Common basic directives:
+
+      v-text="value"
+      - Replaces the element text with the value.
+
+      v-html="htmlString"
+      - Renders HTML from a string.
+      - Use only trusted content to avoid security problems.
+
+      v-once
+      - Renders the value only once.
+      - Later data changes will not update this element.
+
+      v-pre
+      - Skips Vue compilation for the element.
+      - Useful when you want to display raw {{ }} syntax.
+
+      v-cloak
+      - Usually used with CSS [v-cloak] { display: none; }
+      - Hides the template before Vue finishes mounting.
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 15 - Slots.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use default slots.
+    - Use named slots.
+    - Pass custom HTML into a component.
+
+    IMPORTANT:
+    - Props pass data into a component.
+    - Slots pass template content into a component.
+    - Named slots allow different content areas.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>15 - Slots</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>15 - Slots</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Slots allow the parent to place custom HTML inside a component.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Default Slot</h3>
+
+    <message-box>
+      This text is passed into the component by a default slot.
+    </message-box>
+
+    <h3>Named Slots</h3>
+
+    <layout-card>
+      <template #header>
+        <strong>Vue Slot Header</strong>
+      </template>
+
+      <template #default>
+        <p>This is the main content passed to the default slot.</p>
+      </template>
+
+      <template #footer>
+        <button>Footer Button</button>
+      </template>
+    </layout-card>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({});
+
+    app.component("message-box", {
+      template: `
+        <div class="card">
+          <slot></slot>
+        </div>
+      `
+    });
+
+    app.component("layout-card", {
+      template: `
+        <div class="card">
+          <header class="demo-box">
+            <slot name="header"></slot>
+          </header>
+
+          <main>
+            <slot></slot>
+          </main>
+
+          <footer class="demo-box">
+            <slot name="footer"></slot>
+          </footer>
+        </div>
+      `
+    });
+
+    app.mount("#app");
+
+    /*
+      Default slot in child:
+      <slot></slot>
+
+      Named slot in child:
+      <slot name="header"></slot>
+
+      Pass content to named slot in parent:
+      <template #header>
+        Content here
+      </template>
+
+      #header is shorthand for v-slot:header.
+    */
+  </script>
+</body>
+</html>

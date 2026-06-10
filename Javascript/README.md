@@ -2,7 +2,7 @@
 
 A complete executable JavaScript programming note built with organized HTML demo files.
 
-This project is not designed as a normal theory-only note. Each chapter contains runnable `.html` files that demonstrate JavaScript syntax, methods, browser behavior, DOM manipulation, events, forms, storage, asynchronous programming, modules, classes, error handling, regular expressions, and advanced concepts.
+This project is not designed as a normal theory-only note. Each chapter contains runnable `.html` files that demonstrate JavaScript syntax, methods, browser behavior, DOM manipulation, events, forms, storage, asynchronous programming, modules, classes, error handling, regular expressions, advanced concepts, jQuery, and Vue.js.
 
 The goal is to learn JavaScript by opening the files, reading the comments, clicking the buttons, changing the code, and observing the result directly in the browser.
 
@@ -29,10 +29,13 @@ JavaScript/
 ├── CH15 - Fetch API and HTTP Request/
 ├── CH16 - Modules Classes and OOP/
 ├── CH17 - Error Handling Regular Expression and Advanced Concepts/
+├── CH18 - jQuery/
+├── CH19 - Vue.js/
 └── README.md
 ```
 
-This project intentionally ends at **CH17**. Mini projects are not included in this version.
+The main JavaScript language and browser chapters are covered in **CH01 to CH17**.  
+**CH18** and **CH19** are additional library/framework chapters that teach jQuery and Vue.js through CDN links without requiring npm, Vite, or a build setup.
 
 ---
 
@@ -134,6 +137,8 @@ CH04 - CH08: Core JavaScript values, functions, arrays, objects, collections
 CH09 - CH13: DOM, events, forms, storage, browser data
 CH14 - CH15: Timers, promises, async/await, Fetch API
 CH16 - CH17: Modules, classes, OOP, errors, regex, advanced functions
+CH18: jQuery library usage
+CH19: Vue.js CDN-based frontend framework usage
 ```
 
 Recommended learning order:
@@ -145,6 +150,8 @@ Recommended learning order:
 4. Learn events and forms.
 5. Learn storage, asynchronous JavaScript, and Fetch API.
 6. Learn modules, classes, and advanced concepts.
+7. Learn jQuery to understand library-based DOM manipulation and older JavaScript projects.
+8. Learn Vue.js to understand reactive frontend development using CDN.
 ```
 
 ---
@@ -170,6 +177,8 @@ Recommended learning order:
 | CH15 | Fetch API and HTTP Request | Learn how JavaScript communicates with APIs using HTTP requests. |
 | CH16 | Modules Classes and OOP | Learn JavaScript modules, exports/imports, classes, objects, inheritance, and OOP syntax. |
 | CH17 | Error Handling Regular Expression and Advanced Concepts | Learn error handling, strict mode, regex, `this`, call/apply/bind, and higher-order functions. |
+| CH18 | jQuery | Learn how to use jQuery selectors, methods, events, effects, traversal, AJAX, and utility methods through CDN. |
+| CH19 | Vue.js | Learn how to use Vue 3 through CDN, including app mounting, directives, events, forms, computed properties, watchers, components, props, emits, slots, lifecycle hooks, refs, and Composition API basics. |
 
 ---
 
@@ -636,6 +645,172 @@ Higher-order functions are common in modern JavaScript.
 
 ---
 
+
+## CH18 - jQuery
+
+This chapter teaches how to use the jQuery library through a CDN link.
+
+jQuery is not required for modern JavaScript, but it is still useful to understand because many older websites and systems use it. This chapter shows how jQuery simplifies element selection, DOM manipulation, events, effects, AJAX, and common utility operations.
+
+CDN used:
+
+```html
+<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+```
+
+| File | Main Concepts |
+|---|---|
+| `01 - jQuery Setup with CDN.html` | Loading jQuery from CDN, checking whether jQuery is available, basic `$()` usage. |
+| `02 - Basic Selectors.html` | ID, class, tag, group, descendant, child, and sibling selectors. |
+| `03 - Attribute Selectors.html` | Selecting elements by attribute presence, exact value, partial value, prefix, suffix, and word matching. |
+| `04 - Position and Filter Selectors.html` | Selecting elements by position and filter-like selector patterns. |
+| `05 - Form and State Selectors.html` | Selecting input, checkbox, radio, selected, checked, enabled, and disabled elements. |
+| `06 - Content Value Attribute and Data Methods.html` | `.text()`, `.html()`, `.val()`, `.attr()`, `.prop()`, `.data()`. |
+| `07 - CSS Class and Dimension Methods.html` | `.css()`, `.addClass()`, `.removeClass()`, `.toggleClass()`, `.hasClass()`, `.width()`, `.height()`. |
+| `08 - DOM Insertion Removal and Wrapping.html` | `.append()`, `.prepend()`, `.before()`, `.after()`, `.remove()`, `.empty()`, `.wrap()`, `.unwrap()`. |
+| `09 - DOM Traversing Methods.html` | `.parent()`, `.children()`, `.siblings()`, `.next()`, `.prev()`, `.find()`, `.closest()`. |
+| `10 - Filtering Chaining and Iteration.html` | `.filter()`, `.not()`, `.eq()`, `.first()`, `.last()`, `.each()`, method chaining. |
+| `11 - Events and Delegation.html` | `.on()`, `.off()`, event object, delegated event handling. |
+| `12 - Effects and Animation.html` | `.hide()`, `.show()`, `.toggle()`, `.fadeIn()`, `.fadeOut()`, `.slideUp()`, `.slideDown()`, `.animate()`. |
+| `13 - Form Handling.html` | Reading and updating form values, checkbox/radio/select handling, submit event handling. |
+| `14 - Ajax GET POST and JSON.html` | `$.ajax()`, `$.get()`, `$.post()`, JSON request/response examples. |
+| `15 - Utility Methods.html` | `$.each()`, `$.map()`, `$.grep()`, `$.trim()`, `$.extend()`, utility-style operations. |
+| `16 - Method Argument Patterns.html` | Common jQuery method argument patterns such as getter, setter, object parameter, callback parameter, and chaining. |
+
+Important ideas:
+
+```text
+$() is the main jQuery function.
+Most jQuery methods work on a collection of matched elements.
+Many jQuery methods act as both getter and setter.
+Getter usually returns the value from the first matched element.
+Setter usually changes all matched elements.
+jQuery methods often return the jQuery object, which allows chaining.
+Use .on() for event handling.
+Use delegated events for dynamic elements.
+```
+
+Common jQuery selector examples:
+
+```text
+$("#title") selects by ID.
+$(".card") selects by class.
+$("p") selects by tag.
+$("input[type='text']") selects by attribute value.
+$("ul li") selects descendants.
+$("ul > li") selects direct children.
+$("li:first") selects the first matching item.
+$("li:last") selects the last matching item.
+$("input:checked") selects checked inputs.
+$("option:selected") selects selected options.
+```
+
+Common jQuery method patterns:
+
+```text
+.text() gets text from the first matched element.
+.text("Hello") sets text for all matched elements.
+.html("<b>Hello</b>") sets HTML content.
+.val() gets form value.
+.val("Galen") sets form value.
+.attr("href") gets an attribute.
+.attr("href", "https://example.com") sets an attribute.
+.css("color", "red") sets one CSS property.
+.css({ color: "red", fontSize: "20px" }) sets many CSS properties.
+.addClass("active") adds a class.
+.removeClass("active") removes a class.
+.toggleClass("active") toggles a class.
+```
+
+---
+
+## CH19 - Vue.js
+
+This chapter teaches how to use Vue.js through a CDN link without Vite, npm, or a build system.
+
+Vue is a frontend framework. Compared to manually changing the DOM with normal JavaScript or jQuery, Vue focuses on reactive data. When the data changes, the interface updates automatically.
+
+CDN used:
+
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+```
+
+| File | Main Concepts |
+|---|---|
+| `01 - Vue Setup with CDN.html` | Loading Vue through CDN, creating a simple Vue app. |
+| `02 - createApp Data and Mount.html` | `Vue.createApp()`, `data()`, and `.mount()`. |
+| `03 - Text Interpolation and Basic Directives.html` | `{{ }}`, `v-text`, `v-html`, and basic directive usage. |
+| `04 - v-bind Dynamic Attributes.html` | Binding dynamic attributes using `v-bind` and `:` shorthand. |
+| `05 - v-on Event Handling.html` | Handling events using `v-on` and `@` shorthand. |
+| `06 - v-model Form Binding.html` | Two-way binding for input, textarea, checkbox, radio, and select. |
+| `07 - Conditional Rendering.html` | `v-if`, `v-else-if`, `v-else`, and `v-show`. |
+| `08 - List Rendering with v-for.html` | Rendering arrays and objects using `v-for`, keys, and index values. |
+| `09 - Class and Style Binding.html` | Dynamic class and style binding using objects and arrays. |
+| `10 - Computed Properties.html` | Computed values that update automatically when dependencies change. |
+| `11 - Watchers.html` | Watching data changes and running side-effect logic. |
+| `12 - Components with CDN.html` | Creating and registering simple components without a build tool. |
+| `13 - Props.html` | Passing data from parent component to child component. |
+| `14 - Emits and Custom Events.html` | Sending events from child component to parent component. |
+| `15 - Slots.html` | Passing template content into a component. |
+| `16 - Lifecycle Hooks and Template Refs.html` | `mounted()`, `updated()`, template refs, and direct DOM access when needed. |
+| `17 - Composition API Basics.html` | `setup()`, `ref()`, `reactive()`, and basic Composition API structure. |
+| `18 - Mini Product Filter App.html` | Small Vue app that combines data, `v-model`, computed properties, list rendering, and events. |
+
+Important ideas:
+
+```text
+Vue controls only the element where it is mounted.
+data() returns the reactive state of the app.
+{{ }} displays data in the HTML.
+v-bind binds dynamic attributes.
+v-on listens to events.
+v-model creates two-way form binding.
+v-if controls whether an element is created.
+v-show controls whether an element is displayed.
+v-for repeats elements based on arrays or objects.
+computed is for derived values.
+watch is for running logic when data changes.
+components split UI into reusable parts.
+props send data from parent to child.
+emits send events from child to parent.
+slots let parent content appear inside a child component.
+```
+
+Common Vue syntax examples:
+
+```text
+{{ message }}
+v-bind:href="url"
+:href="url"
+v-on:click="runFunction"
+@click="runFunction"
+v-model="username"
+v-if="isLoggedIn"
+v-else
+v-show="isVisible"
+v-for="item in items"
+:key="item.id"
+:class="{ active: isActive }"
+:class="[mainClass, secondClass]"
+:style="{ color: textColor, fontSize: fontSize + 'px' }"
+```
+
+Vue mental model:
+
+```text
+Normal JavaScript:
+Find element -> change element manually.
+
+jQuery:
+Select element -> call method to change element.
+
+Vue:
+Change data -> Vue updates the HTML automatically.
+```
+
+---
+
 ## Main JavaScript Concepts Covered
 
 | Category | Covered Concepts |
@@ -662,6 +837,8 @@ Higher-order functions are common in modern JavaScript.
 | Modules | type module, named export/import, default export/import, module scope. |
 | OOP | class, object, constructor, method, static, getter, setter, private field, inheritance. |
 | Advanced | Error handling, strict mode, regex, this, call, apply, bind, higher-order function. |
+| jQuery | CDN setup, selectors, content/value/attribute methods, CSS/classes, DOM insertion/removal, traversal, filtering, events, effects, AJAX, utilities. |
+| Vue.js | CDN setup, createApp, mount, data, directives, event binding, form binding, conditional rendering, list rendering, class/style binding, computed, watchers, components, props, emits, slots, lifecycle hooks, refs, Composition API. |
 
 ---
 
@@ -685,7 +862,7 @@ Do not only read the code. JavaScript is best learned by changing values, testin
 
 ## Suggested Practice After Finishing
 
-After completing CH01 to CH17, try building small browser projects using the same concepts.
+After completing CH01 to CH19, try building small browser projects using the same concepts.
 
 Recommended practice projects:
 
@@ -700,9 +877,13 @@ Recommended practice projects:
 8. Quiz app
 9. Expense tracker
 10. Weather viewer using API
+11. jQuery dynamic table editor
+12. Vue product filter app
+13. Vue todo list with localStorage
+14. Vue form validation demo
 ```
 
-These projects are not included as CH18 in this version, but they are good practice after finishing the core chapters.
+These projects can be built as future chapters or as independent practice folders.
 
 ---
 
@@ -737,6 +918,40 @@ For the best experience, open the browser Developer Tools while testing the exam
 
 ---
 
+
+## Notes About jQuery and Vue.js
+
+jQuery and Vue.js are both JavaScript tools, but they solve problems differently.
+
+```text
+jQuery is a JavaScript library.
+Vue.js is a frontend framework.
+```
+
+jQuery is useful when you want to:
+
+```text
+Select elements easily.
+Change DOM content quickly.
+Handle events with shorter syntax.
+Work with older projects.
+Understand legacy websites.
+```
+
+Vue.js is useful when you want to:
+
+```text
+Build reactive interfaces.
+Organize UI into components.
+Let data control the page.
+Avoid manually updating the DOM many times.
+Prepare for modern frontend frameworks.
+```
+
+Learning both is useful because they represent two different generations of frontend development.
+
+---
+
 ## Final Learning Goal
 
 After finishing this JavaScript note, you should be able to:
@@ -753,6 +968,8 @@ Organize code using modules.
 Create classes and objects.
 Handle errors and use regular expressions.
 Understand important advanced concepts such as this, closure, and higher-order functions.
+Use jQuery to simplify selection, DOM manipulation, events, effects, and AJAX.
+Use Vue.js through CDN to build reactive UI examples with directives, components, props, emits, and Composition API basics.
 ```
 
 This project is designed to be a practical executable reference. It can be used for revision, classroom learning, self-study, or as a base for future JavaScript practice projects.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - createApp Data and Mount.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Understand the createApp options object.
+    - Use data() to provide reactive values.
+    - Mount more than one Vue app on the same page.
+
+    IMPORTANT:
+    - Each Vue app controls only its own mounted element.
+    - Data properties should be returned from data().
+    - Use this.propertyName inside Options API methods.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>02 - createApp Data and Mount</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>02 - createApp Data and Mount</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      <code>createApp()</code> creates a Vue application instance.
+      <code>mount()</code> connects that app to a real HTML element.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div id="counterApp" class="section" v-cloak>
+      <h3>Counter App</h3>
+      <p>Count: <strong>{{ count }}</strong></p>
+      <button @click="count++">Increase</button>
+      <button @click="count--">Decrease</button>
+    </div>
+
+    <div id="profileApp" class="section" v-cloak>
+      <h3>Profile App</h3>
+      <!-- {{}} two curly braces for data binding -->
+      <p>Name: <strong>{{ name }}</strong></p>
+      <p>Course: <strong>{{ course }}</strong></p>
+      <button @click="changeCourse">Change Course</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    /*
+      App 1 controls only #counterApp.
+    */
+    createApp({
+      data() {
+        return {
+          count: 0
+        };
+      }
+    }).mount("#counterApp");
+
+    /*
+      App 2 controls only #profileApp.
+      It has its own data and methods.
+    */
+    createApp({
+      data() {
+        return {
+          name: "Galen",
+          course: "JavaScript"
+        };
+      },
+      methods: {
+        changeCourse() {
+          this.course = "Vue.js";
+        }
+      }
+    }).mount("#profileApp");
+
+    /*
+      In Vue, you do not need to write:
+      document.getElementById("...").textContent = "...";
+
+      Instead, you update the data.
+      Vue updates the HTML automatically.
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 09 - Class and Style Binding.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Bind class using strings, objects, and arrays.
+    - Bind inline style using objects and arrays.
+    - Use dynamic visual states.
+
+    IMPORTANT:
+    - Object class binding is useful for conditional classes.
+    - Array class binding combines multiple classes.
+    - Style binding usually uses camelCase CSS property names.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>09 - Class and Style Binding</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>09 - Class and Style Binding</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Vue can control CSS classes and inline styles dynamically using <code>:class</code> and <code>:style</code>.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Class Binding</h3>
+
+    <button @click="isActive = !isActive">Toggle Active</button>
+    <button @click="hasWarning = !hasWarning">Toggle Warning</button>
+
+    <div class="card" :class="{ active: isActive, warning: hasWarning }">
+      Object class binding: active and warning classes are controlled by booleans.
+    </div>
+
+    <div class="card" :class="[baseClass, isActive ? 'active' : '']">
+      Array class binding: classes are combined from an array.
+    </div>
+
+    <h3>Style Binding</h3>
+
+    <label>
+      Font size:
+      <input type="range" min="14" max="40" v-model.number="fontSize">
+    </label>
+
+    <div class="card" :style="boxStyle">
+      This text uses dynamic style binding.
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          isActive: true,
+          hasWarning: false,
+          baseClass: "highlight",
+          fontSize: 20
+        };
+      },
+      computed: {
+        boxStyle() {
+          return {
+            fontSize: this.fontSize + "px",
+            padding: "16px"
+          };
+        }
+      }
+    }).mount("#app");
+
+    /*
+      Class binding values:
+
+      String:
+      :class="className"
+
+      Object:
+      :class="{ active: isActive, error: hasError }"
+
+      Array:
+      :class="[mainClass, secondClass]"
+
+      Style binding values:
+
+      Object:
+      :style="{ fontSize: size + 'px' }"
+
+      Array:
+      :style="[baseStyle, extraStyle]"
+    */
+  </script>
+</body>
+</html>

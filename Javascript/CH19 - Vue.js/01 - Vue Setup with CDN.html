@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - Vue Setup with CDN.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Load Vue from a CDN.
+    - Create a Vue application using createApp().
+    - Mount the Vue application to a HTML element.
+
+    IMPORTANT:
+    - This chapter uses Vue 3 global build from CDN.
+    - No npm, Vite, or build tool is required for these beginner examples.
+    - The page needs internet access because Vue is loaded from a CDN.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>01 - Vue Setup with CDN</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>01 - Vue Setup with CDN</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      Vue can be used directly in a normal HTML file by loading it from a CDN.
+      After Vue is loaded, the global object <code>Vue</code> becomes available.
+    </p>
+
+    <p>
+      The most basic Vue flow is:
+    </p>
+
+    <ol>
+      <li>Load Vue using a <code>&lt;script&gt;</code> tag.</li>
+      <li>Create an app using <code>Vue.createApp()</code>.</li>
+      <li>Mount the app using <code>.mount("#app")</code>.</li>
+    </ol>
+  </div>
+
+  <!-- v-cloak is a directive that prevents the raw Vue template from being displayed before the app is initialized -->
+  <div id="app" class="section" v-cloak> 
+    <h3>Vue App Area</h3>
+
+    <p>{{ message }}</p>
+    <p>Current framework: <strong>{{ framework }}</strong></p>
+
+    <button @click="changeMessage">Change Message</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    /*
+      Vue is loaded from the CDN above.
+      Because this file uses the global Vue build, we access createApp from Vue.
+    */
+   // const createApp = Vue.createApp({}); // Alternative way to access createApp
+    const { createApp } = Vue;
+
+    /*
+      createApp() receives an options object.
+      This object describes the data and behavior of this Vue app.
+    */
+    createApp({
+      /*
+        data() must return an object.
+        Each property in this object becomes reactive data in the template.
+      */
+      data() {
+        return {
+          message: "Vue is running from CDN!",
+          framework: "Vue.js"
+        };
+      },
+
+      /*
+        methods stores functions that can be called from the template.
+      */
+      methods: {
+        changeMessage() {
+          this.message = "The message changed without manually selecting the DOM.";
+        }
+      }
+    }).mount("#app");
+
+    /*
+      mount("#app") means:
+      - Find the element with id="app".
+      - Let Vue control that part of the page.
+      - Vue should not control elements outside that mounted area.
+    */
+  </script>
+</body>
+</html>

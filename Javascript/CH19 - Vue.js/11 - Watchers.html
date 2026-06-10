@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 11 - Watchers.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Use watch to react to data changes.
+    - Compare old and new values.
+    - Use watchers for side effects.
+
+    IMPORTANT:
+    - Use computed for derived values.
+    - Use watch when you need to run extra logic after a value changes.
+    - Watchers receive newValue and oldValue.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>11 - Watchers</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>11 - Watchers</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A watcher runs code when a specific data value changes.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Username Watcher</h3>
+
+    <label>
+      Username:
+      <input v-model.trim="username" placeholder="Type at least 4 characters">
+    </label>
+
+    <p>Status: <strong>{{ status }}</strong></p>
+
+    <h3>Log</h3>
+    <div class="output">{{ log }}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          username: "",
+          status: "Waiting for input...",
+          log: ""
+        };
+      },
+      watch: {
+        username(newValue, oldValue) {
+          this.log += "Changed from '" + oldValue + "' to '" + newValue + "'\n";
+
+          if (newValue.length === 0) {
+            this.status = "Waiting for input...";
+          } else if (newValue.length < 4) {
+            this.status = "Too short";
+          } else {
+            this.status = "Looks good";
+          }
+        }
+      }
+    }).mount("#app");
+
+    /*
+      Watch syntax:
+
+      watch: {
+        dataProperty(newValue, oldValue) {
+          // code to run when dataProperty changes
+        }
+      }
+
+      Good use cases:
+      - Validate input after change.
+      - Save data to storage after change.
+      - Run API request after search keyword changes.
+      - React to one value changing over time.
+    */
+  </script>
+</body>
+</html>

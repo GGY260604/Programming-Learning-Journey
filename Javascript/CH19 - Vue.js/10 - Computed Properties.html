@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 10 - Computed Properties.html
+    TOPIC: CH19 - Vue.js
+
+    GOAL:
+    - Create computed properties.
+    - Use computed values in templates.
+    - Understand computed caching.
+
+    IMPORTANT:
+    - Computed properties are used for values derived from reactive data.
+    - Use computed when the output depends on existing data.
+    - Computed properties are cached until their dependencies change.
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>10 - Computed Properties</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH19 - Vue.js</h1>
+  <h2>10 - Computed Properties</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+
+    <p>
+      A computed property is a value that is calculated from other Vue data.
+    </p>
+  </div>
+
+  <div id="app" class="section" v-cloak>
+    <h3>Shopping Cart</h3>
+
+    <label>
+      Price:
+      <input type="number" v-model.number="price">
+    </label>
+
+    <label>
+      Quantity:
+      <input type="number" v-model.number="quantity">
+    </label>
+
+    <label>
+      Discount:
+      <input type="number" v-model.number="discount">
+    </label>
+
+    <pre class="output">
+Subtotal: RM {{ subtotal }}
+Discount: RM {{ discount }}
+Final Total: RM {{ finalTotal }}
+Status: {{ orderStatus }}
+    </pre>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          price: 15,
+          quantity: 2,
+          discount: 5
+        };
+      },
+      computed: {
+        subtotal() {
+          return this.price * this.quantity;
+        },
+        finalTotal() {
+          return Math.max(this.subtotal - this.discount, 0);
+        },
+        orderStatus() {
+          if (this.finalTotal >= 100) {
+            return "Large order";
+          }
+
+          return "Normal order";
+        }
+      }
+    }).mount("#app");
+
+    /*
+      computed receives an object of functions.
+
+      computed: {
+        propertyName() {
+          return calculatedValue;
+        }
+      }
+
+      In the template, use it like a property:
+      {{ propertyName }}
+
+      Do not call it like a method:
+      {{ propertyName() }}
+    */
+  </script>
+</body>
+</html>
