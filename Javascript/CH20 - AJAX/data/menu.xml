@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+  <item>
+    <name>Beef Burger</name>
+    <type>Food</type>
+    <price>8.50</price>
+  </item>
+  <item>
+    <name>Fresh Orange Juice</name>
+    <type>Drink</type>
+    <price>5.00</price>
+  </item>
+</menu>

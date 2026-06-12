@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 01 - AJAX Concept and Workflow.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Understand the meaning and purpose of AJAX.
+    - Understand the simple workflow behind an AJAX request.
+    - Load a text file without refreshing the whole page.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 01 - AJAX Concept and Workflow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>01 - AJAX Concept and Workflow</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      AJAX means <strong>Asynchronous JavaScript and XML</strong>.
+      It allows JavaScript to communicate with a server and update part of a page
+      without refreshing the whole page.
+    </p>
+
+    <p>
+      Although the name contains XML, modern AJAX can work with
+      <code>text</code>, <code>JSON</code>, <code>XML</code>, and other response types.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Basic Workflow</h3>
+
+    <ol>
+      <li>User performs an action, such as clicking a button.</li>
+      <li>JavaScript creates a request object.</li>
+      <li>The request is sent to a URL.</li>
+      <li>The server or file returns data.</li>
+      <li>JavaScript uses the response to update the page.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h3>Small AJAX Demo</h3>
+    <button onclick="loadMessage()">Load Message by AJAX</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function loadMessage() {
+      clearOutput();
+      print("Creating XMLHttpRequest object...");
+
+      /*
+        XMLHttpRequest is the classic AJAX object.
+
+        It can request data from a server or local file through HTTP.
+      */
+      const ajax = new XMLHttpRequest();
+
+      /*
+        open(method, url, async)
+
+        method:
+        - "GET" usually receives data.
+        - "POST" usually sends data.
+
+        url:
+        - The file or server endpoint to request.
+
+        async:
+        - true means the browser can continue working while waiting.
+      */
+      ajax.open("GET", "data/message.txt", true);
+
+      /*
+        onload runs after the response is received.
+      */
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          print("Response received successfully:");
+          print(ajax.responseText);
+        } else {
+          print("Request failed. Status: " + ajax.status);
+        }
+      };
+
+      ajax.onerror = function () {
+        print("Network error occurred.");
+      };
+
+      print("Sending request...");
+      ajax.send();
+    }
+  </script>
+</body>
+</html>

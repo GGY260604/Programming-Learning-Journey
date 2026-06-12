@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 02 - XMLHttpRequest GET Text and JSON.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Use XMLHttpRequest to send a GET request.
+    - Read plain text with responseText.
+    - Convert JSON text into JavaScript data using JSON.parse().
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 02 - XMLHttpRequest GET Text and JSON</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>02 - XMLHttpRequest GET Text and JSON</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      The <code>GET</code> method is commonly used to receive data.
+      This file shows how to get plain text and JSON using the same
+      <code>XMLHttpRequest</code> object.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo</h3>
+    <button onclick="loadText()">GET Text</button>
+    <button onclick="loadJson()">GET JSON</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function loadText() {
+      clearOutput();
+
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "data/message.txt", true);
+
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          /*
+            responseText contains the server response as plain text.
+          */
+          print(ajax.responseText);
+        } else {
+          print("Text request failed. Status: " + ajax.status);
+        }
+      };
+
+      ajax.send(); // Send the request to the server that was specified in open()
+    }
+
+    function loadJson() {
+      clearOutput();
+
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "data/users.json", true);
+
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          /*
+            JSON data arrives as text first.
+            JSON.parse() converts the JSON string into real JavaScript data.
+          */
+          const users = JSON.parse(ajax.responseText);
+
+          print("Users loaded from JSON:");
+
+          users.forEach(function (user) {
+            print(user.id + ". " + user.name + " - " + user.role);
+          });
+        } else {
+          print("JSON request failed. Status: " + ajax.status);
+        }
+      };
+
+      ajax.send();
+    }
+  </script>
+</body>
+</html>

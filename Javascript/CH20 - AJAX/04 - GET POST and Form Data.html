@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 04 - GET POST and Form Data.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Understand GET query string format.
+    - Understand POST request body format.
+    - Send JSON data with XMLHttpRequest.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 04 - GET POST and Form Data</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>04 - GET POST and Form Data</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>GET</code> commonly sends data through the query string.
+      <code>POST</code> commonly sends data inside the request body.
+    </p>
+
+    <p class="note">
+      The GET demo is fully local. The POST demo uses a public testing API,
+      so it needs an internet connection.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Form</h3>
+
+    <label for="num1">Number 1</label><br>
+    <input type="number" id="num1" value="10"><br>
+
+    <label for="num2">Number 2</label><br>
+    <input type="number" id="num2" value="5"><br>
+
+    <button onclick="buildGetRequest()">Build GET Query String</button>
+    <button onclick="sendPostJson()">Send POST JSON</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function getNumbers() {
+      return {
+        num1: document.getElementById("num1").value,
+        num2: document.getElementById("num2").value
+      };
+    }
+
+    function buildGetRequest() {
+      clearOutput();
+
+      const numbers = getNumbers();
+
+      /*
+        URLSearchParams safely builds query string data.
+
+        The result will look like:
+        num1=10&num2=5
+      */
+      const params = new URLSearchParams(numbers);
+      const url = "data/users.json?" + params.toString();
+
+      print("GET request format:");
+      print("ajax.open(\"GET\", \"" + url + "\", true);");
+      print("ajax.send();");
+      print("");
+      print("Local static files do not calculate num1 + num2.");
+      print("A real server file such as PHP, Node.js, or Python would read the query string and return the result.");
+    }
+
+    function sendPostJson() {
+      clearOutput();
+
+      const numbers = getNumbers();
+      const payload = {
+        title: "AJAX POST Demo",
+        num1: Number(numbers.num1),
+        num2: Number(numbers.num2),
+        total: Number(numbers.num1) + Number(numbers.num2)
+      };
+
+      const ajax = new XMLHttpRequest();
+      ajax.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
+
+      /*
+        setRequestHeader(name, value)
+
+        This tells the server that the request body is JSON.
+      */
+      ajax.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      ajax.onload = function () {
+        if (ajax.status >= 200 && ajax.status < 300) {
+          print("POST success:");
+          print(ajax.responseText);
+        } else {
+          print("POST failed. Status: " + ajax.status);
+        }
+      };
+
+      ajax.onerror = function () {
+        print("Network error. Check internet connection or CORS permission.");
+      };
+
+      /*
+        send(body)
+
+        For JSON POST, send a JSON string.
+      */
+      ajax.send(JSON.stringify(payload));
+    }
+  </script>
+</body>
+</html>

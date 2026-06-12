@@ -2,7 +2,7 @@
 
 A complete executable JavaScript programming note built with organized HTML demo files.
 
-This project is not designed as a normal theory-only note. Each chapter contains runnable `.html` files that demonstrate JavaScript syntax, methods, browser behavior, DOM manipulation, events, forms, storage, asynchronous programming, modules, classes, error handling, regular expressions, advanced concepts, jQuery, and Vue.js.
+This project is not designed as a normal theory-only note. Each chapter contains runnable `.html` files that demonstrate JavaScript syntax, methods, browser behavior, DOM manipulation, events, forms, storage, asynchronous programming, modules, classes, error handling, regular expressions, advanced concepts, jQuery, Vue.js, and AJAX.
 
 The goal is to learn JavaScript by opening the files, reading the comments, clicking the buttons, changing the code, and observing the result directly in the browser.
 
@@ -31,11 +31,19 @@ JavaScript/
 ├── CH17 - Error Handling Regular Expression and Advanced Concepts/
 ├── CH18 - jQuery/
 ├── CH19 - Vue.js/
+├── CH20 - AJAX/
 └── README.md
 ```
 
-The main JavaScript language and browser chapters are covered in **CH01 to CH17**.  
-**CH18** and **CH19** are additional library/framework chapters that teach jQuery and Vue.js through CDN links without requiring npm, Vite, or a build setup.
+The main JavaScript language and browser chapters are covered in **CH01 to CH17**.
+
+**CH18**, **CH19**, and **CH20** are additional practical web development chapters:
+
+```text
+CH18 - jQuery: JavaScript library usage through CDN.
+CH19 - Vue.js: Vue 3 framework usage through CDN.
+CH20 - AJAX: Background HTTP request/response communication.
+```
 
 ---
 
@@ -61,14 +69,17 @@ Each lesson file starts with a number, followed by a clear file name.
 03 - File Name.html
 ```
 
-For lessons that need supporting JavaScript files, the same number is reused.
+For lessons that need supporting JavaScript or data files, the same number or a related `data/` folder is used.
 
 ```text
 03 - External JavaScript.html
 03 - app.js
-```
 
-This means both files belong to the same lesson.
+data/
+├── message.txt
+├── users.json
+└── menu.xml
+```
 
 ---
 
@@ -111,25 +122,29 @@ Then open:
 http://localhost:5500
 ```
 
-### Lessons with Fetch API
+### Lessons with Fetch API or AJAX
 
-Some Fetch API examples may require internet access because they request online JSON data from a public API.
+Fetch API and AJAX examples may require a local server because browsers restrict some requests when files are opened directly through `file://`.
 
-If the request fails, check:
+For CH20, run the project with a local server because the examples request local `.txt`, `.json`, and `.xml` files.
+
+```bash
+python -m http.server 5500
+```
+
+Then open:
 
 ```text
-1. Internet connection
-2. Browser console
-3. API URL
-4. CORS permission
-5. Local server setup
+http://localhost:5500
 ```
+
+Do not disable browser security for normal learning. A local server is the safer and cleaner way to test AJAX examples.
 
 ---
 
 ## Learning Flow
 
-This project is arranged from basic JavaScript to browser-based JavaScript.
+This project is arranged from basic JavaScript to browser-based JavaScript, then to library/framework and AJAX usage.
 
 ```text
 CH01 - CH03: Basic setup, output, variables, data types, operators
@@ -139,6 +154,7 @@ CH14 - CH15: Timers, promises, async/await, Fetch API
 CH16 - CH17: Modules, classes, OOP, errors, regex, advanced functions
 CH18: jQuery library usage
 CH19: Vue.js CDN-based frontend framework usage
+CH20: AJAX request/response communication
 ```
 
 Recommended learning order:
@@ -152,6 +168,7 @@ Recommended learning order:
 6. Learn modules, classes, and advanced concepts.
 7. Learn jQuery to understand library-based DOM manipulation and older JavaScript projects.
 8. Learn Vue.js to understand reactive frontend development using CDN.
+9. Learn AJAX to understand background server communication without refreshing the page.
 ```
 
 ---
@@ -177,8 +194,9 @@ Recommended learning order:
 | CH15 | Fetch API and HTTP Request | Learn how JavaScript communicates with APIs using HTTP requests. |
 | CH16 | Modules Classes and OOP | Learn JavaScript modules, exports/imports, classes, objects, inheritance, and OOP syntax. |
 | CH17 | Error Handling Regular Expression and Advanced Concepts | Learn error handling, strict mode, regex, `this`, call/apply/bind, and higher-order functions. |
-| CH18 | jQuery | Learn how to use jQuery selectors, methods, events, effects, traversal, AJAX, and utility methods through CDN. |
-| CH19 | Vue.js | Learn how to use Vue 3 through CDN, including app mounting, directives, events, forms, computed properties, watchers, components, props, emits, slots, lifecycle hooks, refs, and Composition API basics. |
+| CH18 | jQuery | Learn jQuery selectors, methods, events, effects, traversal, AJAX, and utilities through CDN. |
+| CH19 | Vue.js | Learn Vue 3 CDN usage, app mounting, directives, events, forms, computed properties, watchers, components, props, emits, slots, lifecycle hooks, refs, and Composition API basics. |
+| CH20 | AJAX | Learn AJAX concepts, `XMLHttpRequest`, `readyState`, `status`, GET/POST requests, error handling, jQuery AJAX, Fetch, and local text/JSON/XML response data. |
 
 ---
 
@@ -212,8 +230,6 @@ async runs as soon as the script finishes loading.
 
 ## CH02 - Output Input and Console
 
-This chapter focuses on basic ways to display information and receive simple user input.
-
 | File | Main Concepts |
 |---|---|
 | `01 - console.log and Console Methods.html` | `console.log()`, `console.warn()`, `console.error()`, debugging output. |
@@ -233,8 +249,6 @@ Input values usually come from form controls such as text boxes.
 ---
 
 ## CH03 - Variables Data Types and Operators
-
-This chapter introduces the basic building blocks used to store and process data.
 
 | File | Main Concepts |
 |---|---|
@@ -261,8 +275,6 @@ Use === instead of == for safer comparison.
 
 ## CH04 - String Number Math and Date
 
-This chapter covers common built-in JavaScript tools for text, numbers, math, and dates.
-
 | File | Main Concepts |
 |---|---|
 | `01 - String Basics.html` | Creating strings, string indexing, escaping characters. |
@@ -286,8 +298,6 @@ JavaScript Date months are zero-based when using some Date methods.
 ---
 
 ## CH05 - Control Flow and Loops
-
-This chapter teaches how to control which code runs and how many times it runs.
 
 | File | Main Concepts |
 |---|---|
@@ -313,8 +323,6 @@ Use for...in for object keys.
 ---
 
 ## CH06 - Functions
-
-This chapter teaches how to package reusable logic into functions.
 
 | File | Main Concepts |
 |---|---|
@@ -342,8 +350,6 @@ A closure allows a function to remember variables from its outer scope.
 ---
 
 ## CH07 - Arrays
-
-This chapter focuses on list-style data and common array methods.
 
 | File | Main Concepts |
 |---|---|
@@ -373,8 +379,6 @@ reduce is for producing one final result.
 
 ## CH08 - Objects Sets and Maps
 
-This chapter teaches key-value data structures.
-
 | File | Main Concepts |
 |---|---|
 | `01 - Object Literal.html` | Creating objects using `{}`. |
@@ -399,8 +403,6 @@ Map is useful when key-value data needs stronger collection behavior than normal
 ---
 
 ## CH09 - DOM Selection and Content
-
-This chapter starts browser DOM programming.
 
 | File | Main Concepts |
 |---|---|
@@ -427,8 +429,6 @@ innerHTML can insert HTML but must be used carefully.
 
 ## CH10 - DOM Style Class and Element Manipulation
 
-This chapter teaches how JavaScript changes the page structure and appearance.
-
 | File | Main Concepts |
 |---|---|
 | `01 - style Property.html` | Changing inline CSS using JavaScript. |
@@ -452,8 +452,6 @@ before and after insert beside an element.
 ---
 
 ## CH11 - Events
-
-This chapter teaches how JavaScript responds to user actions.
 
 | File | Main Concepts |
 |---|---|
@@ -481,8 +479,6 @@ Event delegation is useful for dynamic lists.
 
 ## CH12 - Forms and Validation
 
-This chapter teaches how to read and validate form data.
-
 | File | Main Concepts |
 |---|---|
 | `01 - Reading Form Values.html` | Reading values from form inputs. |
@@ -507,8 +503,6 @@ HTML validation can be combined with JavaScript validation.
 
 ## CH13 - JSON Storage and Browser Data
 
-This chapter teaches browser-side data storage and data conversion.
-
 | File | Main Concepts |
 |---|---|
 | `01 - JSON stringify and parse.html` | Converting objects/arrays to JSON strings and back. |
@@ -531,8 +525,6 @@ URLSearchParams helps read values after ? in the URL.
 ---
 
 ## CH14 - Timers and Asynchronous JavaScript
-
-This chapter introduces delayed execution and asynchronous programming.
 
 | File | Main Concepts |
 |---|---|
@@ -559,8 +551,6 @@ await pauses inside an async function until a promise settles.
 
 ## CH15 - Fetch API and HTTP Request
 
-This chapter teaches API communication from the browser.
-
 | File | Main Concepts |
 |---|---|
 | `01 - Fetch GET Request.html` | Basic GET request using `fetch()`. |
@@ -583,8 +573,6 @@ AbortController can cancel a request that is no longer needed.
 ---
 
 ## CH16 - Modules Classes and OOP
-
-This chapter combines modern JavaScript file organization and object-oriented syntax.
 
 | File | Main Concepts |
 |---|---|
@@ -618,8 +606,6 @@ super calls the parent class constructor or method.
 
 ## CH17 - Error Handling Regular Expression and Advanced Concepts
 
-This chapter teaches important advanced JavaScript concepts used in real projects.
-
 | File | Main Concepts |
 |---|---|
 | `01 - try catch finally.html` | Handling runtime errors safely. |
@@ -644,7 +630,6 @@ Higher-order functions are common in modern JavaScript.
 ```
 
 ---
-
 
 ## CH18 - jQuery
 
@@ -688,38 +673,6 @@ Setter usually changes all matched elements.
 jQuery methods often return the jQuery object, which allows chaining.
 Use .on() for event handling.
 Use delegated events for dynamic elements.
-```
-
-Common jQuery selector examples:
-
-```text
-$("#title") selects by ID.
-$(".card") selects by class.
-$("p") selects by tag.
-$("input[type='text']") selects by attribute value.
-$("ul li") selects descendants.
-$("ul > li") selects direct children.
-$("li:first") selects the first matching item.
-$("li:last") selects the last matching item.
-$("input:checked") selects checked inputs.
-$("option:selected") selects selected options.
-```
-
-Common jQuery method patterns:
-
-```text
-.text() gets text from the first matched element.
-.text("Hello") sets text for all matched elements.
-.html("<b>Hello</b>") sets HTML content.
-.val() gets form value.
-.val("Galen") sets form value.
-.attr("href") gets an attribute.
-.attr("href", "https://example.com") sets an attribute.
-.css("color", "red") sets one CSS property.
-.css({ color: "red", fontSize: "20px" }) sets many CSS properties.
-.addClass("active") adds a class.
-.removeClass("active") removes a class.
-.toggleClass("active") toggles a class.
 ```
 
 ---
@@ -777,36 +730,91 @@ emits send events from child to parent.
 slots let parent content appear inside a child component.
 ```
 
-Common Vue syntax examples:
+---
+
+## CH20 - AJAX
+
+This chapter teaches AJAX as a browser technique for exchanging small amounts of data with a server without refreshing the whole page.
+
+It follows this compact learning path:
 
 ```text
-{{ message }}
-v-bind:href="url"
-:href="url"
-v-on:click="runFunction"
-@click="runFunction"
-v-model="username"
-v-if="isLoggedIn"
-v-else
-v-show="isVisible"
-v-for="item in items"
-:key="item.id"
-:class="{ active: isActive }"
-:class="[mainClass, secondClass]"
-:style="{ color: textColor, fontSize: fontSize + 'px' }"
+AJAX concept -> XMLHttpRequest -> readyState/status -> GET/POST -> error handling -> jQuery AJAX -> Fetch
 ```
 
-Vue mental model:
+| File | Main Concepts |
+|---|---|
+| `01 - AJAX Concept and Workflow.html` | Meaning of AJAX, asynchronous request idea, browser-server communication flow, and no full page refresh. |
+| `02 - XMLHttpRequest GET Text and JSON.html` | Creating an `XMLHttpRequest`, using `open()`, using `send()`, and reading text/JSON responses. |
+| `03 - readyState status and responseText.html` | Understanding `readyState`, HTTP `status`, and `responseText`. |
+| `04 - GET POST and Form Data.html` | Sending data through query strings, URL-encoded POST data, and `FormData`. |
+| `05 - Error Timeout and Abort.html` | Handling request failure, timeout, and canceling a request. |
+| `06 - AJAX with jQuery.html` | Using `.load()`, `$.get()`, `$.post()`, and `$.ajax()`. |
+| `07 - AJAX with Fetch.html` | Using `fetch()` for GET and POST requests, JSON response handling, and promise-based flow. |
+| `08 - Method Property and Value Reference.html` | Quick reference for AJAX methods, properties, events, and values. |
+| `data/message.txt` | Local plain text response data. |
+| `data/users.json` | Local JSON response data. |
+| `data/menu.xml` | Local XML response data. |
+
+Important ideas:
 
 ```text
-Normal JavaScript:
-Find element -> change element manually.
+AJAX allows a page to request data without refreshing the whole page.
+XMLHttpRequest is the classic AJAX object.
+open(method, url, async) prepares the request.
+send(data) sends the request.
+readyState shows the request progress.
+status shows the HTTP result, such as 200 or 404.
+responseText stores the server response as text.
+GET often sends small data through the URL.
+POST sends data in the request body.
+jQuery provides shorter AJAX methods.
+fetch() is the modern promise-based way to make AJAX-style requests.
+```
 
-jQuery:
-Select element -> call method to change element.
+Common `readyState` values:
 
-Vue:
-Change data -> Vue updates the HTML automatically.
+```text
+0 = request not initialized
+1 = request opened / set up
+2 = request sent
+3 = response loading
+4 = request completed
+```
+
+Common `status` values:
+
+```text
+200 = OK
+404 = not found
+0 = request blocked, canceled, or failed in some local/cross-origin cases
+```
+
+Common AJAX method patterns:
+
+```text
+ajax.open("GET", "data/message.txt", true);
+ajax.send();
+
+ajax.open("POST", "server.php", true);
+ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ajax.send("num1=10&num2=20");
+
+$.get("data/users.json", function(data) {
+  console.log(data);
+});
+
+$.post("server.php", { num1: 10, num2: 20 }, function(data) {
+  console.log(data);
+});
+
+fetch("data/users.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  });
 ```
 
 ---
@@ -839,6 +847,7 @@ Change data -> Vue updates the HTML automatically.
 | Advanced | Error handling, strict mode, regex, this, call, apply, bind, higher-order function. |
 | jQuery | CDN setup, selectors, content/value/attribute methods, CSS/classes, DOM insertion/removal, traversal, filtering, events, effects, AJAX, utilities. |
 | Vue.js | CDN setup, createApp, mount, data, directives, event binding, form binding, conditional rendering, list rendering, class/style binding, computed, watchers, components, props, emits, slots, lifecycle hooks, refs, Composition API. |
+| AJAX | AJAX concept, XMLHttpRequest, `open()`, `send()`, GET, POST, FormData, readyState, status, responseText, timeout, abort, jQuery AJAX, Fetch AJAX pattern, local text/JSON/XML response data. |
 
 ---
 
@@ -862,7 +871,7 @@ Do not only read the code. JavaScript is best learned by changing values, testin
 
 ## Suggested Practice After Finishing
 
-After completing CH01 to CH19, try building small browser projects using the same concepts.
+After completing CH01 to CH20, try building small browser projects using the same concepts.
 
 Recommended practice projects:
 
@@ -881,6 +890,9 @@ Recommended practice projects:
 12. Vue product filter app
 13. Vue todo list with localStorage
 14. Vue form validation demo
+15. AJAX search result loader
+16. AJAX form submission demo
+17. AJAX polling status panel
 ```
 
 These projects can be built as future chapters or as independent practice folders.
@@ -918,14 +930,14 @@ For the best experience, open the browser Developer Tools while testing the exam
 
 ---
 
+## Notes About jQuery, Vue.js, and AJAX
 
-## Notes About jQuery and Vue.js
-
-jQuery and Vue.js are both JavaScript tools, but they solve problems differently.
+jQuery, Vue.js, and AJAX are all related to JavaScript web development, but they solve different problems.
 
 ```text
 jQuery is a JavaScript library.
 Vue.js is a frontend framework.
+AJAX is a browser communication technique.
 ```
 
 jQuery is useful when you want to:
@@ -948,7 +960,17 @@ Avoid manually updating the DOM many times.
 Prepare for modern frontend frameworks.
 ```
 
-Learning both is useful because they represent two different generations of frontend development.
+AJAX is useful when you want to:
+
+```text
+Request data from a server without refreshing the whole page.
+Load text, JSON, or XML data in the background.
+Submit form data asynchronously.
+Understand how older XMLHttpRequest code works.
+Understand how jQuery AJAX and Fetch relate to the same request/response idea.
+```
+
+Learning all three is useful because they represent different parts of frontend development: DOM convenience, reactive UI, and background server communication.
 
 ---
 
@@ -970,6 +992,7 @@ Handle errors and use regular expressions.
 Understand important advanced concepts such as this, closure, and higher-order functions.
 Use jQuery to simplify selection, DOM manipulation, events, effects, and AJAX.
 Use Vue.js through CDN to build reactive UI examples with directives, components, props, emits, and Composition API basics.
+Use AJAX to send and receive data in the background without refreshing the whole page.
 ```
 
 This project is designed to be a practical executable reference. It can be used for revision, classroom learning, self-study, or as a base for future JavaScript practice projects.

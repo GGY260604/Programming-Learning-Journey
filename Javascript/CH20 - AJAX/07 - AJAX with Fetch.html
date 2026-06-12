@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 07 - AJAX with Fetch.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Use fetch() as a modern AJAX method.
+    - Read JSON using response.json().
+    - Read XML or plain text using response.text().
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 07 - AJAX with Fetch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>07 - AJAX with Fetch</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>fetch()</code> is the modern browser API for making HTTP requests.
+      It returns a Promise, so it works naturally with <code>then()</code> or
+      <code>async</code> / <code>await</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo</h3>
+    <button onclick="fetchJsonWithThen()">Fetch JSON with then()</button>
+    <button onclick="fetchJsonWithAwait()">Fetch JSON with async/await</button>
+    <button onclick="fetchXmlText()">Fetch XML as Text</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function fetchJsonWithThen() {
+      clearOutput();
+
+      /*
+        fetch(url) returns a Promise.
+        response.json() also returns a Promise.
+      */
+      fetch("data/users.json")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("HTTP status: " + response.status);
+          }
+
+          return response.json();
+        })
+        .then(function (users) {
+          print("Loaded with then():");
+          print(JSON.stringify(users, null, 2));
+        })
+        .catch(function (error) {
+          print("Fetch error: " + error.message);
+        });
+    }
+
+    async function fetchJsonWithAwait() {
+      clearOutput();
+
+      try {
+        const response = await fetch("data/users.json");
+
+        if (!response.ok) {
+          throw new Error("HTTP status: " + response.status);
+        }
+
+        const users = await response.json();
+
+        print("Loaded with async/await:");
+
+        users.forEach(function (user) {
+          print(user.name + " - " + user.role);
+        });
+      } catch (error) {
+        print("Fetch error: " + error.message);
+      }
+    }
+
+    async function fetchXmlText() {
+      clearOutput();
+
+      try {
+        const response = await fetch("data/menu.xml");
+        const xmlText = await response.text();
+
+        print("XML loaded as text:");
+        print(xmlText);
+      } catch (error) {
+        print("Fetch error: " + error.message);
+      }
+    }
+  </script>
+</body>
+</html>

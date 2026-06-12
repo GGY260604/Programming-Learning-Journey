@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 05 - Error Timeout and Abort.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Handle AJAX request error states.
+    - Understand 404, network error, timeout, and abort.
+    - Use onload, onerror, ontimeout, and onabort.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 05 - Error Timeout and Abort</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>05 - Error Timeout and Abort</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      AJAX code should handle failure. A request may fail because the file is missing,
+      the server is down, the request is too slow, or the browser blocks the request.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo</h3>
+    <button onclick="loadMissingFile()">Trigger 404 Error</button>
+    <button onclick="startAbortDemo()">Start Request then Abort</button>
+    <button onclick="abortRequest()">Abort Request</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+    let currentAjax = null;
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function loadMissingFile() {
+      clearOutput();
+
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "data/missing-file.json", true);
+
+      ajax.onload = function () {
+        if (ajax.status === 200) {
+          print(ajax.responseText);
+        } else {
+          print("The request completed, but the response was not OK.");
+          print("Status: " + ajax.status);
+          print("Meaning: 404 usually means the file or endpoint was not found.");
+        }
+      };
+
+      // onerror runs when the request fails to complete, such as a network error or CORS block.
+      ajax.onerror = function () {
+        print("Network error happened.");
+      };
+
+      ajax.send();
+    }
+
+    function startAbortDemo() {
+      clearOutput();
+
+      currentAjax = new XMLHttpRequest();
+      currentAjax.open("GET", "data/users.json", true);
+
+      /*
+        timeout is measured in milliseconds.
+        If the request takes longer than this value, ontimeout runs.
+      */
+      currentAjax.timeout = 3000;
+
+      currentAjax.onload = function () {
+        print("Request completed before abort.");
+        print(currentAjax.responseText);
+      };
+
+      currentAjax.onabort = function () {
+        print("Request was aborted manually.");
+      };
+
+      currentAjax.ontimeout = function () {
+        print("Request timed out.");
+      };
+
+      print("Request started. Click 'Abort Request' quickly to test abort.");
+      currentAjax.send();
+    }
+
+    function abortRequest() {
+      if (currentAjax) {
+        currentAjax.abort();
+      } else {
+        print("No active request to abort.");
+      }
+    }
+  </script>
+</body>
+</html>

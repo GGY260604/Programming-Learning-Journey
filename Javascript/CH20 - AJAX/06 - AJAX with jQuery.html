@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 06 - AJAX with jQuery.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Use jQuery CDN for AJAX examples.
+    - Use .load(), $.get(), and $.ajax().
+    - Understand common jQuery AJAX option names.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 06 - AJAX with jQuery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>06 - AJAX with jQuery</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      jQuery provides shorter AJAX methods such as
+      <code>.load()</code>, <code>$.get()</code>, <code>$.post()</code>, and <code>$.ajax()</code>.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Demo</h3>
+    <button id="loadBtn">Use .load()</button>
+    <button id="getBtn">Use $.get()</button>
+    <button id="postBtn">Use $.post()</button>
+    <button id="ajaxBtn">Use $.ajax()</button>
+    <button id="clearBtn">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    /*
+      $(document).ready(function () { ... }) means:
+      - Wait until the HTML document is ready.
+      - Then run the jQuery code.
+    */
+    $(document).ready(function () {
+      const output = $("#output");
+
+      function print(message) {
+        output.append(message + "\n");
+      }
+
+      $("#clearBtn").click(function () {
+        output.text("");
+      });
+
+      $("#loadBtn").click(function () {
+        output.text("");
+
+        /*
+          .load(url) loads HTML/text from a URL and inserts it into the selected element.
+        */
+        output.load("data/message.txt");
+      });
+
+      $("#getBtn").click(function () {
+        output.text("");
+
+        /*
+          $.get(url, successFunction)
+
+          The callback receives the response data.
+        */
+        $.get("data/users.json", function (data) {
+          print("Loaded by $.get():");
+
+          data.forEach(function (user) {
+            print(user.name + " - " + user.role);
+          });
+        });
+      });
+
+      // $.post() is similar to $.get() but uses POST method.
+      // which is $.post(url, data, successFunction)
+
+      $("#postBtn").click(function () {
+        output.text("");
+
+        $.post("https://jsonplaceholder.typicode.com/posts", {
+          title: "foo",
+          body: "bar",
+          userId: 1
+        }, function (response) {
+          print("Response from $.post():");
+          print(JSON.stringify(response, null, 2));
+        });
+      });
+
+      $("#ajaxBtn").click(function () {
+        output.text("");
+
+        /*
+          $.ajax() gives more control.
+
+          Common options:
+          - url
+          - method or type
+          - data
+          - dataType
+          - success
+          - error
+        */
+        $.ajax({
+          url: "data/users.json",
+          method: "GET",
+          dataType: "json",
+          success: function (response, status, xhr) { // xhr is the full XMLHttpRequest object
+            print("Loaded by $.ajax():");
+            print("Status text: " + status);
+            print("HTTP status: " + xhr.status);
+            print(JSON.stringify(response, null, 2));
+          },
+          error: function (xhr, status, error) { // order of parameters is different from success callback
+            print("jQuery AJAX error: " + status);
+            print(error);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 03 - readyState status and responseText.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Understand readyState values.
+    - Understand common status values such as 200 and 404.
+    - Use responseText after the request is completed.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 03 - readyState status and responseText</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>03 - readyState status and responseText</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      <code>readyState</code> describes the current request stage.
+      <code>status</code> describes the HTTP result code.
+      <code>responseText</code> stores the text response after the request completes.
+    </p>
+
+    <table>
+      <tr>
+        <th>readyState</th>
+        <th>Meaning</th>
+      </tr>
+      <tr><td>0</td><td>Request is not initialized.</td></tr>
+      <tr><td>1</td><td>Request has been set up.</td></tr>
+      <tr><td>2</td><td>Request has been sent.</td></tr>
+      <tr><td>3</td><td>Request is being processed.</td></tr>
+      <tr><td>4</td><td>Request is complete.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>Demo</h3>
+    <button onclick="showStateChanges()">Track AJAX State</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function print(message) {
+      output.textContent += message + "\n";
+    }
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function showStateChanges() {
+      clearOutput();
+
+      const ajax = new XMLHttpRequest();
+
+      /*
+        onreadystatechange runs every time readyState changes.
+
+        The most important condition is usually:
+        ajax.readyState === 4 && ajax.status === 200
+
+        It means:
+        - request completed
+        - HTTP result is OK
+      */
+      ajax.onreadystatechange = function () {
+        print("readyState: " + ajax.readyState + ", status: " + ajax.status);
+
+        if (ajax.readyState === 4 && ajax.status === 200) {
+          print("\nFinal responseText:");
+          print(ajax.responseText);
+        }
+      };
+
+      ajax.open("GET", "data/message.txt", true);
+      ajax.send();
+    }
+  </script>
+</body>
+</html>

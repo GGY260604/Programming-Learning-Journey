@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FILE: 08 - Method Property and Value Reference.html
+    TOPIC: CH20 - AJAX
+
+    GOAL:
+    - Summarize common XMLHttpRequest methods and properties.
+    - Review common values passed into open(), send(), and setRequestHeader().
+    - Generate a simple AJAX code template.
+
+    RUNNING NOTE:
+    AJAX examples should be opened through a local server.
+    Do not open by double-clicking with file:// because browser security may block requests.
+
+    Easy option:
+    1. Open this folder in VS Code.
+    2. Use Live Server.
+
+    Python option:
+    1. Open terminal in the JavaScript folder.
+    2. Run: python -m http.server 5500
+    3. Open the CH20 file through http://localhost:5500
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CH20 - 08 - Method Property and Value Reference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CH20 - AJAX</h1>
+  <h2>08 - Method Property and Value Reference</h2>
+
+  <div class="section">
+    <h3>Concept</h3>
+    <p>
+      This file summarizes the most important values passed into AJAX methods.
+      It is useful as a quick reference after finishing the practical examples.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>XMLHttpRequest Reference</h3>
+
+    <table>
+      <tr>
+        <th>Syntax</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td><code>new XMLHttpRequest()</code></td>
+        <td>Create the AJAX request object.</td>
+      </tr>
+      <tr>
+        <td><code>open(method, url, async)</code></td>
+        <td>Prepare the request.</td>
+      </tr>
+      <tr>
+        <td><code>send(body)</code></td>
+        <td>Send the request. The body is optional for GET.</td>
+      </tr>
+      <tr>
+        <td><code>setRequestHeader(name, value)</code></td>
+        <td>Set request metadata, such as Content-Type.</td>
+      </tr>
+      <tr>
+        <td><code>readyState</code></td>
+        <td>Request stage from 0 to 4.</td>
+      </tr>
+      <tr>
+        <td><code>status</code></td>
+        <td>HTTP result code, such as 200 or 404.</td>
+      </tr>
+      <tr>
+        <td><code>responseText</code></td>
+        <td>Response body as text.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>Build an AJAX Template</h3>
+
+    <label for="method">Method</label><br>
+    <select id="method">
+      <option>GET</option>
+      <option>POST</option>
+      <option>PUT</option>
+      <option>PATCH</option>
+      <option>DELETE</option>
+    </select><br>
+
+    <label for="url">URL</label><br>
+    <input type="text" id="url" value="data/users.json"><br>
+
+    <label for="asyncValue">Async</label><br>
+    <select id="asyncValue">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select><br>
+
+    <button onclick="buildTemplate()">Build Template</button>
+    <button onclick="clearOutput()">Clear</button>
+
+    <h3>Output</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function clearOutput() {
+      output.textContent = "";
+    }
+
+    function buildTemplate() {
+      const method = document.getElementById("method").value;
+      const url = document.getElementById("url").value;
+      const asyncValue = document.getElementById("asyncValue").value;
+
+      /*
+        This builds a reusable XMLHttpRequest template.
+      */
+      output.textContent =
+`const ajax = new XMLHttpRequest();
+
+ajax.open("${method}", "${url}", ${asyncValue});
+
+ajax.onload = function () {
+  if (ajax.status === 200) {
+    console.log(ajax.responseText);
+  } else {
+    console.log("Request failed: " + ajax.status);
+  }
+};
+
+ajax.onerror = function () {
+  console.log("Network error");
+};
+
+ajax.send();`;
+    }
+  </script>
+</body>
+</html>
